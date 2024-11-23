@@ -10,12 +10,15 @@ body {
   :root {
     --background: 0 0% 100%;
     --foreground: 223 100% 6%;
+    --foreground-sub-title: 246 6% 33%;
+    --foreground-sub-title-white: 0 0% 91%;
     --card: 0 0% 100%;
     --card-foreground: 223 100% 6%;
     --popover: 0 0% 100%;
     --popover-foreground: 223 100% 6%;
     --primary: 94 54% 70%;
     --primary-foreground: 94 26% 17%;
+    --primary-light: 94 54% 70% 0.16;
     --secondary: 180 100% 5%;
     --secondary-foreground: 94 54% 70%;
     --tertiary: 180 100% 5%;
@@ -40,12 +43,15 @@ body {
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
+    --foreground-sub-title: 0 0% 98%;
+    --foreground-sub-title-white: 0 0% 98%;
     --card: 24 9.8% 10%;
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
     --primary: 142.1 70.6% 45.3%;
     --primary-foreground: 144.9 80.4% 10%;
+    --primary-light: 142.1 70.6% 45.3%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
     --tertiary: 240 3.7% 15.9%;
