@@ -24,8 +24,8 @@ export default function Home() {
             <Image
               src="/images/hero.jpeg"
               alt="Lapius AI"
-              width={700}
-              height={700}
+              width={1200}
+              height={1200}
               className="object-cover w-full h-auto"
             />
           </div>
