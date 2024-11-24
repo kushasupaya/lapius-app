@@ -9,7 +9,7 @@ interface Props {
 
 const AboutCard = ({ icon, stats, title, description }: Props) => {
   return (
-    <div className="bg-gray-100 p-6 rounded-2xl max-w-sm">
+    <div className="bg-gray-100 p-6 rounded-2xl">
       <div className="flex justify-center items-center h-20 w-20 rounded-full bg-primary mb-14">
         <Image
           src={icon}

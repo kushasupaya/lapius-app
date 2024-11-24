@@ -22,7 +22,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={cn("top-0 fixed z-50 w-screen", isScrolled ? "bg-secondary shadow-sm" : "bg-transparent")}>
+    <header className={cn("top-0 fixed z-50 w-full", isScrolled ? "bg-secondary shadow-sm" : "bg-transparent")}>
       <div className="w-full h-8 bg-[#000909] text-center py-2.5 px-4">
         <p className="text-white text-[10px] font-medium uppercase">
           Introducing Lapius - Sign up for early access
