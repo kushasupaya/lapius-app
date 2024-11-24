@@ -37,7 +37,7 @@ const FAQAccordion = () => {
     <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
       {
         faqs.map((faq, index) => (
-          <AccordionItem key={index} value={`item-${index + 1}`} className={cn("border rounded-lg px-4 data-[state=closed]:pb-0", (index !== faqs.length - 1) && "mb-4")}>
+          <AccordionItem key={index} value={`item-${index + 1}`} className={cn("border rounded-lg px-4 data-[state=closed]:pb-0", (index !== faqs.length - 1) ? "mb-4" : "mb-2")}>
             <AccordionTrigger className="hover:no-underline text-base font-medium no-icon">
               {faq.question}
             </AccordionTrigger>
