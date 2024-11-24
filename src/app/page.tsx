@@ -37,8 +37,8 @@ export default function Home() {
             <SectionTitle title="Lapius in Action" />
             <h2 className="max-w-[607px] mt-2.5 text-black text-[40px] font-semibold text-center">One-stop suite for all your Medical Coding Stuff.</h2>
           </div>
-          <VideoSlider />
         </div>
+          <VideoSlider />
       </div>
       <div className="bg-white">
         <div className="container mx-auto p-4 lg:px-0 md:pt-20 md:pb-5">
