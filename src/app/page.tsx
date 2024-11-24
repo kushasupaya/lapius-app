@@ -64,8 +64,8 @@ export default function Home() {
           <div className="flex flex-col mb-4 lg:mb-0 lg:flex-row lg:items-end gap-6">
             <div className="flex flex-col">
               <SectionTitle title="faq" />
-              <h2 className="max-w-[607px] mt-2.5 text-black text-[32px] font-semibold text-left mb-10">Frequently Asked<br /> Questions</h2>
-              <div className="relative">
+              <h2 className="max-w-[607px] mt-2.5 text-black text-[32px] font-semibold text-left lg:mb-10">Frequently Asked<br /> Questions</h2>
+              <div className="relative hidden lg:block">
                 <FaqSlider />
               </div>
             </div>
