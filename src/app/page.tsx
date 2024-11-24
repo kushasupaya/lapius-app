@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import { FaqSlider, SectionTitle, StatsCard, VideoSlider } from "@/components/sections/home";
+import { FaqSlider, FaqTabs, SectionTitle, StatsCard, VideoSlider } from "@/components/sections/home";
 
 export default function Home() {
   return (
@@ -61,13 +61,16 @@ export default function Home() {
       </div>
       <div className="bg-white">
         <div className="container mx-auto p-4 lg:px-0 md:pt-20 md:pb-24">
-          <div className="flex flex-col mb-4 lg:mb-0 ">
+          <div className="flex flex-col mb-4 lg:mb-0 lg:flex-row lg:items-end gap-6">
             <div className="flex flex-col">
               <SectionTitle title="faq" />
               <h2 className="max-w-[607px] mt-2.5 text-black text-[32px] font-semibold text-left mb-10">Frequently Asked<br /> Questions</h2>
               <div className="relative">
                 <FaqSlider />
               </div>
+            </div>
+            <div className="w-full">
+              <FaqTabs />
             </div>
           </div>
         </div>

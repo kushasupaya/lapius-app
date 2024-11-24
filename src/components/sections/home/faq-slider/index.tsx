@@ -33,24 +33,24 @@ const FaqSlider = () => {
   const slides = [
     {
       id: "slide-1",
-      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full w-auto" />
+      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full lg:h-[525px] w-auto" />
     },
     {
       id: "slide-2",
-      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full w-auto" />
+      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full lg:h-[525px] w-auto" />
     },
     {
       id: "slide-3",
-      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full w-auto" />
+      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full lg:h-[525px] w-auto" />
     },
     {
       id: "slide-4",
-      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full w-auto" />
+      content: <Image alt="" src="/images/faq.png" height={400} width={600} className="h-full lg:h-[525px] w-auto" />
     },
   ];
 
   return (
-    <div className="relative max-w-md">
+    <div className="relative max-w-[470px]">
       <Swiper
         ref={swiperRef}
         modules={[Pagination, A11y, Autoplay]}

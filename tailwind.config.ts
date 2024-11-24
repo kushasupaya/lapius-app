@@ -13,9 +13,9 @@ export default {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			subtitle: {
-					white: 'hsl(var(--foreground-sub-title-white))',
-					normal: 'hsl(var(--foreground-sub-title))',
-				},
+  				white: 'hsl(var(--foreground-sub-title-white))',
+  				normal: 'hsl(var(--foreground-sub-title))'
+  			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -27,7 +27,7 @@ export default {
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))',
-					light: 'hsl(var(--primary-light))'
+  				light: 'hsl(var(--primary-light))'
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
@@ -65,9 +65,31 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-			spacing: {
-				'4.5': '18px',
-			},
+  		spacing: {
+  			'4.5': '18px'
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
