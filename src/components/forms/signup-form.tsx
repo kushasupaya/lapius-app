@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useTransition } from "react"
+import { Textarea } from "../ui/textarea"
 
 const FormSchema = z.object({
   firstName: z.string().min(1, {
@@ -29,6 +30,9 @@ const FormSchema = z.object({
   }),
   email: z.string().email({
     message: "Please enter a valid email address",
+  }),
+  message: z.string({
+    message: "Please enter a valid message",
   }),
 })
 
@@ -46,6 +50,7 @@ const SignupForm = ({ onSuccess }: Props) => {
       lastName: "",
       phoneNumber: "",
       email: "",
+      message: "",
     },
   })
 
@@ -90,6 +95,7 @@ const SignupForm = ({ onSuccess }: Props) => {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="lastName"
@@ -103,6 +109,7 @@ const SignupForm = ({ onSuccess }: Props) => {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="phoneNumber"
@@ -116,6 +123,7 @@ const SignupForm = ({ onSuccess }: Props) => {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="email"
@@ -124,6 +132,20 @@ const SignupForm = ({ onSuccess }: Props) => {
               <FormLabel className="text-white">Email</FormLabel>
               <FormControl>
                 <Input placeholder="Enter your email address" className="text-white border-tertiary-foreground" autoComplete="on" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Message</FormLabel>
+              <FormControl>
+                <Textarea placeholder="Enter your message here" className="text-white border-tertiary-foreground" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

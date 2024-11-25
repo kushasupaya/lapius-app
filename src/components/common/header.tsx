@@ -54,7 +54,7 @@ const Header = () => {
                 Why Lapius
               </Link>
               <Link
-                href="/how-it-works"
+                href="#how-it-works"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 How It Works
@@ -72,7 +72,7 @@ const Header = () => {
                 About
               </Link>
               <Link
-                href="/faq"
+                href="#faq"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 FAQ
@@ -125,7 +125,7 @@ const Header = () => {
                   Why Lapius
                 </Link>
                 <Link
-                  href="/how-it-works"
+                  href="#how-it-works"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
@@ -146,7 +146,7 @@ const Header = () => {
                   About
                 </Link>
                 <Link
-                  href="/faq"
+                  href="#faq"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >

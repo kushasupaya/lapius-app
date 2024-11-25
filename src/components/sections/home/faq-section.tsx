@@ -2,7 +2,7 @@ import { FaqSlider, FaqTabs, SectionTitle } from "./components"
 
 const FaqSection = () => {
   return (
-    <div className="bg-white">
+    <div id="faq" className="bg-white">
       <div className="container mx-auto p-4 lg:px-0 md:pt-20 md:pb-24">
         <div className="flex flex-col mb-4 lg:mb-0 lg:flex-row lg:items-end gap-6">
           <div className="flex flex-col">

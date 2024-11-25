@@ -2,7 +2,7 @@ import { SectionTitle, VideoSlider } from "./components"
 
 const AboutSection = () => {
   return (
-    <div className="bg-white">
+    <div id="how-it-works" className="bg-white">
       <div className="container mx-auto p-4 lg:px-0 md:pt-20 md:pb-5">
         <div className="flex flex-col items-center w-full mb-10">
           <SectionTitle title="Lapius in Action" />
