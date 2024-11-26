@@ -66,7 +66,7 @@ const Header = () => {
                 Blog
               </Link>
               <Link
-                href="/about"
+                href="#about"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 About
@@ -139,7 +139,7 @@ const Header = () => {
                   Blog
                 </Link>
                 <Link
-                  href="/about"
+                  href="#about"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
