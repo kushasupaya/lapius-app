@@ -75,7 +75,7 @@ const AppHome = () => {
           {
             files.length > 0
             ? <div className="bg-white rounded-[32px] pt-0 w-full xl:max-w-[451px] text-center h-[610px] overflow-x-hidden overflow-y-auto">
-                <Tabs defaultValue="summary" className="rounded-t-[32px]">
+                <Tabs defaultValue="summary" className="rounded-t-[32px] rounded-b-0">
                   <TabsList className="p-0 m-0 bg-white h-16 rounded-t-[32px] border-b">
                     {
                       tabs.map((tab, index) => (
@@ -84,8 +84,8 @@ const AppHome = () => {
                           value={tab.id}
                           className={cn(
                             "py-6 px-auto sm:px-4.5 h-[62px] text-base text-subtitle-dashboard text-opacity-80 font-medium rounded-none data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-b-secondary data-[state=active]:text-secondary",
-                            index === 0 && "rounded-tl-[32px] pl-6",
-                            index === tabs.length - 1 && "rounded-tr-[32px] pr-6",
+                            index === 0 && "rounded-tl-[32px] rounded-bl-0 pl-6",
+                            index === tabs.length - 1 && "rounded-tr-[32px] rounded-br-0 pr-6",
                           )}
                         >
                           {tab.label}
