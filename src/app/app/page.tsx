@@ -84,8 +84,8 @@ const AppHome = () => {
                           value={tab.id}
                           className={cn(
                             "py-6 px-auto sm:px-4.5 h-[62px] text-base text-subtitle-dashboard text-opacity-80 font-medium rounded-none data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-b-secondary data-[state=active]:text-secondary",
-                            index === 0 && "rounded-tl-[32px] rounded-bl-0 pl-6",
-                            index === tabs.length - 1 && "rounded-tr-[32px] rounded-br-0 pr-6",
+                            index === 0 && "rounded-tl-[32px] rounded-bl-none pl-6",
+                            index === tabs.length - 1 && "rounded-tr-[32px] rounded-br-none pr-6",
                           )}
                         >
                           {tab.label}

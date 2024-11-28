@@ -8,6 +8,7 @@ const PlaceholderSection = () => {
         src="/images/placeholder.gif"
         height={370}
         width={370}
+        unoptimized
         className="mt-9 mx-auto"
       />
       <h3 className="font-semibold text-foreground mb-1">GenAI Output</h3>
