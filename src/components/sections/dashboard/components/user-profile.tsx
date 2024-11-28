@@ -4,7 +4,7 @@ import Link from "next/link";
 const UserProfile = () => {
   // Replace with actual image and name data here
   const image = "/images/pattern.svg";
-  const name = "John Doe is not doing anything";
+  const name = "John Doe";
 
   return (
     <div className="flex items-center gap-2">
