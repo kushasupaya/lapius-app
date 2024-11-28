@@ -1,0 +1,14 @@
+.filepond--drop-label {
+  height: 380px !important;
+  background-color: #fff !important;
+  border-radius: 8px;
+  border: 1px solid #D9E4D4;
+}
+
+.filepond--image-preview-wrapper {
+  height: 348px;
+}
+
+.filepond--credits {
+  display: none;
+}

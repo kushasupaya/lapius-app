@@ -1,10 +1,12 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 interface Props {
-  variant: 'default' | 'compact';
+  variant?: 'default' | 'compact';
+  size?: "base" | "large";
 }
 
-const Logo = ({ variant = 'default' }: Props) => {
+const Logo = ({ variant = 'default', size = 'base' }: Props) => {
   return (
     <Image
       alt="logo"
@@ -12,7 +14,7 @@ const Logo = ({ variant = 'default' }: Props) => {
       src={variant === 'default' ? '/logo/logo.svg': '/logo/logo.svg'}
       width={50}
       height={100}
-      className="h-6 w-full"
+      className={cn("w-full", size === "large" ? "h-8" : "h-6")}
     />
   )
 };

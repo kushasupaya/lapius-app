@@ -15,6 +15,7 @@ export default {
             subtitle: {
                white: "hsl(var(--foreground-sub-title-white))",
                normal: "hsl(var(--foreground-sub-title))",
+               dashboard: "hsl(var(--foreground-dashboard-sub-title))",
             },
             card: {
                DEFAULT: "hsl(var(--card))",
@@ -44,6 +45,16 @@ export default {
             accent: {
                DEFAULT: "hsl(var(--accent))",
                foreground: "hsl(var(--accent-foreground))",
+            },
+            warning: {
+               DEFAULT: "hsl(var(--warning))",
+               foreground: "hsl(var(--warning-foreground))",
+               border: "hsl(var(--warning-border))",
+            },
+            success: {
+               DEFAULT: "hsl(var(--success))",
+               foreground: "hsl(var(--success-foreground))",
+               border: "hsl(var(--success-border))",
             },
             destructive: {
                DEFAULT: "hsl(var(--destructive))",

@@ -12,6 +12,7 @@ body {
     --foreground: 223 100% 6%;
     --foreground-sub-title: 246 6% 33%;
     --foreground-sub-title-white: 0 0% 91%;
+    --foreground-dashboard-sub-title: 195 70% 13%;
     --card: 0 0% 100%;
     --card-foreground: 223 100% 6%;
     --popover: 0 0% 100%;
@@ -27,6 +28,12 @@ body {
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 180 100% 5%;
     --accent-foreground: 94 54% 70%;
+    --success: 94 58% 78%;
+    --success-foreground: 94 45% 23%;
+    --success-border: 94 34% 58%;
+    --warning: 45 100% 82%;
+    --warning-foreground: 45 67% 23%;
+    --warning-border: 45 67% 23%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 218 17% 91%;
