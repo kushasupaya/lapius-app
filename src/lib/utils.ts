@@ -30,5 +30,17 @@ export const calculateSecretHash = (
     .digest("base64");
 };
 
-export const cognitoClient = new CognitoIdentityProviderClient(sharedConfig);
-export const s3Client = new S3Client(sharedConfig);
+export const cognitoClient = new CognitoIdentityProviderClient({
+  region: process.env.NEXT_PUBLIC_AWS_COGNITO_REGION as string,
+  credentials: {
+    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID as string,
+    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY as string,
+  },
+});
+export const s3Client = new S3Client({
+  region: process.env.NEXT_PUBLIC_AWS_S3_REGION as string,
+  credentials: {
+    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID as string,
+    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY as string,
+  },
+});

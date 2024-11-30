@@ -58,7 +58,7 @@ const FileUpload = ({ files, setFiles }: Props) => {
     if (file) {
       setImageSrc(URL.createObjectURL(file));
       try {
-        const key = `${file.name}`;
+        const key = `uploads/${file.name}`;
         const presignedUrl = await fetch(
           `/api/get-signed-image?key=${key}`
         ).then((res) => res.text());
