@@ -53,7 +53,7 @@ export const uploadWithPresignedUrl = async (
 
     console.log("File uploaded successfully!");
   } catch (error) {
-    console.error("Error uploading file with pre-signed URL:", error);
+    console.error("Error uploading file with pre-signed URL :", error);
     throw error;
   }
 };
