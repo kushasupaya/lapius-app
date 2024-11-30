@@ -59,15 +59,15 @@ const FileUpload = ({ files, setFiles }: Props) => {
       setImageSrc(URL.createObjectURL(file));
       try {
         const key = `${file.name}`;
-        // const presignedUrl = await fetch(
-        //   `/api/get-signed-image?key=${key}`
-        // ).then((res) => res.text());
-        // const response = await uploadWithPresignedUrl(
-        //   file as File,
-        //   presignedUrl
-        // );
-        const imageFile = new File([file], key, { type: file.type });
-        const response = await uploadFileToS3(imageFile, key);
+        const presignedUrl = await fetch(
+          `/api/get-signed-image?key=${key}`
+        ).then((res) => res.text());
+        const response = await uploadWithPresignedUrl(
+          file as File,
+          presignedUrl
+        );
+        // const imageFile = new File([file], key, { type: file.type });
+        // const response = await uploadFileToS3(imageFile, key);
         console.log("Upload successful:", response);
       } catch (error) {
         console.error("Failed to upload file:", error);
