@@ -2,19 +2,22 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { CognitoIdentityProviderClient } from "@aws-sdk/client-cognito-identity-provider";
 import crypto from "crypto";
+import { S3Client } from "@aws-sdk/client-s3";
+import { ActualFileObject } from "filepond";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const REGION = "us-east-2";
-export const awsClient = new CognitoIdentityProviderClient({
+const REGION = process.env.NEXT_PUBLIC_AWS_REGION as string;
+
+const sharedConfig = {
   region: REGION,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID as string,
+    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY as string,
   },
-});
+};
 
 export const calculateSecretHash = (
   username: string,
@@ -26,3 +29,6 @@ export const calculateSecretHash = (
     .update(username + clientId)
     .digest("base64");
 };
+
+export const cognitoClient = new CognitoIdentityProviderClient(sharedConfig);
+export const s3Client = new S3Client(sharedConfig);

@@ -1,18 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FilePond, registerPlugin } from 'react-filepond';
-import 'filepond/dist/filepond.min.css';
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import React, { useEffect, useRef, useState } from "react";
+import { FilePond, registerPlugin } from "react-filepond";
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+import { S3 } from "aws-sdk";
 
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginFileEncode from "filepond-plugin-file-encode";
 
-import './index.css';
-import Image from 'next/image';
-import { FilePondFile } from 'filepond';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Fullscreen, FullscreenIcon } from 'lucide-react';
+import "./index.css";
+import Image from "next/image";
+import { FilePondFile } from "filepond";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Fullscreen, FullscreenIcon } from "lucide-react";
+import { uploadFileToS3, uploadWithPresignedUrl } from "@/lib/uploadS3";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -44,30 +46,50 @@ const FileUpload = ({ files, setFiles }: Props) => {
     const handleFullscreenChange = () => {
       setIsFullscreen(document.fullscreenElement !== null);
     };
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
     return () => {
-      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
     };
   }, []);
 
-  const handleFileChange = (fileItems: FilePondFile[]) => {
+  const handleFileChange = async (fileItems: FilePondFile[]) => {
     const file = fileItems[0]?.file;
     setFiles(fileItems.map((fileItem) => fileItem.file));
     if (file) {
       setImageSrc(URL.createObjectURL(file));
+      try {
+        const key = `${file.name}`;
+        // const presignedUrl = await fetch(
+        //   `/api/get-signed-image?key=${key}`
+        // ).then((res) => res.text());
+        // const response = await uploadWithPresignedUrl(
+        //   file as File,
+        //   presignedUrl
+        // );
+        const imageFile = new File([file], key, { type: file.type });
+        const response = await uploadFileToS3(imageFile, key);
+        console.log("Upload successful:", response);
+      } catch (error) {
+        console.error("Failed to upload file:", error);
+      }
     }
-  }
+  };
 
   return (
-    <div className="relative">
+    <div className="relative hover:cursor-pointer">
       <FilePond
         files={files}
         onupdatefiles={handleFileChange}
         allowMultiple={false}
         maxFiles={1}
-        acceptedFileTypes={['image/png', 'image/jpeg', 'image/gif', 'application/pdf']}
+        acceptedFileTypes={[
+          "image/png",
+          "image/jpeg",
+          "image/gif",
+          "application/pdf",
+        ]}
         labelIdle='
-          <div class="flex justify-center items-center">
+          <div class="flex justify-center items-center ">
             <image alt="" src="/icons/upload.svg" class="h-10 w-10 mb-3"/>
           </div>
           <div>
@@ -89,7 +111,10 @@ const FileUpload = ({ files, setFiles }: Props) => {
             alt="Uploaded Image"
             height="500"
             width="500"
-            className={cn("w-full h-auto rounded-lg", isFullscreen ? 'block' : 'hidden')}
+            className={cn(
+              "w-full h-auto rounded-lg",
+              isFullscreen ? "block" : "hidden"
+            )}
           />
         </div>
       )}

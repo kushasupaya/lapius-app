@@ -1,4 +1,4 @@
-import { awsClient, calculateSecretHash } from "@/lib/utils";
+import { cognitoClient, calculateSecretHash } from "@/lib/utils";
 import {
   AdminCreateUserCommand,
   InitiateAuthCommand,
@@ -32,7 +32,7 @@ export const signUpUser = async (
       DesiredDeliveryMediums: [DeliveryMediumType.EMAIL],
     };
     const command = new AdminCreateUserCommand(params);
-    const response = await awsClient.send(command);
+    const response = await cognitoClient.send(command);
 
     if (response) {
       const signInResponse = await signInUser(email);
@@ -63,7 +63,7 @@ export const signInUser = async (email: string) => {
       },
     };
     const command = new InitiateAuthCommand(params);
-    const response = await awsClient.send(command);
+    const response = await cognitoClient.send(command);
     console.log(response);
     return response;
   } catch (error) {
@@ -98,7 +98,7 @@ export const verifySignInOtp = async (
     console.log(params);
 
     const command = new RespondToAuthChallengeCommand(params);
-    const response = await awsClient.send(command);
+    const response = await cognitoClient.send(command);
 
     console.log("Sign-in successful:", response);
     return response;
