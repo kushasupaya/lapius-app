@@ -68,7 +68,7 @@ const FileUpload = ({ files, setFiles }: Props) => {
           file as File,
           presignedUrl
         );
-        ws.current?.send(JSON.stringify({ type: "fileUploaded", key }));
+        ws.current?.send(JSON.stringify({ action: "sendmessage" }));
 
         // const imageFile = new File([file], key, { type: file.type });
         // const response = await uploadFileToS3(imageFile, key);
