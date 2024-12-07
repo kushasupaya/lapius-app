@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -41,14 +41,14 @@ const ScrollableContents = () => {
             : "z-[20] scale-[0.98] opacity-90"
         )}
       >
-        <div className="container mx-auto rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
+        <div className="container mx-auto rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg bg-gray-100 hover:shadow-2xl">
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
               <p className="text-primary-foreground font-semibold text-3xl mb-2">
                 Upload your medical bill
               </p>
               <p className="text-subtitle-normal text-base">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+                Upload your medical bills or your itemised bills or EoBs.
               </p>
             </div>
             <div className="bg-primary rounded-lg h-full w-full">
@@ -79,10 +79,10 @@ const ScrollableContents = () => {
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
               <p className="text-primary-foreground font-semibold text-3xl mb-2">
-                Wait for your results
+                Check each code and description.{" "}
               </p>
               <p className="text-subtitle-normal text-base">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+                Check each code and description.
               </p>
             </div>
             <div className="bg-primary rounded-lg h-full w-full">
@@ -102,21 +102,22 @@ const ScrollableContents = () => {
         data-index={3}
         className={cn(
           "scroll-div sticky top-0 h-screen flex items-center justify-center text-black text-4xl transition-transform duration-500",
-            activeDiv === 3
-              ? "z-[30] scale-100 opacity-100"
-              : activeDiv > 3
-              ? "z-[10] scale-[0.95] opacity-80"
-              : "z-[20] scale-[0.98] opacity-90"
+          activeDiv === 3
+            ? "z-[30] scale-100 opacity-100"
+            : activeDiv > 3
+            ? "z-[10] scale-[0.95] opacity-80"
+            : "z-[20] scale-[0.98] opacity-90"
         )}
       >
         <div className="container mx-auto bg-gray-100 rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
               <p className="text-primary-foreground font-semibold text-3xl mb-2">
-                Review the results
+                Detect the potential risks{" "}
               </p>
               <p className="text-subtitle-normal text-base">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+                Helping you understand and verify your healthcare charges with
+                ease.
               </p>
             </div>
             <div className="bg-primary rounded-lg h-full w-full">
@@ -133,6 +134,6 @@ const ScrollableContents = () => {
       </div>
     </main>
   );
-}
+};
 
 export default ScrollableContents;
