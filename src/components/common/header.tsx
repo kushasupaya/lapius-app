@@ -127,13 +127,13 @@ const Header = () => {
           <div className="absolute top-[88px] left-0 w-full bg-secondary pb-6 md:hidden">
             <div className="container mx-auto px-4">
               <nav className="flex flex-col gap-4">
-                <Link
+                {/* <Link
                   href="/why-lapius"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   Why Lapius
-                </Link>
+                </Link> */}
                 <Link
                   href="#how-it-works"
                   className="text-sm text-white font-medium hover:text-primary"
