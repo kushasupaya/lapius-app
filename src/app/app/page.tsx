@@ -74,7 +74,7 @@ const AppHome = () => {
           <ImageUploadSection files={files} setFiles={setFiles} />
           {
             files.length > 0
-            ? <div className="bg-white rounded-[32px] pt-0 w-full xl:max-w-[451px] 2xl:max-w-[800px] text-center h-[610px] overflow-x-hidden overflow-y-auto">
+            ? <div className="bg-white rounded-[32px] pt-0 w-full xl:max-w-[463px] 2xl:max-w-[578px] text-center h-[610px] overflow-x-hidden overflow-y-auto">
                 <Tabs defaultValue="summary" className="rounded-t-[32px] rounded-b-0">
                   <TabsList className="p-0 m-0 bg-white h-16 rounded-t-[32px] border-b w-full">
                     {

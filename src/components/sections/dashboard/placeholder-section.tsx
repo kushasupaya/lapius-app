@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const PlaceholderSection = () => {
   return (
-    <div className="bg-white rounded-[32px] p-4 md:p-6 w-full xl:max-w-[463px] text-center h-[610px]">
+    <div className="bg-white rounded-[32px] p-4 md:p-6 w-full xl:max-w-[463px] 2xl:max-w-[578px] text-center h-[610px]">
       <Image
         alt="placeholder"
         src="/images/placeholder.gif"
