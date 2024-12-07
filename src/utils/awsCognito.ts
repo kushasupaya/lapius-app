@@ -46,6 +46,29 @@ export const signUpUser = async (
   }
 };
 
+export const waitlistUser = async (email: string) => {
+  try {
+    const params = {
+      UserPoolId: process.env.NEXT_PUBLIC_COGNITO_WAITLIST_USER_POOL_ID!,
+      Username: email,
+      UserAttributes: [{ Name: "email", Value: email }],
+      DesiredDeliveryMediums: [DeliveryMediumType.EMAIL],
+    };
+    const command = new AdminCreateUserCommand(params);
+    const response = await cognitoClient.send(command);
+
+    if (response) {
+      const signInResponse = await signInUser(email);
+      return signInResponse;
+    } else {
+      return response;
+    }
+  } catch (error) {
+    console.error("Error creating user:", error);
+    throw error;
+  }
+};
+
 export const signInUser = async (email: string) => {
   const secretHash = calculateSecretHash(
     email,

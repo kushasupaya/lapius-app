@@ -1,5 +1,11 @@
 import { Footer, Header } from "@/components/common";
-import { AboutSection, FaqSection, HeroSection, ServicesSection } from "@/components/sections/home";
+import {
+  AboutSection,
+  FaqSection,
+  HeroSection,
+  ServicesSection,
+  WaitListSection,
+} from "@/components/sections/home";
 
 export default function Home() {
   return (
@@ -8,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <WaitListSection />
       <FaqSection />
       <Footer />
     </>

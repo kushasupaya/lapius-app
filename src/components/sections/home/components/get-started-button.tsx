@@ -9,8 +9,19 @@ const GetStartedButton = () => {
 
   return (
     <>
-      <Button variant="primary" size="primary" className="mt-6" onClick={() => setOpen(open => !open)}>Get Started</Button>
-      <CustomerAuth initialState="sign-up" open={open} onOpenChange={() => setOpen(open =>!open)} />
+      <Button
+        variant="primary"
+        size="primary"
+        className="mt-6"
+        onClick={() => setOpen((open) => !open)}
+      >
+        Join the Waitlist
+      </Button>
+      <CustomerAuth
+        initialState="sign-up"
+        open={open}
+        onOpenChange={() => setOpen((open) => !open)}
+      />
     </>
   );
 };

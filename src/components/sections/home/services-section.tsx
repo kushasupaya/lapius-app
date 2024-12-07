@@ -7,27 +7,30 @@ const ServicesSection = () => {
         <div className="flex flex-col items-center w-full mb-10">
           <SectionTitle title="About Lapius" />
           <h2 className="max-w-[607px] mt-2.5 text-black text-[40px] font-semibold text-center leading-tight">
-            Excepteur sint occaecat cupidatat non proident{" "}
+            Join the Movement Toward{" "}
+            <span className="text-green-700">
+              Transparent Healthcare Billing
+            </span>{" "}
           </h2>
         </div>
-        <div className="flex flex-col justify-center items-center lg:flex-row gap-6">
+        <div className="flex flex-col justify-center items-center lg:flex-row gap-12">
           <StatsCard
             icon="/icons/home.svg"
-            stats="6,000+"
-            title="Hospitals mapped"
-            description="Sit a cursus aliquam sed leo amet nulla at sed nisl at semper ultricies at mattis sit a dignissim amet pretium vitae nunc."
+            stats="80%"
+            // title="Hospitals mapped"
+            description="Medical bills contain errors."
           />
           <StatsCard
             icon="/icons/file.svg"
-            stats="12.2%"
-            title="Dispute their bills"
-            description="Sit a cursus aliquam sed leo amet nulla at sed nisl at semper ultricies at mattis sit a dignissim amet pretium vitae nunc."
+            stats="40%"
+            // title="Dispute their bills"
+            description="Americans are confused by their medical bills."
           />
           <StatsCard
             icon="/icons/warning.svg"
-            stats="80%"
-            title="Medical bills contain errors"
-            description="Sit a cursus aliquam sed leo amet nulla at sed nisl at semper ultricies at mattis sit a dignissim amet pretium vitae nunc."
+            stats="66.5%"
+            // title="Medical bills contain errors"
+            description="Bankruptcies were tied to medical issues."
           />
         </div>
       </div>
