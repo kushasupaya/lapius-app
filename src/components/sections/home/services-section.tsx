@@ -3,7 +3,7 @@ import { SectionTitle, StatsCard } from "./components";
 const ServicesSection = () => {
   return (
     <div id="about" className="bg-white">
-      <div className="container mx-auto p-4 lg:px-0 md:pt-20 md:pb-5">
+      <div className="container mx-auto p-4 lg:px-0 md:pt-0 md:pb-24">
         <div className="flex flex-col items-center w-full mb-10">
           <SectionTitle title="About Lapius" />
           <h2 className="max-w-[607px] mt-2.5 text-black text-[40px] font-semibold text-center leading-tight">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Logo from "./logo";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
@@ -13,6 +14,8 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,10 +30,10 @@ const Header = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <header
         className={cn(
-          "top-0 fixed z-40 w-full",
+          "top-0 fixed z-50 w-full",
           isScrolled ? "bg-secondary shadow-sm" : "bg-transparent"
         )}
       >
@@ -46,7 +49,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex gap-8 lg:ml-28">
+            <nav className="hidden md:flex gap-8 lg:ml-12">
               <Link
                 href="/why-lapius"
                 className="text-sm text-white font-medium hover:text-primary"
@@ -95,7 +98,7 @@ const Header = () => {
 
             {/* Sign In and Get Started Buttons */}
             <div className="hidden md:flex items-center gap-6">
-              <p
+              {/* <p
                 className="text-sm text-white font-medium hover:text-primary cursor-pointer"
                 onClick={() => setOpen(true)}
               >
@@ -107,6 +110,13 @@ const Header = () => {
                 onClick={() => setOpenSignup(true)}
               >
                 Get Started
+              </Button> */}
+              <Button
+                variant="primary"
+                size="primary"
+                onClick={() => router.push("#wait-list-section")}
+              >
+                Get in Touch
               </Button>
             </div>
           </div>
@@ -153,7 +163,7 @@ const Header = () => {
                   FAQ
                 </Link>
                 <div className="flex flex-col gap-4">
-                  <p
+                  {/* <p
                     className="text-sm text-white font-medium hover:text-primary cursor-pointer"
                     onClick={() => {
                       setOpen(true);
@@ -172,6 +182,18 @@ const Header = () => {
                     }}
                   >
                     Get Started
+                  </Button> */}
+                  <Button
+                    variant="primary"
+                    size="primary"
+                    className="w-fit"
+                    // onClick={() => {
+                    //   setOpenSignup(true);
+                    //   setMenuOpen(false);
+                    // }}
+                    onClick={() => router.push("#wait-list-section")}
+                  >
+                    Get in Touch
                   </Button>
                 </div>
               </nav>
@@ -190,7 +212,7 @@ const Header = () => {
         open={openSignup}
         onOpenChange={() => setOpenSignup((open) => !open)}
       />
-    </div>
+    </>
   );
 };
 

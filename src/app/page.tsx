@@ -11,11 +11,13 @@ export default function Home() {
   return (
     <>
       <Header />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <WaitListSection />
-      <FaqSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <WaitListSection />
+        <FaqSection />
+      </main>
       <Footer />
     </>
   );
