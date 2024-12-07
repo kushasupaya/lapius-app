@@ -50,24 +50,24 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex gap-8 lg:ml-12">
-              <Link
+              {/* <Link
                 href="/why-lapius"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 Why Lapius
-              </Link>
+              </Link> */}
               <Link
                 href="#how-it-works"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 How It Works
               </Link>
-              <Link
+              {/* <Link
                 href="/Blog"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 Blog
-              </Link>
+              </Link> */}
               <Link
                 href="#about"
                 className="text-sm text-white font-medium hover:text-primary"
@@ -141,13 +141,13 @@ const Header = () => {
                 >
                   How It Works
                 </Link>
-                <Link
+                {/* <Link
                   href="/Blog"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   Blog
-                </Link>
+                </Link> */}
                 <Link
                   href="#about"
                   className="text-sm text-white font-medium hover:text-primary"
