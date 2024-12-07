@@ -36,7 +36,7 @@ const Header = () => {
       >
         <div className="w-full h-8 bg-[#000909] text-center py-2.5 px-4">
           <p className="text-white text-[10px] font-medium uppercase">
-            Introducing Lapius - Sign up for early access
+            Introducing Lapius - Join the waitlist for early access
           </p>
         </div>
         <div className="relative container mx-auto py-4 px-4 lg:px-0">
