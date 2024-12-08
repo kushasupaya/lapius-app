@@ -50,7 +50,7 @@ const ScrollableContents = () => {
               <p className="text-gray-300 text-base">
                 Your privacy is our priority. Your data is encrypted, secure,
                 and fully protected under{" "}
-                <span className="text-[#4BC2B3] font-semibold">
+                <span className="text-[#ACDB88] font-semibold">
                   HIPAA compliance
                 </span>
               </p>
@@ -58,7 +58,7 @@ const ScrollableContents = () => {
             <div className=" rounded-lg h-full w-full">
               <Image
                 alt="story"
-                src="/images/uploadbillmain.svg"
+                src="/images/aboutsection/uploadbill.svg"
                 width={100}
                 height={300}
                 className="w-full h-full"
@@ -86,7 +86,7 @@ const ScrollableContents = () => {
                 Let AI do the work for you
               </p>
               <p className="text-gray-300 text-base">
-                <span className="text-[#4BC2B3] font-semibold">
+                <span className="text-[#ACDB88] font-semibold">
                   Lapius scans and reviews every line item
                 </span>
                 ,cross-referencing medical codes and checking for common billing
@@ -96,7 +96,7 @@ const ScrollableContents = () => {
             <div className=" rounded-lg h-full w-full">
               <Image
                 alt="story"
-                src="/images/aiworknew.svg"
+                src="/images/aboutsection/reviewsummary.svg"
                 width={500}
                 height={500}
                 className="w-full h-full"
@@ -126,7 +126,7 @@ const ScrollableContents = () => {
               <p className="text-gray-300 text-base">
                 Get a clear, detailed report that highlights any discrepancies
                 to understand{" "}
-                <span className="text-[#4BC2B3] font-semibold">
+                <span className="text-[#ACDB88] font-semibold">
                   what’s wrong and why it matters
                 </span>
               </p>
@@ -134,7 +134,7 @@ const ScrollableContents = () => {
             <div className="rounded-lg h-full w-full">
               <Image
                 alt="story"
-                src="/images/risksai.svg"
+                src="/images/aboutsection/findrisks.svg"
                 width={500}
                 height={500}
                 className="w-full h-full"

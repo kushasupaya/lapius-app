@@ -23,14 +23,14 @@ const HeroSection = () => {
                 </p>
                 <GetStartedButton />
               </div>
-              <div className="w-full h-full md:w-auto flex justify-center items-center p-10">
-                <div className="max-h-[464px] max-w-[464px] h-full w-full">
+              <div className="w-full h-full md:w-auto flex justify-center items-center  p-4">
+                <div className="max-h-[600px] max-w-[600px] h-full w-full">
                   <Image
                     alt=""
-                    src="/images/hero-image.svg"
-                    height={500}
-                    width={500}
-                    className="h-full w-full aspect-square"
+                    src="/images/homepage.svg"
+                    height={500} // Increased height
+                    width={620} // Increased width
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
               </div>
