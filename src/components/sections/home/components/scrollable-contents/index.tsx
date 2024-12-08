@@ -37,8 +37,8 @@ const ScrollableContents = () => {
           activeDiv === 1
             ? "z-[30] scale-100 opacity-100"
             : activeDiv > 1
-            ? "z-[10] scale-[0.95] opacity-80"
-            : "z-[20] scale-[0.98] opacity-90"
+            ? "z-[10] scale-[0.95] "
+            : "z-[20] scale-[0.98] "
         )}
       >
         <div className="container mx-auto rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg bg-gray-100 hover:shadow-2xl">
@@ -75,8 +75,8 @@ const ScrollableContents = () => {
           activeDiv === 2
             ? "z-[30] scale-100 opacity-100"
             : activeDiv > 2
-            ? "z-[10] scale-[0.95] opacity-80"
-            : "z-[20] scale-[0.98] opacity-90"
+            ? "z-[10] scale-[0.95] "
+            : "z-[20] scale-[0.98] "
         )}
       >
         <div className="container mx-auto bg-gray-100 rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
@@ -113,8 +113,8 @@ const ScrollableContents = () => {
           activeDiv === 3
             ? "z-[30] scale-100 opacity-100"
             : activeDiv > 3
-            ? "z-[10] scale-[0.95] opacity-80"
-            : "z-[20] scale-[0.98] opacity-90"
+            ? "z-[10] scale-[0.95] "
+            : "z-[20] scale-[0.98] "
         )}
       >
         <div className="container mx-auto bg-gray-100 rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
