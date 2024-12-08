@@ -8,7 +8,7 @@ const WaitlistSection = () => {
     >
       <div className="flex flex-col items-center w-full">
         <h2 className="max-w-[607px]  text-white text-[30px] font-semibold text-center leading-tight">
-          Sign up for our <span className="text-[#ACDB88]">Waitlist</span>
+          Sign up for our <span className="text-[#ACDB88]">waitlist</span>
         </h2>
         <span className="text-white text-lg mt-1.5 mb-6">
           Our launch is just around the corner.{" "}

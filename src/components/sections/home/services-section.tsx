@@ -8,7 +8,7 @@ const ServicesSection = () => {
           <SectionTitle title="About Lapius" />
           <h2 className="max-w-[607px] mt-2.5 text-black text-[40px] font-semibold text-center leading-tight">
             Join the Movement Toward{" "}
-            <span className="text-green-700">
+            <span className="text-[#ACDB88]">
               Transparent Healthcare Billing
             </span>{" "}
           </h2>
