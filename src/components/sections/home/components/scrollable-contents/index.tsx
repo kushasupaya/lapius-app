@@ -41,26 +41,26 @@ const ScrollableContents = () => {
             : "z-[20] scale-[0.98] "
         )}
       >
-        <div className="container mx-auto rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg bg-gray-100 hover:shadow-2xl">
+        <div className="container mx-auto rounded-2xl min-h-[400px] transition-shadow duration-500 shadow-lg bg-[#001A1A] hover:shadow-2xl">
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
-              <p className="text-primary-foreground font-semibold text-3xl mb-2">
+              <p className="text-white font-semibold text-3xl mb-2">
                 Upload your medical bill
               </p>
-              <p className="text-subtitle-normal text-base">
+              <p className="text-gray-300 text-base">
                 Your privacy is our priority. Your data is encrypted, secure,
                 and fully protected under{" "}
-                <span className="text-[#ACDB88] font-semibold">
+                <span className="text-[#4BC2B3] font-semibold">
                   HIPAA compliance
                 </span>
               </p>
             </div>
-            <div className="bg-primary rounded-lg h-full w-full">
+            <div className=" rounded-lg h-full w-full">
               <Image
                 alt="story"
-                src="/images/story.svg"
-                width={500}
-                height={500}
+                src="/images/uploadbillmain.svg"
+                width={100}
+                height={300}
                 className="w-full h-full"
               />
             </div>
@@ -79,24 +79,24 @@ const ScrollableContents = () => {
             : "z-[20] scale-[0.98] "
         )}
       >
-        <div className="container mx-auto bg-gray-100 rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
+        <div className="container mx-auto bg-[#001A1A] rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
-              <p className="text-primary-foreground font-semibold text-3xl mb-2">
+              <p className="text-white font-semibold text-3xl mb-2">
                 Let AI do the work for you
               </p>
-              <p className="text-subtitle-normal text-base">
-                <span className="text-[#ACDB88] font-semibold">
+              <p className="text-gray-300 text-base">
+                <span className="text-[#4BC2B3] font-semibold">
                   Lapius scans and reviews every line item
                 </span>
                 ,cross-referencing medical codes and checking for common billing
                 errors.{" "}
               </p>
             </div>
-            <div className="bg-primary rounded-lg h-full w-full">
+            <div className=" rounded-lg h-full w-full">
               <Image
                 alt="story"
-                src="/images/story.svg"
+                src="/images/aiworknew.svg"
                 width={500}
                 height={500}
                 className="w-full h-full"
@@ -117,24 +117,24 @@ const ScrollableContents = () => {
             : "z-[20] scale-[0.98] "
         )}
       >
-        <div className="container mx-auto bg-gray-100 rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
+        <div className="container mx-auto bg-[#001A1A] rounded-2xl min-h-[422px] transition-shadow duration-500 shadow-lg hover:shadow-2xl">
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
-              <p className="text-primary-foreground font-semibold text-3xl mb-2">
+              <p className="text-white font-semibold text-3xl mb-2">
                 Review potential risks
               </p>
-              <p className="text-subtitle-normal text-base">
+              <p className="text-gray-300 text-base">
                 Get a clear, detailed report that highlights any discrepancies
                 to understand{" "}
-                <span className="text-[#ACDB88] font-semibold">
+                <span className="text-[#4BC2B3] font-semibold">
                   what’s wrong and why it matters
                 </span>
               </p>
             </div>
-            <div className="bg-primary rounded-lg h-full w-full">
+            <div className="rounded-lg h-full w-full">
               <Image
                 alt="story"
-                src="/images/story.svg"
+                src="/images/risksai.svg"
                 width={500}
                 height={500}
                 className="w-full h-full"
