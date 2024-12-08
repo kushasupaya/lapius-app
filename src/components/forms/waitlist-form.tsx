@@ -65,17 +65,18 @@ const WaitListForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mx-auto flex justify-between items-center gap-x-4 mt-2 h-full"
+        className="flex justify-between py-2 px-3 focus-within:scale-110 focus-within:ease-in focus-within:duration-200 w-full md:w-2/6 mx-auto bg-white rounded-full overflow-hidden font-light focus-within:shadow-lg focus:outline-none"
+        // className="mx-auto flex justify-between items-center gap-x-4 mt-2 h-full"
       >
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="w-full">
               <FormControl>
                 <Input
                   placeholder="Enter your email address"
-                  className="text-white border-tertiary-foreground w-72 rounded-full"
+                  className="px-5 py-2  text-gray-600 border-none focus:outline-none shadow-none focus-visible:ring-0"
                   autoComplete="on"
                   {...field}
                 />
@@ -84,17 +85,16 @@ const WaitListForm = () => {
             </FormItem>
           )}
         />
-        <div className="block items-center">
-          <Button
-            size="default"
-            variant="primary"
-            type="submit"
-            className="w-full"
-            disabled={isPending}
-          >
-            Sign Up
-          </Button>
-        </div>
+        <Button
+          size="default"
+          variant="secondary"
+          type="submit"
+          className="bg-[#68B944] text-white px-8 py-2 rounded-full hover:bg-green-600 focus:outline-none transition duration-300"
+          disabled={isPending}
+        >
+          Sign Up
+        </Button>
+        {/* </div> */}
       </form>
     </Form>
   );

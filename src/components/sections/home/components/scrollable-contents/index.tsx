@@ -48,7 +48,11 @@ const ScrollableContents = () => {
                 Upload your medical bill
               </p>
               <p className="text-subtitle-normal text-base">
-                Upload your medical bills or your itemised bills or EoBs.
+                Your privacy is our priority. Your data is encrypted, secure,
+                and fully protected under{" "}
+                <span className="text-[#ACDB88] font-semibold">
+                  HIPAA compliance
+                </span>
               </p>
             </div>
             <div className="bg-primary rounded-lg h-full w-full">
@@ -79,10 +83,14 @@ const ScrollableContents = () => {
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
               <p className="text-primary-foreground font-semibold text-3xl mb-2">
-                Check each code and description.{" "}
+                Let AI do the work for you
               </p>
               <p className="text-subtitle-normal text-base">
-                Check each code and description.
+                <span className="text-[#ACDB88] font-semibold">
+                  Lapius scans and reviews every line item
+                </span>
+                ,cross-referencing medical codes and checking for common billing
+                errors.{" "}
               </p>
             </div>
             <div className="bg-primary rounded-lg h-full w-full">
@@ -113,11 +121,14 @@ const ScrollableContents = () => {
           <div className="w-full h-full p-4 flex flex-col items-center md:flex-row gap-4">
             <div className="p-3 w-full">
               <p className="text-primary-foreground font-semibold text-3xl mb-2">
-                Detect the potential risks{" "}
+                Review potential risks
               </p>
               <p className="text-subtitle-normal text-base">
-                Helping you understand and verify your healthcare charges with
-                ease.
+                Get a clear, detailed report that highlights any discrepancies
+                to understand{" "}
+                <span className="text-[#ACDB88] font-semibold">
+                  what’s wrong and why it matters
+                </span>
               </p>
             </div>
             <div className="bg-primary rounded-lg h-full w-full">
