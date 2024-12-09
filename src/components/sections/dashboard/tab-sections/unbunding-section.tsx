@@ -12,9 +12,12 @@ const SummarySection = () => {
           className="h-[108px] w-[108px]"
         />
       </div>
-      <h3 className="text-foreground text-xl font-semibold">No Potential<br/>Unbundling Risks</h3>
+      <h3 className="text-foreground text-xl font-semibold">
+        No <br />
+        additional errors
+      </h3>
     </div>
-  )
+  );
 };
 
 export default SummarySection;
