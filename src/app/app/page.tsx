@@ -47,7 +47,7 @@ const AppHome = () => {
         "HB REF CELIAC SCREEN PANEL, GAMMAGLOBULIN-IGA (Q) (CPT code: 82784)",
       description:
         "Analysis of the concentration of specific gamma globulins in a specimen, including Immunoglobulin A, Immunoglobulin G, and Immunoglobulin M.",
-      severity: "good",
+      severity: "warning",
     },
     {
       id: "billing_code2",
@@ -61,7 +61,7 @@ const AppHome = () => {
       title: "HB-XRAY EXAM CHEST 2 VIEWS (CPT code: 71046)",
       description:
         "A chest X-ray procedure with two views, typically front and side, to provide a comprehensive view of the chest area.",
-      severity: "good",
+      severity: "warning",
     },
   ];
   const upcoding = [
