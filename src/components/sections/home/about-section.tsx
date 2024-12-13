@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ScrollableContents, SectionTitle, VideoSlider } from "./components";
 
 const AboutSection = () => {
@@ -12,9 +13,84 @@ const AboutSection = () => {
           </h2>
         </div>
       </div>
-      <div className="container mx-auto px-4 lg:max-w-none lg:px-0">
-        {/* <VideoSlider /> */}
-        <ScrollableContents />
+      <div className="container mx-auto px-14 py-12">
+        {/* Section 1: Let AI do the work for you */}
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-16 mt-24">
+          <div className="md:px-12">
+            <h2 className="text-3xl font-bold text-black mb-4">
+              Let AI do the work for you
+            </h2>
+            <p className="text-xl text-gray-600">
+              <span className="text-[#ACDB88] font-semibold">
+                Lapius scans and reviews every line item
+              </span>
+              , cross-referencing medical codes and checking for common billing
+              errors.
+            </p>
+          </div>
+
+          <div className="relative">
+            <Image
+              src="images/aboutsection/aiwork.svg"
+              alt="Medical Bill Example"
+              width={600}
+              height={400}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        </div>
+
+        {/* Section 2: Review potential risks */}
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
+          <div className="relative">
+            <Image
+              src="images/aboutsection/potentialrisks.svg"
+              alt="Unbundling Risk"
+              width={570}
+              height={400}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+
+          <div className="md:px-12">
+            <h2 className="text-3xl font-bold text-black mb-4">
+              Review potential risks
+            </h2>
+            <p className="text-xl text-gray-600">
+              Get a clear, detailed report that highlights any discrepancies to
+              understand{" "}
+              <span className="text-[#ACDB88] font-semibold">
+                what’s wrong and why it matters.
+              </span>
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3: Find the right price */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="md:px-12">
+            <h2 className="text-3xl font-bold text-black mb-4">
+              Find the right price
+            </h2>
+            <p className="text-xl text-gray-600">
+              Each price is compared with average prices in your area and those
+              published by healthcare settings to alert you to any{" "}
+              <span className="text-[#ACDB88] font-semibold">
+                overpricing problems.
+              </span>
+            </p>
+          </div>
+
+          <div className="relative">
+            <Image
+              src="images/aboutsection/rightprice.svg"
+              alt="Medical Bill Example"
+              width={570}
+              height={300}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

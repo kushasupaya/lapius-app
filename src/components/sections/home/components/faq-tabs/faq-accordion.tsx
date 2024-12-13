@@ -20,13 +20,12 @@ const FAQAccordion = () => {
     },
     {
       question: "When will you launch?",
-      answer:
-        "We plan to launch on December 17th, 2025. Sign up to join the waitlist to get notified.",
+      answer: "Early in the coming year.",
     },
     {
       question: "Is Lapius secure? Where is my data saved?",
       answer:
-        "Absolutely. Lapius is fully HIPAA-compliant and uses state-of-the-art encryption to ensure your medical and personal information remains safe and confidential. Your data is never shared or sold to third parties. We use it solely to provide you with accurate analysis and actionable insights.",
+        "Your privacy is our priority. Your data is encrypted, secure, and fully protected under HIPAA compliance.",
     },
     {
       question: "What type of documents can I upload?",
