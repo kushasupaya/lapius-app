@@ -9,7 +9,10 @@ import { cn } from "@/lib/utils";
 import CustomerAuth from "./customer-auth";
 import { MenuIcon, XIcon } from "lucide-react";
 
-const Header = () => {
+interface Props {
+  isBlog?: boolean;
+}
+const Header = ({ isBlog }: Props) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
@@ -34,7 +37,7 @@ const Header = () => {
       <header
         className={cn(
           "top-0 fixed z-50 w-full",
-          isScrolled ? "bg-secondary shadow-sm" : "bg-transparent"
+          isScrolled || isBlog ? "bg-secondary shadow-sm" : "bg-transparent"
         )}
       >
         <div className="w-full h-8 bg-[#000909] text-center py-2.5 px-4">
@@ -44,9 +47,9 @@ const Header = () => {
         </div>
         <div className="relative container mx-auto py-4 px-4 lg:px-0">
           <div className="flex justify-between items-center">
-            <div className="w-20">
+            <Link className="w-20" href="/">
               <Logo variant="default" />
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex gap-8 lg:ml-12">
@@ -57,25 +60,25 @@ const Header = () => {
                 Why Lapius
               </Link> */}
               <Link
-                href="#how-it-works"
+                href="/#how-it-works"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 How It Works
               </Link>
-              {/* <Link
-                href="/Blog"
+              <Link
+                href="/blogs"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 Blog
-              </Link> */}
+              </Link>
               <Link
-                href="#about"
+                href="/#about"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 About
               </Link>
               <Link
-                href="#faq"
+                href="/#faq"
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 FAQ
@@ -114,10 +117,17 @@ const Header = () => {
               <Button
                 variant="primary"
                 size="primary"
-                onClick={() => router.push("#wait-list-section")}
+                onClick={() => setOpenSignup(true)}
               >
                 Get in Touch
               </Button>
+              {/* <Button
+                variant="primary"
+                size="primary"
+                onClick={() => router.push("#wait-list-section")}
+              >
+                Get in Touch
+              </Button> */}
             </div>
           </div>
         </div>
@@ -135,28 +145,28 @@ const Header = () => {
                   Why Lapius
                 </Link> */}
                 <Link
-                  href="#how-it-works"
+                  href="/#how-it-works"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   How It Works
                 </Link>
-                {/* <Link
-                  href="/Blog"
+                <Link
+                  href="/blogs"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   Blog
-                </Link> */}
+                </Link>
                 <Link
-                  href="#about"
+                  href="/#about"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   About
                 </Link>
                 <Link
-                  href="#faq"
+                  href="/#faq"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
@@ -183,7 +193,19 @@ const Header = () => {
                   >
                     Get Started
                   </Button> */}
+
                   <Button
+                    variant="primary"
+                    size="primary"
+                    className="w-fit"
+                    onClick={() => {
+                      setOpenSignup(true);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Get in Touch
+                  </Button>
+                  {/* <Button
                     variant="primary"
                     size="primary"
                     className="w-fit"
@@ -194,7 +216,7 @@ const Header = () => {
                     onClick={() => router.push("#wait-list-section")}
                   >
                     Get in Touch
-                  </Button>
+                  </Button> */}
                 </div>
               </nav>
             </div>
@@ -210,6 +232,7 @@ const Header = () => {
       <CustomerAuth
         initialState="sign-up"
         open={openSignup}
+        setOpenSignup={setOpenSignup}
         onOpenChange={() => setOpenSignup((open) => !open)}
       />
     </>

@@ -20,7 +20,8 @@ export const signUpUser = async (
 ) => {
   try {
     const params = {
-      UserPoolId: userPoolId,
+      // UserPoolId: userPoolId,
+      UserPoolId: process.env.NEXT_PUBLIC_COGNITO_WAITLIST_USER_POOL_ID!,
       Username: email,
       UserAttributes: [
         { Name: "given_name", Value: firstName },

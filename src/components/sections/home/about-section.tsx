@@ -20,7 +20,7 @@ const AboutSection = () => {
             <h2 className="text-3xl font-bold text-black mb-4">
               Let AI do the work for you
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-2xl text-gray-600">
               <span className="text-[#ACDB88] font-semibold">
                 Lapius scans and reviews every line item
               </span>
@@ -56,7 +56,7 @@ const AboutSection = () => {
             <h2 className="text-3xl font-bold text-black mb-4">
               Review potential risks
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-2xl text-gray-600">
               Get a clear, detailed report that highlights any discrepancies to
               understand{" "}
               <span className="text-[#ACDB88] font-semibold">
@@ -72,7 +72,7 @@ const AboutSection = () => {
             <h2 className="text-3xl font-bold text-black mb-4">
               Find the right price
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-2xl text-gray-600">
               Each price is compared with average prices in your area and those
               published by healthcare settings to alert you to any{" "}
               <span className="text-[#ACDB88] font-semibold">

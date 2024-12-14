@@ -15,14 +15,22 @@ import { redirect } from "next/navigation";
 import LoginForm from "@/components/forms/login-form";
 import SignupForm from "@/components/forms/signup-form";
 import VerifyOtpForm from "@/components/forms/verify-otp-form";
+import { toast } from "@/hooks/use-toast";
+import { set } from "react-hook-form";
 
 interface Props {
   open: boolean;
   onOpenChange: () => void;
   initialState: "sign-in" | "sign-up" | "verify-otp";
+  setOpenSignup?: (open: boolean) => void;
 }
 
-const CustomerAuth = ({ open, onOpenChange, initialState }: Props) => {
+const CustomerAuth = ({
+  open,
+  onOpenChange,
+  initialState,
+  setOpenSignup,
+}: Props) => {
   const [uiState, setUiState] = useState(initialState);
   const [userEmail, setUserEmail] = useState("");
   const [session, setSession] = useState("");
@@ -32,7 +40,14 @@ const CustomerAuth = ({ open, onOpenChange, initialState }: Props) => {
   };
 
   const onSignupSuccess = () => {
-    setUiState("verify-otp");
+    if (setOpenSignup) {
+      setOpenSignup(false);
+    }
+    // setUiState("verify-otp");
+    toast({
+      title: "Success!",
+      description: "Thank you for joining the waitlist!",
+    });
   };
 
   const onVerifyOtpSuccess = () => {
