@@ -43,15 +43,17 @@ export default async function BlogPost() {
           to Avoid Them
         </h1>
         <p className="text-gray-600 text-sm">13 Dec, 2024</p>
-        <Image
-          src="/images/blogs/blogoneheading.png"
-          alt="Blog Image"
-          width={700}
-          height={250}
-          className="object-cover rounded-lg my-4"
-        />
+        <div className="px-4 md:px-0">
+          <Image
+            src="/images/blogs/blogoneheading.png"
+            alt="Blog Image"
+            width={700}
+            height={250}
+            className="object-cover rounded-lg my-4"
+          />
+        </div>
         {/* Introduction */}
-        <div className="py-14 px-28 space-y-4 leading-8 tracking-wide">
+        <div className="py-14 md:px-28 px-12 space-y-4 leading-8 tracking-wide">
           <p>
             Medical bills can be confusing and overwhelming, and it’s not
             uncommon to find <strong>common medical billing errors</strong> that
