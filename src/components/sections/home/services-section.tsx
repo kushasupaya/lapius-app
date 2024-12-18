@@ -2,7 +2,7 @@ import { SectionTitle, StatsCard } from "./components";
 
 const ServicesSection = () => {
   return (
-    <div id="about" className="bg-white">
+    <section id="about" className="bg-white scroll-mt-28">
       <div className="container mx-auto p-4 lg:px-0 md:pt-0 md:pb-24">
         <div className="flex flex-col items-center w-full mb-10">
           <SectionTitle title="About Lapius" />
@@ -34,7 +34,7 @@ const ServicesSection = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

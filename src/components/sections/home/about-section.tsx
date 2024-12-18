@@ -3,7 +3,7 @@ import { ScrollableContents, SectionTitle, VideoSlider } from "./components";
 
 const AboutSection = () => {
   return (
-    <section id="how-it-works" className="bg-white relative pt-32">
+    <section id="how-it-works" className="bg-white relative pt-32 scroll-mt-20">
       <div className=" absolute z-40 top-0 w-full text-center p-4 lg:px-0 md:pt-14 mt-1.5 md:pb-5">
         <div className="flex flex-col items-center w-full">
           <SectionTitle title="Lapius in Action" />

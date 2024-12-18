@@ -3,7 +3,7 @@ import { GetStartedButton } from "./components";
 
 const HeroSection = () => {
   return (
-    <section className="bg-secondary w-full">
+    <section className="bg-secondary w-full scroll-mt-20">
       <div className="container mx-auto px-4 md:px-0">
         <div className="flex flex-col justify-between md:min-h-screen">
           <div>

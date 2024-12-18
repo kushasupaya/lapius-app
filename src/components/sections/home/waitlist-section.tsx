@@ -4,7 +4,7 @@ const WaitlistSection = () => {
   return (
     <section
       id="wait-list-section"
-      className="w-full h-80  mt-4 md:mt-0 bg-[url('/images/background.svg')] flex justify-center items-center bg-center bg-cover bg-no-repeat "
+      className="w-full h-80  mt-4 md:mt-0 bg-[url('/images/background.svg')] flex justify-center items-center bg-center bg-cover bg-no-repeat scroll-mt-24"
     >
       <div className="flex flex-col items-center w-full md:p-2 px-6">
         <h2 className="max-w-[607px]  text-white text-[30px] font-semibold text-center leading-tight">
