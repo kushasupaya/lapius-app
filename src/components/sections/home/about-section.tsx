@@ -4,7 +4,7 @@ import { ScrollableContents, SectionTitle, VideoSlider } from "./components";
 const AboutSection = () => {
   return (
     <section id="how-it-works" className="bg-white relative pt-32">
-      <div className=" absolute z-40 top-0 w-full text-center p-4 lg:px-0 md:pt-20 md:pb-5">
+      <div className=" absolute z-40 top-0 w-full text-center p-4 lg:px-0 md:pt-14 mt-1.5 md:pb-5">
         <div className="flex flex-col items-center w-full">
           <SectionTitle title="Lapius in Action" />
           <h2 className="max-w-[607px] mt-2.5 text-black text-[40px] font-semibold text-center leading-tight">
@@ -13,14 +13,14 @@ const AboutSection = () => {
           </h2>
         </div>
       </div>
-      <div className="container mx-auto px-14 py-12">
+      <div className="container mx-auto px-10 md:px-14 md:py-12 py-2">
         {/* Section 1: Let AI do the work for you */}
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-16 mt-24">
-          <div className="md:px-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-8 md:mb-16 mt-24">
+          <div className="md:px-12 md:mt-0 mt-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-black md:mb-4 mb-1">
               Let AI do the work for you
             </h2>
-            <p className="text-2xl text-gray-600">
+            <p className="text-xl md:text-2xl text-gray-600">
               <span className="text-[#ACDB88] font-semibold">
                 Lapius scans and reviews every line item
               </span>
@@ -40,8 +40,8 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Section 2: Review potential risks */}
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
+        {/* Section 2: Review potential risks for website */}
+        <div className="hidden md:grid md:grid-cols-2 gap-8 items-center mb-8 md:mb-16">
           <div className="relative">
             <Image
               src="images/aboutsection/potentialrisks.svg"
@@ -53,10 +53,10 @@ const AboutSection = () => {
           </div>
 
           <div className="md:px-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-black md:mb-4 mb-1">
               Review potential risks
             </h2>
-            <p className="text-2xl text-gray-600">
+            <p className="text-xl md:text-2xl text-gray-600">
               Get a clear, detailed report that highlights any discrepancies to
               understand{" "}
               <span className="text-[#ACDB88] font-semibold">
@@ -65,14 +65,38 @@ const AboutSection = () => {
             </p>
           </div>
         </div>
+        {/*section 2 for mobile*/}
+        <div className="md:hidden grid md:grid-cols-2 gap-8 items-center mb-8 md:mb-16">
+          <div className="md:px-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-black md:mb-4 mb-1">
+              Review potential risks
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-600">
+              Get a clear, detailed report that highlights any discrepancies to
+              understand{" "}
+              <span className="text-[#ACDB88] font-semibold">
+                what’s wrong and why it matters.
+              </span>
+            </p>
+          </div>
+          <div className="relative">
+            <Image
+              src="images/aboutsection/potentialrisks.svg"
+              alt="Unbundling Risk"
+              width={570}
+              height={400}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        </div>
 
         {/* Section 3: Find the right price */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="md:px-12">
-            <h2 className="text-3xl font-bold text-black mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-black md:mb-4 mb-1">
               Find the right price
             </h2>
-            <p className="text-2xl text-gray-600">
+            <p className="text-xl md:text-2xl text-gray-600">
               Each price is compared with average prices in your area and those
               published by healthcare settings to alert you to any{" "}
               <span className="text-[#ACDB88] font-semibold">

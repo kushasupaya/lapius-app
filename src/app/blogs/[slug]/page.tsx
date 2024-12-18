@@ -53,7 +53,7 @@ export default async function BlogPost() {
           />
         </div>
         {/* Introduction */}
-        <div className="py-14 md:px-28 px-12 space-y-4 leading-8 tracking-wide">
+        <div className="md:py-14 py-4 md:px-28 px-12 space-y-4 leading-7 md:tracking-wide text-justify">
           <p>
             Medical bills can be confusing and overwhelming, and it’s not
             uncommon to find <strong>common medical billing errors</strong> that
