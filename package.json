@@ -19,6 +19,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.1",
     "@radix-ui/react-toast": "^1.2.2",
+    "@tabler/icons-react": "^3.26.0",
     "@types/aws-lambda": "^8.10.146",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
