@@ -26,7 +26,7 @@ const HeroSection = () => {
               <div className="w-full h-full md:w-auto flex justify-center items-center  p-4">
                 <div className="flex justify-center items-center max-h-[600px] max-w-[600px] h-full w-full sm:max-h-[400px] sm:max-w-[400px] md:max-h-[500px] md:max-w-[500px] lg:max-h-[600px] lg:max-w-[600px]">
                   <Image
-                    alt=""
+                    alt="Lapius AI"
                     src="/images/homepage.png"
                     height={600}
                     width={600}

@@ -93,7 +93,7 @@ export default async function BlogPost() {
           <div className="items-center justify-center flex">
             <Image
               src="/images/blogs/billerrors.png"
-              alt="Blog Image"
+              alt="how to dispute a medical bill"
               width={700}
               height={250}
               className="object-cover rounded-lg my-4"

@@ -18,10 +18,12 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Lapius",
-  description: "Take Control of Your Healthcare Costs with the AI",
+  description:
+    "Take Control of Your Healthcare Costs with the AI. We help patients save money by detecting errors and verifying medical bill accuracy.",
   openGraph: {
     title: "Lapius",
-    description: "Take Control of Your Healthcare Costs with the AI",
+    description:
+      "Take Control of Your Healthcare Costs with the AI. We help patients save money by detecting errors and verifying medical bill accuracy.",
     type: "website",
     url: "https://lapiusai.com",
     images: [

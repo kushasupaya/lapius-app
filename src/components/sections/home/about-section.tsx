@@ -32,7 +32,7 @@ const AboutSection = () => {
           <div className="relative">
             <Image
               src="images/aboutsection/aiwork.svg"
-              alt="Medical Bill Example"
+              alt="Medical Bill"
               width={600}
               height={400}
               style={{ objectFit: "contain" }}
@@ -45,7 +45,7 @@ const AboutSection = () => {
           <div className="relative">
             <Image
               src="images/aboutsection/potentialrisks.svg"
-              alt="Unbundling Risk"
+              alt="CPT codes"
               width={570}
               height={400}
               style={{ objectFit: "contain" }}
@@ -82,7 +82,7 @@ const AboutSection = () => {
           <div className="relative">
             <Image
               src="images/aboutsection/potentialrisks.svg"
-              alt="Unbundling Risk"
+              alt="medical bill mistakes"
               width={570}
               height={400}
               style={{ objectFit: "contain" }}
@@ -108,7 +108,7 @@ const AboutSection = () => {
           <div className="relative">
             <Image
               src="images/aboutsection/rightprice.svg"
-              alt="Medical Bill Example"
+              alt="hospital bill"
               width={570}
               height={300}
               style={{ objectFit: "contain" }}

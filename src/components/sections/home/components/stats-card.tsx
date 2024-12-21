@@ -13,7 +13,7 @@ const AboutCard = ({ icon, stats, title, description }: Props) => {
       <div className="flex justify-center items-center h-20 w-20 rounded-full bg-primary mb-14">
         <Image
           src={icon}
-          alt="icon"
+          alt="healthcare"
           width={41}
           height={41}
           className="h-10 w-10"

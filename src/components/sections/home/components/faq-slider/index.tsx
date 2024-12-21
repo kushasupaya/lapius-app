@@ -84,7 +84,7 @@ const FaqSlider = () => {
   return (
     <div className="relative max-w-[470px]">
       <Image
-        alt="faq"
+        alt="medical bill mistakes"
         src="/images/faq.png"
         height={400}
         width={600}
