@@ -3,7 +3,6 @@ import { twMerge } from "tailwind-merge";
 import { CognitoIdentityProviderClient } from "@aws-sdk/client-cognito-identity-provider";
 import crypto from "crypto";
 import { S3Client } from "@aws-sdk/client-s3";
-import { ActualFileObject } from "filepond";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -11,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 
 const REGION = process.env.NEXT_PUBLIC_AWS_REGION as string;
 
-const sharedConfig = {
+export const sharedConfig = {
   region: REGION,
   credentials: {
     accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID as string,

@@ -7,6 +7,7 @@ import {
   ChallengeNameType,
   DeliveryMediumType,
 } from "@aws-sdk/client-cognito-identity-provider";
+import { sendCustomEmail } from "./awsSes";
 
 const userPoolId = process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID!;
 const cognitoClientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID!;
@@ -60,6 +61,7 @@ export const waitlistUser = async (email: string) => {
 
     if (response) {
       const signInResponse = await signInUser(email);
+      await sendCustomEmail(email);
       return signInResponse;
     } else {
       return response;

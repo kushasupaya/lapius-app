@@ -81,7 +81,9 @@ const WaitListForm = () => {
                   {...field}
                 />
               </FormControl>
-              <FormMessage />
+              <div className="absolute text-xs">
+                <FormMessage />
+              </div>
             </FormItem>
           )}
         />
