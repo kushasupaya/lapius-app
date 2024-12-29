@@ -17,11 +17,11 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Lapius",
+  title: "Lapius: AI-Powered Medical Bill Review Tool",
   description:
     "Take Control of Your Healthcare Costs with the AI. We help patients save money by detecting errors and verifying medical bill accuracy.",
   openGraph: {
-    title: "Lapius",
+    title: "Lapius: AI-Powered Medical Bill Review Tool",
     description:
       "Take Control of Your Healthcare Costs with the AI. We help patients save money by detecting errors and verifying medical bill accuracy.",
     type: "website",
@@ -35,10 +35,24 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: "https://lapiusai.com",
+  },
   keywords: [
+    "medical bill decoding",
+    "AI healthcare billing",
+    "medical billing errors",
+    "healthcare price comparison",
+    "transparent healthcare",
+    "medical bill discrepancies",
+    "healthcare expenses",
+    "AI medical cost review",
+    "medical bills",
+    "healthcare costs",
+    "medical bill errors",
+    "healthcare billing",
     "medical billing",
     "healthcare",
-    "AI",
     "how to dispute a medical bill",
     "Medical bill",
     "hospital bill",

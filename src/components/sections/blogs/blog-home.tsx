@@ -33,7 +33,7 @@ const BlogHome = async () => {
             <div className="rounded-lg hover:shadow-lg hover:bg-gray-100 p-4 cursor-pointer">
               <Image
                 src={frontmatter.image}
-                alt="medical billing"
+                alt="medical bill decoding"
                 width={400}
                 height={200}
                 className="w-full h-48 object-cover rounded-t-lg"
