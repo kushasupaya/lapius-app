@@ -1,7 +1,6 @@
+import { sharedConfig } from "@/lib/utils";
 import AWS from "aws-sdk";
-const ses = new AWS.SES({
-  region: process.env.NEXT_PUBLIC_AWS_COGNITO_REGION!,
-});
+const ses = new AWS.SES(sharedConfig);
 
 export async function sendCustomEmail(email: string) {
   const params = {
@@ -18,10 +17,9 @@ export async function sendCustomEmail(email: string) {
           Data: `
                         <html>
                         <body>
-                            <h1>Hi,</h1>
-                            <p>Thank you for joining our waitlist!</p>
-                            <img src="https://lapiusai.com/images/about.png" alt="Medical Bill" style="width:300px;height:400px;">
-                            <p>Best Regards,<br>Your Team</p>
+                            <h1>Thank you for joining our waitlist!</h1>
+                            <img src="https://waitlistimg.s3.us-east-2.amazonaws.com/waitlistemail.png" alt="Medical Bill" style="width:400px;height:500px;">
+                            <p>Best Regards,<br>Lapius Team</p>
                         </body>
                         </html>
                     `,

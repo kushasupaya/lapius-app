@@ -61,7 +61,7 @@ export const waitlistUser = async (email: string) => {
 
     if (response) {
       const signInResponse = await signInUser(email);
-      await sendCustomEmail(email);
+      // await sendCustomEmail(email);
       return signInResponse;
     } else {
       return response;

@@ -2,6 +2,7 @@ import { sharedConfig } from "@/lib/utils";
 import { WaitListData } from "@/types/user";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { PutCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
+import { sendCustomEmail } from "./awsSes";
 
 const client = new DynamoDBClient(sharedConfig);
 const docClient = DynamoDBDocumentClient.from(client);
@@ -20,6 +21,8 @@ export const addWaitlist = async (data: WaitListData) => {
   });
 
   const response = await docClient.send(command);
+  await sendCustomEmail(data.email);
+
   console.log(response);
   return response;
 };
