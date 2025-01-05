@@ -4,7 +4,7 @@ const ses = new AWS.SES(sharedConfig);
 
 export async function sendCustomEmail(email: string) {
   const params = {
-    Source: "kushas@lapiusai.com",
+    Source: "info@lapiusai.com",
     Destination: {
       ToAddresses: [email],
     },
@@ -15,13 +15,33 @@ export async function sendCustomEmail(email: string) {
       Body: {
         Html: {
           Data: `
-                        <html>
-                        <body>
-                            <h1>Thank you for joining our waitlist!</h1>
-                            <img src="https://waitlistimg.s3.us-east-2.amazonaws.com/waitlistemail.png" alt="Medical Bill" style="width:400px;height:500px;">
-                            <p>Best Regards,<br>Lapius Team</p>
-                        </body>
-                        </html>
+                  <html>
+                      <head>
+                        <style>
+                          body {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh; 
+                            margin: 0; 
+                            flex-direction: column; 
+                            text-align: center; 
+                          }
+                          img {
+                            width: 500px;
+                            height: 600px;
+                          }
+                        </style>
+                      </head>
+                      <body>
+                        <h1>Thank you for joining our waitlist!</h1>
+                        <img
+                          src="https://waitlistimg.s3.us-east-2.amazonaws.com/waitlistemail.png"
+                          alt="Medical Bill"
+                        />
+                        <p>Best Regards,<br>Lapius Team</p>
+                      </body>
+                    </html>
                     `,
         },
       },
