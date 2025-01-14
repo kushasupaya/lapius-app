@@ -9,13 +9,11 @@ const GetStartedButton = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-
   return (
     <>
       <Button
-        variant="primary"
-        size="primary"
-        className="mt-6"
+        variant="default"
+        className="mt-6 rounded-full bg-primary-dashboard"
         // onClick={() => setOpen((open) => !open)}
         onClick={() => router.push("#wait-list-section")}
       >

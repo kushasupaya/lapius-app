@@ -10,7 +10,7 @@ interface BreadcrumbsProps {
   items: BreadcrumbItem[];
 }
 
-export function Breadcrumbs({ items }: BreadcrumbsProps) {
+const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   return (
     <nav className="flex w-full" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 md:space-x-3">
@@ -38,4 +38,6 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
       </ol>
     </nav>
   );
-}
+};
+
+export default Breadcrumbs;

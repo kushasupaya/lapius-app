@@ -27,6 +27,8 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
 } from "@/components/ui/sidebar";
+import { usePathname } from "next/navigation";
+import SettingsDialog from "./settings/settings";
 
 interface NavItem {
   title: string;
@@ -40,37 +42,31 @@ const mainNavItems: NavItem[] = [
     title: "Overview",
     href: "/dashboard",
     icon: LayoutGrid,
-    isActive: true,
   },
   {
     title: "All Conversations",
     href: "/dashboard/conversations",
     icon: MessageSquare,
-    isActive: false,
   },
   {
     title: "Price Tool",
     href: "/dashboard/price-tool",
     icon: Calculator,
-    isActive: false,
   },
   {
     title: "Insight",
     href: "/dashboard/insight",
     icon: LineChart,
-    isActive: false,
   },
   {
     title: "AI Chatbot",
     href: "/dashboard/chatbot",
     icon: Bot,
-    isActive: false,
   },
   {
     title: "Documents",
     href: "/dashboard/documents",
     icon: FileText,
-    isActive: false,
   },
 ];
 
@@ -81,10 +77,13 @@ const favoriteItems = [
   { title: "Fusce non enim non tortor...", color: "bg-red-500" },
 ];
 
-export function DashboardSidebar() {
+const DashboardSidebar = () => {
+  const pathname = usePathname();
+  console.log(pathname);
+
   return (
-    <Sidebar className="border-r-0 bg-[#11180C]">
-      <SidebarHeader className="border-b border-muted/10 px-6 py-4">
+    <Sidebar className="border-r-0 ">
+      <SidebarHeader className="border-b border-muted-foreground px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -109,28 +108,32 @@ export function DashboardSidebar() {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {mainNavItems.map((item) => (
-                <SidebarMenuItem key={item.href}>
-                  <SidebarMenuButton
-                    asChild
-                    className={cn(
-                      "gap-2 text-white hover:bg-muted/5 hover:text-muted-foreground",
-                      item.isActive &&
-                        "bg-muted/5 rounded-lg  border-muted-foreground border"
-                    )}
-                  >
-                    <Link href={item.href}>
-                      <item.icon
-                        className={cn(
-                          "h-5 w-5",
-                          item.isActive && "text-[#ACDB88]"
-                        )}
-                      />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {mainNavItems.map((item) => {
+                const isActive = pathname === item.href;
+
+                return (
+                  <SidebarMenuItem key={item.href}>
+                    <SidebarMenuButton
+                      asChild
+                      className={cn(
+                        "gap-2 text-white hover:bg-muted/5 hover:text-muted-foreground",
+                        isActive &&
+                          "bg-muted/5 rounded-lg  border-muted-foreground border"
+                      )}
+                    >
+                      <Link href={item.href}>
+                        <item.icon
+                          className={cn(
+                            "h-5 w-5",
+                            isActive && "text-[#ACDB88]"
+                          )}
+                        />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -159,17 +162,18 @@ export function DashboardSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="mt-auto border-t border-muted/10 px-4 py-4">
+      <SidebarFooter className="mt-auto border-t border-muted-foreground px-4 py-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
               className="gap-2 hover:text-muted-foreground hover:bg-muted/5 text-white"
             >
-              <Link href="/settings">
-                <Settings className="h-5 w-5" />
-                <span>Settings</span>
-              </Link>
+              <SettingsDialog />
+              {/* <Link href="/settings"> */}
+              {/* <Settings className="h-5 w-5" />
+                <span>Settings</span> */}
+              {/* </Link> */}
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
@@ -209,4 +213,6 @@ export function DashboardSidebar() {
       </SidebarFooter>
     </Sidebar>
   );
-}
+};
+
+export default DashboardSidebar;

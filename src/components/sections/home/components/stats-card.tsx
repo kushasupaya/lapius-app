@@ -10,7 +10,7 @@ interface Props {
 const AboutCard = ({ icon, stats, title, description }: Props) => {
   return (
     <div className="bg-gray-100 p-6 rounded-2xl w-64 h-80">
-      <div className="flex justify-center items-center h-20 w-20 rounded-full bg-primary mb-14">
+      <div className="flex justify-center items-center h-20 w-20 rounded-full bg-primary-dashboard mb-14">
         <Image
           src={icon}
           alt="healthcare"
