@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { useState } from "react";
 import { Heart, ChevronDown, ChevronUp } from "lucide-react";
 import {
@@ -103,7 +103,7 @@ const medicalServices: MedicalService[] = [
   },
 ];
 
-const MedicalServicesTable = () => {
+export default function MedicalServicesTable() {
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
 
@@ -132,7 +132,7 @@ const MedicalServicesTable = () => {
     <div className="rounded-lg border bg-card">
       <Table>
         <TableHeader>
-          <TableRow className="bg-gray-50">
+          <TableRow className="bg-gray-100 hover:bg-gray-200">
             <TableHead>Code</TableHead>
             <TableHead>Description</TableHead>
             <TableHead>Provider</TableHead>
@@ -140,29 +140,30 @@ const MedicalServicesTable = () => {
             <TableHead className="w-[100px]"></TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="">
           {medicalServices.map((service, index) => (
-            <>
+            <React.Fragment key={`service-${service.code}-${index}`}>
               <TableRow
-                key={`row-${index}`}
                 className={`${
                   index === 1 ? "bg-green-50 dark:bg-primary" : ""
                 } cursor-pointer hover:bg-gray-200 transition-colors`}
                 onClick={() => toggleExpand(index)}
               >
-                <TableCell className="font-medium">
-                  <div className="text-sm">
+                <TableCell className="font-medium w-[200px]">
+                  <div>
                     <div>{service.code}</div>
                     <div className="text-sm text-muted-foreground">
                       {service.facilityType}
                     </div>
                   </div>
                 </TableCell>
-                <TableCell className="text">{service.description}</TableCell>
+                <TableCell className="font-semibold">
+                  {service.description}
+                </TableCell>
                 <TableCell className="text-teal-600">
                   {service.provider}
                 </TableCell>
-                <TableCell className="text-right">
+                <TableCell className="text-right text-teal-600">
                   ${service.listPrice.toFixed(2)}
                 </TableCell>
                 <TableCell>
@@ -170,13 +171,14 @@ const MedicalServicesTable = () => {
                     <Button
                       variant="ghost"
                       size="icon"
+                      className="hover:bg-gray-500"
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleExpand(index);
                       }}
                     >
                       {expandedRows.has(index) ? (
-                        <ChevronUp className="h-4 w-4" />
+                        <ChevronUp className="h-4 w-4 " />
                       ) : (
                         <ChevronDown className="h-4 w-4" />
                       )}
@@ -184,6 +186,7 @@ const MedicalServicesTable = () => {
                     <Button
                       variant="ghost"
                       size="icon"
+                      className="hover:bg-gray-500"
                       onClick={(e) => toggleFavorite(index, e)}
                     >
                       <Heart
@@ -198,44 +201,40 @@ const MedicalServicesTable = () => {
                 </TableCell>
               </TableRow>
               {expandedRows.has(index) && (
-                <TableRow key={`expanded-${index}`}>
-                  <TableCell colSpan={5} className="bg-gray-50 p-0">
+                <TableRow>
+                  <TableCell colSpan={5} className="bg-gray-100 p-0">
                     <Table>
                       <TableBody>
-                        {service.relatedServices?.map(
-                          (related, relatedIndex) => (
-                            <TableRow
-                              key={`related-${index}-${relatedIndex}`}
-                              className="hover:bg-gray-100 transition-colors"
-                            >
-                              <TableCell className="font-medium">
-                                <div>
-                                  <div>{related.code}</div>
-                                  <div className="text-sm text-muted-foreground">
-                                    {related.facilityType}
-                                  </div>
+                        {service.relatedServices?.map((related) => (
+                          <TableRow
+                            key={`related-${service.code}-${related.code}`}
+                            className="hover:bg-gray-50"
+                          >
+                            <TableCell className="font-medium w-[200px]">
+                              <div>
+                                <div>{related.code}</div>
+                                <div className="text-sm text-muted-foreground">
+                                  {related.facilityType}
                                 </div>
-                              </TableCell>
-                              <TableCell>{related.description}</TableCell>
-                              <TableCell></TableCell>
-                              <TableCell className="text-right text-green-600">
-                                ${related.price.toFixed(2)}
-                              </TableCell>
-                              <TableCell></TableCell>
-                            </TableRow>
-                          )
-                        )}
+                              </div>
+                            </TableCell>
+                            <TableCell>{related.description}</TableCell>
+                            <TableCell></TableCell>
+                            <TableCell className=" text-teal-600 ">
+                              ${related.price.toFixed(2)}
+                            </TableCell>
+                            <TableCell></TableCell>
+                          </TableRow>
+                        ))}
                       </TableBody>
                     </Table>
                   </TableCell>
                 </TableRow>
               )}
-            </>
+            </React.Fragment>
           ))}
         </TableBody>
       </Table>
     </div>
   );
-};
-
-export default MedicalServicesTable;
+}

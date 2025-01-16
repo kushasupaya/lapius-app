@@ -59,7 +59,7 @@ const tabs = [
 const SearchCard = () => {
   return (
     <Card className="w-[400px] space-y-2">
-      <CardHeader className="bg-gray-200 rounded-t-lg p-4">
+      <CardHeader className="bg-gray-100 rounded-t-lg p-4">
         <CardTitle>
           <div className="flex items-center gap-1">
             <IconWallet /> Price Tool
