@@ -4,14 +4,6 @@ import {
   SearchCard,
   SearchHistory,
 } from "@/components/sections/dashboard/components";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 
 export default function Home() {
   const showTable = true;

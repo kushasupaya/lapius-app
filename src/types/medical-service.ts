@@ -6,10 +6,36 @@ export interface RelatedService {
 }
 
 export interface MedicalService {
+  hospital_name: string;
+  address: string;
+  state: string;
   code: string;
-  facilityType: string;
+  code_type: string;
   description: string;
-  provider: string;
-  listPrice: number;
+  payer: string;
+  rate: number;
+  minimum: number;
+  maximum: number;
+  list_price: number;
+  cash_rate: number;
+  additional_notes: string;
+  setting: string;
   relatedServices?: RelatedService[];
+}
+
+export interface ColumnVisibility {
+  hospital_name: boolean;
+  address: boolean;
+  state: boolean;
+  code: boolean;
+  code_type: boolean;
+  description: boolean;
+  payer: boolean;
+  rate: boolean;
+  minimum: boolean;
+  maximum: boolean;
+  list_price: boolean;
+  cash_rate: boolean;
+  additional_notes: boolean;
+  setting: boolean;
 }
