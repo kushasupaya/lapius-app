@@ -91,7 +91,7 @@ const WaitListForm = () => {
           size="default"
           variant="secondary"
           type="submit"
-          className="bg-[#68B944] text-white px-8 py-2 rounded-full hover:bg-green-600 focus:outline-none transition duration-300"
+          className="bg-primary text-white px-8 py-2 rounded-full hover:bg-primary-dashboard focus:outline-none transition duration-300"
           disabled={isPending}
         >
           Sign Up

@@ -115,9 +115,9 @@ const Header = ({ isBlog }: Props) => {
                 Get Started
               </Button> */}
               <Button
-                variant="primary"
-                size="primary"
                 onClick={() => setOpenSignup(true)}
+                variant="default"
+                className="rounded-full bg-primary-dashboard"
               >
                 Get in Touch
               </Button>
@@ -195,9 +195,8 @@ const Header = ({ isBlog }: Props) => {
                   </Button> */}
 
                   <Button
-                    variant="primary"
-                    size="primary"
-                    className="w-fit"
+                    className="w-fit bg-primary-dashboard"
+                    variant={"default"}
                     onClick={() => {
                       setOpenSignup(true);
                       setMenuOpen(false);
