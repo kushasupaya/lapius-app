@@ -21,7 +21,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { ColumnVisibility } from "@/types/medical-service";
+import { ColumnVisibility, MedicalService } from "@/types/medical-service";
 import {
   defaultColumnVisibility,
   medicalServices,
@@ -29,7 +29,12 @@ import {
 import TableSearchFilter from "./table-search-filter";
 import { cn } from "@/lib/utils";
 
-export default function MedicalServicesTable() {
+interface MedicalServicesTableProps {
+  tableData: MedicalService[];
+}
+export default function MedicalServicesTable({
+  tableData,
+}: MedicalServicesTableProps) {
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
   const [columnVisibility, setColumnVisibility] = useState<ColumnVisibility>(
@@ -65,14 +70,14 @@ export default function MedicalServicesTable() {
   };
 
   const filteredServices = useMemo(() => {
-    return medicalServices.filter((service) =>
+    return tableData.filter((service) =>
       Object.entries(service).some(
         ([key, value]) =>
           columnVisibility[key as keyof ColumnVisibility] &&
           String(value).toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-  }, [medicalServices, searchTerm, columnVisibility]);
+  }, [tableData, searchTerm, columnVisibility]);
 
   const paginatedServices = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -121,7 +126,7 @@ export default function MedicalServicesTable() {
           {paginatedServices.map((service, index) => (
             <React.Fragment key={`service-${service.code}-${index}`}>
               <TableRow
-                className={` odd:bg-green-50 cursor-pointer hover:bg-gray-100 transition-colors dark:odd:bg-primary`}
+                className={` odd:bg-green-50 cursor-pointer hover:bg-gray-100 transition-colors dark:odd:bg-primary `}
                 onClick={() => toggleExpand(index)}
               >
                 {columnVisibility.code && (
@@ -272,6 +277,7 @@ export default function MedicalServicesTable() {
         </div>
         <Pagination>
           <PaginationContent>
+            {/* Previous Button */}
             <PaginationItem>
               <PaginationPrevious
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -282,16 +288,28 @@ export default function MedicalServicesTable() {
                 )}
               />
             </PaginationItem>
-            {[...Array(totalPages)].map((_, i) => (
-              <PaginationItem key={i}>
-                <PaginationLink
-                  onClick={() => setCurrentPage(i + 1)}
-                  isActive={currentPage === i + 1}
-                >
-                  {i + 1}
-                </PaginationLink>
-              </PaginationItem>
-            ))}
+
+            {/* Dynamic Page Numbers */}
+            {[...Array(totalPages)]
+              .map((_, i) => i + 1)
+              .filter((page) => {
+                // Show only 3 pages at a time around the current page
+                const rangeStart = Math.max(currentPage - 1, 1);
+                const rangeEnd = Math.min(currentPage + 1, totalPages);
+                return page >= rangeStart && page <= rangeEnd;
+              })
+              .map((page) => (
+                <PaginationItem key={page}>
+                  <PaginationLink
+                    onClick={() => setCurrentPage(page)}
+                    isActive={currentPage === page}
+                  >
+                    {page}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+
+            {/* Next Button */}
             <PaginationItem>
               <PaginationNext
                 onClick={() =>

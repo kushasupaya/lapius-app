@@ -8,6 +8,7 @@ import {
   LockIcon,
   Paintbrush,
   Receipt,
+  Settings,
   User2,
 } from "lucide-react";
 
@@ -81,9 +82,12 @@ const SettingsDialog = () => {
   };
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <div className="flex text-sm items-center space-x-2 cursor-pointer ml-1.5 hover:text-muted-foreground">
-          <IconSettings className="h-5 w-5" />
+      <DialogTrigger
+        asChild
+        className="hover:bg-muted/5 hover:bg-teal-900 px-4 py-2.5 rounded-md"
+      >
+        <div className="flex text-sm text-green-100  items-center space-x-2 cursor-pointer">
+          <Settings className="h-5 w-5" />
           <span>Settings</span>
         </div>
       </DialogTrigger>

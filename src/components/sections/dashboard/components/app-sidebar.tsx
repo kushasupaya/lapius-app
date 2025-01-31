@@ -4,11 +4,10 @@ import {
   Bell,
   LayoutGrid,
   MessageSquare,
-  Calculator,
+  PiggyBank,
   LineChart,
+  BookCheck,
   Bot,
-  FileText,
-  Settings,
   HelpCircle,
 } from "lucide-react";
 import Image from "next/image";
@@ -51,7 +50,7 @@ const mainNavItems: NavItem[] = [
   {
     title: "Price Tool",
     href: "/dashboard/price-tool",
-    icon: Calculator,
+    icon: PiggyBank,
   },
   {
     title: "Insight",
@@ -66,7 +65,7 @@ const mainNavItems: NavItem[] = [
   {
     title: "Documents",
     href: "/dashboard/documents",
-    icon: FileText,
+    icon: BookCheck,
   },
 ];
 
@@ -83,27 +82,27 @@ const DashboardSidebar = () => {
 
   return (
     <Sidebar className="border-r-0 ">
-      <SidebarHeader className="border-b border-muted-foreground px-6 py-4">
+      <SidebarHeader className=" px-8 py-4 bg-[#]">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/logo/logo.svg"
               alt="Lapius Logo"
-              width={120}
-              height={24}
+              width={80}
+              height={16}
               className="rounded-sm"
             />
             {/* <span className="text-lg font-semibold text-white">LAPIUS</span> */}
           </Link>
-          <div className="rounded-full border-muted-foreground border p-1">
-            <Bell className="h-5 w-5  text-white " />
+          <div className="rounded-full p-2">
+            <Bell className="h-4 w-4  text-white " />
           </div>
         </div>
       </SidebarHeader>
 
       <SidebarContent className="px-4 py-4">
         <SidebarGroup>
-          <SidebarGroupLabel className="px-2 text-xs font-semibold text-muted-foreground ">
+          <SidebarGroupLabel className="px-2 text-xs font-semibold text-teal-700 ">
             MAIN
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -116,17 +115,14 @@ const DashboardSidebar = () => {
                     <SidebarMenuButton
                       asChild
                       className={cn(
-                        "gap-2 text-white hover:bg-muted/5 hover:text-muted-foreground",
+                        "gap-2 text-green-100 text-sm leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4",
                         isActive &&
-                          "bg-muted/5 rounded-lg  border-muted-foreground border"
+                          "text-sm text-white leading-5 font-medium rounded-lg bg-teal-800 py-5 px-4"
                       )}
                     >
                       <Link href={item.href}>
                         <item.icon
-                          className={cn(
-                            "h-5 w-5",
-                            isActive && "text-[#ACDB88]"
-                          )}
+                          className={cn("h-5 w-5", isActive && "text-lime-300")}
                         />
                         <span>{item.title}</span>
                       </Link>
@@ -139,7 +135,7 @@ const DashboardSidebar = () => {
         </SidebarGroup>
 
         <SidebarGroup className="mt-8">
-          <SidebarGroupLabel className="px-2 text-xs font-semibold text-muted-foreground">
+          <SidebarGroupLabel className="px-2 text-xs font-semibold text-teal-700 ">
             FAVORITES
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -148,7 +144,7 @@ const DashboardSidebar = () => {
                 <SidebarMenuItem key={index}>
                   <SidebarMenuButton
                     asChild
-                    className="gap-2 hover:text-muted-foreground hover:bg-muted/5 text-white"
+                    className="gap-2 text-green-100 text-sm leading-5 font-medium  hover:white hover:bg-muted/5"
                   >
                     <Link href="#">
                       <div className={cn("h-2 w-2 rounded-full", item.color)} />
@@ -162,24 +158,24 @@ const DashboardSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="mt-auto border-t border-muted-foreground px-4 py-4">
+      <SidebarFooter className="mt-auto px-4 py-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="gap-2 hover:text-muted-foreground hover:bg-muted/5 text-white"
+              className="gap-2 text-green-100 text-sm leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
             >
               <SettingsDialog />
-              {/* <Link href="/settings"> */}
-              {/* <Settings className="h-5 w-5" />
-                <span>Settings</span> */}
-              {/* </Link> */}
+              {/* <Link href="/settings">
+              <Settings className="h-5 w-5" />
+                <span>Settings</span>
+              </Link> */}
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="gap-2 hover:text-muted-foreground hover:bg-muted/5 text-white"
+              className="gap-2 text-green-100 text-sm leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
             >
               <Link href="/help">
                 <HelpCircle className="h-5 w-5" />

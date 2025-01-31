@@ -39,3 +39,13 @@ export interface ColumnVisibility {
   additional_notes: boolean;
   setting: boolean;
 }
+
+export interface PriceToolForm {
+  procedureCode: string;
+  zipCode: string;
+  type: PriceToolType;
+}
+export enum PriceToolType {
+  PROCEDURE = "procedure",
+  MEDICAL_ISSUE = "medical_issue",
+}
