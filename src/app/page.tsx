@@ -1,10 +1,14 @@
 import { Footer, Header } from "@/components/common";
 import {
-  AboutSection,
+  ContactSection,
+  CtaSection,
+  DiscoverSection,
+  EstimateCostSection,
   FaqSection,
+  FeaturesSection,
   HeroSection,
-  ServicesSection,
-  WaitListSection,
+  PriceInfoSection,
+  SliderSection,
 } from "@/components/sections/home";
 
 export default function Home() {
@@ -13,10 +17,14 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <WaitListSection />
+        <FeaturesSection />
+        <PriceInfoSection />
+        <EstimateCostSection />
+        <DiscoverSection />
+        <SliderSection />
+        <ContactSection />
         <FaqSection />
+        <CtaSection />
       </main>
       <Footer />
     </>

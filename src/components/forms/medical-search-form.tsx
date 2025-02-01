@@ -1,0 +1,105 @@
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
+import { Search, MapPin } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
+
+const formSchema = z.object({
+  procedure: z.string().min(2, {
+    message: "Please enter a procedure name",
+  }),
+  zipCode: z.string().regex(/^\d{5}$/, {
+    message: "Please enter a valid 5-digit zip code",
+  }),
+})
+
+const MedicalSearchForm = () => {
+  const procedures = ["Colonoscopy", "Knee Repair - Arthroscopic", "MRI with Contrast", "Tonsil and/or Adenoid Removal"]
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      procedure: "",
+      zipCode: "",
+    },
+  })
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
+    // Handle form submission here
+  }
+
+  const handleSuggestionClick = (procedure: string) => {
+    form.setValue("procedure", procedure)
+  }
+
+  return (
+    <div className="w-full max-w-4xl mx-auto p-4 space-y-6">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <div className="flex w-full">
+            <FormField
+              control={form.control}
+              name="procedure"
+              render={({ field }) => (
+                <FormItem className="relative flex-1">
+                  <FormControl>
+                    <div className="relative text-base">
+                      <Search size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
+                      <Input placeholder="Enter a procedure" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-full rounded-r-none" {...field} />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="relative">
+              <FormField
+                control={form.control}
+                name="zipCode"
+                render={({ field }) => (
+                  <FormItem className="relative w-60 text-base">
+                    <FormControl>
+                      <div className="relative">
+                        <MapPin size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
+                        <Input placeholder="Zip Code" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-none rounded-r-full" maxLength={5} {...field} />
+                      </div>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="z-10 absolute top-2 right-2">
+                <Button type="submit" className="h-12 w-12 p-2 rounded-full text-2xl bg-primary-dashboard">
+                  <Search size="24" className="h-6 w-6" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </Form>
+
+      <div className="flex flex-wrap justify-center gap-2">
+        {procedures.map((procedure) => (
+          <Badge
+            key={procedure}
+            variant="default"
+            className="px-4 py-2 text-sm bg-white font-normal rounded-3xl shadow-none border border-border cursor-pointer hover:bg-gray-100"
+            onClick={() => handleSuggestionClick(procedure)}
+          >
+            <Search size={14} className="h-4 w-4 mr-1.5" />
+            {procedure}
+          </Badge>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default MedicalSearchForm;

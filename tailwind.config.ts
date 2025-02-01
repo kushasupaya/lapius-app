@@ -90,6 +90,10 @@ export default {
       spacing: {
         "4.5": "18px",
       },
+      backgroundImage: {
+        "rectangular-pattern": "url('/images/background/rectangular-pattern.svg')",
+        "elliptical-pattern": "url('/images/background/elliptical-pattern.svg')",
+      },
       keyframes: {
         "accordion-down": {
           from: {

@@ -37,17 +37,12 @@ const Header = ({ isBlog }: Props) => {
       <header
         className={cn(
           "top-0 fixed z-50 w-full",
-          isScrolled || isBlog ? "bg-secondary shadow-sm" : "bg-transparent"
+          "bg-transparent"
         )}
       >
-        <div className="w-full h-8 bg-[#000909] text-center py-2.5 px-4">
-          <p className="text-white text-[10px] font-medium uppercase">
-            Introducing Lapius - Join the waitlist for early access
-          </p>
-        </div>
-        <div className="relative container mx-auto py-4 px-4 lg:px-0">
+        <div className="relative container bg-secondary shadow-sm mx-auto py-2 px-2 mt-7 md:px-0 rounded-full">
           <div className="flex justify-between items-center">
-            <Link className="w-20" href="/">
+            <Link className="w-28 ml-5" href="/">
               <Logo variant="default" />
             </Link>
 
@@ -60,6 +55,24 @@ const Header = ({ isBlog }: Props) => {
                 Why Lapius
               </Link> */}
               <Link
+                href="/#"
+                className="text-base text-white font-medium hover:text-primary-dashboard"
+              >
+                Product
+              </Link>
+              <Link
+                href="/#"
+                className="text-base text-white font-medium hover:text-primary-dashboard"
+              >
+                Resources
+              </Link>
+              <Link
+                href="/#"
+                className="text-base text-white font-medium hover:text-primary-dashboard"
+              >
+                Company
+              </Link>
+              {/* <Link
                 href="/#how-it-works"
                 className="text-sm text-white font-medium hover:text-primary"
               >
@@ -82,7 +95,7 @@ const Header = ({ isBlog }: Props) => {
                 className="text-sm text-white font-medium hover:text-primary"
               >
                 FAQ
-              </Link>
+              </Link> */}
             </nav>
 
             {/* Hamburger Menu Icon */}
@@ -101,40 +114,26 @@ const Header = ({ isBlog }: Props) => {
 
             {/* Sign In and Get Started Buttons */}
             <div className="hidden md:flex items-center gap-6">
-              {/* <p
-                className="text-sm text-white font-medium hover:text-primary cursor-pointer"
-                onClick={() => setOpen(true)}
+              <p
+                className="text-base text-white font-medium hover:text-primary-dashboard cursor-pointer"
+                // onClick={() => setOpenSignup(true)}
               >
-                Sign In
+                Sign Up
               </p>
               <Button
-                variant="primary"
-                size="primary"
-                onClick={() => setOpenSignup(true)}
+                variant="ghost"
+                className="px-3.5 py-5 bg-white text-black font-semibold mr-2 rounded-full"
+                // onClick={() => setOpen(true)}
               >
-                Get Started
-              </Button> */}
-              <Button
-                onClick={() => setOpenSignup(true)}
-                variant="default"
-                className="rounded-full bg-primary-dashboard"
-              >
-                Get in Touch
+                Login
               </Button>
-              {/* <Button
-                variant="primary"
-                size="primary"
-                onClick={() => router.push("#wait-list-section")}
-              >
-                Get in Touch
-              </Button> */}
             </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <div className="absolute top-[88px] left-0 w-full bg-secondary pb-6 md:hidden">
+          <div className="absolute top-[68px] left-0 w-full bg-secondary py-6 md:hidden">
             <div className="container mx-auto px-4">
               <nav className="flex flex-col gap-4">
                 {/* <Link
@@ -144,7 +143,7 @@ const Header = ({ isBlog }: Props) => {
                 >
                   Why Lapius
                 </Link> */}
-                <Link
+                {/* <Link
                   href="/#how-it-works"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
@@ -171,8 +170,41 @@ const Header = ({ isBlog }: Props) => {
                   onClick={() => setMenuOpen(false)}
                 >
                   FAQ
+                </Link> */}
+                <Link
+                  href="/#"
+                  className="text-base text-white font-medium hover:text-primary-dashboard"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Product
+                </Link>
+                <Link
+                  href="/#"
+                  className="text-base text-white font-medium hover:text-primary-dashboard"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Resources
+                </Link>
+                <Link
+                  href="/#"
+                  className="text-base text-white font-medium hover:text-primary-dashboard"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Company
                 </Link>
                 <div className="flex flex-col gap-4">
+                  <p
+                    className="text-base text-white font-medium hover:text-primary-dashboard cursor-pointer"
+                    // onClick={() => setOpenSignup(true)}
+                  >
+                    Login
+                  </p>
+                  <p
+                    className="text-base text-white font-medium hover:text-primary-dashboard cursor-pointer"
+                    // onClick={() => setOpenSignup(true)}
+                  >
+                    Sign Up
+                  </p>
                   {/* <p
                     className="text-sm text-white font-medium hover:text-primary cursor-pointer"
                     onClick={() => {
@@ -194,7 +226,7 @@ const Header = ({ isBlog }: Props) => {
                     Get Started
                   </Button> */}
 
-                  <Button
+                  {/* <Button
                     className="w-fit bg-primary-dashboard"
                     variant={"default"}
                     onClick={() => {
@@ -203,7 +235,7 @@ const Header = ({ isBlog }: Props) => {
                     }}
                   >
                     Get in Touch
-                  </Button>
+                  </Button> */}
                   {/* <Button
                     variant="primary"
                     size="primary"

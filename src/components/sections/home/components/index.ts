@@ -5,3 +5,4 @@ export { default as SectionTitle } from './section-title';
 export { default as StatsCard } from './stats-card';
 export { default as ScrollableContents } from './scrollable-contents';
 export { default as VideoSlider } from './video-slider';
+export { default as PriceSlider } from './price-slider';

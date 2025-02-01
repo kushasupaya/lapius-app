@@ -1,0 +1,26 @@
+.horizontal-pagination {
+  position: absolute;
+  bottom: 48px;
+  z-index: 1;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 4px;
+  justify-content: center;
+}
+
+.custom-bullet {
+  opacity: 0.28;
+  background-color: #fff;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: block;
+  margin: 4px 0;
+  outline: none;
+}
+
+.horizontal-bullet-active {
+  background-color: #fff;
+  opacity: 1;
+}
