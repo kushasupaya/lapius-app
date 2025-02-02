@@ -4,7 +4,7 @@ import MedicalSearchForm from "@/components/forms/medical-search-form";
 const HeroSection = () => {
   return (
     <section className="bg-rectangular-pattern bg-center bg-cover bg-no-repeat w-full scroll-mt-56 rounded-b-[54px]">
-      <div className="flex flex-col justify-between md:min-h-screen">
+      <div className="flex flex-col justify-between">
         <div className="container mx-auto px-4 md:px-0 mt-52 mb-2">
           <div className="mb-1">
             <h1 className="font-bold text-[68px]/[68px] text-center">Take control of your</h1>
