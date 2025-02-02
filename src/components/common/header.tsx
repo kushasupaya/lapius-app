@@ -38,7 +38,7 @@ const Header = ({ isBlog }: Props) => {
         <div
           className="relative container bg-secondary shadow-sm mx-auto 
         xl:max-w-[1280px] 2xl:max-w-[1280px]
-        py-2 px-2 mt-7 md:px-0 rounded-full "
+        py-4 px-2 mt-7 md:px-0 rounded-full "
         >
           <div className="flex justify-between items-center">
             <Link className="w-28 ml-5" href="/">
