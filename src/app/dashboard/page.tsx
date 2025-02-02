@@ -13,21 +13,19 @@ export default function Home() {
   const [tableData, setTableData] = useState<MedicalService[]>();
   return (
     <div>
-      <div className="space-y-6">
-        <div className="rounded-lg p-4">
-          <div className="flex flex-col gap-4 ">
-            <div className="flex flex-row gap-4">
-              <div className="space-y-4">
-                <SearchCard setTableData={setTableData} />
-                <SearchHistory />
-              </div>
-              <div className="flex-grow h-screen">
-                {!tableData ? (
-                  <EmptyContent />
-                ) : (
-                  <MedicalServicesTable tableData={tableData} />
-                )}
-              </div>
+      <div className="rounded-lg p-4">
+        <div className="flex flex-col gap-4 ">
+          <div className="flex flex-row gap-4">
+            <div className="space-y-4">
+              <SearchCard setTableData={setTableData} />
+              <SearchHistory />
+            </div>
+            <div className="flex-grow h-screen">
+              {!tableData ? (
+                <EmptyContent />
+              ) : (
+                <MedicalServicesTable tableData={tableData} />
+              )}
             </div>
           </div>
         </div>

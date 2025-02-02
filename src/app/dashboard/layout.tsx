@@ -36,7 +36,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h1 className="text-xl font-bold mt-2">{currentPage}</h1>
             </div>
           </div> */}
-          <div className="flex flex-1 flex-col gap-4 p-2">{children}</div>
+          <div className="flex flex-1 flex-col gap-4 p-2 bg-gray-100">
+            {children}
+          </div>
         </main>
       </SidebarInset>
     </SidebarProvider>

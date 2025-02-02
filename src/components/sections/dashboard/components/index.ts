@@ -11,3 +11,4 @@ export { default as InsuranceSection } from "./settings/insurance-section";
 export { default as PrivacyNotice } from "./settings/privacy-notice";
 export { default as MedicalServicesTable } from "./price-table";
 export { default as TableSearchFilter } from "./table-search-filter";
+export { default as MedicalCodeAccordion } from "./medical-code-accordion";
