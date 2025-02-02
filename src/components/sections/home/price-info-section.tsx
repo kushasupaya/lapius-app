@@ -4,7 +4,7 @@ import Image from "next/image";
 const PriceInfoSection = () => {
   return (
     <section>
-      <div className="container mx-auto p-4 lg:px-12 lg:pb-[100px]">
+      <div className="container mx-auto p-4 lg:px-0 lg:pb-[100px] ">
         <div className="grid gap-16 grid-cols-1 lg:grid-cols-2">
           <div className="mt-[84px]">
             <h2 className="text-[43px]/[54px] font-bold max-w-lg mb-4">
@@ -46,11 +46,11 @@ const PriceInfoSection = () => {
           <div>
             <Image
               alt=""
-              src="/images/img1.svg"
-              style={{ objectFit: "cover" }}
+              src="/images/costestimate.svg"
               height={1200}
               width={1200}
               className="h-auto w-full aspect-square"
+              unoptimized
             />
           </div>
           <div className="mt-[80px]">
