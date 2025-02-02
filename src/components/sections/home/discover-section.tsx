@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Image from "next/image";
 
 const withoutLapius = [
@@ -21,7 +27,8 @@ const withoutLapius = [
   {
     icon: "/icons/money-euro.svg",
     title: "Fragmented Costs",
-    description: "Often focuses on procedure codes without factoring additional fees.",
+    description:
+      "Often focuses on procedure codes without factoring additional fees.",
   },
 ];
 
@@ -55,32 +62,48 @@ const DiscoverSection = () => {
         <div className="pt-[115px] pb-[100px] flex flex-col">
           <div className="flex flex-col lg:flex-row gap-[50px] lg:items-stretch">
             <div className="flex-1 lg:max-w-[549px] flex flex-col">
-              <p className="text-xl font-bold mb-9">Without Lapius</p>
+              <p className="text-2xl font-bold mb-9">Without Lapius</p>
               <div className="w-full p-4 flex-1 rounded-xl border bg-card text-card-foreground shadow">
                 {withoutLapius.map((item, index) => (
                   <div key={index} className="p-6 flex gap-6 items-center">
                     <div className="min-h-14 min-w-14 max-h-14 max-w-14 p-4 rounded-full flex items-center justify-center border border-border">
-                      <Image alt="" src={item.icon} height={24} width={24} className="h-6 w-6" />
+                      <Image
+                        alt=""
+                        src={item.icon}
+                        height={24}
+                        width={24}
+                        className="h-6 w-6"
+                      />
                     </div>
                     <div>
                       <p className="text-base font-bold mb-1">{item.title}</p>
-                      <p className="text-base text-muted-foreground mb-1">{item.description}</p>
+                      <p className="text-base text-muted-foreground mb-1">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
             <div className="flex-1 lg:mt-0 flex flex-col">
-              <p className="text-xl font-bold mb-9">With Lapius</p>
+              <p className="text-2xl font-bold mb-9">With Lapius</p>
               <div className="w-full p-4 flex-1 rounded-xl border bg-card text-card-foreground shadow">
                 {withLapius.map((item, index) => (
                   <div key={index} className="p-6 flex gap-6 items-center">
                     <div className="min-h-14 min-w-14 max-h-14 max-w-14 bg-primary-dashboard p-4 rounded-full flex items-center justify-center border border-border">
-                      <Image alt="" src={item.icon} height={24} width={24} className="h-6 w-6" />
+                      <Image
+                        alt=""
+                        src={item.icon}
+                        height={24}
+                        width={24}
+                        className="h-6 w-6"
+                      />
                     </div>
                     <div>
                       <p className="text-base font-bold mb-1">{item.title}</p>
-                      <p className="text-base text-muted-foreground mb-1">{item.description}</p>
+                      <p className="text-base text-muted-foreground mb-1">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -90,7 +113,7 @@ const DiscoverSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default DiscoverSection;
