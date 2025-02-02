@@ -27,7 +27,7 @@ const HeroSection = () => {
             <MedicalSearchForm />
           </div>
         </div>
-        <div className="hidden md:block overflow-hidden w-full">
+        <div className="hidden md:block 2xl:container mx-auto overflow-hidden w-full">
           <Image
             src="/images/hero-background.png"
             alt="Lapius AI"
