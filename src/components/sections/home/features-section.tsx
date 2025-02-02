@@ -24,7 +24,7 @@ const features = [
 const FeaturesSection = () => {
   return (
     <section className="bg-elliptical-pattern bg-center bg-cover bg-no-repeat w-full">
-      <div className="container px-4 mx-auto pt-[100px] pb-[85px]">
+      <div className="container px-4 md:px-0 mx-auto pt-[100px] pb-[85px]">
         <h2 className="text-[43px]/[54px] font-bold mb-[111px]">Empowering you with the right tools to<br />make informed medical decisions</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
           {

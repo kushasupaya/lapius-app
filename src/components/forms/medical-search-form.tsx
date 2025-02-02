@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
+import { IconHeartBolt, IconMapPin } from "@tabler/icons-react"
 
 const formSchema = z.object({
   procedure: z.string().min(2, {
@@ -15,6 +16,9 @@ const formSchema = z.object({
   }),
   zipCode: z.string().regex(/^\d{5}$/, {
     message: "Please enter a valid 5-digit zip code",
+  }),
+  insurance: z.string().min(1, {
+    message: "Please select an insurance",
   }),
 })
 
@@ -26,6 +30,7 @@ const MedicalSearchForm = () => {
     defaultValues: {
       procedure: "",
       zipCode: "",
+      insurance: "",
     },
   })
 
@@ -39,7 +44,7 @@ const MedicalSearchForm = () => {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 space-y-3">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="flex w-full">
@@ -58,16 +63,31 @@ const MedicalSearchForm = () => {
                 </FormItem>
               )}
             />
-            <div className="relative">
+            <FormField
+              control={form.control}
+              name="zipCode"
+              render={({ field }) => (
+                <FormItem className="relative w-40 text-base">
+                  <FormControl>
+                    <div className="relative">
+                      <IconMapPin size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
+                      <Input placeholder="Zip Code" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-none rounded-r-none" maxLength={5} {...field} />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="relative flex-1">
               <FormField
                 control={form.control}
-                name="zipCode"
+                name="insurance"
                 render={({ field }) => (
-                  <FormItem className="relative w-60 text-base">
+                  <FormItem className="relative text-base">
                     <FormControl>
                       <div className="relative">
-                        <MapPin size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
-                        <Input placeholder="Zip Code" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-none rounded-r-full" maxLength={5} {...field} />
+                        <IconHeartBolt size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
+                        <Input placeholder="I am not using insurance" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-none rounded-r-full" {...field} />
                       </div>
                     </FormControl>
                     <FormMessage />

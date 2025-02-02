@@ -19,7 +19,6 @@ export default function Home() {
         <HeroSection />
         <FeaturesSection />
         <PriceInfoSection />
-        <EstimateCostSection />
         <DiscoverSection />
         <SliderSection />
         <ContactSection />
