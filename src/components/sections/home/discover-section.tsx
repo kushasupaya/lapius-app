@@ -54,7 +54,7 @@ const DiscoverSection = () => {
       <div className="container mx-auto px-4 lg:px-0">
         <div className="pt-[115px] pb-[100px] flex flex-col min-h-screen">
           <div className="flex flex-col lg:flex-row gap-[50px] lg:items-stretch">
-            <div className="flex-1 lg:max-w-[467px] flex flex-col">
+            <div className="flex-1 lg:max-w-[549px] flex flex-col">
               <p className="text-xl font-bold mb-9">Without Lapius</p>
               <div className="w-full p-4 flex-1 rounded-xl border bg-card text-card-foreground shadow">
                 {withoutLapius.map((item, index) => (
