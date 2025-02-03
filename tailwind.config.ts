@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jakarta: ['"Plus Jakarta Sans"', "sans-serif"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -91,8 +94,11 @@ export default {
         "4.5": "18px",
       },
       backgroundImage: {
-        "rectangular-pattern": "url('/images/background/rectangular-pattern.svg')",
-        "elliptical-pattern": "url('/images/background/elliptical-pattern.svg')",
+        "rectangular-pattern":
+          "url('/images/background/rectangular-pattern.svg')",
+        "landingpage-pattern": "url('/images/background/herobg.svg')",
+        "elliptical-pattern":
+          "url('/images/background/elliptical-pattern.svg')",
       },
       keyframes: {
         "accordion-down": {

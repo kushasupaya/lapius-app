@@ -1,14 +1,20 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { Search, MapPin } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
-import { IconHeartBolt, IconMapPin } from "@tabler/icons-react"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Search, MapPin } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { IconHeartBolt, IconMapPin } from "@tabler/icons-react";
 
 const formSchema = z.object({
   procedure: z.string().min(2, {
@@ -20,10 +26,15 @@ const formSchema = z.object({
   insurance: z.string().min(1, {
     message: "Please select an insurance",
   }),
-})
+});
 
 const MedicalSearchForm = () => {
-  const procedures = ["Colonoscopy", "Knee Repair - Arthroscopic", "MRI with Contrast", "Tonsil and/or Adenoid Removal"]
+  const procedures = [
+    "Colonoscopy",
+    "Knee Repair - Arthroscopic",
+    "MRI with Contrast",
+    "Tonsil and/or Adenoid Removal",
+  ];
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -32,19 +43,19 @@ const MedicalSearchForm = () => {
       zipCode: "",
       insurance: "",
     },
-  })
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    console.log(values);
     // Handle form submission here
   }
 
   const handleSuggestionClick = (procedure: string) => {
-    form.setValue("procedure", procedure)
-  }
+    form.setValue("procedure", procedure);
+  };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 space-y-3">
+    <div className="w-full max-w-5xl mx-auto p-4 space-y-3">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="flex w-full">
@@ -55,8 +66,15 @@ const MedicalSearchForm = () => {
                 <FormItem className="relative flex-1">
                   <FormControl>
                     <div className="relative text-base">
-                      <Search size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
-                      <Input placeholder="Enter a procedure" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-full rounded-r-none" {...field} />
+                      <Search
+                        size="24"
+                        className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6"
+                      />
+                      <Input
+                        placeholder="Enter a procedure"
+                        className="pl-14 bg-white pr-4 h-16 text-base 2xl:text-lg md:text-base rounded-l-full rounded-r-none"
+                        {...field}
+                      />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -70,8 +88,16 @@ const MedicalSearchForm = () => {
                 <FormItem className="relative w-40 text-base">
                   <FormControl>
                     <div className="relative">
-                      <IconMapPin size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
-                      <Input placeholder="Zip Code" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-none rounded-r-none" maxLength={5} {...field} />
+                      <IconMapPin
+                        size="24"
+                        className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6"
+                      />
+                      <Input
+                        placeholder="Zip Code"
+                        className="pl-14 bg-white pr-4 h-16 text-base 2xl:text-lg md:text-base rounded-l-none rounded-r-none"
+                        maxLength={5}
+                        {...field}
+                      />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -86,8 +112,15 @@ const MedicalSearchForm = () => {
                   <FormItem className="relative text-base">
                     <FormControl>
                       <div className="relative">
-                        <IconHeartBolt size="24" className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6" />
-                        <Input placeholder="I am not using insurance" className="pl-14 bg-white pr-4 h-16 text-base md:text-base rounded-l-none rounded-r-full" {...field} />
+                        <IconHeartBolt
+                          size="24"
+                          className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6"
+                        />
+                        <Input
+                          placeholder="I am not using insurance"
+                          className="pl-14 bg-white pr-4 h-16 text-base 2xl:text-lg md:text-base rounded-l-none rounded-r-full"
+                          {...field}
+                        />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -96,7 +129,10 @@ const MedicalSearchForm = () => {
               />
 
               <div className="z-10 absolute top-2 right-2">
-                <Button type="submit" className="h-12 w-12 p-2 rounded-full text-2xl bg-primary-dashboard">
+                <Button
+                  type="submit"
+                  className="h-12 w-12 p-2 rounded-full text-2xl bg-primary-dashboard"
+                >
                   <Search size="24" className="h-6 w-6" />
                 </Button>
               </div>
@@ -119,7 +155,7 @@ const MedicalSearchForm = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default MedicalSearchForm;

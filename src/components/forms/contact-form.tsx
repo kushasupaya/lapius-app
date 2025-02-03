@@ -1,20 +1,33 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Textarea } from "../ui/textarea"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
   country: z.string().min(1, "Please select a country"),
-})
+});
 
 export default function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -25,10 +38,10 @@ export default function ContactForm() {
       phone: "",
       country: "",
     },
-  })
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    console.log(values);
   }
 
   return (
@@ -42,7 +55,11 @@ export default function ContactForm() {
               <FormItem>
                 <FormLabel className="text-base font-bold">Full name</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} className="h-12 md:text-base" />
+                  <Input
+                    placeholder=""
+                    {...field}
+                    className="h-12 md:text-base"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -55,7 +72,12 @@ export default function ContactForm() {
               <FormItem>
                 <FormLabel className="text-base font-bold">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} type="email" className="h-12 md:text-base" />
+                  <Input
+                    placeholder=""
+                    {...field}
+                    type="email"
+                    className="h-12 md:text-base"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -68,7 +90,12 @@ export default function ContactForm() {
               <FormItem>
                 <FormLabel className="text-base font-bold">Phone</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} type="tel" className="h-12 md:text-base" />
+                  <Input
+                    placeholder=""
+                    {...field}
+                    type="tel"
+                    className="h-12 md:text-base"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -80,7 +107,10 @@ export default function ContactForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-base font-bold">Country</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
                   <FormControl>
                     <SelectTrigger className="h-12 text-base">
                       <SelectValue placeholder="Select a Country" />
@@ -110,12 +140,14 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full h-12 text-base bg-primary-dashboard font-bold">
+          <Button
+            type="submit"
+            className="w-full h-12 text-base bg-primary-dashboard font-bold"
+          >
             Submit
           </Button>
         </form>
       </Form>
     </div>
-  )
+  );
 }
-

@@ -37,16 +37,16 @@ const Header = ({ isBlog }: Props) => {
       <header className={cn("top-0 fixed z-50 w-full", "bg-transparent")}>
         <div
           className="relative container bg-secondary shadow-sm mx-auto 
-        xl:max-w-[1280px] 2xl:max-w-[1280px]
-        py-4 px-2 mt-7 md:px-0 rounded-full "
+        xl:max-w-[1024px] 2xl:max-w-[1280px]
+        py-3 px-2 mt-7 md:px-0 rounded-full "
         >
           <div className="flex justify-between items-center">
-            <Link className="w-28 ml-5" href="/">
-              <Logo variant="default" />
+            <Link className="w-30 ml-8" href="/">
+              <Logo variant="default" size="large" />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex gap-8 lg:ml-12">
+            <nav className="hidden md:flex gap-8 lg:ml-12 ">
               {/* <Link
                 href="/why-lapius"
                 className="text-sm text-white font-medium hover:text-primary"
@@ -55,19 +55,19 @@ const Header = ({ isBlog }: Props) => {
               </Link> */}
               <Link
                 href="/#"
-                className="text-base text-white font-medium hover:text-primary-dashboard"
+                className="text-lg text-white font-medium hover:text-primary-dashboard"
               >
                 Product
               </Link>
               <Link
                 href="/#"
-                className="text-base text-white font-medium hover:text-primary-dashboard"
+                className="text-lg text-white font-medium hover:text-primary-dashboard"
               >
                 Resources
               </Link>
               <Link
                 href="/#"
-                className="text-base text-white font-medium hover:text-primary-dashboard"
+                className="text-lg text-white font-medium hover:text-primary-dashboard"
               >
                 Company
               </Link>
@@ -114,14 +114,14 @@ const Header = ({ isBlog }: Props) => {
             {/* Sign In and Get Started Buttons */}
             <div className="hidden md:flex items-center gap-6">
               <p
-                className="text-base text-white font-medium hover:text-primary-dashboard cursor-pointer"
+                className="text-lg text-white font-medium hover:text-primary-dashboard cursor-pointer"
                 // onClick={() => setOpenSignup(true)}
               >
                 Sign Up
               </p>
               <Button
                 variant="ghost"
-                className="px-3.5 py-5 bg-white text-black font-semibold mr-2 rounded-full"
+                className="px-7 py-6 bg-white text-black  mr-3.5 rounded-full text-lg"
                 // onClick={() => setOpen(true)}
               >
                 Login
