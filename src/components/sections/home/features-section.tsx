@@ -37,7 +37,7 @@ const FeaturesSection = () => {
     >
       <div className="container px-4 md:px-0 mx-auto pt-[100px] pb-[85px]">
         <h2
-          className={`text-[43px]/[54px] font-bold mb-[111px] ${plusJakartaSans.className}`}
+          className={`text-[43px]/[54px] font-bold mb-[100px] ${plusJakartaSans.className}`}
         >
           Empowering you with the right tools to
           <br />
