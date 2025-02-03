@@ -13,15 +13,6 @@ import {
 } from "lucide-react";
 
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -40,9 +31,10 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar";
-import { IconSettings } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { InsuranceSection, PersonalSection, PrivacyNotice } from "..";
+import PersonalSection from "./personal-section";
+import InsuranceSection from "./insurance-section";
+import PrivacyNotice from "./privacy-notice";
 
 const medicalBillnav = {
   nav: [

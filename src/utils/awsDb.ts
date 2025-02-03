@@ -21,7 +21,7 @@ export const addWaitlist = async (data: WaitListData) => {
   });
 
   const response = await docClient.send(command);
-  await sendCustomEmail(data.email);
+  // await sendCustomEmail(data.email);
 
   console.log(response);
   return response;

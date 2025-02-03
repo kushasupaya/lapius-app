@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const EmptyContent = () => {
   return (
-    <div className="border rounded-lg h-full flex flex-col justify-between">
+    <div className="border rounded-lg h-full flex flex-col justify-between bg-white">
       {/* Centered image */}
       <div className="flex justify-center items-center flex-grow">
         <Image

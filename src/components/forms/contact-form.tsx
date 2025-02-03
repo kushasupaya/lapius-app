@@ -21,12 +21,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "../ui/textarea";
+import { toast } from "@/hooks/use-toast";
+const phoneNumberRegex = /^\+\d{1,3}\d{10}$/;
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  phoneNumber: z.string().regex(phoneNumberRegex, {
+    message:
+      "Please enter a valid phone number with country code (e.g., +1234567890)",
+  }),
   country: z.string().min(1, "Please select a country"),
+  message: z.string({
+    message: "Please enter a valid message",
+  }),
 });
 
 export default function ContactForm() {
@@ -35,13 +43,39 @@ export default function ContactForm() {
     defaultValues: {
       fullName: "",
       email: "",
-      phone: "",
+      phoneNumber: "",
       country: "",
+      message: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+      if (!response.ok) {
+        toast({
+          title: "Error",
+          description: "Could not create user",
+          variant: "destructive",
+        });
+        throw new Error("User does not exist");
+      } else {
+        toast({
+          title: "Success",
+          description:
+            "Thank you for reaching out! We will get back to you soon.",
+          variant: "default",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   }
 
   return (
@@ -58,7 +92,7 @@ export default function ContactForm() {
                   <Input
                     placeholder=""
                     {...field}
-                    className="h-12 md:text-base"
+                    className="h-12 flex-grow w-full md:text-base"
                   />
                 </FormControl>
                 <FormMessage />
@@ -85,7 +119,7 @@ export default function ContactForm() {
           />
           <FormField
             control={form.control}
-            name="phone"
+            name="phoneNumber"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-base font-bold">Phone</FormLabel>
@@ -129,7 +163,7 @@ export default function ContactForm() {
           />
           <FormField
             control={form.control}
-            name="phone"
+            name="message"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-base font-bold">Message</FormLabel>

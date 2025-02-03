@@ -11,27 +11,30 @@ const features = [
     title: "Estimate your Cost",
     description:
       "Chat with our dedicated AI assistant for a comprehensive treatment cost overview",
-    link: "#",
+    link: "#estimate-cost",
   },
   {
     icon: "/icons/price-tool.svg",
     title: "Search for Care",
     description:
       "Explore pricing data from all Californian hospitals effortlessly with our free and easy-to-use tool",
-    link: "#",
+    link: "#search-for-care",
   },
   {
     icon: "/icons/medical-bill.svg",
     title: "Analyze your Medical Bill",
     description:
       "Upload your medical bills or documents to understand them and spot costly billing errors.",
-    link: "#",
+    link: "#analyze-bill",
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section className="bg-elliptical-pattern bg-center bg-cover bg-no-repeat w-full">
+    <section
+      id="how-it-works"
+      className="bg-elliptical-pattern bg-center bg-cover bg-no-repeat w-full scroll-mt-20"
+    >
       <div className="container px-4 md:px-0 mx-auto pt-[100px] pb-[85px]">
         <h2
           className={`text-[43px]/[54px] font-bold mb-[111px] ${plusJakartaSans.className}`}

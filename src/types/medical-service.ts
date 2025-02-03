@@ -49,3 +49,10 @@ export enum PriceToolType {
   PROCEDURE = "procedure",
   MEDICAL_ISSUE = "medical_issue",
 }
+
+export interface MedicalCodeItem {
+  code: string;
+  description: string;
+  status: "active" | "warning" | "error";
+  title: string;
+}

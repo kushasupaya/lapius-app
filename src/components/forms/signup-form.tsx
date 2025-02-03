@@ -204,13 +204,7 @@ const SignupForm = ({
           )}
         />
 
-        <Button
-          size="lg"
-          variant="primary"
-          type="submit"
-          className="w-full"
-          disabled={isPending}
-        >
+        <Button size="lg" type="submit" className="w-full" disabled={isPending}>
           Signup
         </Button>
       </form>

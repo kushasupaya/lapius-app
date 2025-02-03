@@ -42,11 +42,11 @@ const mainNavItems: NavItem[] = [
     href: "/dashboard",
     icon: LayoutGrid,
   },
-  {
-    title: "All Conversations",
-    href: "/dashboard/conversations",
-    icon: MessageSquare,
-  },
+  // {
+  //   title: "All Conversations",
+  //   href: "/dashboard/conversations",
+  //   icon: MessageSquare,
+  // },
   {
     title: "Price Tool",
     href: "/dashboard/price-tool",
@@ -70,10 +70,10 @@ const mainNavItems: NavItem[] = [
 ];
 
 const favoriteItems = [
-  { title: "Fusce non enim non tortor...", color: "bg-purple-500" },
-  { title: "Fusce non enim non tortor...", color: "bg-pink-500" },
-  { title: "Fusce non enim non tortor...", color: "bg-cyan-500" },
-  { title: "Fusce non enim non tortor...", color: "bg-red-500" },
+  // { title: "Fusce non enim non tortor...", color: "bg-purple-500" },
+  //   { title: "Fusce non enim non tortor...", color: "bg-pink-500" },
+  //   { title: "Fusce non enim non tortor...", color: "bg-cyan-500" },
+  //   { title: "Fusce non enim non tortor...", color: "bg-red-500" },
 ];
 
 const DashboardSidebar = () => {
@@ -134,28 +134,31 @@ const DashboardSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup className="mt-8">
+        {/* <SidebarGroup className="mt-8">
           <SidebarGroupLabel className="px-2 text-xs font-semibold text-teal-700 ">
             FAVORITES
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {favoriteItems.map((item, index) => (
-                <SidebarMenuItem key={index}>
-                  <SidebarMenuButton
-                    asChild
-                    className="gap-2 text-green-100 text-sm leading-5 font-medium  hover:white hover:bg-muted/5"
-                  >
-                    <Link href="#">
-                      <div className={cn("h-2 w-2 rounded-full", item.color)} />
-                      <span className="truncate">{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {favoriteItems.length > 0 &&
+                favoriteItems?.map((item, index) => (
+                  <SidebarMenuItem key={index}>
+                    <SidebarMenuButton
+                      asChild
+                      className="gap-2 text-green-100 text-sm leading-5 font-medium  hover:white hover:bg-muted/5"
+                    >
+                      <Link href="#">
+                        <div
+                          className={cn("h-2 w-2 rounded-full", item.color)}
+                        />
+                        <span className="truncate">{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
             </SidebarMenu>
           </SidebarGroupContent>
-        </SidebarGroup>
+        </SidebarGroup> */}
       </SidebarContent>
 
       <SidebarFooter className="mt-auto px-4 py-4">

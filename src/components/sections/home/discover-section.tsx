@@ -6,26 +6,41 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  IconBinoculars,
+  IconCashBanknoteOff,
+  IconCashOff,
+  IconChartLine,
+  IconFile,
+  IconHeadphonesOff,
+  IconMessageChatbot,
+  IconReportMedical,
+  IconSearchOff,
+  IconShieldCancel,
+  IconShieldExclamation,
+  IconZoomExclamation,
+  IconZoomExclamationFilled,
+} from "@tabler/icons-react";
 import Image from "next/image";
 
 const withoutLapius = [
   {
-    icon: "/icons/plane.svg",
+    icon: IconShieldCancel,
     title: "Manual or Partial Review",
     description: "May miss billing nuances, leading to unspotted errors.",
   },
   {
-    icon: "/icons/shield.svg",
+    icon: IconZoomExclamation,
     title: "Procedure-Only Search",
     description: "Little support for symptom-based queries.",
   },
   {
-    icon: "/icons/money-euro.svg",
+    icon: IconHeadphonesOff,
     title: "Limited Customer Support",
     description: "Often restricted to email or slow ticket systems.",
   },
   {
-    icon: "/icons/money-euro.svg",
+    icon: IconCashBanknoteOff,
     title: "Fragmented Costs",
     description:
       "Often focuses on procedure codes without factoring additional fees.",
@@ -34,22 +49,22 @@ const withoutLapius = [
 
 const withLapius = [
   {
-    icon: "/icons/plane.svg",
+    icon: IconReportMedical,
     title: "AI-Driven Bill Analysis",
     description: "Automated detection of errors and potential savings.",
   },
   {
-    icon: "/icons/shield.svg",
+    icon: IconBinoculars,
     title: "Symptom-Based Price Search",
     description: "Type in a symptom to find matching procedures and costs.",
   },
   {
-    icon: "/icons/money-euro.svg",
+    icon: IconMessageChatbot,
     title: "In-Platform Chat Support",
     description: "Ask billing questions & clarify codes in real time.",
   },
   {
-    icon: "/icons/money-euro.svg",
+    icon: IconChartLine,
     title: "Comprehensive Cost Estimates",
     description: "Complete breakdown for procedures  and services.",
   },
@@ -70,13 +85,14 @@ const DiscoverSection = () => {
                 {withoutLapius.map((item, index) => (
                   <div key={index} className="p-6 flex gap-6 items-center">
                     <div className="min-h-16 min-w-16 max-h-16 max-w-16 p-4 rounded-full flex items-center justify-center border border-border">
-                      <Image
+                      <item.icon className="h-6 w-6 text-current" />
+                      {/* <Image
                         alt=""
                         src={item.icon}
                         height={24}
                         width={24}
                         className="h-8 w-8"
-                      />
+                      /> */}
                     </div>
                     <div>
                       <p className="text-xl 2xl:text-xl font-semibold mb-1">
@@ -97,13 +113,14 @@ const DiscoverSection = () => {
                 {withLapius.map((item, index) => (
                   <div key={index} className="p-6 flex gap-6 items-center">
                     <div className="min-h-16 min-w-16 max-h-16 max-w-16 bg-primary-dashboard p-4 rounded-full flex items-center justify-center  ">
-                      <Image
+                      <item.icon className="h-6 w-6 text-current" />
+                      {/* <Image
                         alt=""
                         src={item.icon}
                         height={24}
                         width={24}
                         className="h-8 w-8"
-                      />
+                      /> */}
                     </div>
                     <div>
                       <p className="text-xl 2xl:text-xl font-semibold mb-1">

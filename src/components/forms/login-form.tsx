@@ -107,7 +107,7 @@ const LoginForm = ({
 
         <Button
           size="lg"
-          variant="primary"
+          variant="default"
           type="submit"
           className="w-full"
           disabled={isPending}
