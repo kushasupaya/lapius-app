@@ -63,8 +63,8 @@ const mainNavItems: NavItem[] = [
     icon: Bot,
   },
   {
-    title: "Documents",
-    href: "/dashboard/documents",
+    title: "Cost Estimator",
+    href: "/dashboard/cost-estimator",
     icon: BookCheck,
   },
 ];

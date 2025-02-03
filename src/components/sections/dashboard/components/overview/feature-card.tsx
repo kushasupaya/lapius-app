@@ -1,0 +1,40 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { IconCash, IconCurrency } from "@tabler/icons-react";
+import { Zap } from "lucide-react";
+import Link from "next/link";
+
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  link: string;
+  icon?: React.ReactNode;
+}
+const FeatureCard = ({ title, description, link, icon }: FeatureCardProps) => {
+  return (
+    <Card className="w-full max-w-2xl p-6 hover:shadow-xl  hover:cursor-pointer">
+      <CardContent className="flex items-start gap-6 p-0">
+        <div className="flex h-12 w-12 p-2 items-center justify-center rounded-full bg-gray-100">
+          {icon}
+        </div>
+        <div className="flex flex-col gap-6">
+          <div className="space-y-2">
+            <h2 className="text-xl font-bold tracking-tight">{title}</h2>
+            <p className="text-muted-foreground">{description}</p>
+          </div>
+          <Link href={link}>
+            <Button
+              className="w-fit bg-primary hover:bg-[#0B3B2D]/90 mt-1 text-white rounded-full"
+              size="lg"
+            >
+              <Zap className="mr-2 h-5 w-5 text-primary-dashboard" />
+              Analyze Now
+            </Button>
+          </Link>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default FeatureCard;

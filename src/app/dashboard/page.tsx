@@ -1,34 +1,43 @@
 "use client";
-import {
-  EmptyContent,
-  MedicalServicesTable,
-  SearchCard,
-  SearchHistory,
-} from "@/components/sections/dashboard/components";
+
+import { FeatureCard } from "@/components/sections/dashboard/components/overview";
 import { MedicalService } from "@/types/medical-service";
+import {
+  IconCashBanknote,
+  IconFileAlert,
+  IconMessageChatbot,
+  IconReportMedical,
+} from "@tabler/icons-react";
 import { useState } from "react";
 
 export default function Home() {
   const showTable = true;
   const [tableData, setTableData] = useState<MedicalService[]>();
   return (
-    <div>
-      <div className="rounded-lg p-4">
-        <div className="flex flex-col gap-4 ">
-          <div className="flex flex-row gap-4">
-            <div className="space-y-4">
-              <SearchCard setTableData={setTableData} />
-              <SearchHistory />
-            </div>
-            <div className="flex-grow h-screen">
-              {!tableData ? (
-                <EmptyContent />
-              ) : (
-                <MedicalServicesTable tableData={tableData} />
-              )}
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen p-4">
+      <div className="flex flex-col py-4">
+        <span className="text-2xl font-bold">Hello, user.</span>
+        <span className="text-muted-foreground">How can I help you today?</span>
+      </div>
+      <div className="flex gap-4 p-8 border rounded-md bg-white w-fill">
+        <FeatureCard
+          icon={<IconFileAlert />}
+          link="/dashboard/chatbot"
+          description="Analyze with AI your medical bills and detect errors."
+          title="Upload Bill"
+        />
+        <FeatureCard
+          icon={<IconCashBanknote />}
+          link="/dashboard/price-tool"
+          description="Look up the hospital prices in your area."
+          title="Price Tool"
+        />
+        <FeatureCard
+          icon={<IconMessageChatbot />}
+          link="/dashboard/cost-estimator"
+          description="Chat with our assistant to estimate the treatment cost."
+          title="Cost Estimator"
+        />
       </div>
     </div>
   );
