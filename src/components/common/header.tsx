@@ -8,6 +8,9 @@ import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import CustomerAuth from "./customer-auth";
 import { MenuIcon, XIcon } from "lucide-react";
+import { Dialog, DialogTrigger } from "../ui/dialog";
+import SignupDialog from "../forms/signup-dialog-form";
+import LoginDialog from "../forms/login-dialog-form";
 
 interface Props {
   isBlog?: boolean;
@@ -54,13 +57,13 @@ const Header = ({ isBlog }: Props) => {
                 Why Lapius
               </Link> */}
               <Link
-                href="/#"
+                href="/#how-it-works"
                 className="text-lg text-white font-medium hover:text-primary-dashboard"
               >
                 Product
               </Link>
               <Link
-                href="/#"
+                href="/blogs"
                 className="text-lg text-white font-medium hover:text-primary-dashboard"
               >
                 Resources
@@ -117,15 +120,28 @@ const Header = ({ isBlog }: Props) => {
                 className="text-lg text-white font-medium hover:text-primary-dashboard cursor-pointer"
                 // onClick={() => setOpenSignup(true)}
               >
-                Sign Up
+                <SignupDialog
+                  trigger={
+                    <Button
+                      variant="link"
+                      className="text-lg text-white font-medium hover:text-primary-dashboard cursor-pointer"
+                      // onClick={() => setOpenSignup(true)}
+                    >
+                      Sign Up
+                    </Button>
+                  }
+                />
               </p>
-              <Button
-                variant="ghost"
-                className="px-7 py-6 bg-white text-black  mr-3.5 rounded-full text-lg"
-                // onClick={() => setOpen(true)}
-              >
-                Login
-              </Button>
+              <LoginDialog
+                trigger={
+                  <Button
+                    variant="ghost"
+                    className="px-7 py-6 bg-white text-black  mr-3.5 rounded-full text-lg"
+                  >
+                    Login
+                  </Button>
+                }
+              />
             </div>
           </div>
         </div>

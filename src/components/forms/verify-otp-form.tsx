@@ -121,13 +121,7 @@ const VerifyOtpForm = ({
           )}
         />
 
-        <Button
-          size="lg"
-          variant="primary"
-          type="submit"
-          className="w-full"
-          disabled={isPending}
-        >
+        <Button size="lg" type="submit" className="w-full" disabled={isPending}>
           Verify
         </Button>
       </form>

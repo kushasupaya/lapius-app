@@ -9,8 +9,11 @@ const PriceInfoSection = () => {
   return (
     <section>
       <div className="container mx-auto p-4 lg:px-0 lg:pb-[100px] ">
-        <div className="grid gap-16 grid-cols-1 lg:grid-cols-2">
-          <div className="mt-[84px]">
+        <div
+          id="search-for-care"
+          className="grid gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
+        >
+          <div className="mt-[70px] ">
             <h2
               className={`text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
             >
@@ -48,7 +51,10 @@ const PriceInfoSection = () => {
             />
           </div>
         </div>
-        <div className="grid gap-16 grid-cols-1 lg:grid-cols-2">
+        <div
+          className="grid gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
+          id="estimate-cost"
+        >
           <div>
             <Image
               alt=""
@@ -59,7 +65,7 @@ const PriceInfoSection = () => {
               unoptimized
             />
           </div>
-          <div className="mt-[80px]">
+          <div className="mt-[70px]">
             <h2
               className={`text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
             >
@@ -92,7 +98,10 @@ const PriceInfoSection = () => {
             </Button>
           </div>
         </div>
-        <div className="grid gap-16 grid-cols-1 lg:grid-cols-2">
+        <div
+          className="grid gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
+          id="analyze-bill"
+        >
           <div className="mt-[70px]">
             <h2
               className={`text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
