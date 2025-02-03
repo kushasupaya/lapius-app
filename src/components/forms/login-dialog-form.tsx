@@ -87,7 +87,7 @@ export default function LoginDialog({ trigger }: SignupDialogProps) {
                 </Button>
               </Link>
               <div className="text-center text-muted-foreground">
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <Link href="/signin" className="text-black font-semibold">
                   Sign Up
                 </Link>

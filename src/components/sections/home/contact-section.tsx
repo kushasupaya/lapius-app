@@ -21,7 +21,7 @@ const ContactSection = () => {
                   Get in touch with us!
                 </h2>
                 <p className="text-xl text-muted-foreground mb-6">
-                  We'll be happy to answer you
+                  We&apos;ll be happy to answer you
                 </p>
               </div>
             </div>

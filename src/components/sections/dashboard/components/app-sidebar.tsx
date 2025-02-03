@@ -42,11 +42,11 @@ const mainNavItems: NavItem[] = [
     href: "/dashboard",
     icon: LayoutGrid,
   },
-  {
-    title: "All Conversations",
-    href: "/dashboard/conversations",
-    icon: MessageSquare,
-  },
+  // {
+  //   title: "All Conversations",
+  //   href: "/dashboard/conversations",
+  //   icon: MessageSquare,
+  // },
   {
     title: "Price Tool",
     href: "/dashboard/price-tool",
