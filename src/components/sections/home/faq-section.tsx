@@ -10,7 +10,7 @@ const FaqSection = () => {
             <h2 className="mt-2.5 flex-1 text-black text-3xl md:text-[43px]/[54px] font-bold text-left lg:mb-10">
               Frequently Asked Questions
             </h2>
-            <div className="relative hidden lg:block ">
+            <div className="relative hidden lg:block">
               <FaqSlider />
             </div>
           </div>

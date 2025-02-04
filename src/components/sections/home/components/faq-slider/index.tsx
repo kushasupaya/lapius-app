@@ -36,9 +36,9 @@ const FaqSlider = () => {
       content: (
         <Image
           alt=""
-          src="/images/faq.png"
-          height={400}
-          width={600}
+          src="/images/faq-estimate-cost.svg"
+          height={470}
+          width={570}
           className="h-full lg:h-[525px] w-auto"
         />
       ),
@@ -48,9 +48,9 @@ const FaqSlider = () => {
       content: (
         <Image
           alt=""
-          src="/images/faq.png"
-          height={400}
-          width={600}
+          src="/images/faq-search-for-care.svg"
+          height={470}
+          width={570}
           className="h-full lg:h-[525px] w-auto"
         />
       ),
@@ -60,21 +60,9 @@ const FaqSlider = () => {
       content: (
         <Image
           alt=""
-          src="/images/faq.png"
-          height={400}
-          width={600}
-          className="h-full lg:h-[525px] w-auto"
-        />
-      ),
-    },
-    {
-      id: "slide-4",
-      content: (
-        <Image
-          alt=""
-          src="/images/faq.png"
-          height={400}
-          width={600}
+          src="/images/faq-analyze-bill.svg"
+          height={470}
+          width={570}
           className="h-full lg:h-[525px] w-auto"
         />
       ),
@@ -82,16 +70,8 @@ const FaqSlider = () => {
   ];
 
   return (
-    <div className="relative max-w-[470px]">
-      <Image
-        alt="medical bill mistakes"
-        src="/images/faq.png"
-        height={400}
-        width={600}
-        style={{ objectFit: "contain" }}
-        className="h-full lg:h-[525px] w-auto"
-      />
-      {/* <Swiper
+    <div className="relative max-w-[450px]">
+      <Swiper
         ref={swiperRef}
         modules={[Pagination, A11y, Autoplay]}
         slidesPerView={1}
@@ -117,7 +97,7 @@ const FaqSlider = () => {
             }`}
           />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

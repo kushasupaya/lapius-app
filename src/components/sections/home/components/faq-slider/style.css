@@ -1,6 +1,6 @@
 .horizontal-pagination {
   position: absolute;
-  bottom: 48px;
+  bottom: 30px;
   z-index: 1;
   display: flex;
   left: 50%;
