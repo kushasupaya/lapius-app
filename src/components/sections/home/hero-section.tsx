@@ -9,21 +9,21 @@ const HeroSection = () => {
   return (
     <section className="bg-landingpage-pattern bg-center  bg-cover bg-no-repeat w-full scroll-mt-56 rounded-b-[54px]">
       <div className="flex flex-col justify-between">
-        <div className="container mx-auto px-4 md:px-0 mt-52 mb-2">
+        <div className="container mx-auto px-4 md:px-0 mt-24 md:mt-52 mb-2">
           <div className="mb-1 mt-10">
             <h1
-              className={`font-bold text-[74px]/[82px] text-center ${plusJakartaSans.className}`}
+              className={`font-bold text-4xl md:text-[74px]/[82px] text-center ${plusJakartaSans.className}`}
             >
               Take control of your
             </h1>
             <div
-              className={`flex flex-row flex-wrap justify-center items-start text-center w-full ${plusJakartaSans.className}`}
+              className={`flex flex-col md:flex-row md:flex-wrap justify-center items-center md:items-start text-center w-full ${plusJakartaSans.className}`}
             >
-              <h1 className="font-bold text-[74px]/[82px] mr-2">
+              <h1 className="font-bold text-4xl md:text-[74px]/[82px] mr-2">
                 Healthcare costs with
               </h1>
               <div>
-                <h1 className="font-bold text-[74px]/[82px] text-center flex-1">
+                <h1 className="font-bold text-4xl md:text-[74px]/[82px] text-center flex-1">
                   the AI
                 </h1>
                 <Image
@@ -36,7 +36,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          <p className="text-muted-foreground text-center text-2xl mb-5">
+          <p className="text-muted-foreground text-center text-lg md:text-2xl mb-5">
             Easily analyze your medical bills, compare prices, and estimate
             upcoming
             <br />

@@ -11,11 +11,11 @@ const PriceInfoSection = () => {
       <div className="container mx-auto p-4 lg:px-0 lg:pb-[100px] ">
         <div
           id="search-for-care"
-          className="grid gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
+          className="grid gap-8 lg:gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
         >
-          <div className="mt-[70px] ">
+          <div className="mt-8 md:mt-[70px] ">
             <h2
-              className={`text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
+              className={`text-3xl md:text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
             >
               Shop for healthcare the same way you shop for everything else
             </h2>
@@ -30,7 +30,7 @@ const PriceInfoSection = () => {
               type="button"
               variant="default"
               size="lg"
-              className="px-5 py-3 h-[60px] rounded-lg text-lg font-bold bg-primary-dashboard"
+              className="px-5 py-3 h-12 md:h-[60px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard"
             >
               Try the platform for free
               <Image
@@ -52,10 +52,10 @@ const PriceInfoSection = () => {
           </div>
         </div>
         <div
-          className="grid gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
+          className="grid gap-8 lg:gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
           id="estimate-cost"
         >
-          <div>
+          <div className="order-2 lg:order-1">
             <Image
               alt=""
               src="/images/costestimate.svg"
@@ -65,9 +65,9 @@ const PriceInfoSection = () => {
               unoptimized
             />
           </div>
-          <div className="mt-[70px]">
+          <div className="lg:mt-[70px] mt-8 order-1 lg:order-2">
             <h2
-              className={`text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
+              className={`text-3xl md:text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
             >
               Estimate your costs upfront
             </h2>
@@ -86,7 +86,7 @@ const PriceInfoSection = () => {
               type="button"
               variant="default"
               size="lg"
-              className="px-5 py-3 h-[60px] rounded-lg text-lg font-bold bg-primary-dashboard"
+              className="px-5 py-3 h-12 md:h-[60px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard"
             >
               Try the platform for free
               <Image
@@ -99,12 +99,12 @@ const PriceInfoSection = () => {
           </div>
         </div>
         <div
-          className="grid gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
+          className="grid gap-8 md:gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"
           id="analyze-bill"
         >
-          <div className="mt-[70px]">
+          <div className="mt-8 md:mt-[70px]">
             <h2
-              className={`text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
+              className={`text-3xl md:text-[43px]/[54px] font-bold mb-4 ${plusJakartaSans.className} max-w-[640px]`}
             >
               AI Agents to Simplify Your Medical Health
             </h2>
@@ -126,7 +126,7 @@ const PriceInfoSection = () => {
               type="button"
               variant="default"
               size="lg"
-              className="px-5 py-3 h-[60px] rounded-lg text-lg font-bold bg-primary-dashboard"
+              className="px-5 py-3 h-12 md:h-[60px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard"
             >
               Try the platform for free
               <Image

@@ -35,12 +35,11 @@ const FeaturesSection = () => {
       id="how-it-works"
       className="bg-elliptical-pattern bg-center bg-cover bg-no-repeat w-full scroll-mt-20"
     >
-      <div className="container px-4 md:px-0 mx-auto pt-[100px] pb-[85px]">
+      <div className="container px-4 md:px-0 mx-auto pt-10 md:pt-[100px] pb-6 md:pb-[85px]">
         <h2
-          className={`text-[43px]/[54px] font-bold mb-[100px] ${plusJakartaSans.className}`}
+          className={`text-3xl md:text-[43px]/[54px] max-w-3xl font-bold mb-9 md:mb-[100px] ${plusJakartaSans.className}`}
         >
           Empowering you with the right tools to
-          <br />
           make informed medical decisions
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10 ">
@@ -53,7 +52,7 @@ const FeaturesSection = () => {
                 width={48}
                 className="h-12 w-12 mb-3"
               />
-              <h3 className="text-foreground text-2xl font-semibold mb-4">
+              <h3 className="text-foreground text-lg md:text-2xl font-semibold mb-4">
                 {feature.title}
               </h3>
               <p className="text-base text-muted-foreground mb-6">

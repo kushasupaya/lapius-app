@@ -74,11 +74,11 @@ const DiscoverSection = () => {
   return (
     <section className="bg-[#F2F8F3]">
       <div className="container mx-auto px-4 lg:px-0">
-        <div className="pt-[115px] pb-[100px] flex flex-col">
+        <div className="pt-8 md:pt-[115px] pb-[100px] flex flex-col">
           <div className="flex flex-col lg:flex-row gap-[50px] lg:items-stretch">
             <div className="flex-1 lg:max-w-[540px] 2xl:max-w-[680px] flex flex-col">
-              <div className="w-full p-4 flex-1 rounded-[32px] bg-card text-card-foreground shadow-[20px_40px_80px_0px_rgba(45,51,81,0.12)]">
-                <p className="ml-8 text-2xl font-bold mx-4 my-5">
+              <div className="w-full p-4 flex-1 rounded-3xl md:rounded-[32px] bg-card text-card-foreground shadow-[20px_40px_80px_0px_rgba(45,51,81,0.12)]">
+                <p className="ml-8 text-xl md:text-2xl font-bold mx-4 my-5">
                   Without Lapius
                 </p>
                 <hr className="border-1"></hr>
@@ -95,10 +95,10 @@ const DiscoverSection = () => {
                       /> */}
                     </div>
                     <div>
-                      <p className="text-xl 2xl:text-xl font-semibold mb-1">
+                      <p className="text-lg md:text-xl 2xl:text-xl font-semibold mb-1">
                         {item.title}
                       </p>
-                      <p className="text-lg 2xl:text-xl text-muted-foreground mb-1">
+                      <p className="text-base md:text-lg 2xl:text-xl text-muted-foreground mb-1">
                         {item.description}
                       </p>
                     </div>
@@ -107,8 +107,8 @@ const DiscoverSection = () => {
               </div>
             </div>
             <div className="flex-1 lg:mt-0 flex flex-col">
-              <div className="w-full p-4 flex-1 rounded-[32px]  bg-card text-card-foreground shadow-[20px_40px_80px_0px_rgba(45,51,81,0.12)]">
-                <p className="ml-8 text-2xl font-bold mx-4 my-5">With Lapius</p>
+              <div className="w-full p-4 flex-1  rounded-3xl md:rounded-[32px]  bg-card text-card-foreground shadow-[20px_40px_80px_0px_rgba(45,51,81,0.12)]">
+                <p className="ml-8 text-xl md:text-2xl font-bold mx-4 my-5">With Lapius</p>
                 <hr className="border-1"></hr>
                 {withLapius.map((item, index) => (
                   <div key={index} className="p-6 flex gap-6 items-center">
@@ -123,10 +123,10 @@ const DiscoverSection = () => {
                       /> */}
                     </div>
                     <div>
-                      <p className="text-xl 2xl:text-xl font-semibold mb-1">
+                      <p className="text-lg md:text-xl 2xl:text-xl font-semibold mb-1">
                         {item.title}
                       </p>
-                      <p className="text-lg 2xl:text-xl text-muted-foreground mb-1">
+                      <p className="text-base md:text-lg 2xl:text-xl text-muted-foreground mb-1">
                         {item.description}
                       </p>
                     </div>

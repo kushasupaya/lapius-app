@@ -54,7 +54,7 @@ const TestimonialSlider = () => {
   ];
 
   return (
-    <div className="relative px-48">
+    <div className="relative md:px-48">
       <Swiper
         ref={swiperRef}
         modules={[Pagination, A11y, Autoplay]}
@@ -62,6 +62,7 @@ const TestimonialSlider = () => {
         spaceBetween={16}
         initialSlide={1}
         direction="horizontal"
+        centeredSlides
         breakpoints={{
           1024: {
             slidesPerView: 2,
