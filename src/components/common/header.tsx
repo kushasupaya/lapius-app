@@ -39,12 +39,12 @@ const Header = ({ isBlog }: Props) => {
     <>
       <header className={cn("top-0 fixed z-50 w-full", "bg-transparent")}>
         <div
-          className="relative container bg-secondary shadow-sm mx-auto 
+          className="relative max-w-[calc(100vw-32px)] container bg-secondary shadow-sm mx-auto 
         xl:max-w-[1024px] 2xl:max-w-[1280px]
-        py-3 px-2 mt-7 md:px-0 rounded-full "
+        py-3 px-2 mt-3 md:mt-7 md:px-0 rounded-full "
         >
           <div className="flex justify-between items-center">
-            <Link className="w-30 ml-8" href="/">
+            <Link className="w-20 md:w-30 ml-8" href="/">
               <Logo variant="default" size="large" />
             </Link>
 
