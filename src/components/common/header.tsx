@@ -44,7 +44,7 @@ const Header = ({ isBlog }: Props) => {
         py-3 px-2 mt-3 md:mt-7 md:px-0 rounded-full "
         >
           <div className="flex justify-between items-center">
-            <Link className="w-20 md:w-30 ml-8" href="/">
+            <Link className="w-20 md:w-30 ml-4 md:ml-8" href="/">
               <Logo variant="default" size="large" />
             </Link>
 
@@ -101,7 +101,7 @@ const Header = ({ isBlog }: Props) => {
             </nav>
 
             {/* Hamburger Menu Icon */}
-            <div className="flex md:hidden items-center">
+            <div className="flex md:hidden items-center mr-4">
               <button
                 onClick={() => setMenuOpen((prev) => !prev)}
                 className="text-white focus:outline-none"
@@ -148,8 +148,8 @@ const Header = ({ isBlog }: Props) => {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <div className="absolute top-[68px] left-0 w-full bg-secondary py-6 md:hidden">
-            <div className="container mx-auto px-4">
+          <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 md:hidden">
+            <div className="mx-auto px-8">
               <nav className="flex flex-col gap-4">
                 {/* <Link
                   href="/why-lapius"
