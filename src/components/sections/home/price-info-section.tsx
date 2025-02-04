@@ -8,7 +8,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const PriceInfoSection = () => {
   return (
     <section>
-      <div className="container mx-auto p-4 lg:px-0 lg:pb-[100px] ">
+      <div className="container mx-auto p-4 pb-6 lg:px-0 lg:pb-[100px] ">
         <div
           id="search-for-care"
           className="grid gap-8 lg:gap-16 grid-cols-1 lg:grid-cols-2 scroll-mt-20"

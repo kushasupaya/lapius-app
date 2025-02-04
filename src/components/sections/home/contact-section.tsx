@@ -3,7 +3,7 @@ import { MessageCircleIcon } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section className="w-full pb-10 lg:pb-[200px] ">
+    <section className="w-full pb-5 lg:pb-[200px] ">
       <div className="flex flex-col lg:flex-row bg-secondary relative">
         <div className="hidden lg:block h-full flex-1 min-h-[512px] w-full max-w-3xl bg-secondary" />
         <div className="hidden lg:block w-full flex-1 min-h-[512px]" />

@@ -6,7 +6,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 const SliderSection = () => {
   return (
-    <section className="pt-12 md:pt-[112px] pb-8 md:pb-[80px]">
+    <section className="pt-9 md:pt-[112px] pb-8 md:pb-[80px]">
       <div className="container mx-auto px-4 mb-8 md:mb-[72px]">
         <h2
           className={`text-3xl md:text-[43px]/[54px] font-bold mb-6 ${plusJakartaSans.className}`}
