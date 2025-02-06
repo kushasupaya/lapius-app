@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -13,14 +14,94 @@ import {
 import type React from "react";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "../ui/input-otp";
 import { Label } from "../ui/label";
+import { z } from "zod";
+import { toast } from "@/hooks/use-toast";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { fetchLoginCode, userLogin } from "@/api/apiClient";
 
 interface SignupDialogProps {
   trigger?: React.ReactNode;
+  open: boolean;
+  onOpenChange: (isOpen: boolean) => void;
 }
 
-export default function LoginDialog({ trigger }: SignupDialogProps) {
+const loginSchema = z.object({
+  loginCode: z.string(),
+  email: z.string().email("Invalid email address"),
+});
+export type LoginFormData = z.infer<typeof loginSchema>;
+
+export default function LoginDialog({
+  trigger,
+  open,
+  onOpenChange,
+}: SignupDialogProps) {
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+  });
+  const [showLoginCode, setShowLoginCode] = useState(false);
+  const [email, setEmail] = useState("");
+  const getLoginCode = async () => {
+    const email = watch("email");
+    if (!email) {
+      toast({ title: "Error", description: "Email is required" });
+      return;
+    }
+    try {
+      const response = await fetchLoginCode(email);
+      console.log(response);
+
+      if (response.success) {
+        toast({
+          title: "Success",
+          description: "Check your email for the code!",
+        });
+        setShowLoginCode(true);
+      } else {
+        throw new Error(response.error || "Unexpected error");
+      }
+    } catch (error: any) {
+      console.log(error);
+      toast({
+        title: "Error",
+        description: error.message || "Email already exists",
+        variant: "default",
+      });
+    }
+  };
+  const onSubmit = async (data: LoginFormData) => {
+    try {
+      const response = await userLogin(data);
+      console.log(response);
+      if (response.success) {
+        toast({
+          title: "Success",
+          description: "You have successfully signed in!",
+        });
+        router.push("/dashboard");
+      } else {
+        throw new Error(response.error || "Unexpected error");
+      }
+    } catch (error: any) {
+      console.log(error);
+      toast({
+        title: "Error",
+        description: error.message || "Email already exists",
+        variant: "default",
+      });
+    }
+  };
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
         {trigger || <Button variant="default">Login</Button>}
       </DialogTrigger>
@@ -52,7 +133,7 @@ export default function LoginDialog({ trigger }: SignupDialogProps) {
                 </div>
               </div>
             </DialogHeader>
-            <div className="space-y-6 py-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 py-4">
               <div className="grid gap-4">
                 <div className="space-y-2">
                   <Input
@@ -60,39 +141,57 @@ export default function LoginDialog({ trigger }: SignupDialogProps) {
                     type="email"
                     placeholder="Email"
                     className="bg-white py-6 rounded-full"
+                    {...register("email")}
                   />
                 </div>
-                {/* <div className="items-center space-y-2">
-                  <Label>Enter your 6 digit login code</Label>
-                  <InputOTP
-                    maxLength={6}
-                    // value={field.value}
-                    // onChange={(value) => field.onChange([...value].join(""))}
-                  >
-                    <InputOTPGroup>
-                      {Array.from({ length: 6 }).map((_, index) => (
-                        <InputOTPSlot
-                          key={index}
-                          index={index}
-                          className="text-white  focus:border-primary"
-                        />
-                      ))}
-                    </InputOTPGroup>
-                  </InputOTP>
-                </div> */}
+                {showLoginCode && (
+                  <div className="items-center space-y-2">
+                    <Label>Enter your 6 digit login code</Label>
+                    <InputOTP
+                      maxLength={6}
+                      // value={field.value}
+                      // onChange={(value) => field.onChange([...value].join(""))}
+                      value={watch("loginCode") || ""}
+                      onChange={(value) =>
+                        setValue("loginCode", [...value].join(""))
+                      }
+                    >
+                      <InputOTPGroup>
+                        {Array.from({ length: 6 }).map((_, index) => (
+                          <InputOTPSlot
+                            key={index}
+                            index={index}
+                            className="text-black  focus:border-primary"
+                          />
+                        ))}
+                      </InputOTPGroup>
+                    </InputOTP>
+                  </div>
+                )}
               </div>
-              <Link href="/dashboard">
-                <Button className="w-full bg-primary-dashboard py-6 hover:bg-[#a5c596] text-black rounded-full mt-6">
+              {!showLoginCode ? (
+                <Button
+                  type="button"
+                  onClick={() => getLoginCode()}
+                  className="w-full bg-primary-dashboard py-6 hover:bg-[#a5c596] text-black rounded-full mt-6"
+                >
                   Get Login Code
                 </Button>
-              </Link>
+              ) : (
+                <Button
+                  type="submit"
+                  className="w-full bg-primary-dashboard py-6 hover:bg-[#a5c596] text-black rounded-full mt-6"
+                >
+                  Sign In
+                </Button>
+              )}
               <div className="text-center text-muted-foreground">
                 Don&apos;t have an account?{" "}
                 <Link href="/signin" className="text-black font-semibold">
                   Sign Up
                 </Link>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </DialogContent>

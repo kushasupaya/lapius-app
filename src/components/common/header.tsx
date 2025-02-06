@@ -20,6 +20,7 @@ const Header = ({ isBlog }: Props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
+  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
 
   const router = useRouter();
 
@@ -40,11 +41,11 @@ const Header = ({ isBlog }: Props) => {
       <header className={cn("top-0 fixed z-50 w-full", "bg-transparent")}>
         <div
           className="relative max-w-[calc(100vw-32px)] container bg-secondary shadow-sm mx-auto 
-        xl:max-w-[1024px] 2xl:max-w-[1280px]
-        py-3 px-2 mt-3 md:mt-7 md:px-0 rounded-full "
+        xl:max-w-[980px] 2xl:max-w-[1020px]
+        py-2 px-2 mt-3 md:mt-7 md:px-0 rounded-full "
         >
           <div className="flex justify-between items-center">
-            <Link className="w-20 md:w-30 ml-4 md:ml-8" href="/">
+            <Link className="w-20 md:w-30 ml-4 md:ml-6" href="/">
               <Logo variant="default" size="large" />
             </Link>
 
@@ -58,22 +59,34 @@ const Header = ({ isBlog }: Props) => {
               </Link> */}
               <Link
                 href="/#how-it-works"
-                className="text-lg text-white font-medium hover:text-primary-dashboard"
+                className="text-sm text-white font-medium hover:text-primary-dashboard"
               >
                 Product
               </Link>
               <Link
+                href="/#why-lapius"
+                className="text-sm text-white font-medium hover:text-primary-dashboard"
+              >
+                Why Lapius
+              </Link>
+              <Link
                 href="/blogs"
-                className="text-lg text-white font-medium hover:text-primary-dashboard"
+                className="text-sm text-white font-medium hover:text-primary-dashboard"
               >
                 Resources
               </Link>
               <Link
+                href="/#faq"
+                className="text-sm text-white font-medium hover:text-primary-dashboard"
+              >
+                FAQ
+              </Link>
+              {/* <Link
                 href="/#"
-                className="text-lg text-white font-medium hover:text-primary-dashboard"
+                className="text-base text-white font-medium hover:text-primary-dashboard"
               >
                 Company
-              </Link>
+              </Link> */}
               {/* <Link
                 href="/#how-it-works"
                 className="text-sm text-white font-medium hover:text-primary"
@@ -92,12 +105,7 @@ const Header = ({ isBlog }: Props) => {
               >
                 About
               </Link>
-              <Link
-                href="/#faq"
-                className="text-sm text-white font-medium hover:text-primary"
-              >
-                FAQ
-              </Link> */}
+              */}
             </nav>
 
             {/* Hamburger Menu Icon */}
@@ -115,7 +123,7 @@ const Header = ({ isBlog }: Props) => {
             </div>
 
             {/* Sign In and Get Started Buttons */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-2">
               <p
                 className="text-lg text-white font-medium hover:text-primary-dashboard cursor-pointer"
                 // onClick={() => setOpenSignup(true)}
@@ -124,23 +132,26 @@ const Header = ({ isBlog }: Props) => {
                   trigger={
                     <Button
                       variant="link"
-                      className="text-lg text-white font-medium hover:text-primary-dashboard cursor-pointer"
+                      className="text-sm text-white font-medium hover:text-primary-dashboard cursor-pointer"
                       // onClick={() => setOpenSignup(true)}
                     >
                       Sign Up
                     </Button>
                   }
+                  onOpenChange={setLoginDialogOpen}
                 />
               </p>
               <LoginDialog
                 trigger={
                   <Button
                     variant="ghost"
-                    className="px-7 py-6 bg-white text-black  mr-3.5 rounded-full text-lg"
+                    className="px-5 py-4 bg-white text-black  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
                   >
                     Login
                   </Button>
                 }
+                onOpenChange={setLoginDialogOpen}
+                open={loginDialogOpen}
               />
             </div>
           </div>
@@ -151,13 +162,13 @@ const Header = ({ isBlog }: Props) => {
           <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 md:hidden">
             <div className="mx-auto px-8">
               <nav className="flex flex-col gap-4">
-                {/* <Link
-                  href="/why-lapius"
+                <Link
+                  href="#why-lapius"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   Why Lapius
-                </Link> */}
+                </Link>
                 {/* <Link
                   href="/#how-it-works"
                   className="text-sm text-white font-medium hover:text-primary"

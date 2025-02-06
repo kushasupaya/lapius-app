@@ -79,7 +79,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="w-full mx-auto h-fit py-6 px-6 md:px-10 rounded-xl border bg-card text-card-foreground shadow">
+    <div className="w-[80%] mx-auto h-fit py-6 px-6 md:px-10 rounded-xl border bg-card text-card-foreground shadow">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
@@ -87,7 +87,9 @@ export default function ContactForm() {
             name="fullName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">Full name</FormLabel>
+                <FormLabel className="text-sm md:text-base font-bold">
+                  Full name
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder=""
@@ -104,7 +106,9 @@ export default function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">Email</FormLabel>
+                <FormLabel className="text-sm md:text-base font-bold">
+                  Email
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder=""
@@ -122,7 +126,9 @@ export default function ContactForm() {
             name="phoneNumber"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">Phone</FormLabel>
+                <FormLabel className="text-sm md:text-base font-bold">
+                  Phone
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder=""
@@ -140,7 +146,9 @@ export default function ContactForm() {
             name="country"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">Country</FormLabel>
+                <FormLabel className="text-sm md:text-base font-bold">
+                  Country
+                </FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
@@ -166,7 +174,9 @@ export default function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">Message</FormLabel>
+                <FormLabel className="text-sm md:text-base font-bold">
+                  Message
+                </FormLabel>
                 <FormControl>
                   <Textarea {...field} rows={5} />
                 </FormControl>

@@ -19,7 +19,7 @@ const FAQAccordion = () => {
         "Medical bills can be confusing, and up to 80% of them contain errors. Lapius helps you understand your bills, identify overcharges, and resolve issues, potentially saving you money and stress.",
     },
     {
-      question: "When will you launch?",
+      question: "Is Lapius only for people in California?",
       answer: "Early in the coming year.",
     },
     {
@@ -29,6 +29,11 @@ const FAQAccordion = () => {
     },
     {
       question: "What type of documents can I upload?",
+      answer:
+        "For the moment you can upload medical bills, itemized statements, and explanation of benefits (EoB) in formats like PDF, JPEG, and PNG.",
+    },
+    {
+      question: "Do I need medical billing expert to use Lapius?",
       answer:
         "For the moment you can upload medical bills, itemized statements, and explanation of benefits (EoB) in formats like PDF, JPEG, and PNG.",
     },
@@ -56,7 +61,7 @@ const FAQAccordion = () => {
           <AccordionTrigger className="hover:no-underline text-base font-medium no-icon">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground text-base pr-10">
+          <AccordionContent className="text-muted-foreground text-base pr-9">
             {faq.answer}
           </AccordionContent>
         </AccordionItem>

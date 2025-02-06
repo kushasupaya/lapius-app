@@ -72,20 +72,23 @@ const withLapius = [
 
 const DiscoverSection = () => {
   return (
-    <section className="w-full bg-[#F2F8F3]">
-      <div className="container mx-auto px-4 lg:px-0">
-        <div className="pt-11 md:pt-[115px] pb-10 md:pb-[100px] flex flex-col">
+    <section className="w-full bg-[#F2F8F3]" id="why-lapius">
+      <div className="container mx-auto px-4 lg:px-0 2xl:px-36">
+        <div className="pt-11 md:pt-[100px] pb-10 md:pb-[100px] flex flex-col">
           <div className="flex flex-col lg:flex-row gap-8 md:gap-[50px] lg:items-stretch">
-            <div className="flex-1 lg:max-w-[560px] 2xl:max-w-[680px] flex flex-col">
+            <div className="flex-1 lg:max-w-[560px] 2xl:max-w-[590px] flex flex-col">
               <div className="w-full p-2 md:p-4 flex-1 rounded-3xl md:rounded-[32px] bg-card text-card-foreground shadow-[20px_40px_80px_0px_rgba(45,51,81,0.12)]">
                 <p className="md:ml-8 text-xl md:text-2xl font-bold mx-4 my-5">
                   Without Lapius
                 </p>
                 <hr className="border-1"></hr>
                 {withoutLapius.map((item, index) => (
-                  <div key={index} className="p-4 md:p-6 flex gap-6 items-center">
-                    <div className="min-h-16 min-w-16 max-h-16 max-w-16 p-4 rounded-full flex items-center justify-center border border-border">
-                      <item.icon className="h-6 w-6 text-current" />
+                  <div
+                    key={index}
+                    className="p-4 md:p-6 flex gap-6 items-center"
+                  >
+                    <div className="md:min-h-16 md:min-w-16 md:max-h-16 md:max-w-16 p-4 rounded-full flex items-center justify-center border border-border">
+                      <item.icon className="h-5 w-5 md:h-6 md:w-6 text-current" />
                       {/* <Image
                         alt=""
                         src={item.icon}
@@ -108,12 +111,17 @@ const DiscoverSection = () => {
             </div>
             <div className="flex-1 lg:mt-0 flex flex-col">
               <div className="w-full p-2 md:p-4 flex-1  rounded-3xl md:rounded-[32px]  bg-card text-card-foreground shadow-[20px_40px_80px_0px_rgba(45,51,81,0.12)]">
-                <p className="md:ml-8 text-xl md:text-2xl font-bold mx-4 my-5">With Lapius</p>
+                <p className="md:ml-8 text-xl md:text-2xl font-bold mx-4 my-5">
+                  With Lapius
+                </p>
                 <hr className="border-1"></hr>
                 {withLapius.map((item, index) => (
-                  <div key={index} className="p-3 md:p-6 flex gap-6 items-center">
-                    <div className="min-h-16 min-w-16 max-h-16 max-w-16 bg-primary-dashboard p-4 rounded-full flex items-center justify-center  ">
-                      <item.icon className="h-6 w-6 text-current" />
+                  <div
+                    key={index}
+                    className="p-3 md:p-6 flex gap-6 items-center"
+                  >
+                    <div className="md:min-h-16 md:min-w-16 md:max-h-16 md:max-w-16 bg-primary-dashboard p-4 rounded-full flex items-center justify-center  ">
+                      <item.icon className="h-5 w-5 md:h-6 md:w-6 text-current" />
                       {/* <Image
                         alt=""
                         src={item.icon}

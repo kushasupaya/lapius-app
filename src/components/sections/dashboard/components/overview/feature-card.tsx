@@ -24,7 +24,7 @@ const FeatureCard = ({ title, description, link, icon }: FeatureCardProps) => {
           </div>
           <Link href={link}>
             <Button
-              className="w-fit bg-primary hover:bg-[#0B3B2D]/90 mt-1 text-white rounded-full"
+              className="w-fit bg-primary hover:bg-[#0B3B2D]/60 mt-1 text-white rounded-full"
               size="lg"
             >
               <Zap className="mr-2 h-5 w-5 text-primary-dashboard" />

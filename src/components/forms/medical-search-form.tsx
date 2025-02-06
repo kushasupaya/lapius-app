@@ -58,12 +58,12 @@ const MedicalSearchForm = () => {
     <div className="w-full max-w-5xl mx-auto p-4 space-y-3">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="flex w-full">
+          <div className="flex flex-wrap sm:flex-nowrap w-full">
             <FormField
               control={form.control}
               name="procedure"
               render={({ field }) => (
-                <FormItem className="relative flex-1">
+                <FormItem className="relative flex-1 min-w-full sm:min-w-[250px]">
                   <FormControl>
                     <div className="relative text-base">
                       <Search
@@ -72,7 +72,7 @@ const MedicalSearchForm = () => {
                       />
                       <Input
                         placeholder="Enter a procedure"
-                        className="pl-14 bg-white pr-4 h-16 text-base 2xl:text-lg md:text-base rounded-l-full rounded-r-none"
+                        className="pl-14 bg-white pr-4 h-14 text-base 2xl:text-lg md:text-base  sm:rounded-l-full sm:rounded-r-none"
                         {...field}
                       />
                     </div>
@@ -85,7 +85,7 @@ const MedicalSearchForm = () => {
               control={form.control}
               name="zipCode"
               render={({ field }) => (
-                <FormItem className="relative w-40 text-base">
+                <FormItem className="relative w-full sm:w-40 text-base">
                   <FormControl>
                     <div className="relative">
                       <IconMapPin
@@ -94,7 +94,7 @@ const MedicalSearchForm = () => {
                       />
                       <Input
                         placeholder="Zip Code"
-                        className="pl-14 bg-white pr-4 h-16 text-base 2xl:text-lg md:text-base rounded-l-none rounded-r-none"
+                        className="pl-14 bg-white pr-4 h-14 text-base 2xl:text-lg md:text-base sm:rounded-l-none sm:rounded-r-none"
                         maxLength={5}
                         {...field}
                       />
@@ -104,7 +104,7 @@ const MedicalSearchForm = () => {
                 </FormItem>
               )}
             />
-            <div className="relative flex-1">
+            <div className="relative flex-1 min-w-full sm:min-w-[250px]">
               <FormField
                 control={form.control}
                 name="insurance"
@@ -118,7 +118,7 @@ const MedicalSearchForm = () => {
                         />
                         <Input
                           placeholder="I am not using insurance"
-                          className="pl-14 bg-white pr-4 h-16 text-base 2xl:text-lg md:text-base rounded-l-none rounded-r-full"
+                          className="pl-14 bg-white pr-4 h-14 text-base 2xl:text-lg md:text-base rounded-l-none sm:rounded-l-none sm:rounded-r-full"
                           {...field}
                         />
                       </div>
@@ -131,7 +131,7 @@ const MedicalSearchForm = () => {
               <div className="z-10 absolute top-2 right-2">
                 <Button
                   type="submit"
-                  className="h-12 w-12 p-2 rounded-full text-2xl bg-primary-dashboard"
+                  className="h-10 w-10 p-2 rounded-full text-2xl bg-primary-dashboard"
                 >
                   <Search size="24" className="h-6 w-6" />
                 </Button>
@@ -141,7 +141,7 @@ const MedicalSearchForm = () => {
         </form>
       </Form>
 
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2 ">
         {procedures.map((procedure) => (
           <Badge
             key={procedure}
