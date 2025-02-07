@@ -44,6 +44,7 @@ export interface PriceToolForm {
   procedureCode: string;
   zipCode: string;
   type: PriceToolType;
+  insurance: string;
 }
 export enum PriceToolType {
   PROCEDURE = "procedure",

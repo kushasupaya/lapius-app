@@ -20,11 +20,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { fetchLoginCode, userLogin } from "@/api/apiClient";
+import { on } from "events";
 
 interface SignupDialogProps {
   trigger?: React.ReactNode;
   open: boolean;
-  onOpenChange: (isOpen: boolean) => void;
+  onOpenChange?: (isOpen: boolean) => void;
+  onSignUpChange?: (isSignupOpen: boolean) => void;
 }
 
 const loginSchema = z.object({
@@ -37,6 +39,7 @@ export default function LoginDialog({
   trigger,
   open,
   onOpenChange,
+  onSignUpChange,
 }: SignupDialogProps) {
   const router = useRouter();
   const {
@@ -49,7 +52,7 @@ export default function LoginDialog({
     resolver: zodResolver(loginSchema),
   });
   const [showLoginCode, setShowLoginCode] = useState(false);
-  const [email, setEmail] = useState("");
+
   const getLoginCode = async () => {
     const email = watch("email");
     if (!email) {
@@ -87,6 +90,9 @@ export default function LoginDialog({
           title: "Success",
           description: "You have successfully signed in!",
         });
+        if (response.token) {
+          localStorage.setItem("authToken", response.token);
+        }
         router.push("/dashboard");
       } else {
         throw new Error(response.error || "Unexpected error");
@@ -166,6 +172,16 @@ export default function LoginDialog({
                         ))}
                       </InputOTPGroup>
                     </InputOTP>
+                    <span className="text-sm text-muted-foreground">
+                      Did&apos;nt receive the code?{" "}
+                      <span
+                        className="underline hover:text-primary-dashboard text-primary"
+                        onClick={() => getLoginCode()}
+                      >
+                        click here
+                      </span>{" "}
+                      to get another
+                    </span>
                   </div>
                 )}
               </div>
@@ -187,9 +203,20 @@ export default function LoginDialog({
               )}
               <div className="text-center text-muted-foreground">
                 Don&apos;t have an account?{" "}
-                <Link href="/signin" className="text-black font-semibold">
+                <Button
+                  className="text-black px-0 font-semibold"
+                  variant="link"
+                  onClick={() => {
+                    if (onSignUpChange) {
+                      onSignUpChange(true);
+                    }
+                    if (onOpenChange) {
+                      onOpenChange(false);
+                    }
+                  }}
+                >
                   Sign Up
-                </Link>
+                </Button>
               </div>
             </form>
           </div>

@@ -11,16 +11,17 @@ const FAQAccordion = () => {
     {
       question: "How accurate are Lapius results, and can they be wrong?",
       answer:
-        "We combine cutting-edge AI technology with real prices from more than 6,000 healthcare settings. Our solution achieves over 95% accuracy in identifying potential risks.",
+        "We combine advanced AI technology with actual prices from all California hospitals and millions of medical claims records.",
     },
     {
       question: "Why should I use Lapius?",
       answer:
-        "Medical bills can be confusing, and up to 80% of them contain errors. Lapius helps you understand your bills, identify overcharges, and resolve issues, potentially saving you money and stress.",
+        "Nine out of ten patients don't know their medical costs in advance, and nearly 80% of medical bills have errors. Lapius provides tools for complete transparency to help you avoid unexpected charges and mistakes.",
     },
     {
       question: "Is Lapius only for people in California?",
-      answer: "Early in the coming year.",
+      answer:
+        "Our platform has access to all California hospital data, and we are working to expand nationwide in the coming months.",
     },
     {
       question: "Is Lapius secure? Where is my data saved?",
@@ -28,18 +29,14 @@ const FAQAccordion = () => {
         "Your privacy is our priority. Your data is encrypted, secure, and fully protected under HIPAA compliance.",
     },
     {
-      question: "What type of documents can I upload?",
-      answer:
-        "For the moment you can upload medical bills, itemized statements, and explanation of benefits (EoB) in formats like PDF, JPEG, and PNG.",
-    },
-    {
       question: "Do I need medical billing expert to use Lapius?",
       answer:
-        "For the moment you can upload medical bills, itemized statements, and explanation of benefits (EoB) in formats like PDF, JPEG, and PNG.",
+        "No, but to consult the hospital price search you need to know the name of the medical service or the medical code associated with it. Nonetheless, our Lapius Copilot will guide you through the price search, starting with the symptoms.",
     },
     {
       question: "How much does Lapius cost?",
-      answer: "Completely free.",
+      answer:
+        "Lapius is currently free to use, with enterprise solutions coming soon.",
     },
   ];
   return (

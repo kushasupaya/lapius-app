@@ -2,7 +2,8 @@ import { PriceToolForm } from "@/types/medical-service";
 import request from "./request";
 import { SignupFormData } from "@/components/forms/signup-dialog-form";
 import { LoginFormData } from "@/components/forms/login-dialog-form";
-const BASE_URL = "http://localhost:3001/api";
+// const BASE_URL = "http://localhost:3001/api";
+const BASE_URL = "http://api.lapiusai.com:3001/api";
 
 export const fetchPriceDetails = (payload: PriceToolForm) =>
   request("POST", `${BASE_URL}/pricing/pricing-details`, payload);

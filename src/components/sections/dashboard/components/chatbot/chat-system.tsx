@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Bot, Mic, Send, Bookmark } from "lucide-react";
 import Image from "next/image";
+import { IconMessage } from "@tabler/icons-react";
 
 interface Message {
   id: string;
@@ -13,8 +14,10 @@ interface Message {
   timestamp: string;
   thinking?: boolean;
 }
-
-const ChatSystem = () => {
+interface ChatSystemProps {
+  chatType?: string;
+}
+const ChatSystem = ({ chatType }: ChatSystemProps) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -86,13 +89,22 @@ const ChatSystem = () => {
 
   return (
     <Card className="w-full mx-auto min-h-screen flex flex-col ">
-      <div className="p-4 border-b flex items-center gap-2">
-        <div className="text-sm font-medium">Medical_bill_02/09.pdf</div>
-        <div className="text-xs text-muted-foreground">8:21 AM</div>
-        <Button variant="ghost" size="icon" className="ml-auto">
-          <Bookmark className="h-4 w-4" />
-        </Button>
-      </div>
+      {chatType === "cost" ? (
+        <div className="p-4 border-b flex items-center  ">
+          <div className="text-sm font-medium flex items-center gap-2">
+            <IconMessage className="h-8 w-8 text-primary border rounded-full border-black p-2" />
+            <span>Understand the costs of treatments upfront</span>
+          </div>
+        </div>
+      ) : (
+        <div className="p-4 border-b flex items-center gap-2">
+          <div className="text-sm font-medium">Medical_bill_02/09.pdf</div>
+          <div className="text-xs text-muted-foreground">8:21 AM</div>
+          <Button variant="ghost" size="icon" className="ml-auto">
+            <Bookmark className="h-4 w-4" />
+          </Button>
+        </div>
+      )}
 
       <div className="flex-1 overflow-auto p-4 space-y-4">
         {messages.map((message) => (

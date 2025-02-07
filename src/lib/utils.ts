@@ -43,3 +43,16 @@ export const s3Client = new S3Client({
     secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY as string,
   },
 });
+
+export const insuranceList = [
+  "I am not using insurance",
+  "Aetna",
+  "Anthem Blue Cross",
+  "Blue Cross Blue Shield",
+  "Cigna",
+  "Humana",
+  "Kaiser Permanente",
+  "Medicaid",
+  "Medicare",
+  "UnitedHealthcare",
+];

@@ -1,13 +1,16 @@
-// "use client";
+"use client";
 import { DashboardSidebar } from "@/components/sections/dashboard/components";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { useAuthRedirect } from "@/utils/authRedirect";
 import { usePathname } from "next/navigation";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  useAuthRedirect();
+
   //   const pathname = usePathname() || "";
   //   const segments = pathname.split("/").filter(Boolean);
 

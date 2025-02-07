@@ -76,11 +76,18 @@ const Header = ({ isBlog }: Props) => {
                 Resources
               </Link>
               <Link
+                href="/#get-in-touch"
+                className="text-sm text-white font-medium hover:text-primary-dashboard"
+              >
+                Contact Us
+              </Link>
+              <Link
                 href="/#faq"
                 className="text-sm text-white font-medium hover:text-primary-dashboard"
               >
                 FAQ
               </Link>
+
               {/* <Link
                 href="/#"
                 className="text-base text-white font-medium hover:text-primary-dashboard"
@@ -138,6 +145,8 @@ const Header = ({ isBlog }: Props) => {
                       Sign Up
                     </Button>
                   }
+                  open={openSignup}
+                  onSignupChange={setOpenSignup}
                   onOpenChange={setLoginDialogOpen}
                 />
               </p>
@@ -152,6 +161,7 @@ const Header = ({ isBlog }: Props) => {
                 }
                 onOpenChange={setLoginDialogOpen}
                 open={loginDialogOpen}
+                onSignUpChange={setOpenSignup}
               />
             </div>
           </div>
@@ -198,25 +208,25 @@ const Header = ({ isBlog }: Props) => {
                   FAQ
                 </Link> */}
                 <Link
-                  href="/#"
+                  href="/#how-it-works"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
                   Product
                 </Link>
                 <Link
-                  href="/#"
+                  href="/blogs"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
                   Resources
                 </Link>
                 <Link
-                  href="/#"
+                  href="/#faq"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Company
+                  FAQ
                 </Link>
                 <div className="flex flex-col gap-4">
                   <p
@@ -281,7 +291,7 @@ const Header = ({ isBlog }: Props) => {
         )}
       </header>
 
-      <CustomerAuth
+      {/* <CustomerAuth
         initialState="sign-in"
         open={open}
         onOpenChange={() => setOpen((open) => !open)}
@@ -291,7 +301,7 @@ const Header = ({ isBlog }: Props) => {
         open={openSignup}
         setOpenSignup={setOpenSignup}
         onOpenChange={() => setOpenSignup((open) => !open)}
-      />
+      /> */}
     </>
   );
 };

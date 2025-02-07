@@ -15,10 +15,10 @@ export default function Home() {
     <div>
       <div className="rounded-lg p-4">
         <div className="flex flex-col gap-4 ">
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-col gap-4">
             <div className="space-y-4">
               <SearchCard setTableData={setTableData} />
-              <SearchHistory />
+              {/* <SearchHistory /> */}
             </div>
             <div className="flex-grow h-screen">
               {!tableData ? (

@@ -1,6 +1,7 @@
 import { removeEmpty } from "../utils";
 
 const request = async (method, url, params = {}) => {
+  const token = localStorage.getItem("authToken");
   const req = {
     method: method,
     credentials: "include",
@@ -8,6 +9,10 @@ const request = async (method, url, params = {}) => {
       Accept: "application/json",
     },
   };
+
+  if (token) {
+    req.headers["Authorization"] = `Bearer ${token}`;
+  }
 
   if (method === "GET") {
     const getParams = new URLSearchParams(removeEmpty(params));

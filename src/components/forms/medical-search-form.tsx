@@ -15,6 +15,17 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { IconHeartBolt, IconMapPin } from "@tabler/icons-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { insuranceList } from "@/lib/utils";
+import Link from "next/link";
+import { useState } from "react";
+import LoginDialog from "./login-dialog-form";
 
 const formSchema = z.object({
   procedure: z.string().min(2, {
@@ -45,9 +56,11 @@ const MedicalSearchForm = () => {
     },
   });
 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    // Handle form submission here
+    setIsDialogOpen(true);
   }
 
   const handleSuggestionClick = (procedure: string) => {
@@ -56,6 +69,14 @@ const MedicalSearchForm = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto p-4 space-y-3">
+      <div className="hidden">
+        <LoginDialog
+          open={isDialogOpen}
+          onOpenChange={setIsDialogOpen}
+          onSignUpChange={() => true}
+        />
+      </div>
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="flex flex-wrap sm:flex-nowrap w-full">
@@ -116,11 +137,26 @@ const MedicalSearchForm = () => {
                           size="24"
                           className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6"
                         />
-                        <Input
+                        <Select
+                          value={field.value}
+                          onValueChange={field.onChange}
+                        >
+                          <SelectTrigger className="pl-14 bg-white pr-4 h-14 text-base 2xl:text-lg md:text-base rounded-l-none sm:rounded-l-none sm:rounded-r-full">
+                            <SelectValue placeholder="I am not using insurance" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {insuranceList.map((insurance) => (
+                              <SelectItem key={insurance} value={insurance}>
+                                {insurance}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        {/* <Input
                           placeholder="I am not using insurance"
                           className="pl-14 bg-white pr-4 h-14 text-base 2xl:text-lg md:text-base rounded-l-none sm:rounded-l-none sm:rounded-r-full"
                           {...field}
-                        />
+                        /> */}
                       </div>
                     </FormControl>
                     <FormMessage />

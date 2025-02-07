@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
+import { cn, insuranceList } from "@/lib/utils";
 import { IconWallet } from "@tabler/icons-react";
 import {
   Form,
@@ -28,16 +28,23 @@ import {
   PriceToolType,
 } from "@/types/medical-service";
 import { fetchPriceDetails } from "@/api/apiClient";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 const tabs = [
   {
     id: "procedure",
     label: "Procedure",
     content: (
-      <div className="space-y-4 mt-4 p-4">
+      <div className="flex flex-grow-0 justify-center w-full gap-2 px-4">
         <FormField
           name="procedureCode"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
               <FormControl>
                 <Input
                   className="py-5"
@@ -67,7 +74,7 @@ const tabs = [
         <FormField
           name="zipCode"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
               <FormControl>
                 <Input
                   className="py-5"
@@ -76,6 +83,25 @@ const tabs = [
                 />
               </FormControl>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          name="insurance"
+          render={({ field }) => (
+            <FormItem className="flex-1">
+              <Select value={field.value} onValueChange={field.onChange}>
+                <SelectTrigger className="py-5">
+                  <SelectValue placeholder="I am not using insurance" />
+                </SelectTrigger>
+                <SelectContent className="">
+                  {insuranceList.map((insurance) => (
+                    <SelectItem key={insurance} value={insurance}>
+                      {insurance}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </FormItem>
           )}
         />
@@ -86,53 +112,73 @@ const tabs = [
     id: "medical-issue",
     label: "Medical Issue",
     content: (
-      <div className="space-y-4 mt-4 p-4">
-        <FormField
-          name="procedureCode"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input
-                  className="py-5"
-                  placeholder="Enter the medical issue, diagnosis or ICD code"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="type"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input
-                  type="hidden"
-                  {...field}
-                  value={PriceToolType.MEDICAL_ISSUE}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="zipCode"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input
-                  className="py-5"
-                  placeholder="Enter Zip Code or City"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      </div>
+      <div className="p-4">Coming Soon</div>
+      // <div className="space-y-4 mt-4 p-4">
+      //   <FormField
+      //     name="procedureCode"
+      //     render={({ field }) => (
+      //       <FormItem>
+      //         <FormControl>
+      //           <Input
+      //             className="py-5"
+      //             placeholder="Enter the medical issue, diagnosis or ICD code"
+      //             {...field}
+      //           />
+      //         </FormControl>
+      //         <FormMessage />
+      //       </FormItem>
+      //     )}
+      //   />
+      //   <FormField
+      //     name="type"
+      //     render={({ field }) => (
+      //       <FormItem>
+      //         <FormControl>
+      //           <Input
+      //             type="hidden"
+      //             {...field}
+      //             value={PriceToolType.MEDICAL_ISSUE}
+      //           />
+      //         </FormControl>
+      //         <FormMessage />
+      //       </FormItem>
+      //     )}
+      //   />
+      //   <FormField
+      //     name="zipCode"
+      //     render={({ field }) => (
+      //       <FormItem>
+      //         <FormControl>
+      //           <Input
+      //             className="py-5"
+      //             placeholder="Enter Zip Code or City"
+      //             {...field}
+      //           />
+      //         </FormControl>
+      //         <FormMessage />
+      //       </FormItem>
+      //     )}
+      //   />
+      //   <FormField
+      //     name="insurance"
+      //     render={({ field }) => (
+      //       <FormItem>
+      //         <Select value={field.value} onValueChange={field.onChange}>
+      //           <SelectTrigger className="py-5">
+      //             <SelectValue placeholder="I am not using insurance" />
+      //           </SelectTrigger>
+      //           <SelectContent className="">
+      //             {insuranceList.map((insurance) => (
+      //               <SelectItem key={insurance} value={insurance}>
+      //                 {insurance}
+      //               </SelectItem>
+      //             ))}
+      //           </SelectContent>
+      //         </Select>
+      //       </FormItem>
+      //     )}
+      //   />
+      // </div>
     ),
   },
 ];
@@ -148,6 +194,7 @@ const SearchCard = ({ setTableData }: SearchCardProps) => {
       procedureCode: "",
       type: PriceToolType.PROCEDURE,
       zipCode: "",
+      insurance: "",
     },
   });
   const onSubmit = (data: PriceToolForm) => {
@@ -164,7 +211,7 @@ const SearchCard = ({ setTableData }: SearchCardProps) => {
   };
 
   return (
-    <Card className="w-[400px] space-y-2 rounded-t-lg">
+    <Card className="mx-24 md:mx-40 space-y-2 rounded-t-lg">
       <CardHeader className="bg-gray-200 rounded-t-lg p-4">
         <CardTitle>
           <div className="flex items-center gap-1">
@@ -209,7 +256,7 @@ const SearchCard = ({ setTableData }: SearchCardProps) => {
             <CardFooter>
               <Button
                 type="submit"
-                className="inline-flex mx-auto w-full  text-white  hover:bg-foreground"
+                className="inline-flex mx-auto px-12 mt-4  text-white  hover:bg-foreground"
               >
                 Search
               </Button>

@@ -21,6 +21,8 @@ import { useState } from "react";
 interface SignupDialogProps {
   trigger?: React.ReactNode;
   onOpenChange: (isOpen: boolean) => void;
+  open?: boolean;
+  onSignupChange: (isSignupOpen: boolean) => void;
 }
 
 const signupSchema = z.object({
@@ -33,6 +35,8 @@ export type SignupFormData = z.infer<typeof signupSchema>;
 export default function SignupDialog({
   trigger,
   onOpenChange,
+  open,
+  onSignupChange,
 }: SignupDialogProps) {
   const {
     register,
@@ -41,7 +45,7 @@ export default function SignupDialog({
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
   });
-  const [signupDialogOpen, setsignupDialogOpen] = useState(false);
+  // const [signupDialogOpen, setsignupDialogOpen] = useState(false);
 
   const onSubmit = async (data: SignupFormData) => {
     try {
@@ -53,7 +57,7 @@ export default function SignupDialog({
           description: "You have successfully signed up!",
         });
         onOpenChange(true);
-        setsignupDialogOpen(false);
+        onSignupChange(false);
       } else {
         throw new Error(response.error || "Unexpected error");
       }
@@ -68,7 +72,7 @@ export default function SignupDialog({
   };
 
   return (
-    <Dialog open={signupDialogOpen} onOpenChange={setsignupDialogOpen}>
+    <Dialog open={open} onOpenChange={onSignupChange}>
       <DialogTrigger asChild>
         {trigger || <Button variant="default">Sign Up</Button>}
       </DialogTrigger>
@@ -155,9 +159,16 @@ export default function SignupDialog({
               {/* </Link> */}
               <div className="text-center text-muted-foreground">
                 Already have an account?{" "}
-                <Link href="/signin" className="text-black font-semibold">
+                <Button
+                  className="text-black font-semibold px-0"
+                  variant="link"
+                  onClick={() => {
+                    onOpenChange(true);
+                    onSignupChange(false);
+                  }}
+                >
                   Sign In
-                </Link>
+                </Button>
               </div>
             </form>
           </div>
