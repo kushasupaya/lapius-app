@@ -20,7 +20,8 @@ export default function ComingSoon() {
       <div className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight">Coming Soon!</h2>
         <p className="text-muted-foreground text-lg max-w-md mx-auto">
-          We're working hard to bring this page to life. Stay tuned for updates!
+          We&apos;re working hard to bring this page to life. Stay tuned for
+          updates!
         </p>
       </div>
     </div>
