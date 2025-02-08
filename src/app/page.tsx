@@ -23,7 +23,7 @@ export default function Home() {
         <SliderSection />
         <ContactSection />
         <FaqSection />
-        <CtaSection />
+        {/* <CtaSection /> */}
       </main>
       <Footer />
     </>

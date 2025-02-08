@@ -231,7 +231,7 @@ const SearchCard = ({ setTableData }: SearchCardProps) => {
               onValueChange={setActiveTab}
               className="rounded-b-none"
             >
-              <TabsList className="bg-white p-0 m-0 h-12 border-b w-full flex justify-between rounded-b-none">
+              <TabsList className="bg-white p-0 m-0 h-12 border-b w-full  flex justify-between rounded-b-none">
                 {tabs.map((tab, index) => (
                   <TabsTrigger
                     key={tab.id}
@@ -240,8 +240,12 @@ const SearchCard = ({ setTableData }: SearchCardProps) => {
                       "py-6 px-auto sm:px-4.5 h-[50px] text-base w-full text-subtitle-dashboard text-opacity-80 font-medium rounded-none data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-b-secondary data-[state=active]:text-secondary",
                       index === 0 && "rounded-tl-[32px] rounded-bl-none pl-6",
                       index === tabs.length - 1 &&
-                        "rounded-tr-[32px] rounded-br-none pr-6"
+                        "rounded-tr-[32px] rounded-br-none pr-6",
+                      tab.id === "medical-issue"
+                        ? "disabled:opacity-50 disabled:cursor-not-allowed"
+                        : ""
                     )}
+                    disabled={tab.id === "medical-issue"}
                   >
                     {tab.label}
                   </TabsTrigger>

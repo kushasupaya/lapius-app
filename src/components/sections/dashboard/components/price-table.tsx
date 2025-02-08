@@ -22,10 +22,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { ColumnVisibility, MedicalService } from "@/types/medical-service";
-import {
-  defaultColumnVisibility,
-  medicalServices,
-} from "@/utils/tableFakeData";
+import { defaultColumnVisibility } from "@/utils/tableFakeData";
 import TableSearchFilter from "./table-search-filter";
 import { cn } from "@/lib/utils";
 
@@ -67,6 +64,7 @@ export default function MedicalServicesTable({
 
   const toggleColumnVisibility = (column: keyof ColumnVisibility) => {
     setColumnVisibility((prev) => ({ ...prev, [column]: !prev[column] }));
+    console.log(columnVisibility);
   };
 
   const filteredServices = useMemo(() => {
@@ -110,11 +108,23 @@ export default function MedicalServicesTable({
             {columnVisibility.address && <TableHead>Address</TableHead>}
             {columnVisibility.state && <TableHead>State</TableHead>}
             {columnVisibility.payer && <TableHead>Payer</TableHead>}
-            {columnVisibility.rate && <TableHead>Rate</TableHead>}
+            {columnVisibility.standard_charge_dollar && (
+              <TableHead>Standard Charge Dollar</TableHead>
+            )}
+            {columnVisibility.standard_charge_percentage && (
+              <TableHead>Standard Charge Percentage</TableHead>
+            )}
+            {columnVisibility.standard_charge_algorithm && (
+              <TableHead>Standard Charge Algorithm</TableHead>
+            )}
             {columnVisibility.minimum && <TableHead>Minimum</TableHead>}
             {columnVisibility.maximum && <TableHead>Maximum</TableHead>}
             {columnVisibility.list_price && <TableHead>List Price</TableHead>}
             {columnVisibility.cash_rate && <TableHead>Cash Rate</TableHead>}
+            {columnVisibility.estimated_amount && (
+              <TableHead>Estimated Amount</TableHead>
+            )}
+            {columnVisibility.rev_code && <TableHead>Revenue Code</TableHead>}
             {columnVisibility.additional_notes && (
               <TableHead>Additional Notes</TableHead>
             )}
@@ -158,8 +168,18 @@ export default function MedicalServicesTable({
                 {columnVisibility.payer && (
                   <TableCell>{service.payer}</TableCell>
                 )}
-                {columnVisibility.rate && (
-                  <TableCell>${service.rate.toFixed(2)}</TableCell>
+                {columnVisibility.standard_charge_dollar && (
+                  <TableCell>
+                    ${service.standard_charge_dollar.toFixed(2)}
+                  </TableCell>
+                )}
+                {columnVisibility.standard_charge_percentage && (
+                  <TableCell>
+                    {service.standard_charge_percentage.toFixed(2)}
+                  </TableCell>
+                )}
+                {columnVisibility.standard_charge_algorithm && (
+                  <TableCell>{service.standard_charge_algorithm}</TableCell>
                 )}
                 {columnVisibility.minimum && (
                   <TableCell>${service.minimum.toFixed(2)}</TableCell>
@@ -172,6 +192,12 @@ export default function MedicalServicesTable({
                 )}
                 {columnVisibility.cash_rate && (
                   <TableCell>${service.cash_rate.toFixed(2)}</TableCell>
+                )}
+                {columnVisibility.estimated_amount && (
+                  <TableCell>${service.estimated_amount.toFixed(2)}</TableCell>
+                )}
+                {columnVisibility.rev_code && (
+                  <TableCell>{service.rev_code}</TableCell>
                 )}
                 {columnVisibility.additional_notes && (
                   <TableCell>{service.additional_notes}</TableCell>

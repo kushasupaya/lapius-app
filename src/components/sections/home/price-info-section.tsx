@@ -1,6 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { ArrowRight, ArrowRightIcon } from "lucide-react";
+import LoginDialog from "@/components/forms/login-dialog-form";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -26,20 +30,19 @@ const PriceInfoSection = () => {
               hospital prices for all medical procedures according to your
               payer.
             </p>
-            <Button
-              type="button"
-              variant="default"
-              size="lg"
-              className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard"
-            >
-              Try the platform for free
-              <Image
-                alt="arrow"
-                src="/icons/arrow-right.svg"
-                height={24}
-                width={24}
-              />
-            </Button>
+            <LoginDialog
+              trigger={
+                <Button
+                  type="button"
+                  variant="default"
+                  size="lg"
+                  className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard hover:text-white"
+                >
+                  Try the platform for free
+                  <ArrowRightIcon className="ml-1 h-4 w-4" />
+                </Button>
+              }
+            />
           </div>
           <div>
             <Image
@@ -82,7 +85,10 @@ const PriceInfoSection = () => {
               The easy-to-use interface will allow you to answer your personal
               questions about different procedures and their costs.{" "}
             </p>
-            <Button
+            <div className="border border-primary-dashboard px-5 py-3 h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-white w-1/2 text-center mb-6">
+              Coming Soon
+            </div>
+            {/* <Button
               type="button"
               variant="default"
               size="lg"
@@ -95,7 +101,7 @@ const PriceInfoSection = () => {
                 height={24}
                 width={24}
               />
-            </Button>
+            </Button> */}
           </div>
         </div>
         <div
@@ -118,8 +124,10 @@ const PriceInfoSection = () => {
               also allows you to verify each procedure and understand how much
               you could save.{" "}
             </p>
-
-            <Button
+            <div className="border border-primary-dashboard px-5 py-3 h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-white w-1/2 text-center mb-6">
+              Coming Soon
+            </div>
+            {/* <Button
               type="button"
               variant="default"
               size="lg"
@@ -132,7 +140,7 @@ const PriceInfoSection = () => {
                 height={24}
                 width={24}
               />
-            </Button>
+            </Button> */}
           </div>
           <div>
             <Image

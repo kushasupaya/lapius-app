@@ -34,9 +34,7 @@ const formSchema = z.object({
   zipCode: z.string().regex(/^\d{5}$/, {
     message: "Please enter a valid 5-digit zip code",
   }),
-  insurance: z.string().min(1, {
-    message: "Please select an insurance",
-  }),
+  insurance: z.string().optional(),
 });
 
 const MedicalSearchForm = () => {

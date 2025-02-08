@@ -78,7 +78,10 @@ const favoriteItems = [
 
 const DashboardSidebar = () => {
   const pathname = usePathname();
-  console.log(pathname);
+  const userData = localStorage.getItem("user");
+  const parsedData = userData ? JSON.parse(userData) : {};
+
+  const { firstName = "", lastName = "", email = "" } = parsedData;
 
   return (
     <Sidebar className="border-r-0 ">
@@ -200,9 +203,11 @@ const DashboardSidebar = () => {
                   className="rounded-full"
                 />
                 <div className="ml-2 flex flex-col text-white">
-                  <span className="text-sm font-medium">Jacopo Cirica</span>
-                  <span className="text-xs text-muted-foreground">
-                    jacopo@gmail...
+                  <span className="text-sm font-medium">
+                    {firstName} {lastName}
+                  </span>
+                  <span className="text-xs text-muted-foreground text-ellipsis overflow-hidden ">
+                    {email}
                   </span>
                 </div>
               </Link>

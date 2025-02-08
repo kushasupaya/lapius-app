@@ -19,6 +19,11 @@ export interface MedicalService {
   list_price: number;
   cash_rate: number;
   additional_notes: string;
+  standard_charge_percentage: number;
+  standard_charge_dollar: number;
+  estimated_amount: number;
+  rev_code: string;
+  standard_charge_algorithm: string;
   setting: string;
   relatedServices?: RelatedService[];
 }
@@ -31,7 +36,12 @@ export interface ColumnVisibility {
   code_type: boolean;
   description: boolean;
   payer: boolean;
-  rate: boolean;
+  standard_charge_percentage: boolean;
+  standard_charge_dollar: boolean;
+  estimated_amount: boolean;
+  rev_code: boolean;
+  standard_charge_algorithm: boolean;
+  // rate: boolean;
   minimum: boolean;
   maximum: boolean;
   list_price: boolean;

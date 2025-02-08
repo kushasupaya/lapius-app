@@ -24,7 +24,7 @@ import { on } from "events";
 
 interface SignupDialogProps {
   trigger?: React.ReactNode;
-  open: boolean;
+  open?: boolean;
   onOpenChange?: (isOpen: boolean) => void;
   onSignUpChange?: (isSignupOpen: boolean) => void;
 }
@@ -66,7 +66,8 @@ export default function LoginDialog({
       if (response.success) {
         toast({
           title: "Success",
-          description: "Check your email for the code!",
+          description:
+            "Check your email for the code! Make sure to check your spam.",
         });
         setShowLoginCode(true);
       } else {
@@ -90,6 +91,9 @@ export default function LoginDialog({
           title: "Success",
           description: "You have successfully signed in!",
         });
+        const userDetails = response.userDetails;
+        console.log(userDetails);
+        localStorage.setItem("user", JSON.stringify(userDetails));
         if (response.token) {
           localStorage.setItem("authToken", response.token);
         }

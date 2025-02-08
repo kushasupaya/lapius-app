@@ -17,11 +17,11 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Lapius: AI-Powered Medical Bill Review Tool",
+  title: "Lapius: Take Control of your Healthcare Costs",
   description:
     "Take Control of Your Healthcare Costs with the AI. We help patients save money by detecting errors and verifying medical bill accuracy.",
   openGraph: {
-    title: "Lapius: AI-Powered Medical Bill Review Tool",
+    title: "Lapius: Take Control of your Healthcare Costs",
     description:
       "Take Control of Your Healthcare Costs with the AI. We help patients save money by detecting errors and verifying medical bill accuracy.",
     type: "website",
