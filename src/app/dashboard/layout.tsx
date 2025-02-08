@@ -7,13 +7,32 @@ import {
 } from "@/components/ui/sidebar";
 import { useAuthRedirect } from "@/utils/authRedirect";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const isAuthenticated = useAuthRedirect(true); //
-  const router = useRouter();
+  const isAuthenticated = useAuthRedirect(true); // Automatically redirect if not authenticated
+  const [hydrated, setHydrated] = useState(false);
 
-  // If user is not authenticated, prevent layout from rendering to avoid a flash of content
-  if (!isAuthenticated) router.push("/");
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  // Prevent rendering until hydrated to avoid HTML mismatch
+  if (!hydrated) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Redirecting...
+      </div>
+    );
+  }
 
   // Breadcrumbs part
   //   const pathname = usePathname() || "";

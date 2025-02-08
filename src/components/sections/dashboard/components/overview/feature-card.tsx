@@ -23,9 +23,12 @@ const FeatureCard = ({ title, description, link, icon }: FeatureCardProps) => {
             <p className="text-muted-foreground">{description}</p>
           </div>
           {title === "Upload Bill" || title === "Cost Estimator" ? (
-            <div className="border border-primary-dashboard px-3 py-2 text-base  bg-white w-1/2 rounded-full">
+            <Button
+              className="w-fit bg-white border-primary-dashboard border  mt-1 text-black rounded-full hover:bg-gray-100"
+              size="lg"
+            >
               Coming Soon
-            </div>
+            </Button>
           ) : (
             <Link href={link}>
               <Button
