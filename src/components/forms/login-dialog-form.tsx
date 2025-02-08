@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
@@ -18,9 +17,9 @@ import { z } from "zod";
 import { toast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchLoginCode, userLogin } from "@/api/apiClient";
-import { on } from "events";
+import { useAuthRedirect } from "@/utils/authRedirect";
 
 interface SignupDialogProps {
   trigger?: React.ReactNode;
@@ -52,6 +51,17 @@ export default function LoginDialog({
     resolver: zodResolver(loginSchema),
   });
   const [showLoginCode, setShowLoginCode] = useState(false);
+  const isAuthenticated = useAuthRedirect(false);
+
+  useEffect(() => {
+    if (open && isAuthenticated) {
+      router.push("/dashboard");
+      toast({
+        title: "Welcome back!",
+        description: "You are already signed in.",
+      });
+    }
+  }, [isAuthenticated, open, router]);
 
   const getLoginCode = async () => {
     const email = watch("email");
@@ -67,7 +77,7 @@ export default function LoginDialog({
         toast({
           title: "Success",
           description:
-            "Check your email for the code! Make sure to check your spam.",
+            "Check your email for the code! Make sure to check your spam folder.",
         });
         setShowLoginCode(true);
       } else {
@@ -115,7 +125,10 @@ export default function LoginDialog({
       <DialogTrigger asChild>
         {trigger || <Button variant="default">Login</Button>}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[800px] p-6">
+      <DialogContent
+        aria-describedby="login-dialog"
+        className="sm:max-w-[800px] p-6"
+      >
         <div className="grid grid-cols-3">
           <div className="relative">
             <Image
@@ -177,7 +190,7 @@ export default function LoginDialog({
                       </InputOTPGroup>
                     </InputOTP>
                     <span className="text-sm text-muted-foreground">
-                      Did&apos;nt receive the code?{" "}
+                      Didn&apos;t receive the code?{" "}
                       <span
                         className="underline hover:text-primary-dashboard text-primary"
                         onClick={() => getLoginCode()}

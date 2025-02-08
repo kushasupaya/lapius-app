@@ -203,3 +203,43 @@ export const defaultColumnVisibility: ColumnVisibility = {
   additional_notes: false,
   setting: false,
 };
+
+// Array of healthcare facts
+const healthcareFacts: string[] = [
+  "The brain uses around 20% of the body's total oxygen and calories.",
+  "The human heart beats over 100,000 times a day, pumping about 2,000 gallons of blood daily.",
+  "Tooth enamel is the hardest substance in the human body.",
+  "Being awake for more than 17 hours impairs cognitive function similar to having a blood alcohol level of 0.05%.",
+  "The human body is approximately 60% water.",
+  "The first successful human-to-human blood transfusion was performed in 1818 by James Blundell.",
+  "The fingernail on the middle finger grows the fastest, while the thumbnail grows the slowest.",
+  "Sunburn is actually radiation damage to your skin from ultraviolet (UV) rays.",
+  "Women, on average, live longer than men by about 5-7 years globally.",
+  "The most commonly performed surgery in the world is cataract surgery.",
+  "Chronic sleep deprivation can weaken your immune system, making you more susceptible to illnesses.",
+  "The surface area of your lungs is roughly the size of a tennis court.",
+  "The human body can survive up to 3 weeks without food but only about 3-5 days without water.",
+  "There are more bacterial cells in the human body than human cells.",
+  "A single organ donor can save up to eight lives.",
+  "Blood makes up about 7-8% of a person’s total body weight.",
+  "Just 30 minutes of moderate exercise daily can reduce the risk of heart disease by up to 35%.",
+  "Smallpox is the only human disease to have been completely eradicated globally through vaccination.",
+  "The placebo effect can sometimes lead to real symptom relief despite a person receiving a non-active treatment.",
+  "There are over 200 different viruses that can cause the common cold.",
+  "Body Mass Index (BMI) does not account for muscle mass and body fat distribution, making it an imperfect health measure.",
+  "Alzheimer’s disease affects approximately 1 in 9 people over the age of 65 in the U.S.",
+  "Babies are born with about 270 bones, which fuse over time to form 206 bones in adults.",
+  "If all the blood vessels in your body were laid end-to-end, they would stretch over 60,000 miles.",
+  "Over 500 million adults worldwide have diabetes or prediabetes.",
+  "Anxiety disorders are the most common mental health issue globally, affecting about 1 in 13 people.",
+  "Misuse and overuse of antibiotics have led to a rise in drug-resistant bacterial infections.",
+  "The liver is the largest solid organ in the human body, weighing about 3.5 pounds on average.",
+  "Over 60% of adults in the U.S. have at least one chronic disease, such as diabetes, hypertension, or heart disease.",
+  "The use of telehealth services increased by over 1500% in some regions during the COVID-19 pandemic.",
+];
+
+// Function to get a random fact
+export function getRandomHealthcareFact(): string {
+  const randomIndex = Math.floor(Math.random() * healthcareFacts.length);
+  return healthcareFacts[randomIndex];
+}

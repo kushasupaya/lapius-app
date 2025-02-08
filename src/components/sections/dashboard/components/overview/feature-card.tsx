@@ -22,15 +22,21 @@ const FeatureCard = ({ title, description, link, icon }: FeatureCardProps) => {
             <h2 className="text-xl font-bold tracking-tight">{title}</h2>
             <p className="text-muted-foreground">{description}</p>
           </div>
-          <Link href={link}>
-            <Button
-              className="w-fit bg-primary hover:bg-[#0B3B2D]/60 mt-1 text-white rounded-full"
-              size="lg"
-            >
-              <Zap className="mr-2 h-5 w-5 text-primary-dashboard" />
-              Analyze Now
-            </Button>
-          </Link>
+          {title === "Upload Bill" || title === "Cost Estimator" ? (
+            <div className="border border-primary-dashboard px-3 py-2 text-base  bg-white w-1/2 rounded-full">
+              Coming Soon
+            </div>
+          ) : (
+            <Link href={link}>
+              <Button
+                className="w-fit bg-primary hover:bg-[#0B3B2D]/60 mt-1 text-white rounded-full"
+                size="lg"
+              >
+                <Zap className="mr-2 h-5 w-5 text-primary-dashboard" />
+                Search Now
+              </Button>
+            </Link>
+          )}
         </div>
       </CardContent>
     </Card>

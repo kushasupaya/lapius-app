@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSignup } from "@/api/apiClient";
 import { toast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuthRedirect } from "@/utils/authRedirect";
 
 interface SignupDialogProps {
   trigger?: React.ReactNode;
@@ -45,7 +46,19 @@ export default function SignupDialog({
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
   });
-  // const [signupDialogOpen, setsignupDialogOpen] = useState(false);
+
+  const isAuthenticated = useAuthRedirect(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (open && isAuthenticated) {
+      router.push("/dashboard");
+      toast({
+        title: "Welcome back!",
+        description: "You are already signed in.",
+      });
+    }
+  }, [isAuthenticated, open, router]);
 
   const onSubmit = async (data: SignupFormData) => {
     try {
@@ -76,7 +89,10 @@ export default function SignupDialog({
       <DialogTrigger asChild>
         {trigger || <Button variant="default">Sign Up</Button>}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[800px] p-6">
+      <DialogContent
+        className="sm:max-w-[800px] p-6"
+        aria-describedby="signup-dialog"
+      >
         <div className="grid grid-cols-3">
           <div className="relative">
             <Image

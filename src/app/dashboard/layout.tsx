@@ -6,11 +6,16 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { useAuthRedirect } from "@/utils/authRedirect";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  useAuthRedirect();
+  const isAuthenticated = useAuthRedirect(true); //
+  const router = useRouter();
 
+  // If user is not authenticated, prevent layout from rendering to avoid a flash of content
+  if (!isAuthenticated) router.push("/");
+
+  // Breadcrumbs part
   //   const pathname = usePathname() || "";
   //   const segments = pathname.split("/").filter(Boolean);
 

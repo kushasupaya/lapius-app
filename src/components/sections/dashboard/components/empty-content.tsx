@@ -1,6 +1,15 @@
+"use client";
+import { getRandomHealthcareFact } from "@/utils/tableFakeData";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const EmptyContent = () => {
+  const [fact, setFact] = useState("");
+
+  useEffect(() => {
+    setFact(getRandomHealthcareFact());
+  }, []);
+
   return (
     <div className="border rounded-lg h-full flex flex-col justify-between bg-white">
       {/* Centered image */}
@@ -15,7 +24,7 @@ const EmptyContent = () => {
       {/* Content at the bottom */}
       <div className="text-center mt-4 border-t p-4">
         <span className="text-muted-foreground italic text-sm">
-          Facts: Something
+          Facts: {fact}
         </span>
       </div>
     </div>

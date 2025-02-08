@@ -44,7 +44,7 @@ export default function Home() {
         <FeatureCard
           icon={<IconMessageChatbot />}
           link="/dashboard/cost-estimator"
-          description="Chat with our assistant to estimate the treatment cost."
+          description="Chat with our AI assistant to estimate the treatment cost."
           title="Cost Estimator"
         />
       </div>

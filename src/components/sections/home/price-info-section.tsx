@@ -5,11 +5,14 @@ import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
 import LoginDialog from "@/components/forms/login-dialog-form";
+import { useState } from "react";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
 const PriceInfoSection = () => {
+  const [openSignup, setOpenSignup] = useState(false);
+  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
   return (
     <section>
       <div className="container mx-auto p-4 pb-6 lg:px-0 lg:pb-[100px] 2xl:px-36">
@@ -42,6 +45,9 @@ const PriceInfoSection = () => {
                   <ArrowRightIcon className="ml-1 h-4 w-4" />
                 </Button>
               }
+              onOpenChange={setLoginDialogOpen}
+              open={loginDialogOpen}
+              onSignUpChange={setOpenSignup}
             />
           </div>
           <div>

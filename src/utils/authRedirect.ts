@@ -1,36 +1,36 @@
 "use client";
-import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { toast } from "@/hooks/use-toast";
 
-function isTokenExpired(token: any) {
-  if (!token) return true;
-
-  try {
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
-    console.log(currentTime);
-    return payload.exp < currentTime;
-  } catch (error) {
-    console.error("Invalid token:", error);
-    return true; // If token is malformed, consider it expired
-  }
-}
-
-export function useAuthRedirect() {
+export function useAuthRedirect(autoRedirect = true): boolean {
   const router = useRouter();
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("authToken") : null;
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
-
-    // Redirect to login if token is missing or expired
-    if (!token || isTokenExpired(token)) {
-      router.push("/");
+    if (token && isTokenExpired(token)) {
+      localStorage.removeItem("authToken");
       toast({
         title: "Session expired",
         variant: "destructive",
         description: "Please log in again",
       });
+
+      if (autoRedirect) {
+        router.push("/");
+      }
     }
-  }, [router]);
+  }, [router, token, autoRedirect]);
+
+  return !!token && !isTokenExpired(token);
+}
+
+function isTokenExpired(token: string): boolean {
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return Date.now() >= payload.exp * 1000;
+  } catch {
+    return true;
+  }
 }

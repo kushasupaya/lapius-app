@@ -48,7 +48,7 @@ const tabs = [
               <FormControl>
                 <Input
                   className="py-5"
-                  placeholder="Enter procedure or CPT/HCPCS/MSDRG code"
+                  placeholder="Enter CPT/HCPCS/MSDRG code"
                   {...field}
                 />
               </FormControl>

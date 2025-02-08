@@ -200,7 +200,7 @@ const DashboardSidebar = () => {
               asChild
               className="gap-2 text-green-100 text-sm leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
             >
-              <Link href="/help">
+              <Link href="/dashboard/help">
                 <HelpCircle className="h-5 w-5" />
                 <span>Help & Support</span>
               </Link>
@@ -211,7 +211,7 @@ const DashboardSidebar = () => {
               asChild
               className="mt-4 gap-2 text-muted-foreground hover:bg-muted/5 hover:text-white"
             >
-              <Link href="/profile" className="flex items-center">
+              <Link href="/dashboard/profile" className="flex items-center">
                 <Image
                   src="/logo/lapius.svg"
                   alt="Profile"
