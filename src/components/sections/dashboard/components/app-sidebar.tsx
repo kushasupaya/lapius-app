@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/sidebar";
 import { usePathname } from "next/navigation";
 import SettingsDialog from "./settings/settings";
+import { useEffect, useState } from "react";
 
 interface NavItem {
   title: string;
@@ -78,10 +79,26 @@ const favoriteItems = [
 
 const DashboardSidebar = () => {
   const pathname = usePathname();
-  const userData = localStorage.getItem("user");
-  const parsedData = userData ? JSON.parse(userData) : {};
 
-  const { firstName = "", lastName = "", email = "" } = parsedData;
+  const [userData, setUserData] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+  }>({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  useEffect(() => {
+    // Access localStorage safely on the client-side
+    const data = localStorage.getItem("user");
+    if (data) {
+      setUserData(JSON.parse(data));
+    }
+  }, []);
+
+  const { firstName, lastName, email } = userData;
 
   return (
     <Sidebar className="border-r-0 ">
