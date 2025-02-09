@@ -28,7 +28,7 @@ export default function Home() {
         <span className="text-2xl font-bold">Hello, {firstName}.</span>
         {/* <span className="text-muted-foreground">How can I help you today?</span> */}
       </div>
-      <div className="flex gap-4 p-8 border rounded-md bg-white w-fill">
+      <div className="flex flex-col md:flex-row gap-4 p-8 border rounded-md bg-white w-fill">
         <FeatureCard
           icon={<IconFileAlert />}
           link="/dashboard/chatbot"

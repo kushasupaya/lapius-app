@@ -56,6 +56,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <DashboardSidebar />
       <SidebarInset>
+        <header className="sticky top-0 flex md:hidden  h-14 shrink-0 items-center gap-2 bg-background">
+          <div className="flex flex-1 items-center gap-2 px-3">
+            <SidebarTrigger className="-ml-1" />
+          </div>
+        </header>
         <main>
           {/* <div className="border-b border-gray-300">
             <div className="p-6">

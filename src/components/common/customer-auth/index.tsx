@@ -66,7 +66,10 @@ const CustomerAuth = ({
         {uiState === "sign-in" && (
           <div>
             <DialogHeader className="mb-6 mt-28">
-              <DialogTitle className="text-lg font-semibold cursor-default">
+              <DialogTitle
+                aria-describedby="customer-auth"
+                className="text-lg font-semibold cursor-default"
+              >
                 Welcome Back
               </DialogTitle>
               <DialogDescription className="text-sm cursor-default">
@@ -96,7 +99,10 @@ const CustomerAuth = ({
         {uiState === "sign-up" && (
           <div>
             <DialogHeader className="mb-6 mt-28">
-              <DialogTitle className="text-lg font-semibold cursor-default">
+              <DialogTitle
+                aria-describedby="account-signup"
+                className="text-lg font-semibold cursor-default"
+              >
                 Create an Account
               </DialogTitle>
               <DialogDescription className="text-sm cursor-default">

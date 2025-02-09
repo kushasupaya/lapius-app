@@ -131,25 +131,20 @@ const Header = ({ isBlog }: Props) => {
 
             {/* Sign In and Get Started Buttons */}
             <div className="hidden md:flex items-center gap-2">
-              <p
-                className="text-lg text-white font-medium hover:text-primary-dashboard cursor-pointer"
-                // onClick={() => setOpenSignup(true)}
-              >
-                <SignupDialog
-                  trigger={
-                    <Button
-                      variant="link"
-                      className="text-sm text-white font-medium hover:text-primary-dashboard cursor-pointer"
-                      // onClick={() => setOpenSignup(true)}
-                    >
-                      Sign Up
-                    </Button>
-                  }
-                  open={openSignup}
-                  onSignupChange={setOpenSignup}
-                  onOpenChange={setLoginDialogOpen}
-                />
-              </p>
+              <SignupDialog
+                trigger={
+                  <Button
+                    variant="link"
+                    className="text-sm text-white font-medium hover:text-primary-dashboard cursor-pointer"
+                    // onClick={() => setOpenSignup(true)}
+                  >
+                    Sign Up
+                  </Button>
+                }
+                open={openSignup}
+                onSignupChange={setOpenSignup}
+                onOpenChange={setLoginDialogOpen}
+              />
               <LoginDialog
                 trigger={
                   <Button
@@ -229,18 +224,33 @@ const Header = ({ isBlog }: Props) => {
                   FAQ
                 </Link>
                 <div className="flex flex-col gap-4">
-                  <p
-                    className="text-base text-white font-medium hover:text-primary-dashboard cursor-pointer"
-                    // onClick={() => setOpenSignup(true)}
-                  >
-                    Login
-                  </p>
-                  <p
-                    className="text-base text-white font-medium hover:text-primary-dashboard cursor-pointer"
-                    // onClick={() => setOpenSignup(true)}
-                  >
-                    Sign Up
-                  </p>
+                  <LoginDialog
+                    trigger={
+                      <Button
+                        variant="link"
+                        className="px-2 py-5 text-white  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
+                      >
+                        Login
+                      </Button>
+                    }
+                    onOpenChange={setLoginDialogOpen}
+                    open={loginDialogOpen}
+                    onSignUpChange={setOpenSignup}
+                  />
+                  <SignupDialog
+                    trigger={
+                      <Button
+                        variant="link"
+                        className="px-2 py-5 text-white  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
+                        // onClick={() => setOpenSignup(true)}
+                      >
+                        Sign Up
+                      </Button>
+                    }
+                    open={openSignup}
+                    onSignupChange={setOpenSignup}
+                    onOpenChange={setLoginDialogOpen}
+                  />
                   {/* <p
                     className="text-sm text-white font-medium hover:text-primary cursor-pointer"
                     onClick={() => {

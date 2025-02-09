@@ -84,7 +84,9 @@ const SettingsDialog = () => {
         </div>
       </DialogTrigger>
       <DialogContent className="overflow-hidden p-0 md:max-h-[500px] md:max-w-[700px] lg:max-w-[800px]">
-        <DialogTitle className="sr-only">Settings</DialogTitle>
+        <DialogTitle className="sr-only" aria-describedby="settings">
+          Settings
+        </DialogTitle>
         <DialogDescription className="sr-only">
           Customize your settings here.
         </DialogDescription>

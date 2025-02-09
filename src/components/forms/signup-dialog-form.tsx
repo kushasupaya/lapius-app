@@ -89,10 +89,7 @@ export default function SignupDialog({
       <DialogTrigger asChild>
         {trigger || <Button variant="default">Sign Up</Button>}
       </DialogTrigger>
-      <DialogContent
-        className="sm:max-w-[800px] p-6"
-        aria-describedby="signup-dialog"
-      >
+      <DialogContent className="sm:max-w-[800px] p-6">
         <div className="grid grid-cols-3">
           <div className="relative">
             <Image
@@ -109,7 +106,10 @@ export default function SignupDialog({
             <DialogHeader>
               <div className="flex justify-between items-start">
                 <div className="flex-1 text-center">
-                  <DialogTitle className="text-2xl font-bold mb-2">
+                  <DialogTitle
+                    className="text-2xl font-bold mb-2"
+                    aria-describedby="signup-dialog"
+                  >
                     Sign up to Lapius
                   </DialogTitle>
                   <p className="text-muted-foreground">

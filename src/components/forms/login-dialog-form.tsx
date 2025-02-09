@@ -145,7 +145,10 @@ export default function LoginDialog({
             <DialogHeader>
               <div className="flex justify-between items-start">
                 <div className="flex-1 text-center">
-                  <DialogTitle className="text-2xl font-bold mb-2">
+                  <DialogTitle
+                    aria-describedby="login-dialog"
+                    className="text-2xl font-bold mb-2"
+                  >
                     Welcome Back
                   </DialogTitle>
                   <p className="text-muted-foreground">

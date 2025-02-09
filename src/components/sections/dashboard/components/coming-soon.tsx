@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ComingSoon() {
   return (
-    <div className="flex flex-col items-center text-center space-y-6 max-w-2xl mx-auto p-6">
+    <div className="flex flex-col items-center text-center space-y-6 max-w-2xl mx-auto p-2 md:p-6">
       {/* Icon */}
       <div className="relative">
         <Image
@@ -19,7 +19,7 @@ export default function ComingSoon() {
       {/* Text Content */}
       <div className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight">Coming Soon!</h2>
-        <p className="text-muted-foreground text-lg max-w-md mx-auto">
+        <p className="text-muted-foreground text-lg max-w-xl mx-auto">
           We&apos;re working hard to bring this page to life. Stay tuned for
           updates!
         </p>

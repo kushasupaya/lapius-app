@@ -40,7 +40,7 @@ const tabs = [
     id: "procedure",
     label: "Procedure",
     content: (
-      <div className="flex flex-grow-0 justify-center w-full gap-2 px-4">
+      <div className="flex flex-grow-0 flex-col md:flex-row justify-center w-full gap-2 px-4">
         <FormField
           name="procedureCode"
           render={({ field }) => (
