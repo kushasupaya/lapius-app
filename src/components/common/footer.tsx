@@ -75,36 +75,51 @@ const Footer = () => {
             </div>
             
           </div> */}
-          <div className="flex  gap-6">
-            <Link
-              href="https://www.facebook.com/profile.php?id=61569863414116"
-              className="text-tertiary-foreground hover:text-primary text-sm"
-              target="_blank"
-            >
-              <IconBrandFacebook className="w-6 h-6" />
-            </Link>
-            <Link
-              href="https://www.instagram.com/lapiusai/"
-              className="text-tertiary-foreground hover:text-primary text-sm"
-              target="_blank"
-            >
-              <IconBrandInstagram className="w-6 h-6" />
-            </Link>
+          <div className="grid grid-flow-row gap-6">
+            <div className="flex gap-4">
+              <Link
+                href="https://www.facebook.com/profile.php?id=61569863414116"
+                className="text-tertiary-foreground hover:text-primary text-sm"
+                target="_blank"
+              >
+                <IconBrandFacebook className="w-6 h-6" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/lapiusai/"
+                className="text-tertiary-foreground hover:text-primary text-sm"
+                target="_blank"
+              >
+                <IconBrandInstagram className="w-6 h-6" />
+              </Link>
 
-            <Link
-              href="https://x.com/LapiusAI"
-              className="text-tertiary-foreground hover:text-primary text-sm"
-              target="_blank"
-            >
-              <IconBrandX className="w-6 h-6" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/company/lapius-ai"
-              className="text-tertiary-foreground hover:text-primary text-sm"
-              target="_blank"
-            >
-              <IconBrandLinkedin className="w-6 h-6" />
-            </Link>
+              <Link
+                href="https://x.com/LapiusAI"
+                className="text-tertiary-foreground hover:text-primary text-sm"
+                target="_blank"
+              >
+                <IconBrandX className="w-6 h-6" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/lapius-ai"
+                className="text-tertiary-foreground hover:text-primary text-sm"
+                target="_blank"
+              >
+                <IconBrandLinkedin className="w-6 h-6" />
+              </Link>
+            </div>
+            <div>
+              <a
+                href="https://www.producthunt.com/posts/lapius-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-lapius&#0045;ai"
+                target="_blank"
+              >
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=862628&theme=light&t=1739302003701"
+                  alt="Lapius&#0032;AI - Take&#0032;control&#0032;of&#0032;your&#0032;healthcare&#0032;costs | Product Hunt"
+                  width="250"
+                  height="54"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
