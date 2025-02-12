@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Bot, Mic, Send, Bookmark } from "lucide-react";
 import Image from "next/image";
 import { IconLink, IconMessage } from "@tabler/icons-react";
-import { ChatMessage } from "@/types/chat";
+import { ChatResponse, CustomChatMessage } from "@/types/chat";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
@@ -14,23 +14,23 @@ interface ChatSystemProps {
   chatType?: string;
 }
 
-const testResponse = {
-  response: {
-    text: "Do you want to continue?",
-    metadata: {
-      options: {
-        option_1: "Yes, let's go!",
-        option_2: "No, not right now.",
-      },
-      externalLink: {
-        "More Info": "https://example.com",
-      },
-    },
-  },
-};
+// const testResponse = {
+//   response: {
+//     text: "Do you want to continue?",
+//     metadata: {
+//       options: {
+//         option_1: "Yes, let's go!",
+//         option_2: "No, not right now.",
+//       },
+//       externalLink: {
+//         "More Info": "https://example.com",
+//       },
+//     },
+//   },
+// };
 
 const ChatSystem = ({ chatType }: ChatSystemProps) => {
-  const [messages, setMessages] = useState<ChatMessage[]>([
+  const [messages, setMessages] = useState<CustomChatMessage[]>([
     {
       id: "1",
       content:
@@ -48,6 +48,9 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const [input, setInput] = useState("");
+  const [apimessages, setApiMessages] = useState<
+    { role: string; content: string }[]
+  >([]);
   const [isThinking, setIsThinking] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<{
     [messageId: string]: string | null;
@@ -60,19 +63,19 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
     handleSend(option); // Trigger the send function
   };
 
-  // useEffect(() => {
-  //   if (chatContainerRef.current) {
-  //     chatContainerRef.current.scrollTop =
-  //       chatContainerRef.current.scrollHeight;
-  //   }
-  // }, [messages]);
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const handleSend = async (messageInput?: string) => {
     const userInput = messageInput || input;
     if (!userInput.trim()) return;
 
     // Add the user's message to the chat
-    const newUserMessage: ChatMessage = {
+    const newUserMessage: CustomChatMessage = {
       id: `user-${Date.now()}-${Math.random()}`,
       content: userInput,
       sender: "user",
@@ -81,7 +84,12 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
         minute: "2-digit",
       }),
     };
+    const updatedApiMessages = [
+      ...apimessages,
+      { role: "user", content: userInput },
+    ];
 
+    setApiMessages(updatedApiMessages);
     setMessages((prev) => [...prev, newUserMessage]);
     setInput("");
     setIsThinking(true);
@@ -96,40 +104,47 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
       return newSet;
     });
 
+    console.log(updatedApiMessages);
     try {
       // Send the user's message to the backend
 
-      const response = testResponse;
-      // const response = await fetch("/api/chat", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ message: input }),
-      // });
+      const serverResponse = await fetch("/api/get-chat-response", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ messages: updatedApiMessages }),
+      });
+      console.log(serverResponse);
+      if (serverResponse.ok) {
+        const data: ChatResponse = await serverResponse.json(); // Cast response as ChatResponse
 
-      // if (response.ok) {
-      // const data = await response.json();
-      const { text, metadata } = response.response;
+        const { response, link, options } = data;
+        // const { text, metadata } = response.response;
 
-      // Add the AI's response to the chat
-      const aiMessage: ChatMessage = {
-        id: `ai-${Date.now()}-${Math.random()}`,
-        content: text,
-        sender: "ai",
-        timestamp: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
-        options: metadata?.options,
-        externalLink: metadata?.externalLink,
-      };
+        // Add the AI's response to the chat
+        const aiMessage: CustomChatMessage = {
+          id: `ai-${Date.now()}-${Math.random()}`,
+          content: response,
+          sender: "ai",
+          timestamp: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          options: options,
+          externalLink: link,
+        };
+        const aiMessages = [
+          ...updatedApiMessages,
+          { role: "assistant", content: response },
+        ];
+        setApiMessages(aiMessages);
 
-      setMessages((prev) => [...prev, aiMessage]);
-      setIsThinking(false);
-      // } else {
-      //   console.error("Error fetching response from backend");
-      // }
+        setMessages((prev) => [...prev, aiMessage]);
+        setIsThinking(false);
+      } else {
+        console.error("Error fetching response from backend");
+      }
     } catch (error) {
       console.error("Error sending message to backend:", error);
     } finally {
@@ -207,14 +222,14 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
                 </div>
                 {message.options && (
                   <RadioGroup>
-                    <div className="grid grid-row gap-2 mt-2">
+                    <div className="grid grid-row gap-2 mt-2 w-fit">
                       {Object.entries(message.options).map(
                         ([key, option]: [string, string]) => {
                           // console.log(key, option);
                           return (
                             <div
                               key={key}
-                              className={`items-center border rounded-full px-2 py-1 space-x-2 cursor-pointer ${
+                              className={`  items-center border rounded-full px-3 py-1  space-x-2 cursor-pointer ${
                                 selectedOptions[message.id] === option
                                   ? "bg-primary-dashboard text-black"
                                   : "hover:bg-primary-dashboard/60 bg-white text-black hover:shadow-md"
@@ -244,19 +259,12 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
                 )}
                 {message.externalLink && (
                   <div className="mt-2 grid grid-row">
-                    {Object.entries(message.externalLink).map(
-                      ([key, link]: [string, string]) => (
-                        <div
-                          key={key}
-                          className="flex items-center border rounded-full px-2 py-1 bg-white text-black gap-2 hover:shadow-md"
-                        >
-                          <IconLink className="h-4 w-4" />
-                          <a href={link} target="_blank">
-                            {link}
-                          </a>
-                        </div>
-                      )
-                    )}
+                    <div className="flex items-center text-sm border rounded-full px-2 py-1 bg-white text-black gap-2 hover:shadow-md">
+                      <IconLink className="h-5 w-5" />
+                      <a href={message.externalLink} target="_blank">
+                        {message.externalLink}
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>

@@ -90,7 +90,6 @@ export const signInUser = async (email: string) => {
     };
     const command = new InitiateAuthCommand(params);
     const response = await cognitoClient.send(command);
-    console.log(response);
     return response;
   } catch (error) {
     console.error("Error signing in user:", error);
@@ -103,7 +102,6 @@ export const verifySignInOtp = async (
   otp: string,
   session: string
 ) => {
-  console.log(email, otp, session);
   try {
     const secretHash = calculateSecretHash(
       email,
@@ -121,12 +119,9 @@ export const verifySignInOtp = async (
       Session: session,
     };
 
-    console.log(params);
-
     const command = new RespondToAuthChallengeCommand(params);
     const response = await cognitoClient.send(command);
 
-    console.log("Sign-in successful:", response);
     return response;
   } catch (error) {
     console.error("Error verifying OTP:", error);

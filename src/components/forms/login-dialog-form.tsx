@@ -71,7 +71,7 @@ export default function LoginDialog({
     }
     try {
       const response = await fetchLoginCode(email);
-      console.log(response);
+      //   console.log(response);
 
       if (response.success) {
         toast({
@@ -95,14 +95,14 @@ export default function LoginDialog({
   const onSubmit = async (data: LoginFormData) => {
     try {
       const response = await userLogin(data);
-      console.log(response);
+      //   console.log(response);
       if (response.success) {
         toast({
           title: "Success",
           description: "You have successfully signed in!",
         });
         const userDetails = response.userDetails;
-        console.log(userDetails);
+        // console.log(userDetails);
         localStorage.setItem("user", JSON.stringify(userDetails));
         if (response.token) {
           localStorage.setItem("authToken", response.token);

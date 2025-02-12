@@ -63,7 +63,7 @@ export default function SignupDialog({
   const onSubmit = async (data: SignupFormData) => {
     try {
       const response = await userSignup(data);
-      console.log(response);
+      // console.log(response);
       if (response.success) {
         toast({
           title: "Success",

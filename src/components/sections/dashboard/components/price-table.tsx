@@ -64,7 +64,7 @@ export default function MedicalServicesTable({
 
   const toggleColumnVisibility = (column: keyof ColumnVisibility) => {
     setColumnVisibility((prev) => ({ ...prev, [column]: !prev[column] }));
-    console.log(columnVisibility);
+    // console.log(columnVisibility);
   };
 
   const filteredServices = useMemo(() => {
@@ -170,31 +170,57 @@ export default function MedicalServicesTable({
                 )}
                 {columnVisibility.standard_charge_dollar && (
                   <TableCell>
-                    ${service.standard_charge_dollar.toFixed(2)}
+                    {service.standard_charge_dollar !== null
+                      ? `${service.standard_charge_dollar.toFixed(2)}`
+                      : "N/A"}
                   </TableCell>
                 )}
                 {columnVisibility.standard_charge_percentage && (
                   <TableCell>
-                    {service.standard_charge_percentage.toFixed(2)}
+                    {service.standard_charge_percentage !== null
+                      ? `${service.standard_charge_percentage.toFixed(2)}`
+                      : "N/A"}
                   </TableCell>
                 )}
                 {columnVisibility.standard_charge_algorithm && (
-                  <TableCell>{service.standard_charge_algorithm}</TableCell>
+                  <TableCell>
+                    {service.standard_charge_algorithm ?? "N/A"}
+                  </TableCell>
                 )}
                 {columnVisibility.minimum && (
-                  <TableCell>${service.minimum.toFixed(2)}</TableCell>
+                  <TableCell>
+                    {service.minimum != null
+                      ? `$${service.minimum?.toFixed(2)}`
+                      : "N/A"}
+                  </TableCell>
                 )}
                 {columnVisibility.maximum && (
-                  <TableCell>${service.maximum.toFixed(2)}</TableCell>
+                  <TableCell>
+                    {service.maximum != null
+                      ? `$${service.maximum?.toFixed(2)}`
+                      : "N/A"}
+                  </TableCell>
                 )}
                 {columnVisibility.list_price && (
-                  <TableCell>${service.list_price.toFixed(2)}</TableCell>
+                  <TableCell>
+                    {service.list_price != null
+                      ? `$${service.list_price?.toFixed(2)}`
+                      : "N/A"}
+                  </TableCell>
                 )}
                 {columnVisibility.cash_rate && (
-                  <TableCell>${service.cash_rate.toFixed(2)}</TableCell>
+                  <TableCell>
+                    {service.cash_rate != null
+                      ? `$${service.cash_rate?.toFixed(2)}`
+                      : "N/A"}
+                  </TableCell>
                 )}
                 {columnVisibility.estimated_amount && (
-                  <TableCell>${service.estimated_amount.toFixed(2)}</TableCell>
+                  <TableCell>
+                    {service.estimated_amount != null
+                      ? `$${service.estimated_amount?.toFixed(2)}`
+                      : "N/A"}
+                  </TableCell>
                 )}
                 {columnVisibility.rev_code && (
                   <TableCell>{service.rev_code}</TableCell>
