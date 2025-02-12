@@ -182,6 +182,7 @@ import { ColumnVisibility, MedicalService } from "@/types/medical-service";
 //   },
 // ];
 
+// export const costEstimatorData:
 export const defaultColumnVisibility: ColumnVisibility = {
   hospital_name: true,
   address: true,
