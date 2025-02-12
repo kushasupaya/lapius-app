@@ -57,6 +57,7 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
   }>({});
 
   const handleOptionSelect = (messageId: string, option: string) => {
+    if (selectedOptions[messageId]) return;
     setSelectedOptions((prev) => ({ ...prev, [messageId]: option }));
     setDisabledOptions((prev) => new Set(prev).add(messageId)); // Disable options for this message
     setInput(option); // Set input to the selected option
