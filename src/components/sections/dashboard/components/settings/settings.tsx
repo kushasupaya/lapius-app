@@ -76,10 +76,10 @@ const SettingsDialog = () => {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger
         asChild
-        className="hover:bg-muted/5 hover:bg-teal-900 px-4 py-2.5 rounded-md"
+        className=" hover:bg-teal-900 rounded-md py-3 px-3 cursor-pointer"
       >
-        <div className="flex text-sm text-green-100  items-center space-x-2 cursor-pointer">
-          <Settings className="h-5 w-5" />
+        <div className="flex items-center gap-2 text-white text-sm tracking-wide leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900">
+          <Settings className="h-4 w-4 ml-1" />
           <span>Settings</span>
         </div>
       </DialogTrigger>

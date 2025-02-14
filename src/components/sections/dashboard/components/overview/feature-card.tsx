@@ -14,7 +14,7 @@ const FeatureCard = ({ title, description, link, icon }: FeatureCardProps) => {
   return (
     <Card className="w-full max-w-2xl p-6 hover:shadow-xl  hover:cursor-pointer">
       <CardContent className="flex items-start gap-6 p-0">
-        <div className="flex h-12 w-12 p-2 items-center justify-center rounded-full bg-gray-100">
+        <div className="flex w-16 p-4 items-center justify-center rounded-full bg-gray-100">
           {icon}
         </div>
         <div className="flex flex-col gap-6">

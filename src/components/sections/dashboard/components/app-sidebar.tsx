@@ -102,7 +102,7 @@ const DashboardSidebar = () => {
 
   return (
     <Sidebar className="border-r-0 ">
-      <SidebarHeader className=" px-8 py-4 bg-[#]">
+      <SidebarHeader className=" px-4 py-4 bg-[#]">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -120,7 +120,7 @@ const DashboardSidebar = () => {
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="px-4 py-4">
+      <SidebarContent className="border-t-2 border-white border-opacity-5">
         <SidebarGroup>
           <SidebarGroupLabel className="px-2 text-xs font-semibold text-teal-700 ">
             MAIN
@@ -135,7 +135,7 @@ const DashboardSidebar = () => {
                     <SidebarMenuButton
                       asChild
                       className={cn(
-                        "gap-2 text-green-100 text-sm leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4",
+                        "gap-2 text-white  text-sm tracking-wide leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4",
                         isActive &&
                           "text-sm text-white leading-5 font-medium rounded-lg bg-teal-800 py-5 px-4"
                       )}
@@ -181,12 +181,12 @@ const DashboardSidebar = () => {
         </SidebarGroup> */}
       </SidebarContent>
 
-      <SidebarFooter className="mt-auto px-4 py-4">
+      <SidebarFooter className="mt-auto mb-4">
         <SidebarMenu>
+        <SidebarHeader className="border-b-2 border-white border-opacity-5 "> 
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="gap-2 text-green-100 text-sm leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
             >
               <SettingsDialog />
               {/* <Link href="/settings">
@@ -198,14 +198,15 @@ const DashboardSidebar = () => {
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="gap-2 text-green-100 text-sm leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
+              className="gap-2 text-white  text-sm tracking-wide leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
             >
               <Link href="/dashboard/help">
                 <HelpCircle className="h-5 w-5" />
                 <span>Help & Support</span>
               </Link>
-            </SidebarMenuButton>
+        </SidebarMenuButton>
           </SidebarMenuItem>
+          </SidebarHeader>
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
@@ -213,18 +214,20 @@ const DashboardSidebar = () => {
             >
               <Link href="/dashboard/profile" className="flex items-center">
                 <Image
-                  src="/logo/lapius.svg"
+                  src="/logo/defaultprofile.svg"
                   alt="Profile"
-                  width={24}
-                  height={24}
-                  className="rounded-full"
+                  width={32}
+                  height={32}
+                  className="rounded-full border"
                 />
-                <div className="ml-2 flex flex-col text-white">
+                <div className="ml-1 flex flex-col text-white">
                   <span className="text-sm font-medium">
                     {firstName} {lastName}
+                  
                   </span>
-                  <span className="text-xs text-muted-foreground text-ellipsis overflow-hidden ">
+                  <span className="text-xs text-white d text-ellipsis overflow-hidden opacity-50 ">
                     {email}
+           
                   </span>
                 </div>
               </Link>
