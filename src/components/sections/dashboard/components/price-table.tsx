@@ -84,9 +84,9 @@ export default function MedicalServicesTable({
 
   const totalPages = Math.ceil(filteredServices.length / itemsPerPage);
 
-  const visibleColumns = Object.entries(columnVisibility).filter(
-    ([_, isVisible]) => isVisible
-  ).length;
+  // const visibleColumns = Object.entries(columnVisibility).filter(
+  //   ([_, isVisible]) => isVisible
+  // ).length;
 
   return (
     <div className="rounded-lg border bg-card shadow-sm">

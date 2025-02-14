@@ -62,6 +62,7 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
     setDisabledOptions((prev) => new Set(prev).add(messageId)); // Disable options for this message
     setInput(option); // Set input to the selected option
     handleSend(option); // Trigger the send function
+    console.log("test");
   };
 
   useEffect(() => {
