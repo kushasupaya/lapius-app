@@ -6,6 +6,7 @@ import {
   IconBrandLinkedin,
   IconBrandX,
 } from "@tabler/icons-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -107,19 +108,19 @@ const Footer = () => {
                 <IconBrandLinkedin className="w-6 h-6" />
               </Link>
             </div>
-            <div>
+            {/* <div>
               <a
                 href="https://www.producthunt.com/posts/lapius-ai?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-lapius&#0045;ai"
                 target="_blank"
               >
-                <img
+                <Image
                   src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=862628&theme=light&t=1739302003701"
                   alt="Lapius&#0032;AI - Take&#0032;control&#0032;of&#0032;your&#0032;healthcare&#0032;costs | Product Hunt"
                   width="250"
                   height="54"
                 />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
