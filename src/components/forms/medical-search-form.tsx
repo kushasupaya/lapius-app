@@ -140,7 +140,7 @@ const MedicalSearchForm = () => {
                           onValueChange={field.onChange}
                         >
                           <SelectTrigger className="pl-14 bg-white pr-4 h-14 text-base 2xl:text-lg md:text-base rounded-l-none sm:rounded-l-none sm:rounded-r-full">
-                            <SelectValue placeholder="I am not using insurance" />
+                            <SelectValue placeholder="Not using insurance" />
                           </SelectTrigger>
                           <SelectContent>
                             {insuranceList.map((insurance) => (

@@ -92,7 +92,7 @@ const tabs = [
             <FormItem className="flex-1">
               <Select value={field.value} onValueChange={field.onChange}>
                 <SelectTrigger className="py-5">
-                  <SelectValue placeholder="I am not using insurance" />
+                  <SelectValue placeholder="Not using insurance" />
                 </SelectTrigger>
                 <SelectContent className="">
                   {insuranceList.map((insurance) => (

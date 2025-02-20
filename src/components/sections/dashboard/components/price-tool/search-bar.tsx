@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { insuranceList } from "@/lib/utils";
+import { distanceList, insuranceList } from "@/lib/utils";
 import {
   MedicalService,
   PriceToolForm,
@@ -40,6 +40,9 @@ const formSchema = z.object({
       required_error: "Please select an insurance option",
     })
     .optional(),
+  distance: z.string().min(2, {
+    message: "Please select a distance",
+  }),
 });
 
 interface SearchCardProps {
@@ -54,6 +57,7 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
       type: PriceToolType.PROCEDURE,
       zipCode: "",
       insurance: "",
+      distance: "25_miles",
     },
   });
 
@@ -73,7 +77,7 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
     <div className="w-full p-2 bg-white rounded-lg ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex flex-col md:flex-row gap-x-4 md:gap-x-3">
+          <div className="flex flex-col md:flex-row gap-y-2 gap-x-4 md:gap-x-3">
             <FormField
               control={form.control}
               name="procedureCode"
@@ -95,7 +99,7 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
               control={form.control}
               name="zipCode"
               render={({ field }) => (
-                <FormItem className="md:w-[200px]">
+                <FormItem className="xl:w-[180px]">
                   {/* <FormLabel className="sr-only">Zip Code</FormLabel> */}
                   <FormControl>
                     <Input placeholder="Zip Code or City" {...field} />
@@ -109,11 +113,11 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
               control={form.control}
               name="insurance"
               render={({ field }) => (
-                <FormItem className="md:w-[200px]">
+                <FormItem className="xl:w-[180px]">
                   {/* <FormLabel className="sr-only">Insurance</FormLabel> */}
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger className="py-2">
-                      <SelectValue placeholder="I am not using insurance" />
+                      <SelectValue placeholder="Not using insurance" />
                     </SelectTrigger>
                     <SelectContent className="">
                       {insuranceList.map((insurance) => (
@@ -128,9 +132,35 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
               )}
             />
 
+            <FormField
+              control={form.control}
+              name="distance"
+              render={({ field }) => (
+                <FormItem className="xl:w-[180px]">
+                  {/* <FormLabel className="sr-only">Insurance</FormLabel> */}
+                  <Select
+                    value={field.value || "25_miles"}
+                    onValueChange={field.onChange}
+                  >
+                    <SelectTrigger className="py-2">
+                      <SelectValue placeholder={"Within 25 Miles"} />
+                    </SelectTrigger>
+                    <SelectContent className="">
+                      {Object.entries(distanceList).map(([key, value]) => (
+                        <SelectItem key={key} value={key}>
+                          {value}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <Button
               type="submit"
-              className="bg-primary text-white hover:bg-[#0B3B3C]/90 md:self-end"
+              className="bg-primary text-white px-10 hover:bg-[#0B3B3C]/90 md:self-end"
             >
               Search
             </Button>

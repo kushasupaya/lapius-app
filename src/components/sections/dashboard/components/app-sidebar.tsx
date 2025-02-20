@@ -60,12 +60,12 @@ const mainNavItems: NavItem[] = [
   },
   {
     title: "AI Chatbot",
-    href: "/dashboard/chatbot",
+    href: "/dashboard/cost-estimator",
     icon: Bot,
   },
   {
-    title: "Cost Estimator",
-    href: "/dashboard/cost-estimator",
+    title: "Bill Analyzer",
+    href: "/dashboard/chatbot",
     icon: BookCheck,
   },
 ];
@@ -183,29 +183,27 @@ const DashboardSidebar = () => {
 
       <SidebarFooter className="mt-auto mb-4">
         <SidebarMenu>
-        <SidebarHeader className="border-b-2 border-white border-opacity-5 "> 
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
-            >
-              <SettingsDialog />
-              {/* <Link href="/settings">
+          <SidebarHeader className="border-b-2 border-white border-opacity-5 ">
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <SettingsDialog />
+                {/* <Link href="/settings">
               <Settings className="h-5 w-5" />
                 <span>Settings</span>
               </Link> */}
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
-              className="gap-2 text-white  text-sm tracking-wide leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
-            >
-              <Link href="/dashboard/help">
-                <HelpCircle className="h-5 w-5" />
-                <span>Help & Support</span>
-              </Link>
-        </SidebarMenuButton>
-          </SidebarMenuItem>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                className="gap-2 text-white  text-sm tracking-wide leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
+              >
+                <Link href="/dashboard/help">
+                  <HelpCircle className="h-5 w-5" />
+                  <span>Help & Support</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
           </SidebarHeader>
           <SidebarMenuItem>
             <SidebarMenuButton
@@ -223,11 +221,9 @@ const DashboardSidebar = () => {
                 <div className="ml-1 flex flex-col text-white">
                   <span className="text-sm font-medium">
                     {firstName} {lastName}
-                  
                   </span>
                   <span className="text-xs text-white d text-ellipsis overflow-hidden opacity-50 ">
                     {email}
-           
                   </span>
                 </div>
               </Link>

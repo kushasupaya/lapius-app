@@ -13,8 +13,8 @@ export default function Home() {
   const showTable = true;
   const [tableData, setTableData] = useState<MedicalService[]>();
   return (
-    <div>
-      <div className="rounded-lg p-4">
+    <div className="max-w-screen-xl w-full mx-auto md:p-4 2xl:p-2">
+      <div>
         <span className="mb-2 block text-base font-semibold">Price tool</span>
         <div className="flex flex-col gap-4 ">
           <div className="flex flex-col gap-4">

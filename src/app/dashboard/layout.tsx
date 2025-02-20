@@ -9,30 +9,34 @@ import { useAuthRedirect } from "@/utils/authRedirect";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const isAuthenticated = useAuthRedirect(true); // Automatically redirect if not authenticated
-  const [hydrated, setHydrated] = useState(false);
+  // const isAuthenticated = useAuthRedirect(true); // Automatically redirect if not authenticated
+  // const [hydrated, setHydrated] = useState(false);
 
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
+  // useEffect(() => {
+  //   setHydrated(true);
+  // }, []);
 
-  // Prevent rendering until hydrated to avoid HTML mismatch
-  if (!hydrated) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
-      </div>
-    );
-  }
+  // // Prevent rendering until hydrated to avoid HTML mismatch
+  // if (!hydrated) {
+  //   return (
+  //     <div className="flex justify-center items-center h-screen">
+  //       Loading...
+  //     </div>
+  //   );
+  // }
 
-  if (!isAuthenticated) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Redirecting...
-      </div>
-    );
-  }
+  // if (!isAuthenticated) {
+  //   return (
+  //     <div className="flex justify-center items-center h-screen">
+  //       Redirecting...
+  //     </div>
+  //   );
+  // }
 
   // Breadcrumbs part
   //   const pathname = usePathname() || "";
@@ -61,16 +65,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <SidebarTrigger className="-ml-1" />
           </div>
         </header>
-        <main>
+        <main
+          className={`${inter.className} flex flex-col h-screen overflow-auto bg-gray-100`}
+        >
           {/* <div className="border-b border-gray-300">
             <div className="p-6">
               <Breadcrumbs items={breadcrumbItems} />
               <h1 className="text-xl font-bold mt-2">{currentPage}</h1>
             </div>
           </div> */}
-          <div className="flex flex-1 flex-col gap-4 p-2 bg-gray-100">
-            {children}
-          </div>
+          <div className="flex flex-1 flex-col gap-4 p-2 ">{children}</div>
         </main>
       </SidebarInset>
     </SidebarProvider>

@@ -45,7 +45,7 @@ export const s3Client = new S3Client({
 });
 
 export const insuranceList = [
-  "I am not using insurance",
+  "Not using insurance",
   "Aetna",
   "Anthem Blue Cross",
   "Blue Cross Blue Shield",
@@ -56,3 +56,9 @@ export const insuranceList = [
   "Medicare",
   "UnitedHealthcare",
 ];
+
+export const distanceList = {
+  "25_miles": "Within 25 Miles",
+  "50_miles": "Within 50 Miles",
+  "125_miles": "Within 125 Miles",
+};

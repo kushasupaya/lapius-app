@@ -22,16 +22,16 @@ const TableSearchFilter = ({
   toggleColumnVisibility,
 }: TableSearchFilterProps) => {
   return (
-    <div className="border rounded-full px-4 py-2 m-2">
+    <div className="border rounded-full px-3 m-2">
       <div className="flex items-center space-x-2">
-        <Search className="h-4 w-4 text-muted-foreground" />
+        <Search className="h-3 w-3 text-muted-foreground" />
         <Input
           placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full border-none shadow-none focus:ring-0"
+          className="w-full border-none shadow-none focus:outline-none focus:border-none"
         />
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="outline"
@@ -57,7 +57,7 @@ const TableSearchFilter = ({
               </DropdownMenuCheckboxItem>
             ))}
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
       </div>
     </div>
   );
