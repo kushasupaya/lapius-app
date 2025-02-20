@@ -39,7 +39,7 @@ const EmptyContent = () => {
             <p className="text-gray-600">
               3. Select insurance preferences (if applicable).
             </p>
-            <p className="text-gray-600">4. Click "Search" to view results.</p>
+            <p className="text-gray-600">4. Click Search to view results.</p>
           </div>
         </div>
       </div>
