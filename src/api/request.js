@@ -16,7 +16,7 @@ const request = async (method, url, params = {}) => {
 
   if (method === "GET") {
     const getParams = new URLSearchParams(removeEmpty(params));
-    url += `?${getParams}`;
+    url += `${getParams}`;
   } else if (params instanceof FormData) {
     req.body = params;
   } else {

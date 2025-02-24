@@ -1,6 +1,13 @@
 import React from "react";
 import { Plus, Minus } from "lucide-react";
 import { ColumnVisibility } from "@/types/medical-service";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface ColumnFilterProps {
   columnVisibility: ColumnVisibility;
@@ -18,6 +25,23 @@ const ColumnFilter = ({
   const hiddenColumns = Object.entries(columnVisibility)
     .filter(([_, isVisible]) => !isVisible)
     .map(([key]) => key as keyof ColumnVisibility);
+
+  const columnCategories: Record<string, (keyof ColumnVisibility)[]> = {
+    Location: ["address", "state"],
+    Code: ["code", "code_type", "rev_code"],
+    Pricing: [
+      "standard_charge_percentage",
+      "standard_charge_dollar",
+      "estimated_amount",
+      "list_price",
+      "cash_rate",
+      "minimum",
+      "maximum",
+    ],
+    Hospital: ["hospital_name", "setting"],
+    Payer: ["payer", "plan_name"],
+    Additional: ["standard_charge_algorithm", "additional_notes"],
+  };
 
   const columnLabels: Record<keyof ColumnVisibility, string> = {
     hospital_name: "Hospital Name",
@@ -45,7 +69,31 @@ const ColumnFilter = ({
     <div className="rounded-lg w-full max-w-sm pb-4">
       {/* Active Filters */}
       <h3 className="font-bold text-lg pb-2 border-b-2 ">Filter</h3>
-      <div className="space-y-2 pt-2">
+      <Accordion type="multiple" className="pt-2">
+        {Object.entries(columnCategories).map(([category, columns]) => (
+          <AccordionItem key={category} value={category}>
+            <AccordionTrigger className="font-semibold">
+              {category}
+            </AccordionTrigger>
+            <AccordionContent className="space-y-2">
+              {columns.map((key) => (
+                <div key={key} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={key}
+                    checked={columnVisibility[key]}
+                    className=" data-[state=checked]:text-white"
+                    onCheckedChange={() => toggleColumnVisibility(key)}
+                  />
+                  <label htmlFor={key} className="text-sm">
+                    {columnLabels[key]}
+                  </label>
+                </div>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+      {/* <div className="space-y-2 pt-2">
         {visibleColumns.map((key) => (
           <button
             key={key}
@@ -56,10 +104,10 @@ const ColumnFilter = ({
             <Minus className="w-4 h-4  text-gray-800 border border-gray-500 rounded-full hover:bg-red-500 hover:text-white" />
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* Hidden Filters */}
-      <h3 className="font-bold text-lg pt-4">More</h3>
+      {/* <h3 className="font-bold text-lg pt-4">More</h3>
       <div className="space-y-2 pt-2">
         {hiddenColumns.map((key) => (
           <button
@@ -71,7 +119,7 @@ const ColumnFilter = ({
             <Plus className="w-4 h-4  text-gray-800 border border-gray-500 rounded-full hover:bg-primary hover:text-white" />
           </button>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

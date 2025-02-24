@@ -26,7 +26,8 @@ import {
   PriceToolForm,
   PriceToolType,
 } from "@/types/medical-service";
-import { fetchPriceDetails } from "@/api/apiClient";
+import { fetchPriceDetails, fetchProcedureCode } from "@/api/apiClient";
+import { useEffect, useState } from "react";
 
 const formSchema = z.object({
   procedureCode: z.string().min(2, {
@@ -47,9 +48,10 @@ const formSchema = z.object({
 
 interface SearchCardProps {
   setTableData: (data: MedicalService[]) => void;
+  setIsLoading: (loading: boolean) => void;
 }
 
-const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
+const MedicalSearchBar = ({ setTableData, setIsLoading }: SearchCardProps) => {
   const form = useForm<PriceToolForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,16 +62,40 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
       distance: "25_miles",
     },
   });
+  const [suggestions, setSuggestions] = useState<
+    { label: string; value: string }[]
+  >([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const procedureCode = form.watch("procedureCode");
+
+  useEffect(() => {
+    if (procedureCode.length >= 3) {
+      fetchProcedureCode(procedureCode).then((data) => {
+        setSuggestions(data);
+        setShowSuggestions(true);
+      });
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [procedureCode]);
+
+  const handleSelect = (selectedValue: string) => {
+    form.setValue("procedureCode", selectedValue);
+    setShowSuggestions(false);
+  };
 
   const onSubmit = (data: PriceToolForm) => {
+    setIsLoading(true);
     fetchPriceDetails(data)
       .then((result) => {
         const data: MedicalService[] = result.data?.data;
-
         setTableData(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setIsLoading(false);
       });
   };
 
@@ -88,8 +114,25 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
                     <Input
                       placeholder="Enter your CPT/HCPCS/MSDRG code"
                       {...field}
+                      onChange={(e) => {
+                        field.onChange(e);
+                        setShowSuggestions(true);
+                      }}
                     />
                   </FormControl>
+                  {showSuggestions && suggestions.length > 0 && (
+                    <div className="absolute left-8  mt-1 bg-white border border-gray-300 rounded shadow-lg z-10">
+                      {suggestions.map((suggestion, index) => (
+                        <div
+                          key={index}
+                          className="p-2 cursor-pointer hover:bg-gray-200"
+                          onClick={() => handleSelect(suggestion.value)}
+                        >
+                          {suggestion.label}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <FormMessage />
                 </FormItem>
               )}
