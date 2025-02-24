@@ -190,6 +190,7 @@ export const defaultColumnVisibility: ColumnVisibility = {
   code: true,
   code_type: false,
   description: true,
+  plan_name: false,
   payer: false,
   rev_code: false,
   standard_charge_algorithm: false,

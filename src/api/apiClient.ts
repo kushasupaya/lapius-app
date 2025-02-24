@@ -16,3 +16,12 @@ export const userLogin = (payload: LoginFormData) =>
 
 export const fetchLoginCode = (email: string) =>
   request("POST", `${BASE_URL}/user/fetch-code`, { email });
+
+export const fetchProcedureCode = (query: string) => {
+  console.log(query);
+  const params = new URLSearchParams({
+    q: query,
+  });
+  const encodedQuery = encodeURIComponent(query.trim()); // ✅ Fix special characters
+  return request("GET", `${BASE_URL}/pricing/search?${params.toString()}`);
+};

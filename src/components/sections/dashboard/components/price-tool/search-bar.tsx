@@ -20,13 +20,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { insuranceList } from "@/lib/utils";
+import { distanceList, insuranceList } from "@/lib/utils";
 import {
   MedicalService,
   PriceToolForm,
   PriceToolType,
 } from "@/types/medical-service";
-import { fetchPriceDetails } from "@/api/apiClient";
+import { fetchPriceDetails, fetchProcedureCode } from "@/api/apiClient";
+import { useEffect, useState } from "react";
 
 const formSchema = z.object({
   procedureCode: z.string().min(2, {
@@ -40,13 +41,17 @@ const formSchema = z.object({
       required_error: "Please select an insurance option",
     })
     .optional(),
+  distance: z.string().min(2, {
+    message: "Please select a distance",
+  }),
 });
 
 interface SearchCardProps {
   setTableData: (data: MedicalService[]) => void;
+  setIsLoading: (loading: boolean) => void;
 }
 
-const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
+const MedicalSearchBar = ({ setTableData, setIsLoading }: SearchCardProps) => {
   const form = useForm<PriceToolForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,18 +59,43 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
       type: PriceToolType.PROCEDURE,
       zipCode: "",
       insurance: "",
+      distance: "25_miles",
     },
   });
+  const [suggestions, setSuggestions] = useState<
+    { label: string; value: string }[]
+  >([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const procedureCode = form.watch("procedureCode");
+
+  useEffect(() => {
+    if (procedureCode.length >= 3) {
+      fetchProcedureCode(procedureCode).then((data) => {
+        setSuggestions(data);
+        setShowSuggestions(true);
+      });
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [procedureCode]);
+
+  const handleSelect = (selectedValue: string) => {
+    form.setValue("procedureCode", selectedValue);
+    setShowSuggestions(false);
+  };
 
   const onSubmit = (data: PriceToolForm) => {
+    setIsLoading(true);
     fetchPriceDetails(data)
       .then((result) => {
         const data: MedicalService[] = result.data?.data;
-
         setTableData(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setIsLoading(false);
       });
   };
 
@@ -73,7 +103,7 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
     <div className="w-full p-2 bg-white rounded-lg ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex flex-col md:flex-row gap-x-4 md:gap-x-3">
+          <div className="flex flex-col md:flex-row gap-y-2 gap-x-4 md:gap-x-3">
             <FormField
               control={form.control}
               name="procedureCode"
@@ -84,8 +114,25 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
                     <Input
                       placeholder="Enter your CPT/HCPCS/MSDRG code"
                       {...field}
+                      onChange={(e) => {
+                        field.onChange(e);
+                        setShowSuggestions(true);
+                      }}
                     />
                   </FormControl>
+                  {showSuggestions && suggestions.length > 0 && (
+                    <div className="absolute left-8  mt-1 bg-white border border-gray-300 rounded shadow-lg z-10">
+                      {suggestions.map((suggestion, index) => (
+                        <div
+                          key={index}
+                          className="p-2 cursor-pointer hover:bg-gray-200"
+                          onClick={() => handleSelect(suggestion.value)}
+                        >
+                          {suggestion.label}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <FormMessage />
                 </FormItem>
               )}
@@ -95,7 +142,7 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
               control={form.control}
               name="zipCode"
               render={({ field }) => (
-                <FormItem className="md:w-[200px]">
+                <FormItem className="xl:w-[180px]">
                   {/* <FormLabel className="sr-only">Zip Code</FormLabel> */}
                   <FormControl>
                     <Input placeholder="Zip Code or City" {...field} />
@@ -109,11 +156,11 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
               control={form.control}
               name="insurance"
               render={({ field }) => (
-                <FormItem className="md:w-[200px]">
+                <FormItem className="xl:w-[180px]">
                   {/* <FormLabel className="sr-only">Insurance</FormLabel> */}
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger className="py-2">
-                      <SelectValue placeholder="I am not using insurance" />
+                      <SelectValue placeholder="Not using insurance" />
                     </SelectTrigger>
                     <SelectContent className="">
                       {insuranceList.map((insurance) => (
@@ -128,9 +175,35 @@ const MedicalSearchBar = ({ setTableData }: SearchCardProps) => {
               )}
             />
 
+            <FormField
+              control={form.control}
+              name="distance"
+              render={({ field }) => (
+                <FormItem className="xl:w-[180px]">
+                  {/* <FormLabel className="sr-only">Insurance</FormLabel> */}
+                  <Select
+                    value={field.value || "25_miles"}
+                    onValueChange={field.onChange}
+                  >
+                    <SelectTrigger className="py-2">
+                      <SelectValue placeholder={"Within 25 Miles"} />
+                    </SelectTrigger>
+                    <SelectContent className="">
+                      {Object.entries(distanceList).map(([key, value]) => (
+                        <SelectItem key={key} value={key}>
+                          {value}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <Button
               type="submit"
-              className="bg-primary text-white hover:bg-[#0B3B3C]/90 md:self-end"
+              className="bg-primary text-white px-10 hover:bg-[#0B3B3C]/90 md:self-end"
             >
               Search
             </Button>

@@ -13,17 +13,18 @@ export interface MedicalService {
   code_type: string;
   description: string;
   payer: string;
-  rate: number;
-  minimum: number;
-  maximum: number;
-  list_price: number;
-  cash_rate: number;
+  rate: string;
+  minimum: string;
+  maximum: string;
+  list_price: string;
+  cash_rate: string;
   additional_notes: string;
-  standard_charge_percentage: number;
-  standard_charge_dollar: number;
-  estimated_amount: number;
+  standard_charge_percentage: string;
+  standard_charge_dollar: string;
+  estimated_amount: string;
   rev_code: string;
   standard_charge_algorithm: string;
+  plan_name: string;
   setting: string;
   relatedServices?: RelatedService[];
 }
@@ -48,6 +49,7 @@ export interface ColumnVisibility {
   cash_rate: boolean;
   additional_notes: boolean;
   setting: boolean;
+  plan_name: boolean;
 }
 
 export interface PriceToolForm {
@@ -55,6 +57,7 @@ export interface PriceToolForm {
   zipCode: string;
   type: PriceToolType;
   insurance: string;
+  distance: string;
 }
 export enum PriceToolType {
   PROCEDURE = "procedure",
