@@ -82,13 +82,15 @@ const MedicalSearchForm = () => {
   const isAuthenticated = useAuthRedirect(true);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    localStorage.setItem("medFormData", JSON.stringify(values));
+    const updatedValues = {
+      ...values,
+      labelValue: selectedLabel,
+    };
+    localStorage.setItem("medFormData", JSON.stringify(updatedValues));
 
     if (!isAuthenticated) {
-      console.log("User is not authenticated");
       setIsDialogOpen(true);
     } else {
-      console.log("User authenticated");
       router.push("/dashboard/price-tool");
     }
   }

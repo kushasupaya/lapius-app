@@ -117,6 +117,8 @@ const MedicalSearchBar = ({
     console.log(storedValues);
     if (storedValues.procedure && storedValues.zipCode) {
       setIsLoading(true);
+      setSelectedLabel(storedValues.labelValue);
+      setShowSuggestions(false);
       form.handleSubmit(onSubmit)();
     }
   }, [form, storedValues]);
@@ -132,32 +134,34 @@ const MedicalSearchBar = ({
                 <FormItem className="flex-1">
                   {/* <FormLabel className="sr-only">Medical Code</FormLabel> */}
                   <FormControl>
-                    <Input
-                      placeholder="Enter your CPT/HCPCS/MSDRG code"
-                      value={selectedLabel}
-                      onChange={(e) => {
-                        setSelectedLabel(e.target.value);
-                        field.onChange(e);
-                        setShowSuggestions(true);
-                      }}
-                    />
-                  </FormControl>
-                  {showSuggestions && suggestions.length > 0 && (
-                    <div className="absolute left-8  mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10">
-                      {suggestions.map((suggestion, index) => (
-                        <div
-                          key={index}
-                          className="p-2 cursor-pointer hover:bg-gray-200"
-                          onClick={() =>
-                            handleSelect(suggestion.value, suggestion.label)
-                          }
-                        >
-                          {suggestion.label}
+                    <div>
+                      <Input
+                        placeholder="Enter your CPT/HCPCS/MSDRG code"
+                        value={selectedLabel ?? ""}
+                        onChange={(e) => {
+                          setSelectedLabel(e.target.value);
+                          setShowSuggestions(true);
+                          field.onChange(e);
+                        }}
+                      />
+                      {showSuggestions && suggestions.length > 0 && (
+                        <div className="absolute left-8  mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                          {suggestions.map((suggestion, index) => (
+                            <div
+                              key={index}
+                              className="p-2 cursor-pointer hover:bg-gray-200"
+                              onClick={() =>
+                                handleSelect(suggestion.value, suggestion.label)
+                              }
+                            >
+                              {suggestion.label}
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      )}
+                      <FormMessage />
                     </div>
-                  )}
-                  <FormMessage />
+                  </FormControl>
                 </FormItem>
               )}
             />
