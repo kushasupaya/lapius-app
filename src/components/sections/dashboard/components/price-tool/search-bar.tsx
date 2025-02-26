@@ -49,25 +49,33 @@ const formSchema = z.object({
 interface SearchCardProps {
   setTableData: (data: MedicalService[]) => void;
   setIsLoading: (loading: boolean) => void;
+  setInsuranceValue: (insurance: string) => void;
 }
 
-const MedicalSearchBar = ({ setTableData, setIsLoading }: SearchCardProps) => {
-  const form = useForm<PriceToolForm>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      procedureCode: "",
-      type: PriceToolType.PROCEDURE,
-      zipCode: "",
-      insurance: "",
-      distance: "25_miles",
-    },
-  });
+const MedicalSearchBar = ({
+  setTableData,
+  setIsLoading,
+  setInsuranceValue,
+}: SearchCardProps) => {
   const [suggestions, setSuggestions] = useState<
     { label: string; value: string }[]
   >([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const storedValues =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("medFormData") || "{}")
+      : {};
+  const form = useForm<PriceToolForm>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      procedureCode: storedValues.procedure || "",
+      type: PriceToolType.PROCEDURE,
+      zipCode: storedValues.zipCode || "",
+      insurance: storedValues.insurance || "",
+      distance: "25_miles",
+    },
+  });
   const procedureCode = form.watch("procedureCode");
-
   useEffect(() => {
     if (procedureCode.length >= 3) {
       fetchProcedureCode(procedureCode).then((data) => {
@@ -79,14 +87,20 @@ const MedicalSearchBar = ({ setTableData, setIsLoading }: SearchCardProps) => {
       setShowSuggestions(false);
     }
   }, [procedureCode]);
+  const [selectedLabel, setSelectedLabel] = useState("");
 
-  const handleSelect = (selectedValue: string) => {
-    form.setValue("procedureCode", selectedValue);
+  const handleSelect = (selectedValue: string, selectedLabel: string) => {
+    form.setValue("procedureCode", selectedValue, { shouldValidate: true });
+    setSelectedLabel(selectedLabel);
+    setSuggestions([]);
     setShowSuggestions(false);
   };
 
   const onSubmit = (data: PriceToolForm) => {
+    console.log(data);
+    localStorage.removeItem("medFormData");
     setIsLoading(true);
+    setInsuranceValue(data.insurance);
     fetchPriceDetails(data)
       .then((result) => {
         const data: MedicalService[] = result.data?.data;
@@ -99,6 +113,13 @@ const MedicalSearchBar = ({ setTableData, setIsLoading }: SearchCardProps) => {
       });
   };
 
+  useEffect(() => {
+    console.log(storedValues);
+    if (storedValues.procedure && storedValues.zipCode) {
+      setIsLoading(true);
+      form.handleSubmit(onSubmit)();
+    }
+  }, [form, storedValues]);
   return (
     <div className="w-full p-2 bg-white rounded-lg ">
       <Form {...form}>
@@ -113,20 +134,23 @@ const MedicalSearchBar = ({ setTableData, setIsLoading }: SearchCardProps) => {
                   <FormControl>
                     <Input
                       placeholder="Enter your CPT/HCPCS/MSDRG code"
-                      {...field}
+                      value={selectedLabel}
                       onChange={(e) => {
+                        setSelectedLabel(e.target.value);
                         field.onChange(e);
                         setShowSuggestions(true);
                       }}
                     />
                   </FormControl>
                   {showSuggestions && suggestions.length > 0 && (
-                    <div className="absolute left-8  mt-1 bg-white border border-gray-300 rounded shadow-lg z-10">
+                    <div className="absolute left-8  mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10">
                       {suggestions.map((suggestion, index) => (
                         <div
                           key={index}
                           className="p-2 cursor-pointer hover:bg-gray-200"
-                          onClick={() => handleSelect(suggestion.value)}
+                          onClick={() =>
+                            handleSelect(suggestion.value, suggestion.label)
+                          }
                         >
                           {suggestion.label}
                         </div>

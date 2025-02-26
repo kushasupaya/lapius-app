@@ -40,7 +40,7 @@ const medicalBillnav = {
   nav: [
     { name: "Personal Info", icon: User2 },
     { name: "Insurance", icon: LockIcon },
-    { name: "Visit Details", icon: HospitalIcon },
+    // { name: "Visit Details", icon: HospitalIcon },
   ],
 };
 
@@ -64,10 +64,10 @@ const SettingsDialog = () => {
         return <PersonalSection />;
       case "Insurance":
         return <InsuranceSection />;
-      case "Visit Details":
-        return <p>Visit Details Content</p>;
-      case "EoB":
-        return <p>EoB Content</p>;
+      // case "Visit Details":
+      //   return <p>Visit Details Content</p>;
+      // case "EoB":
+      //   return <p>EoB Content</p>;
       default:
         return <p>Content not found</p>;
     }
@@ -137,7 +137,7 @@ const SettingsDialog = () => {
                   </SidebarMenu>
                 </SidebarGroupContent>
               </SidebarGroup>
-              <SidebarGroup>
+              {/* <SidebarGroup>
                 <SidebarGroupLabel className="px-2 text-xs font-semibold text-muted-foreground ">
                   Document Preferences
                 </SidebarGroupLabel>
@@ -164,7 +164,7 @@ const SettingsDialog = () => {
                     ))}
                   </SidebarMenu>
                 </SidebarGroupContent>
-              </SidebarGroup>
+              </SidebarGroup> */}
             </SidebarContent>
           </Sidebar>
           <main className="flex h-[480px] flex-1 flex-col overflow-hidden">

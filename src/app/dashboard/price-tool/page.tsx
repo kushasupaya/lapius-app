@@ -14,6 +14,7 @@ export default function Home() {
   const showTable = true;
   const [tableData, setTableData] = useState<MedicalService[]>();
   const [loading, setLoading] = useState(false);
+  const [insuranceValue, setInsuranceValue] = useState<string>("");
   return (
     // <div className="max-w-screen-xl w-full mx-auto md:p-4 2xl:p-2">
     //   <div>
@@ -50,6 +51,7 @@ export default function Home() {
               <MedicalSearchBar
                 setTableData={setTableData}
                 setIsLoading={setLoading}
+                setInsuranceValue={setInsuranceValue}
               />
               {/* <SearchCard setTableData={setTableData} /> */}
               {/* <SearchHistory /> */}
@@ -58,7 +60,11 @@ export default function Home() {
               {!tableData ? (
                 <EmptyContent />
               ) : (
-                <MedicalServicesTable tableData={tableData} loading={loading} />
+                <MedicalServicesTable
+                  tableData={tableData}
+                  loading={loading}
+                  insuranceValue={insuranceValue}
+                />
               )}
             </div>
           </div>

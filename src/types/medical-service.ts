@@ -27,6 +27,7 @@ export interface MedicalService {
   plan_name: string;
   setting: string;
   relatedServices?: RelatedService[];
+  methodology: string;
 }
 
 export interface ColumnVisibility {
@@ -50,6 +51,7 @@ export interface ColumnVisibility {
   additional_notes: boolean;
   setting: boolean;
   plan_name: boolean;
+  methodology: boolean;
 }
 
 export interface PriceToolForm {

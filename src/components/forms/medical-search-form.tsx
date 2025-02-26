@@ -3,10 +3,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Search, MapPin } from "lucide-react";
+import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useRouter } from "next/navigation";
+
 import {
   Form,
   FormControl,
@@ -23,9 +25,10 @@ import {
   SelectValue,
 } from "../ui/select";
 import { insuranceList } from "@/lib/utils";
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginDialog from "./login-dialog-form";
+import { fetchProcedureCode } from "@/api/apiClient";
+import { useAuthRedirect } from "@/utils/authRedirect";
 
 const formSchema = z.object({
   procedure: z.string().min(2, {
@@ -34,16 +37,17 @@ const formSchema = z.object({
   zipCode: z.string().regex(/^\d{5}$/, {
     message: "Please enter a valid 5-digit zip code",
   }),
-  insurance: z.string().optional(),
+  insurance: z.string(),
 });
 
+const procedureCodes: Record<string, string> = {
+  Colonoscopy: "44388",
+  "Knee arthroscopy": "S2112",
+  "MRI CT scan": "3324F",
+  "Remove Tonsils and Adenoids": "42820",
+};
 const MedicalSearchForm = () => {
-  const procedures = [
-    "Colonoscopy",
-    "Knee Repair - Arthroscopic",
-    "MRI with Contrast",
-    "Tonsil and/or Adenoid Removal",
-  ];
+  const procedures = Object.keys(procedureCodes);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,12 +58,47 @@ const MedicalSearchForm = () => {
     },
   });
 
+  const procedureCode = form.watch("procedure");
+  const [suggestions, setSuggestions] = useState<
+    { label: string; value: string }[]
+  >([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const router = useRouter();
+  useEffect(() => {
+    if (procedureCode.length >= 3) {
+      fetchProcedureCode(procedureCode).then((data) => {
+        setSuggestions(data);
+        setShowSuggestions(true);
+      });
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [procedureCode]);
+  const [selectedLabel, setSelectedLabel] = useState("");
+
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const isAuthenticated = useAuthRedirect(true);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setIsDialogOpen(true);
+    localStorage.setItem("medFormData", JSON.stringify(values));
+
+    if (!isAuthenticated) {
+      console.log("User is not authenticated");
+      setIsDialogOpen(true);
+    } else {
+      console.log("User authenticated");
+      router.push("/dashboard/price-tool");
+    }
   }
+
+  const handleSelect = (selectedValue: string, selectedLabel: string) => {
+    form.setValue("procedure", selectedValue);
+    setSelectedLabel(selectedLabel);
+    setSuggestions([]);
+    setShowSuggestions(false);
+  };
 
   const handleSuggestionClick = (procedure: string) => {
     form.setValue("procedure", procedure);
@@ -68,11 +107,19 @@ const MedicalSearchForm = () => {
   return (
     <div className="w-full max-w-5xl mx-auto p-4 space-y-3">
       <div className="hidden">
-        <LoginDialog
-          open={isDialogOpen}
-          onOpenChange={setIsDialogOpen}
-          onSignUpChange={() => true}
-        />
+        {!isAuthenticated ? (
+          <LoginDialog
+            open={isDialogOpen}
+            onOpenChange={setIsDialogOpen}
+            onSignUpChange={() => true}
+          />
+        ) : (
+          <LoginDialog
+            open={isDialogOpen}
+            onOpenChange={setIsDialogOpen}
+            onSignUpChange={() => false}
+          />
+        )}
       </div>
 
       <Form {...form}>
@@ -92,10 +139,30 @@ const MedicalSearchForm = () => {
                       <Input
                         placeholder="Enter a procedure"
                         className="pl-14 bg-white pr-4 h-14 text-base 2xl:text-lg md:text-base  sm:rounded-l-full sm:rounded-r-none"
-                        {...field}
+                        value={selectedLabel}
+                        onChange={(e) => {
+                          setSelectedLabel(e.target.value);
+                          field.onChange(e);
+                          setShowSuggestions(true);
+                        }}
                       />
                     </div>
                   </FormControl>
+                  {showSuggestions && suggestions.length > 0 && (
+                    <div className="absolute left-8  mt-1 bg-white border border-gray-300 rounded shadow-lg z-10">
+                      {suggestions.map((suggestion, index) => (
+                        <div
+                          key={index}
+                          className="p-2 cursor-pointer hover:bg-gray-200"
+                          onClick={() =>
+                            handleSelect(suggestion.value, suggestion.label)
+                          }
+                        >
+                          {suggestion.label}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <FormMessage />
                 </FormItem>
               )}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Plus, Minus } from "lucide-react";
 import { ColumnVisibility } from "@/types/medical-service";
 import {
@@ -11,12 +11,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 interface ColumnFilterProps {
   columnVisibility: ColumnVisibility;
-  toggleColumnVisibility: (column: keyof ColumnVisibility) => void;
+  toggleColumnVisibility: (
+    column: keyof ColumnVisibility,
+    forceOff?: boolean
+  ) => void;
+  insurance: string;
 }
 
 const ColumnFilter = ({
   columnVisibility,
   toggleColumnVisibility,
+  insurance,
 }: ColumnFilterProps) => {
   const visibleColumns = Object.entries(columnVisibility)
     .filter(([_, isVisible]) => isVisible)
@@ -31,6 +36,7 @@ const ColumnFilter = ({
     Code: ["code", "code_type", "rev_code"],
     Pricing: [
       "standard_charge_percentage",
+      "standard_charge_algorithm",
       "standard_charge_dollar",
       "estimated_amount",
       "list_price",
@@ -40,7 +46,7 @@ const ColumnFilter = ({
     ],
     Hospital: ["hospital_name", "setting"],
     Payer: ["payer", "plan_name"],
-    Additional: ["standard_charge_algorithm", "additional_notes"],
+    Additional: ["additional_notes", "methodology"],
   };
 
   const columnLabels: Record<keyof ColumnVisibility, string> = {
@@ -63,8 +69,25 @@ const ColumnFilter = ({
     additional_notes: "Additional Notes",
     setting: "Setting",
     plan_name: "Plan Name",
+    methodology: "Methodology",
   };
 
+  const disabledColumns: (keyof ColumnVisibility)[] = [
+    "plan_name",
+    "payer",
+    "standard_charge_percentage",
+    "standard_charge_algorithm",
+    "standard_charge_dollar",
+  ];
+  useEffect(() => {
+    if (!insurance || insurance === "Not using insurance") {
+      disabledColumns.forEach((key) => {
+        if (columnVisibility[key]) {
+          toggleColumnVisibility(key, true); // Force uncheck
+        }
+      });
+    }
+  }, [insurance]);
   return (
     <div className="rounded-lg w-full max-w-sm pb-4">
       {/* Active Filters */}
@@ -83,8 +106,20 @@ const ColumnFilter = ({
                     checked={columnVisibility[key]}
                     className=" data-[state=checked]:text-white"
                     onCheckedChange={() => toggleColumnVisibility(key)}
+                    disabled={
+                      disabledColumns.includes(key) &&
+                      (!insurance || insurance === "Not using insurance")
+                    }
                   />
-                  <label htmlFor={key} className="text-sm">
+                  <label
+                    htmlFor={key}
+                    className={`text-sm ${
+                      disabledColumns.includes(key) &&
+                      (!insurance || insurance === "Not using insurance")
+                        ? "text-gray-400 cursor-not-allowed"
+                        : ""
+                    }`}
+                  >
                     {columnLabels[key]}
                   </label>
                 </div>

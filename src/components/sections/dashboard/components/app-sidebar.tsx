@@ -53,11 +53,11 @@ const mainNavItems: NavItem[] = [
     href: "/dashboard/price-tool",
     icon: PiggyBank,
   },
-  {
-    title: "Insight",
-    href: "/dashboard/insight",
-    icon: LineChart,
-  },
+  // {
+  //   title: "Insight",
+  //   href: "/dashboard/insight",
+  //   icon: LineChart,
+  // },
   {
     title: "AI Chatbot",
     href: "/dashboard/cost-estimator",
@@ -193,7 +193,7 @@ const DashboardSidebar = () => {
               </Link> */}
               </SidebarMenuButton>
             </SidebarMenuItem>
-            <SidebarMenuItem>
+            {/* <SidebarMenuItem>
               <SidebarMenuButton
                 asChild
                 className="gap-2 text-white  text-sm tracking-wide leading-5 font-medium hover:bg-muted/5 hover:bg-teal-900 py-5 px-4"
@@ -203,14 +203,14 @@ const DashboardSidebar = () => {
                   <span>Help & Support</span>
                 </Link>
               </SidebarMenuButton>
-            </SidebarMenuItem>
+            </SidebarMenuItem> */}
           </SidebarHeader>
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
               className="mt-4 gap-2 text-muted-foreground hover:bg-muted/5 hover:text-white"
             >
-              <Link href="/dashboard/profile" className="flex items-center">
+              <div className="flex items-center">
                 <Image
                   src="/logo/defaultprofile.svg"
                   alt="Profile"
@@ -226,7 +226,7 @@ const DashboardSidebar = () => {
                     {email}
                   </span>
                 </div>
-              </Link>
+              </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
