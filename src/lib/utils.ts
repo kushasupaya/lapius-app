@@ -54,6 +54,7 @@ export const insuranceList = [
   "Kaiser Permanente",
   "Medicaid",
   "Medicare",
+  "MediCal",
   "UnitedHealthcare",
 ];
 

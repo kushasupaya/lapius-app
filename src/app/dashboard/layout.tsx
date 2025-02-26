@@ -14,29 +14,29 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  // const isAuthenticated = useAuthRedirect(true); // Automatically redirect if not authenticated
-  // const [hydrated, setHydrated] = useState(false);
+  const isAuthenticated = useAuthRedirect(true); // Automatically redirect if not authenticated
+  const [hydrated, setHydrated] = useState(false);
 
-  // useEffect(() => {
-  //   setHydrated(true);
-  // }, []);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   // // Prevent rendering until hydrated to avoid HTML mismatch
-  // if (!hydrated) {
-  //   return (
-  //     <div className="flex justify-center items-center h-screen">
-  //       Loading...
-  //     </div>
-  //   );
-  // }
+  if (!hydrated) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
 
-  // if (!isAuthenticated) {
-  //   return (
-  //     <div className="flex justify-center items-center h-screen">
-  //       Redirecting...
-  //     </div>
-  //   );
-  // }
+  if (!isAuthenticated) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Redirecting...
+      </div>
+    );
+  }
 
   // Breadcrumbs part
   //   const pathname = usePathname() || "";

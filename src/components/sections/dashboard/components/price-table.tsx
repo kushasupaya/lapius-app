@@ -44,10 +44,12 @@ import {
 interface MedicalServicesTableProps {
   tableData: MedicalService[];
   loading: boolean;
+  insuranceValue: string;
 }
 export default function MedicalServicesTable({
   tableData,
   loading,
+  insuranceValue,
 }: MedicalServicesTableProps) {
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
@@ -79,10 +81,20 @@ export default function MedicalServicesTable({
     setExpandedRows(newExpandedRows);
   };
 
-  const toggleColumnVisibility = (column: keyof ColumnVisibility) => {
-    setColumnVisibility((prev) => ({ ...prev, [column]: !prev[column] }));
-    // console.log(columnVisibility);
+  const toggleColumnVisibility = (
+    column: keyof ColumnVisibility,
+    forceOff = false
+  ) => {
+    setColumnVisibility((prev) => ({
+      ...prev,
+      [column]: forceOff ? false : !prev[column], // Force disable if needed
+    }));
   };
+
+  // const toggleColumnVisibility = (column: keyof ColumnVisibility) => {
+  //   setColumnVisibility((prev) => ({ ...prev, [column]: !prev[column] }));
+  //   // console.log(columnVisibility);
+  // };
 
   const filteredServices = useMemo(() => {
     return tableData.filter((service) =>
@@ -107,12 +119,13 @@ export default function MedicalServicesTable({
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-5 gap-3">
         <ColumnFilter
           columnVisibility={columnVisibility}
           toggleColumnVisibility={toggleColumnVisibility}
+          insurance={insuranceValue}
         />
-        <div className="col-span-3 bg-card p-2 rounded-lg shadow-sm">
+        <div className="col-span-4 bg-card p-2 rounded-lg shadow-sm">
           <TableSearchFilter
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
@@ -125,22 +138,30 @@ export default function MedicalServicesTable({
             </div>
           ) : (
             <>
-              <Table className="rounded-lg overflow-hidden border">
-                <TableHeader className="font-semibold group">
-                  <TableRow className=" bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold group">
+              <Table className="rounded-lg overflow-hidden border ">
+                <TableHeader className="font-semibold ">
+                  <TableRow className=" bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold ">
                     {columnVisibility.code && (
-                      <TableHead className="text-black font-semibold flex items-center">
-                        Code
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
-                            </TooltipTrigger>
-                            <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black">
-                              <p>code content</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
+                      <TableHead className="text-black font-semibold ">
+                        <div className="flex items-center">
+                          Code
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  It refers to a unique identifier assigned to a
+                                  specific service, procedure, or item. These
+                                  codes—often based on standardized systems like
+                                  CPT (Current Procedural Terminology), Revnue
+                                  Code, MS-DRG or HCPCS
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
                     {columnVisibility.code_type && (
@@ -148,28 +169,125 @@ export default function MedicalServicesTable({
                         Code Type
                       </TableHead>
                     )}
-                    {columnVisibility.description && (
-                      <TableHead className="text-black font-semibold">
-                        Description
-                      </TableHead>
-                    )}
-                    {columnVisibility.list_price && (
-                      <TableHead className="text-black font-semibold">
-                        List Price
-                      </TableHead>
-                    )}
-                    {columnVisibility.cash_rate && (
-                      <TableHead className="text-black font-semibold">
-                        Cash Rate
-                      </TableHead>
-                    )}
                     {columnVisibility.hospital_name && (
                       <TableHead className="text-black font-semibold">
                         Hospital Name
                       </TableHead>
                     )}
-                    {columnVisibility.address && (
+
+                    {columnVisibility.list_price && (
+                      <TableHead className="text-black font-semibold ">
+                        <div className="flex items-center">
+                          List Price
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  This is essentially the &quot;gross
+                                  charge&quot; before any discounts, contractual
+                                  adjustments, or insurance negotiations are
+                                  applied.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+                    {columnVisibility.cash_rate && (
+                      <TableHead className="text-black font-semibold ">
+                        <div className="min-w-32 flex items-center whitespace-nowrap">
+                          Cash Rate
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-60">
+                                <p>
+                                  a reduced rate offered to patients who pay
+                                  out-of-pocket with cash rather than going
+                                  through an insurance billing process. This
+                                  rate is typically lower than the gross (or
+                                  list) charge, which is the unadjusted, sticker
+                                  price for a service.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+                    {columnVisibility.minimum && (
+                      <TableHead className="text-black font-semibold ">
+                        <div className="grid grid-flow-col items-center min-w-32 ">
+                          Minimum
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  This is the lowest negotiated rate for a
+                                  specific service or procedure. It represents
+                                  the smallest amount that any insurer has
+                                  agreed to pay the hospital for that service.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+                    {columnVisibility.maximum && (
+                      <TableHead className="text-black font-semibold ">
+                        <div className="grid grid-flow-col items-center min-w-32">
+                          Maximum
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  This is the highest negotiated rate for the
+                                  same service or procedure. It shows the top
+                                  end of what different payers might have agreed
+                                  to pay.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+                    {columnVisibility.description && (
                       <TableHead className="text-black font-semibold">
+                        <div className="min-w-32 flex items-center whitespace-nowrap">
+                          Description
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  Brief description of the procedure or service
+                                  as it appears in the hospital&apos;s
+                                  machine-readable format (MRF).{" "}
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+                    {columnVisibility.address && (
+                      <TableHead className="text-black font-semibold ">
                         Address
                       </TableHead>
                     )}
@@ -188,50 +306,170 @@ export default function MedicalServicesTable({
                         Plan Name
                       </TableHead>
                     )}
+                    {columnVisibility.methodology && (
+                      <TableHead className="text-black font-semibold ">
+                        Methodology
+                      </TableHead>
+                    )}
                     {columnVisibility.standard_charge_dollar && (
-                      <TableHead className="text-black font-semibold">
-                        Standard Charge Dollar
+                      <TableHead className="text-black font-semibold min-w-40">
+                        <div className="grid grid-flow-col items-center p-1">
+                          Standard Charge Dollar
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-60">
+                                <p>
+                                  This is the actual dollar amount that a
+                                  hospital posts as its negotiated price for a
+                                  particular service or procedure.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
                     {columnVisibility.standard_charge_percentage && (
-                      <TableHead className="text-black font-semibold">
-                        Standard Charge Percentage
+                      <TableHead className="text-black font-semibold min-w-40">
+                        <div className="grid grid-flow-col items-center">
+                          Standard Charge Percentage
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  a reduced rate offered to patients who pay
+                                  out-of-pocket with cash rather than going
+                                  through an insurance billing process. This
+                                  rate is typically lower than the gross (or
+                                  list) charge, which is the unadjusted, sticker
+                                  price for a service.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
                     {columnVisibility.standard_charge_algorithm && (
-                      <TableHead className="text-black font-semibold">
-                        Standard Charge Algorithm
-                      </TableHead>
-                    )}
-                    {columnVisibility.minimum && (
-                      <TableHead className="text-black font-semibold">
-                        Minimum
-                      </TableHead>
-                    )}
-                    {columnVisibility.maximum && (
-                      <TableHead className="text-black font-semibold">
-                        Maximum
+                      <TableHead className="text-black font-semibold min-w-60">
+                        <div className="grid grid-flow-col items-center">
+                          Standard Charge Algorithm
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  The algorithm refers to the methodology or
+                                  formula a hospital uses to calculate its
+                                  standard charges from its underlying charge
+                                  master data
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
 
                     {columnVisibility.estimated_amount && (
                       <TableHead className="text-black font-semibold">
-                        Estimated Amount
+                        <div className="grid grid-flow-col items-center">
+                          Estimated Amount
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  The &quot;estimated amount&quot; in hospital
+                                  standard charges is generally an approximation
+                                  of what a patient might actually pay for a
+                                  service after adjustments. While the gross or
+                                  list charge is the unadjusted, sticker price,
+                                  the estimated amount aims to reflect a more
+                                  realistic figure.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
                     {columnVisibility.rev_code && (
                       <TableHead className="text-black font-semibold">
-                        Revenue Code
+                        <div className="grid grid-flow-col items-center">
+                          Revenue Code
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  A Revenue Code is a numeric identifier used in
+                                  hospital billing to designate the specific
+                                  department or service area where a charge is
+                                  incurred.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
                     {columnVisibility.additional_notes && (
                       <TableHead className="text-black font-semibold">
-                        Additional Notes
+                        <div className="grid grid-flow-col items-center">
+                          Additional Notes
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-60">
+                                <p>
+                                  &quot;Additional Notes&quot; in hospital
+                                  standard charges are supplementary comments or
+                                  explanations provided by the hospital to help
+                                  clarify the pricing details listed.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
                     {columnVisibility.setting && (
-                      <TableHead className="text-black font-semibold">
-                        Setting
+                      <TableHead className="text-black font-semibold ">
+                        <div className="grid grid-flow-col items-center">
+                          Setting
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-60">
+                                <p>
+                                  It could be inpatient and outpatient. Services
+                                  provided on an outpatient basis are delivered
+                                  without an overnight hospital stay. Inpatient
+                                  services are those where the patient is
+                                  admitted to the hospital and stays at least
+                                  one night.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
                       </TableHead>
                     )}
                     <TableHead className="w-[100px]"></TableHead>
@@ -258,9 +496,9 @@ export default function MedicalServicesTable({
                           {columnVisibility.code_type && (
                             <TableCell>{service.code_type}</TableCell>
                           )}
-                          {columnVisibility.description && (
-                            <TableCell className="min-w-80">
-                              {service.description}
+                          {columnVisibility.hospital_name && (
+                            <TableCell className="min-w-60">
+                              {service.hospital_name}
                             </TableCell>
                           )}
                           {columnVisibility.list_price && (
@@ -278,14 +516,46 @@ export default function MedicalServicesTable({
                           )}
                           {columnVisibility.cash_rate && (
                             <TableCell className="min-w-28">
-                              {service.cash_rate !== "Not Provided"
-                                ? `$${service.cash_rate}`
-                                : service.cash_rate}
+                              {service.cash_rate !== "Not Provided" ? (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-primary px-2.5 py-1 text-sm font-medium text-white">
+                                  ${service.cash_rate}
+                                </span>
+                              ) : (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-gray-200 px-2.5 py-1 text-sm font-medium text-gray-900">
+                                  {service.cash_rate}
+                                </span>
+                              )}
                             </TableCell>
                           )}
-                          {columnVisibility.hospital_name && (
-                            <TableCell className="min-w-60">
-                              {service.hospital_name}
+                          {columnVisibility.minimum && (
+                            <TableCell>
+                              {service.minimum !== "Not Provided" ? (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-primary px-2.5 py-1 text-sm font-medium text-white">
+                                  ${service.minimum}
+                                </span>
+                              ) : (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-gray-200 px-2.5 py-1 text-sm font-medium text-gray-900">
+                                  {service.minimum}
+                                </span>
+                              )}
+                            </TableCell>
+                          )}
+                          {columnVisibility.maximum && (
+                            <TableCell className="min-w-28">
+                              {service.maximum !== "Not Provided" ? (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-primary px-2.5 py-1 text-sm font-medium text-white">
+                                  ${service.maximum}
+                                </span>
+                              ) : (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-gray-200 px-2.5 py-1 text-sm font-medium text-gray-900">
+                                  {service.maximum}
+                                </span>
+                              )}
+                            </TableCell>
+                          )}
+                          {columnVisibility.description && (
+                            <TableCell className="min-w-80">
+                              {service.description}
                             </TableCell>
                           )}
                           {columnVisibility.address && (
@@ -302,6 +572,12 @@ export default function MedicalServicesTable({
                           {columnVisibility.plan_name && (
                             <TableCell className="min-w-48">
                               {service.plan_name}
+                            </TableCell>
+                          )}
+
+                          {columnVisibility.methodology && (
+                            <TableCell className="min-w-48">
+                              {service.methodology}
                             </TableCell>
                           )}
                           {columnVisibility.standard_charge_dollar && (
@@ -321,20 +597,7 @@ export default function MedicalServicesTable({
                               {service.standard_charge_algorithm ?? "N/A"}
                             </TableCell>
                           )}
-                          {columnVisibility.minimum && (
-                            <TableCell>
-                              {service.minimum !== "Not Provided"
-                                ? `$${service.minimum}`
-                                : service.minimum}
-                            </TableCell>
-                          )}
-                          {columnVisibility.maximum && (
-                            <TableCell>
-                              {service.maximum !== "Not Provided"
-                                ? `$${service.maximum}`
-                                : service.maximum}
-                            </TableCell>
-                          )}
+
                           {columnVisibility.estimated_amount && (
                             <TableCell>
                               {service.estimated_amount !== "Not Provided"
@@ -349,7 +612,9 @@ export default function MedicalServicesTable({
                             <TableCell>{service.additional_notes}</TableCell>
                           )}
                           {columnVisibility.setting && (
-                            <TableCell>{service.setting}</TableCell>
+                            <TableCell className="uppercase block">
+                              {service.setting}
+                            </TableCell>
                           )}
                           <TableCell>
                             <div className="flex items-center gap-2">
