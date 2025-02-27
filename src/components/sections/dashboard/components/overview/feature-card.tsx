@@ -22,7 +22,7 @@ const FeatureCard = ({ title, description, link, icon }: FeatureCardProps) => {
             <h2 className="text-xl font-bold tracking-tight">{title}</h2>
             <p className="text-muted-foreground">{description}</p>
           </div>
-          {title === "Upload Bill" ? (
+          {title === "Bill Analyzer" || title === "AI Cost Estimator" ? (
             <Button
               className="w-fit bg-white border-primary-dashboard border  mt-1 text-black rounded-full hover:bg-gray-100"
               size="lg"
@@ -36,7 +36,7 @@ const FeatureCard = ({ title, description, link, icon }: FeatureCardProps) => {
                 size="lg"
               >
                 <Zap className="mr-2 h-5 w-5 text-primary-dashboard" />
-                {title === "Cost Estimator" ? "Estimate Now" : "Search Now"}
+                {title === "AI Cost Estimator" ? "Estimate Now" : "Search Now"}
               </Button>
             </Link>
           )}

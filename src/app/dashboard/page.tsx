@@ -35,7 +35,7 @@ export default function Home() {
           }
           link="/dashboard/chatbot"
           description="Analyze with AI your medical bills and detect errors."
-          title="Upload Bill"
+          title="Bill Analyzer"
         />
         <FeatureCard
           icon={
@@ -61,7 +61,7 @@ export default function Home() {
           }
           link="/dashboard/cost-estimator"
           description="Chat with our AI assistant to estimate the treatment cost."
-          title="Cost Estimator"
+          title="AI Cost Estimator"
         />
       </div>
     </div>

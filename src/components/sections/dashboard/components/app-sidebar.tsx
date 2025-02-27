@@ -59,7 +59,7 @@ const mainNavItems: NavItem[] = [
   //   icon: LineChart,
   // },
   {
-    title: "AI Chatbot",
+    title: "AI Cost Estimator",
     href: "/dashboard/cost-estimator",
     icon: Bot,
   },
