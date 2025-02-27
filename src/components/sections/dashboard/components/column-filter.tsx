@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 import { Plus, Minus } from "lucide-react";
 import { ColumnVisibility } from "@/types/medical-service";

@@ -198,12 +198,13 @@ export const defaultColumnVisibility: ColumnVisibility = {
   standard_charge_percentage: false,
   standard_charge_dollar: false,
   // rate: false,
-  minimum: false,
-  maximum: false,
+  minimum: true,
+  maximum: true,
   list_price: true,
   cash_rate: true,
   additional_notes: false,
   setting: false,
+  methodology: false,
 };
 
 // Array of healthcare facts
