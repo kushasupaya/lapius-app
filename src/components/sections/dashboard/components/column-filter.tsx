@@ -82,9 +82,17 @@ const ColumnFilter = ({
   ];
   useEffect(() => {
     if (!insurance || insurance === "Not using insurance") {
+      // Force uncheck (hide) disabled columns
       disabledColumns.forEach((key) => {
         if (columnVisibility[key]) {
           toggleColumnVisibility(key, true); // Force uncheck
+        }
+      });
+    } else {
+      // Force check (show) disabled columns
+      disabledColumns.forEach((key) => {
+        if (!columnVisibility[key]) {
+          toggleColumnVisibility(key, false); // Force check (show)
         }
       });
     }

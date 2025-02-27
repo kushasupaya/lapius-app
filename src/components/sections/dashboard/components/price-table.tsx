@@ -221,6 +221,75 @@ export default function MedicalServicesTable({
                         </div>
                       </TableHead>
                     )}
+
+                    {columnVisibility.standard_charge_dollar && (
+                      <TableHead className="text-black font-semibold min-w-40">
+                        <div className="grid grid-flow-col items-center p-1">
+                          Standard Charge Dollar
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-60">
+                                <p>
+                                  This is the actual dollar amount that a
+                                  hospital posts as its negotiated price for a
+                                  particular service or procedure.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+                    {columnVisibility.standard_charge_percentage && (
+                      <TableHead className="text-black font-semibold min-w-40">
+                        <div className="grid grid-flow-col items-center">
+                          Standard Charge Percentage
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  a reduced rate offered to patients who pay
+                                  out-of-pocket with cash rather than going
+                                  through an insurance billing process. This
+                                  rate is typically lower than the gross (or
+                                  list) charge, which is the unadjusted, sticker
+                                  price for a service.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+                    {columnVisibility.standard_charge_algorithm && (
+                      <TableHead className="text-black font-semibold min-w-60">
+                        <div className="grid grid-flow-col items-center">
+                          Standard Charge Algorithm
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <InfoIcon className="h-3 w-3 text-gray-500 hover:text-gray-100" />
+                              </TooltipTrigger>
+                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
+                                <p>
+                                  The algorithm refers to the methodology or
+                                  formula a hospital uses to calculate its
+                                  standard charges from its underlying charge
+                                  master data
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                      </TableHead>
+                    )}
+
                     {columnVisibility.minimum && (
                       <TableHead className="text-black font-semibold ">
                         <div className="grid grid-flow-col items-center min-w-32 ">
@@ -311,74 +380,6 @@ export default function MedicalServicesTable({
                         Methodology
                       </TableHead>
                     )}
-                    {columnVisibility.standard_charge_dollar && (
-                      <TableHead className="text-black font-semibold min-w-40">
-                        <div className="grid grid-flow-col items-center p-1">
-                          Standard Charge Dollar
-                          <TooltipProvider>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
-                              </TooltipTrigger>
-                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-60">
-                                <p>
-                                  This is the actual dollar amount that a
-                                  hospital posts as its negotiated price for a
-                                  particular service or procedure.
-                                </p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </div>
-                      </TableHead>
-                    )}
-                    {columnVisibility.standard_charge_percentage && (
-                      <TableHead className="text-black font-semibold min-w-40">
-                        <div className="grid grid-flow-col items-center">
-                          Standard Charge Percentage
-                          <TooltipProvider>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <InfoIcon className="h-3 w-3 ml-1 text-gray-500 hover:text-gray-100" />
-                              </TooltipTrigger>
-                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
-                                <p>
-                                  a reduced rate offered to patients who pay
-                                  out-of-pocket with cash rather than going
-                                  through an insurance billing process. This
-                                  rate is typically lower than the gross (or
-                                  list) charge, which is the unadjusted, sticker
-                                  price for a service.
-                                </p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </div>
-                      </TableHead>
-                    )}
-                    {columnVisibility.standard_charge_algorithm && (
-                      <TableHead className="text-black font-semibold min-w-60">
-                        <div className="grid grid-flow-col items-center">
-                          Standard Charge Algorithm
-                          <TooltipProvider>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <InfoIcon className="h-3 w-3 text-gray-500 hover:text-gray-100" />
-                              </TooltipTrigger>
-                              <TooltipContent className="p-2 bg-white shadow-lg rounded-lg text-black max-w-56">
-                                <p>
-                                  The algorithm refers to the methodology or
-                                  formula a hospital uses to calculate its
-                                  standard charges from its underlying charge
-                                  master data
-                                </p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </div>
-                      </TableHead>
-                    )}
-
                     {columnVisibility.estimated_amount && (
                       <TableHead className="text-black font-semibold">
                         <div className="grid grid-flow-col items-center">
@@ -527,6 +528,36 @@ export default function MedicalServicesTable({
                               )}
                             </TableCell>
                           )}
+                          {columnVisibility.standard_charge_dollar && (
+                            <TableCell>
+                              {service.standard_charge_dollar !==
+                              "Not Provided" ? (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-primary px-2.5 py-1 text-sm font-medium text-white">
+                                  ${service.standard_charge_dollar}
+                                </span>
+                              ) : (
+                                <span className="inline-flex text-center items-center justify-center rounded-full bg-gray-200 px-2.5 py-1 text-sm font-medium text-gray-900">
+                                  {service.standard_charge_dollar}
+                                </span>
+                              )}
+                            </TableCell>
+                          )}
+                          {columnVisibility.standard_charge_percentage && (
+                            <TableCell>
+                              {service.standard_charge_percentage !==
+                              "Not Provided"
+                                ? `${service.standard_charge_percentage} %`
+                                : "Not Provided"}
+                            </TableCell>
+                          )}
+                          {columnVisibility.standard_charge_algorithm && (
+                            <TableCell>
+                              {service.standard_charge_algorithm !==
+                              "Not Provided"
+                                ? `${service.standard_charge_algorithm} `
+                                : "Not Provided"}
+                            </TableCell>
+                          )}
                           {columnVisibility.minimum && (
                             <TableCell>
                               {service.minimum !== "Not Provided" ? (
@@ -578,23 +609,6 @@ export default function MedicalServicesTable({
                           {columnVisibility.methodology && (
                             <TableCell className="min-w-48">
                               {service.methodology}
-                            </TableCell>
-                          )}
-                          {columnVisibility.standard_charge_dollar && (
-                            <TableCell>
-                              {service.standard_charge_dollar}
-                            </TableCell>
-                          )}
-                          {columnVisibility.standard_charge_percentage && (
-                            <TableCell>
-                              {service.standard_charge_percentage !== null
-                                ? `${service.standard_charge_percentage}`
-                                : "N/A"}
-                            </TableCell>
-                          )}
-                          {columnVisibility.standard_charge_algorithm && (
-                            <TableCell>
-                              {service.standard_charge_algorithm ?? "N/A"}
                             </TableCell>
                           )}
 
