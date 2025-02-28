@@ -26,7 +26,7 @@ const PriceInfoSection = () => {
             >
               Shop for healthcare the same way you shop for everything else
             </h2>
-            <p className="text-base  text-muted-foreground mb-6 leading-8 2xl:leading-10 max-w-[640px]">
+            <p className="text-base  text-muted-foreground mb-6 2xl:leading-8 max-w-[640px]">
               Healthcare costs can be overwhelming. We streamline vast and
               complex healthcare datasets, providing you with the insights
               needed to navigate healthcare costs with confidence. Explore
@@ -80,14 +80,14 @@ const PriceInfoSection = () => {
             >
               Estimate your costs upfront
             </h2>
-            <p className="text-base text-muted-foreground mb-6 leading-8 2xl:leading-10 max-w-[640px]">
+            <p className="text-base text-muted-foreground mb-6 2xl:leading-8 max-w-[640px]">
               With Lapius Copilot you can finally estimate how much each medical
               service will cost you. Using hospital datasets and millions of
               medical claims, we have developed a personal tool that will guide
               you in a realistic estimation of medical costs according to the
               service you need to perform or the symptoms you have.
             </p>
-            <p className="text-base text-muted-foreground mb-6 leading-8 2xl:leading-10 max-w-[640px]">
+            <p className="text-base text-muted-foreground mb-6 2xl:leading-8 max-w-[640px]">
               The easy-to-use interface will allow you to answer your personal
               questions about different procedures and their costs.{" "}
             </p>
@@ -136,11 +136,11 @@ const PriceInfoSection = () => {
             >
               AI Agents to Simplify Your Medical Health
             </h2>
-            <p className="text-base  text-muted-foreground mb-6 leading-8 2xl:leading-10 max-w-[640px]">
+            <p className="text-base  text-muted-foreground mb-6 2xl:leading-8 max-w-[640px]">
               Almost 80% of medical bills contain errors. Test our AI-Assistant
               to analyse them, always protecting your data.
             </p>
-            <p className="text-base  text-muted-foreground mb-6 leading-8 2xl:leading-10 max-w-[640px]">
+            <p className="text-base  text-muted-foreground mb-6 2xl:leading-8 max-w-[640px]">
               Our tool is trained to understand and explain the meaning of each
               medical code. It spots the risks of upcoding and unbundling. It
               also allows you to verify each procedure and understand how much
