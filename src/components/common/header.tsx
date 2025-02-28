@@ -73,7 +73,7 @@ const Header = ({ isBlog }: Props) => {
                 href="/blog"
                 className="text-sm text-white font-medium hover:text-primary-dashboard"
               >
-                Resources
+                Blogs
               </Link>
               <Link
                 href="/#get-in-touch"
@@ -129,9 +129,17 @@ const Header = ({ isBlog }: Props) => {
               </button>
             </div>
 
-            {/* Sign In and Get Started Buttons */}
+            {/* Sign In and Get Started Buttons main */}
             <div className="hidden md:flex items-center gap-2">
-              <SignupDialog
+              <Link href="/#get-in-touch">
+                <Button
+                  variant="link"
+                  className="px-5 py-4 bg-white text-black  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
+                >
+                  Get In Touch
+                </Button>
+              </Link>
+              {/* <SignupDialog
                 trigger={
                   <Button
                     variant="link"
@@ -157,7 +165,7 @@ const Header = ({ isBlog }: Props) => {
                 onOpenChange={setLoginDialogOpen}
                 open={loginDialogOpen}
                 onSignUpChange={setOpenSignup}
-              />
+              /> */}
             </div>
           </div>
         </div>
@@ -214,7 +222,7 @@ const Header = ({ isBlog }: Props) => {
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Resources
+                  Blogs
                 </Link>
                 <Link
                   href="/#faq"
@@ -224,7 +232,15 @@ const Header = ({ isBlog }: Props) => {
                   FAQ
                 </Link>
                 <div className="flex flex-col gap-4">
-                  <LoginDialog
+                  <Link href="/#get-in-touch">
+                    <Button
+                      variant="link"
+                      className="px-2 py-5 text-white  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
+                    >
+                      Get In Touch
+                    </Button>
+                  </Link>
+                  {/* <LoginDialog
                     trigger={
                       <Button
                         variant="link"
@@ -250,7 +266,7 @@ const Header = ({ isBlog }: Props) => {
                     open={openSignup}
                     onSignupChange={setOpenSignup}
                     onOpenChange={setLoginDialogOpen}
-                  />
+                  /> */}
                   {/* <p
                     className="text-sm text-white font-medium hover:text-primary cursor-pointer"
                     onClick={() => {
@@ -294,6 +310,17 @@ const Header = ({ isBlog }: Props) => {
                   >
                     Get in Touch
                   </Button> */}
+
+                  <Button
+                    className="w-fit"
+                    // onClick={() => {
+                    //   setOpenSignup(true);
+                    //   setMenuOpen(false);
+                    // }}
+                    onClick={() => router.push("#wait-list-section")}
+                  >
+                    Get in Touch
+                  </Button>
                 </div>
               </nav>
             </div>
