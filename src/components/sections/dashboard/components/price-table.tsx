@@ -177,7 +177,7 @@ export default function MedicalServicesTable({
 
                     {columnVisibility.list_price && (
                       <TableHead className="text-black font-semibold ">
-                        <div className="flex items-center">
+                        <div className="flex items-center min-w-32">
                           List Price
                           <TooltipProvider>
                             <Tooltip>

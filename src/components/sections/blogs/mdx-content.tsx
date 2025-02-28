@@ -23,7 +23,9 @@ const components = {
       {...props}
     />
   ),
-  a: (props: any) => <a className="text-primary hover:underline" {...props} />,
+  a: (props: any) => (
+    <a className="text-primary hover:underline" {...props} target="_blank" />
+  ),
   code: ({ className, children, ...props }: any) => {
     const match = /language-(\w+)/.exec(className || "");
     return match ? (

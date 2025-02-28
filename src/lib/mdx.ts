@@ -28,6 +28,7 @@ export async function getAllPosts() {
         title: data.title || "Untitled Post",
         date: data.date || new Date().toISOString(),
         author: data.author || "Anonymous",
+        image: data.image || "",
         excerpt: data.excerpt || "",
         categories: data.categories || ["Uncategorized"],
         readingTime: data.readingTime || calculateReadingTime(content),
@@ -82,18 +83,18 @@ export async function getPostBySlug(slug: string) {
       return null;
     }
   }
-
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  // const processedContent = await remark().use(html).process(content);
-  // const contentHtml = processedContent.toString();
+  const processedContent = await remark().use(html).process(content);
+  const contentHtml = processedContent.toString();
 
   const mdxSource = await serialize(content, { parseFrontmatter: true });
 
   const frontmatter = {
     title: data.title || "Untitled Post",
     date: data.date || new Date().toISOString(),
+    image: data.image || "",
     author: data.author || "Anonymous",
     excerpt: data.excerpt || "",
     categories: data.categories || ["Uncategorized"],
