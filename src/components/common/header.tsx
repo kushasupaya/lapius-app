@@ -70,7 +70,7 @@ const Header = ({ isBlog }: Props) => {
                 Why Lapius
               </Link>
               <Link
-                href="/blogs"
+                href="/blog"
                 className="text-sm text-white font-medium hover:text-primary-dashboard"
               >
                 Resources
@@ -182,7 +182,7 @@ const Header = ({ isBlog }: Props) => {
                   How It Works
                 </Link>
                 <Link
-                  href="/blogs"
+                  href="/blog"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
@@ -210,7 +210,7 @@ const Header = ({ isBlog }: Props) => {
                   Product
                 </Link>
                 <Link
-                  href="/blogs"
+                  href="/blog"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
