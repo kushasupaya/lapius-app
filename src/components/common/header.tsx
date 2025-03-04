@@ -36,14 +36,13 @@ const Header = ({ isBlog }: Props) => {
     };
   }, []);
 
+  const headerClass = isBlog
+    ? "relative  bg-secondary shadow-sm mx-auto py-4 px-4 md:px-6 w-full "
+    : "relative max-w-[calc(100vw-32px)] container bg-secondary shadow-sm mx-auto xl:max-w-[980px] 2xl:max-w-[1020px] py-2 px-2 mt-3 md:mt-7 md:px-0 rounded-full ";
   return (
     <>
       <header className={cn("top-0 fixed z-50 w-full", "bg-transparent")}>
-        <div
-          className="relative max-w-[calc(100vw-32px)] container bg-secondary shadow-sm mx-auto 
-        xl:max-w-[980px] 2xl:max-w-[1020px]
-        py-2 px-2 mt-3 md:mt-7 md:px-0 rounded-full "
-        >
+        <div className={headerClass}>
           <div className="flex justify-between items-center">
             <Link className="w-20 md:w-30 ml-4 md:ml-6" href="/">
               <Logo variant="default" size="large" />
@@ -131,15 +130,15 @@ const Header = ({ isBlog }: Props) => {
 
             {/* Sign In and Get Started Buttons main */}
             <div className="hidden md:flex items-center gap-2">
-              <Link href="/#get-in-touch">
+              {/* <Link href="/#get-in-touch">
                 <Button
                   variant="link"
                   className="px-5 py-4 bg-white text-black  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
                 >
                   Get In Touch
                 </Button>
-              </Link>
-              {/* <SignupDialog
+              </Link> */}
+              <SignupDialog
                 trigger={
                   <Button
                     variant="link"
@@ -165,7 +164,7 @@ const Header = ({ isBlog }: Props) => {
                 onOpenChange={setLoginDialogOpen}
                 open={loginDialogOpen}
                 onSignUpChange={setOpenSignup}
-              /> */}
+              />
             </div>
           </div>
         </div>
