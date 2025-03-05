@@ -18,7 +18,7 @@ const features = [
     title: "Search for Care",
     description:
       "Explore pricing data from all Californian hospitals effortlessly with our free and easy-to-use tool",
-    link: "#search-for-care",
+    link: "/price-tool",
   },
   {
     icon: "/icons/medical-bill.svg",

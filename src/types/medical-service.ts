@@ -6,6 +6,7 @@ export interface RelatedService {
 }
 
 export interface MedicalService {
+  id: string;
   hospital_name: string;
   address: string;
   state: string;
@@ -28,6 +29,7 @@ export interface MedicalService {
   setting: string;
   relatedServices?: RelatedService[];
   methodology: string;
+  zip_code: string;
 }
 
 export interface ColumnVisibility {
@@ -60,6 +62,8 @@ export interface PriceToolForm {
   type: PriceToolType;
   insurance: string;
   distance: string;
+  minPrice?: number | undefined;
+  maxPrice?: number | undefined;
 }
 export enum PriceToolType {
   PROCEDURE = "procedure",

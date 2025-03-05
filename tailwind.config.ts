@@ -99,6 +99,7 @@ export default {
         "landingpage-pattern": "url('/images/background/herobg.svg')",
         "elliptical-pattern":
           "url('/images/background/elliptical-pattern.svg')",
+        "card-pattern": "url('/images/background/searchheader.svg')",
       },
       keyframes: {
         "accordion-down": {

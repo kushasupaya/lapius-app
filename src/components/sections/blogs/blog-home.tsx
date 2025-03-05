@@ -27,10 +27,10 @@ export default async function BlogHome() {
       {/* Title */}
       <h1 className="text-4xl font-bold text-center mt-20">Blogs</h1>
       <h2 className="text-center mt-1 mb-8">Welcome to our blog section.</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
         {firstPost && (
           <Card
-            className="lg:col-span-1 overflow-hidden"
+            className="lg:col-span-2 overflow-hidden"
             key={firstPost.frontmatter.title}
           >
             <div className="relative h-60">

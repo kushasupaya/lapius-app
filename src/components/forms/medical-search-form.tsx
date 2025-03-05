@@ -88,11 +88,11 @@ const MedicalSearchForm = () => {
     };
     localStorage.setItem("medFormData", JSON.stringify(updatedValues));
 
-    if (!isAuthenticated) {
-      setIsDialogOpen(true);
-    } else {
-      router.push("/dashboard/price-tool");
-    }
+    // if (!isAuthenticated) {
+    //   setIsDialogOpen(true);
+    // } else {
+    // }
+    router.push("/price-tool");
   }
 
   const handleSelect = (selectedValue: string, selectedLabel: string) => {

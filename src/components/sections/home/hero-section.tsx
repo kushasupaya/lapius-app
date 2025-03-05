@@ -7,7 +7,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 const HeroSection = () => {
   return (
-    <section className="bg-landingpage-pattern bg-center  bg-cover bg-no-repeat w-full scroll-mt-56 rounded-b-[54px] ">
+    <section className="bg-landingpage-pattern bg-center  bg-cover bg-no-repeat w-full scroll-mt-56 rounded-b-[54px]">
       <div className="flex flex-col justify-between">
         <div className="container mx-auto px-4 md:px-0 mt-24 md:mt-52 mb-2">
           <div className="mb-1 mt-2">
