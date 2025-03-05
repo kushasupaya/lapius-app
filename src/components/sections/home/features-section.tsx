@@ -37,7 +37,7 @@ const FeaturesSection = () => {
     >
       <div className="container px-4 md:px-0 mx-auto pt-10 md:pt-[100px] pb-6 md:pb-[80px] 2xl:px-36">
         <h2
-          className={`text-2xl md:text-[37px]/[48px] max-w-3xl font-bold mb-9 md:mb-[90px] ${plusJakartaSans.className}`}
+          className={`text-2xl md:text-[37px]/[48px] max-w-3xl font-bold mb-9 text-center mx-auto md:mb-[90px] ${plusJakartaSans.className}`}
         >
           Empowering you with the right tools to make informed medical decisions
         </h2>

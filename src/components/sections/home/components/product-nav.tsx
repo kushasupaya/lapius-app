@@ -14,24 +14,22 @@ import { cn } from "@/lib/utils";
 
 const products = [
   {
-    name: "Estimate your Cost",
-    description:
-      "Chat with our dedicated AI assistant for a comprehensive treatment cost overview",
-    href: "/chat-assistant",
-    icon: Calculator,
-  },
-  {
     name: "Search for Care",
-    description:
-      "Explore pricing data from all Californian hospitals effortlessly with our free and easy-to-use tool",
+    description: "Explore pricing data from all Californian hospitals",
     href: "/price-tool",
     icon: Search,
   },
   {
+    name: "Estimate your Cost",
+    description: "Chat with our AI Assistant to budget your medical services",
+    href: "/chat-assistant",
+    icon: Calculator,
+  },
+
+  {
     name: "Analyze your Medical Bill",
-    description:
-      "Upload your medical bills or documents to understand them and spot costly billing errors.",
-    href: "/#analyze-bill",
+    description: "Upload your medical bills and spot errors.",
+    comingsoon: true,
     icon: Receipt,
   },
 ];
@@ -52,6 +50,7 @@ const ProductDropdown = () => {
                   key={product.name}
                   title={product.name}
                   href={product.href}
+                  comingSoon={product.comingsoon}
                   icon={<product.icon className="h-6 w-6" />}
                 >
                   {product.description}
@@ -67,8 +66,11 @@ const ProductDropdown = () => {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { icon: React.ReactNode }
->(({ className, title, children, icon, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & {
+    icon: React.ReactNode;
+    comingSoon?: boolean;
+  }
+>(({ className, title, children, icon, comingSoon, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -87,10 +89,17 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-          <div className="flex items-center text-sm font-medium text-primary mt-2">
-            See more
-            <ArrowRight className="h-4 w-4 ml-1" />
-          </div>
+          {comingSoon ? (
+            <div className=" max-w-24 text-xs text-primary mt-1 border border-primary rounded-full p-1.5">
+              Coming Soon
+            </div>
+          ) : (
+            <div className="flex items-center text-sm font-medium text-primary mt-2">
+              See more
+              <ArrowRight className="h-4 w-4 ml-1" />
+            </div>
+          )}
+          <div></div>
         </a>
       </NavigationMenuLink>
     </li>

@@ -56,6 +56,8 @@ export const insuranceList = [
   "Medicare",
   "MediCal",
   "UnitedHealthcare",
+  "LA Care Health Plan",
+  "Other",
 ];
 
 export const distanceList = {

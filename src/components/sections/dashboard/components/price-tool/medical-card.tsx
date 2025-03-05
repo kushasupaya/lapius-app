@@ -69,7 +69,7 @@ const MedicalPricingCard = ({
     if (!services || services.length === 0) return [];
     return [...services].sort((a, b) => {
       if (sortOption === "price") {
-        console.log("a", a.cash_rate, "b", b.cash_rate);
+        // console.log("a", a.cash_rate, "b", b.cash_rate);
         if (insuranceValue === "Not using insurance") {
           valueA =
             a.cash_rate !== "Not Provided" && !isNaN(parseFloat(a.cash_rate))
@@ -110,8 +110,7 @@ const MedicalPricingCard = ({
 
       return 0;
     });
-  }, [services, sortOption, sortOrder, userZipCode]);
-
+  }, [services, sortOption, sortOrder, userZipCode, insuranceValue]);
   return (
     <div className="space-y-4 w-full max-w-4xl mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
@@ -147,6 +146,8 @@ const MedicalPricingCard = ({
         <div className="flex items-center justify-center py-10">
           <Loader2 className="animate-spin h-8 w-8 text-primary" />
         </div>
+      ) : sortedServices.length === 0 ? (
+        <div className="text-gray-500 text-center py-10">No data available</div>
       ) : (
         <Accordion
           type="single"
@@ -246,9 +247,10 @@ const MedicalPricingCard = ({
                             </div>
                             <div>
                               <h4 className="font-medium text-gray-900 flex items-center max-w-40 gap-1">
-                                {insuranceValue !== "Not using insurance"
-                                  ? "Standard Charge Dollar"
-                                  : "Cash Price"}
+                                {insuranceValue === "Not using insurance" ||
+                                insuranceValue === ""
+                                  ? "Cash Price"
+                                  : "Standard Charge Dollar"}
                                 <TooltipProvider>
                                   <Tooltip>
                                     <TooltipTrigger asChild>
@@ -279,7 +281,8 @@ const MedicalPricingCard = ({
                             </div>
                           </div>
                           <p className="font-bold text-base">
-                            {insuranceValue === "Not using insurance"
+                            {insuranceValue === "Not using insurance" ||
+                            insuranceValue === ""
                               ? service.cash_rate !== "Not Provided"
                                 ? `$${Number(service.cash_rate).toLocaleString(
                                     undefined,
@@ -300,8 +303,8 @@ const MedicalPricingCard = ({
                               : "Not Provided"}
                           </p>
                         </div>
-                        {(!insuranceValue ||
-                          insuranceValue !== "Not using insurance") && (
+                        {insuranceValue === "Not using insurance" ||
+                        insuranceValue === "" ? null : (
                           <div className="bg-white border rounded-lg p-4 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                               <div className="bg-[#E8ECEC] rounded-full p-2">
@@ -309,7 +312,10 @@ const MedicalPricingCard = ({
                               </div>
                               <div>
                                 <h4 className="font-medium text-gray-900">
-                                  Payer: {service.payer}
+                                  Payer:{" "}
+                                  {insuranceValue === "Other"
+                                    ? service.payer
+                                    : insuranceValue}
                                 </h4>
                                 <p className="text-gray-500">
                                   Plan Name: {service.plan_name}
@@ -318,6 +324,7 @@ const MedicalPricingCard = ({
                             </div>
                           </div>
                         )}
+                        {/*Explore more section*/}
                         <div className="bg-white  border rounded-lg items-center justify-between">
                           <Accordion type="single" collapsible>
                             <AccordionItem
@@ -379,10 +386,15 @@ const MedicalPricingCard = ({
                                           <strong>
                                             Standard charge dollar:
                                           </strong>{" "}
-                                          $
-                                          {Number.parseFloat(
-                                            service.standard_charge_dollar
-                                          ).toLocaleString()}
+                                          {service.standard_charge_dollar ===
+                                          "Not Provided"
+                                            ? "Not Provided"
+                                            : `$${Number.parseFloat(
+                                                service.standard_charge_dollar
+                                              ).toLocaleString(undefined, {
+                                                minimumFractionDigits: 2,
+                                                maximumFractionDigits: 2,
+                                              })}`}
                                         </p>
                                         <p className="text-gray-600">
                                           <strong>

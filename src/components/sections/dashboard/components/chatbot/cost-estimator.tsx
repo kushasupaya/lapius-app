@@ -188,7 +188,7 @@ export default function MedicalCostEstimator() {
       >
         <CardContent className="p-6 space-y-6 flex flex-col h-full">
           {!isExpanded && (
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mx-auto">
               {treatments.map((treatment) => (
                 <Button
                   key={treatment.name}
