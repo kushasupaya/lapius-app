@@ -121,7 +121,7 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
       if (serverResponse.ok) {
         const data: ChatResponse = await serverResponse.json(); // Cast response as ChatResponse
 
-        const { response, link, options } = data;
+        const { response, links, options } = data;
         // const { text, metadata } = response.response;
 
         // Add the AI's response to the chat
@@ -134,7 +134,7 @@ const ChatSystem = ({ chatType }: ChatSystemProps) => {
             minute: "2-digit",
           }),
           options: options,
-          externalLink: link,
+          externalLink: links,
         };
         const aiMessages = [
           ...updatedApiMessages,
