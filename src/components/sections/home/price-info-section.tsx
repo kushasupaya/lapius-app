@@ -41,7 +41,7 @@ const PriceInfoSection = () => {
                 size="lg"
                 className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard hover:text-white"
               >
-                Try the platform for free
+                Try it for free
                 <ArrowRightIcon className="ml-1 h-4 w-4" />
               </Button>
             </Link>
@@ -53,7 +53,7 @@ const PriceInfoSection = () => {
                   size="lg"
                   className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard hover:text-white"
                 >
-                  Try the platform for free
+                  Try it for free
                   <ArrowRightIcon className="ml-1 h-4 w-4" />
                 </Button>
               }
@@ -110,7 +110,7 @@ const PriceInfoSection = () => {
                 size="lg"
                 className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard hover:text-white"
               >
-                Try the platform for free
+                Try it for free
                 <ArrowRightIcon className="ml-1 h-4 w-4" />
               </Button>
             </Link>
@@ -122,7 +122,7 @@ const PriceInfoSection = () => {
                   size="lg"
                   className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard hover:text-white"
                 >
-                  Try the platform for free
+                  Try it for free
                   <ArrowRightIcon className="ml-1 h-4 w-4" />
                 </Button>
               }
@@ -139,7 +139,7 @@ const PriceInfoSection = () => {
               size="lg"
               className="px-5 py-3 h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard"
             >
-              Try the platform for free
+              Try it for free
               <Image
                 alt="arrow"
                 src="/icons/arrow-right.svg"
@@ -178,7 +178,7 @@ const PriceInfoSection = () => {
               size="lg"
               className="px-5 py-3 h-12 md:h-[60px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard"
             >
-              Try the platform for free
+              Try it for free
               <Image
                 alt="arrow"
                 src="/icons/arrow-right.svg"

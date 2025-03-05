@@ -25,8 +25,8 @@ export default async function BlogHome() {
   return (
     <div className="container mx-auto py-12 max-w-6xl p-4">
       {/* Title */}
-      <h1 className="text-4xl font-bold text-center mt-20">Blogs</h1>
-      <h2 className="text-center mt-1 mb-8">Welcome to our blog section.</h2>
+      <h1 className="text-4xl font-bold text-center mt-20 mb-8">Blog</h1>
+      {/* <h2 className="text-center mt-1 mb-8">Welcome to our blog section.</h2> */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
         {firstPost && (
           <Card

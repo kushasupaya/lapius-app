@@ -76,7 +76,7 @@ const SearchHeader = ({
       procedureCode: storedValues.procedure || "",
       type: PriceToolType.PROCEDURE,
       zipCode: storedValues.zipCode || "",
-      insurance: storedValues.insurance || "",
+      insurance: storedValues.insurance || "Not using insurance",
       distance: "25_miles",
       minPrice: Number(storedValues.minPrice) || 0,
       maxPrice: Number(storedValues.maxPrice) || 10000,
@@ -260,15 +260,15 @@ const SearchHeader = ({
                   control={form.control}
                   name="distance"
                   render={({ field }) => (
-                    <FormItem className="max-w-36 inline-flex bg-primary rounded-full text-white border-none font-semibold">
+                    <FormItem className="max-w-38 inline-flex bg-primary rounded-full text-white py-0 border-none font-semibold">
                       <Select
                         value={field.value || "25_miles"}
                         onValueChange={field.onChange}
                       >
-                        <SelectTrigger className="text-xs py-0 flex rounded-full text-white border-none w-36">
+                        <SelectTrigger className="text-xs py-0 flex rounded-full text-white border-none w-38">
                           <SelectValue placeholder={"Within 25 Miles"} />
                         </SelectTrigger>
-                        <SelectContent className="text-xs flex rounded-lg w-36">
+                        <SelectContent className="text-xs flex rounded-lg w-38">
                           {Object.entries(distanceList).map(([key, value]) => (
                             <SelectItem
                               key={key}
