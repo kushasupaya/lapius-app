@@ -29,6 +29,7 @@ export interface MedicalService {
   setting: string;
   relatedServices?: RelatedService[];
   methodology: string;
+  zip_code: string;
 }
 
 export interface ColumnVisibility {

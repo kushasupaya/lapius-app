@@ -1,5 +1,9 @@
 "use client";
 import {
+  ChatSystem,
+  CostEstimator,
+} from "@/components/sections/dashboard/components/chatbot";
+import {
   MedicalPricingCard,
   SearchHeader,
 } from "@/components/sections/dashboard/components/price-tool";
@@ -13,20 +17,7 @@ export default function Home() {
   const [zipCode, setZipCode] = useState<string>("");
   return (
     <main>
-      <SearchHeader
-        setTableData={setTableData}
-        setInsuranceValue={setInsuranceValue}
-        setIsLoading={setLoading}
-        setZipCode={setZipCode}
-      />
-      {tableData && (
-        <MedicalPricingCard
-          services={tableData}
-          loading={loading}
-          insuranceValue={insuranceValue}
-          userZipCode={zipCode}
-        />
-      )}
+      <CostEstimator />
     </main>
   );
 }

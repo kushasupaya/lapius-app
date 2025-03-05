@@ -53,12 +53,14 @@ interface SearchCardProps {
   setTableData: (data: MedicalService[]) => void;
   setIsLoading: (loading: boolean) => void;
   setInsuranceValue: (insurance: string) => void;
+  setZipCode: (zipCode: string) => void;
 }
 
 const SearchHeader = ({
   setTableData,
   setIsLoading,
   setInsuranceValue,
+  setZipCode,
 }: SearchCardProps) => {
   const [suggestions, setSuggestions] = useState<
     { label: string; value: string }[]
@@ -77,7 +79,7 @@ const SearchHeader = ({
       insurance: storedValues.insurance || "",
       distance: "25_miles",
       minPrice: Number(storedValues.minPrice) || 0,
-      maxPrice: Number(storedValues.maxPrice) || 1000,
+      maxPrice: Number(storedValues.maxPrice) || 10000,
     },
   });
   const handlePriceChange = (range: [number, number]) => {
@@ -111,6 +113,7 @@ const SearchHeader = ({
     localStorage.removeItem("medFormData");
     setIsLoading(true);
     setInsuranceValue(data.insurance);
+    setZipCode(data.zipCode);
     fetchPriceDetails(data)
       .then((result) => {
         const data: MedicalService[] = result.data?.data;
@@ -133,23 +136,23 @@ const SearchHeader = ({
     }
   }, [form, storedValues]);
   return (
-    <div className="relative bg-[#E6EBEB] p-6 rounded-lg w-full mx-auto px-24 mb-12">
+    <div className="relative bg-[#E6EBEB] p-4 sm:p-6 rounded-lg w-full mx-auto px-24 mb-12 ">
       <div className="absolute right-24 bg-card-pattern bg-contain bg-no-repeat w-[570px] h-[200px]"></div>
       <div className="relative z-10 mb-4 max-w-4xl mx-auto mt-2">
         <span className="px-3 py-1 text-sm font-medium border border-gray-600 text-black rounded-full">
           Price Tool
         </span>
-        <h2 className="text-2xl font-semibold mt-2 max-w-xl">
+        <h2 className="text-lg sm:text-xl font-semibold mt-2 max-w-xl">
           Search Tool: Explore Pricing Data from Any California Hospital
         </h2>
       </div>
 
       {/* Search Bar */}
-      <div className="flex items-center z-10 max-w-4xl mx-auto relative">
+      <div className="flex flex-col lg:flex-row items-center lg:justify-between z-10 max-w-4xl mx-auto relative">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <div className="grid grid-flow-row gap-y-2">
-              <div className="flex items-center justify-between flex-row gap-y-2 bg-white shadow-sm  border-gray-200 border rounded-lg py-2 px-2">
+            <div className="grid grid-flow-row gap-y-2.5 mt-2">
+              <div className="flex items-center justify-between flex-col sm:flex-row gap-y-2 bg-white shadow-sm  border-gray-200 border rounded-lg py-2 px-2">
                 <FormField
                   control={form.control}
                   name="procedureCode"
@@ -157,7 +160,7 @@ const SearchHeader = ({
                     <FormItem>
                       {/* <FormLabel className="sr-only">Medical Code</FormLabel> */}
                       <FormControl>
-                        <div className="relative flex-1 min-w-[350px] md:border-r">
+                        <div className="relative flex-1 sm:min-w-[350px] md:border-r">
                           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
                           <Input
                             placeholder="Enter your CPT/HCPCS/MSDRG code"
@@ -197,10 +200,10 @@ const SearchHeader = ({
                   control={form.control}
                   name="zipCode"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="sm:w-40">
                       {/* <FormLabel className="sr-only">Zip Code</FormLabel> */}
                       <FormControl>
-                        <div className="relative flex-1  md:border-r border-gray-200 ">
+                        <div className="relative flex-1 md:border-r border-gray-200 ">
                           <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
                           <Input
                             placeholder="Zip Code or City"
@@ -217,7 +220,7 @@ const SearchHeader = ({
                   control={form.control}
                   name="insurance"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="w-54">
                       {/* <FormLabel className="sr-only">Insurance</FormLabel> */}
                       <div className="relative   border-gray-200 ">
                         <Heart className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
@@ -225,10 +228,10 @@ const SearchHeader = ({
                           value={field.value}
                           onValueChange={field.onChange}
                         >
-                          <SelectTrigger className="pl-10 gap-x-4 border-none shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:ring-0 focus:ring-offset-0">
+                          <SelectTrigger className="pl-10 gap-x-4 border-none shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 focus:ring-0 focus:ring-offset-0 w-[220px]">
                             <SelectValue placeholder="Not using insurance" />
                           </SelectTrigger>
-                          <SelectContent className="">
+                          <SelectContent className="w-[220px]">
                             {insuranceList.map((insurance) => (
                               <SelectItem key={insurance} value={insurance}>
                                 {insurance}
@@ -257,15 +260,15 @@ const SearchHeader = ({
                   control={form.control}
                   name="distance"
                   render={({ field }) => (
-                    <FormItem className="max-w-36 bg-primary rounded-full text-white border-none font-semibold">
+                    <FormItem className="max-w-36 inline-flex bg-primary rounded-full text-white border-none font-semibold">
                       <Select
                         value={field.value || "25_miles"}
                         onValueChange={field.onChange}
                       >
-                        <SelectTrigger className="text-xs py-0 flex rounded-full text-white border-none">
+                        <SelectTrigger className="text-xs py-0 flex rounded-full text-white border-none w-36">
                           <SelectValue placeholder={"Within 25 Miles"} />
                         </SelectTrigger>
-                        <SelectContent className="text-xs flex rounded-lg">
+                        <SelectContent className="text-xs flex rounded-lg w-36">
                           {Object.entries(distanceList).map(([key, value]) => (
                             <SelectItem
                               key={key}

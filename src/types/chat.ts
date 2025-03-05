@@ -10,6 +10,6 @@ export type CustomChatMessage = {
 
 export type ChatResponse = {
   response: string;
-  link: string;
-  options: { [key: string]: string };
+  links: string;
+  options?: { [key: string]: string };
 };

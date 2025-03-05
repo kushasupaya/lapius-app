@@ -11,7 +11,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-secondary">
-      <div className="container mx-auto p-4 lg:px-0 md:pt-[140px] md:pb-[140px]">
+      <div className="container mx-auto p-4 lg:px-0 md:pt-[120px] md:pb-[120px]">
         <div className="flex flex-col gap-6 md:flex-row md:justify-between">
           <div>
             <div className="w-20">

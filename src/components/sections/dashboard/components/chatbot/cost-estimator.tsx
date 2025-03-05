@@ -19,6 +19,7 @@ import { ChatResponse, CustomChatMessage } from "@/types/chat";
 import Image from "next/image";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import AutoScrollButtons from "../auto-scroll-buttons";
 
 interface Message {
   text: string;
@@ -31,7 +32,6 @@ export default function MedicalCostEstimator() {
   );
   const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<CustomChatMessage[]>([]);
-  const [inputValue, setInputValue] = useState("");
   const latestMessageRef = useRef<HTMLDivElement>(null);
 
   const [input, setInput] = useState("");
@@ -68,6 +68,11 @@ export default function MedicalCostEstimator() {
     { name: "Knee Repair", icon: <Stethoscope className="w-4 h-4" /> },
   ];
 
+  const startQuestions = [
+    "What is CPT code 88305?",
+    "What is the cost of X-Ray in California?",
+    "I have a pain in my right leg",
+  ];
   const handleSend = async (messageInput?: string) => {
     setIsExpanded(true);
     const userInput = messageInput || input;
@@ -115,9 +120,8 @@ export default function MedicalCostEstimator() {
       });
       console.log(serverResponse);
       if (serverResponse.ok) {
-        const data: ChatResponse = await serverResponse.json(); // Cast response as ChatResponse
-
-        const { response, link, options } = data;
+        const { data } = await serverResponse.json(); // Cast response as ChatResponse
+        const { response, links, options } = data;
         // const { text, metadata } = response.response;
 
         // Add the AI's response to the chat
@@ -129,8 +133,8 @@ export default function MedicalCostEstimator() {
             hour: "2-digit",
             minute: "2-digit",
           }),
-          options: options,
-          externalLink: link,
+          // options: options,
+          externalLink: links,
         };
         const aiMessages = [
           ...updatedApiMessages,
@@ -150,16 +154,16 @@ export default function MedicalCostEstimator() {
     }
   };
 
-  useEffect(() => {
-    if (latestMessageRef.current) {
-      latestMessageRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [messages]); //Fixed useEffect dependency
+  // useEffect(() => {
+  //   if (latestMessageRef.current) {
+  //     latestMessageRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [messages]); //Fixed useEffect dependency
 
   return (
     <div
-      className={`max-w-3xl mx-auto p-2 space-y-2  ${
-        !isExpanded ? "md:mt-40 2xl:mt-52" : ""
+      className={`max-w-4xl mx-auto p-2 space-y-2  ${
+        !isExpanded ? "md:mt-40 2xl:mt-52" : "mt-20"
       }`}
     >
       {!isExpanded && (
@@ -170,7 +174,7 @@ export default function MedicalCostEstimator() {
         </h1>
       )}
       {isExpanded && (
-        <div className="border-b p-0.5 flex items-center  ">
+        <div className="border-b p-0.5 flex items-center  mb-4">
           <div className="text-sm font-medium flex items-center gap-2">
             <IconMessage className="h-8 w-8 text-primary border rounded-full border-black p-2" />
             <span>Understand the costs of treatments upfront</span>
@@ -314,8 +318,8 @@ export default function MedicalCostEstimator() {
                 <div className="flex justify-start">
                   <div className="rounded-lg px-4 py-2 max-w-[80%] bg-gray-100 text-black">
                     <div className="flex items-center gap-2 mb-1">
-                      <Bot className="h-4 w-4" />
-                      <span className="font-medium">LapiusAI</span>
+                      {/* <Bot className="h-4 w-4" /> */}
+                      {/* <span className="font-medium">LapiusAI</span> */}
                     </div>
                     <p className="animate-pulse">Thinking...</p>
                   </div>
@@ -344,6 +348,12 @@ export default function MedicalCostEstimator() {
           </div>
         </CardContent>
       </Card>
+      {!isExpanded && (
+        <AutoScrollButtons
+          questions={startQuestions}
+          onQuestionClick={(question) => handleSend(question)}
+        />
+      )}
     </div>
   );
 }

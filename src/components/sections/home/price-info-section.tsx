@@ -6,6 +6,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
 import LoginDialog from "@/components/forms/login-dialog-form";
 import { useState } from "react";
+import Link from "next/link";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -33,7 +34,18 @@ const PriceInfoSection = () => {
               hospital prices for all medical procedures according to your
               payer.
             </p>
-            <LoginDialog
+            <Link href="/price-tool">
+              <Button
+                type="button"
+                variant="default"
+                size="lg"
+                className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard hover:text-white"
+              >
+                Try the platform for free
+                <ArrowRightIcon className="ml-1 h-4 w-4" />
+              </Button>
+            </Link>
+            {/* <LoginDialog
               trigger={
                 <Button
                   type="button"
@@ -48,7 +60,7 @@ const PriceInfoSection = () => {
               onOpenChange={setLoginDialogOpen}
               open={loginDialogOpen}
               onSignUpChange={setOpenSignup}
-            />
+            /> */}
           </div>
           <div>
             <Image
@@ -91,7 +103,18 @@ const PriceInfoSection = () => {
               The easy-to-use interface will allow you to answer your personal
               questions about different procedures and their costs.{" "}
             </p>
-            <LoginDialog
+            <Link href={"/chat-assistant"}>
+              <Button
+                type="button"
+                variant="default"
+                size="lg"
+                className="px-5 py-3  h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-primary-dashboard hover:text-white"
+              >
+                Try the platform for free
+                <ArrowRightIcon className="ml-1 h-4 w-4" />
+              </Button>
+            </Link>
+            {/* <LoginDialog
               trigger={
                 <Button
                   type="button"
@@ -106,7 +129,7 @@ const PriceInfoSection = () => {
               onOpenChange={setLoginDialogOpen}
               open={loginDialogOpen}
               onSignUpChange={setOpenSignup}
-            />
+            /> */}
             {/* <div className="border border-primary-dashboard px-5 py-3 h-12 md:h-[54px] rounded-lg text-base md:text-lg font-bold bg-white w-1/2 text-center mb-6">
               Coming Soon
             </div> */}
