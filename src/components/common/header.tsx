@@ -13,6 +13,7 @@ import SignupDialog from "../forms/signup-dialog-form";
 import LoginDialog from "../forms/login-dialog-form";
 
 import { ProductDropdown } from "../sections/home/components";
+import Image from "next/image";
 
 interface Props {
   isBlog?: boolean;
@@ -61,89 +62,91 @@ const Header = ({ isBlog }: Props) => {
   }, []);
 
   const headerClass = isBlog
-    ? "relative  bg-secondary shadow-sm mx-auto py-4 px-4 md:px-6 w-full "
-    : "relative max-w-[calc(100vw-32px)] container bg-secondary shadow-sm mx-auto xl:max-w-[980px] 2xl:max-w-[1020px] py-2 px-2 mt-3 md:mt-7 md:px-0 rounded-full ";
+    ? "relative bg-secondary shadow-sm mx-auto py-4 px-4 md:px-6 w-full "
+    : "relative container py-6 px-4 mx-auto xl:px-0";
   return (
     <>
-      <header className={cn("top-0 fixed z-50 w-full", "bg-transparent")}>
+      <header className={cn("top-0 fixed z-50 w-full", isScrolled ? "bg-white border-b" : "bg-transparent")}>
         <div className={headerClass}>
           <div className="flex justify-between items-center">
-            <Link className="w-20 md:w-30 ml-4 md:ml-6" href="/">
-              <Logo variant="default" size="large" />
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex gap-8 lg:ml-12 items-center">
-              {/* <Link
-                href="/why-lapius"
-                className="text-sm text-white font-medium hover:text-primary"
-              >
-                Why Lapius
-              </Link> */}
-              <ProductDropdown />
-              {/* <Link
-                href="/#how-it-works"
-                className="text-sm text-white font-medium hover:text-primary-dashboard"
-              >
-                Product
-              </Link> */}
-              <Link
-                href="/#why-lapius"
-                className="text-sm text-white font-medium hover:text-primary-dashboard"
-              >
-                Why Lapius
-              </Link>
-              <Link
-                href="/blog"
-                className="text-sm text-white font-medium hover:text-primary-dashboard"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/#get-in-touch"
-                className="text-sm text-white font-medium hover:text-primary-dashboard"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href="/#faq"
-                className="text-sm text-white font-medium hover:text-primary-dashboard"
-              >
-                FAQ
+            <div className="flex justify-between items-center">
+              <Link className="h-6 md:h-8 md:ml-0" href="/">
+                <Logo variant="default" size="large" />
               </Link>
 
-              {/* <Link
-                href="/#"
-                className="text-base text-white font-medium hover:text-primary-dashboard"
-              >
-                Company
-              </Link> */}
-              {/* <Link
-                href="/#how-it-works"
-                className="text-sm text-white font-medium hover:text-primary"
-              >
-                How It Works
-              </Link>
-              <Link
-                href="/blogs"
-                className="text-sm text-white font-medium hover:text-primary"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/#about"
-                className="text-sm text-white font-medium hover:text-primary"
-              >
-                About
-              </Link>
-              */}
-            </nav>
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex gap-10 items-center md:ml-6">
+                {/* <Link
+                  href="/why-lapius"
+                  className="text-sm text-white font-medium hover:text-primary"
+                >
+                  Why Lapius
+                </Link> */}
+                {/* <ProductDropdown /> */}
+                {/* <Link
+                  href="/#how-it-works"
+                  className="text-sm text-white font-medium hover:text-primary-dashboard"
+                >
+                  Product
+                </Link> */}
+                <Link
+                  href="/#"
+                  className="text-foreground font-medium hover:text-primary"
+                >
+                  Products
+                </Link>
+                <Link
+                  href="/#"
+                  className="text-foreground font-medium hover:text-primary"
+                >
+                  Features
+                </Link>
+                <Link
+                  href="/#"
+                  className="text-foreground font-medium hover:text-primary"
+                >
+                  Resource
+                </Link>
+                <Link
+                  href="/#"
+                  className="text-foreground font-medium hover:text-primary"
+                >
+                  Get in touch
+                </Link>
+
+                {/* <Link
+                  href="/#"
+                  className="text-base text-white font-medium hover:text-primary-dashboard"
+                >
+                  Company
+                </Link> */}
+                {/* <Link
+                  href="/#how-it-works"
+                  className="text-sm text-white font-medium hover:text-primary"
+                >
+                  How It Works
+                </Link>
+                <Link
+                  href="/blogs"
+                  className="text-sm text-white font-medium hover:text-primary"
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="/#about"
+                  className="text-sm text-white font-medium hover:text-primary"
+                >
+                  About
+                </Link>
+                */}
+              </nav>
+            </div>
 
             {/* Hamburger Menu Icon */}
             <div className="flex md:hidden items-center mr-4">
               <button
                 onClick={() => setMenuOpen((prev) => !prev)}
-                className="text-white focus:outline-none"
+                className="text-tertiary focus:outline-none"
               >
                 {menuOpen ? (
                   <XIcon className="h-6 w-6" />
@@ -157,10 +160,11 @@ const Header = ({ isBlog }: Props) => {
             <div className="hidden md:flex items-center gap-2">
               <Link href="/#get-in-touch">
                 <Button
-                  variant="link"
-                  className="px-5 py-4 bg-white text-black  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
+                  variant="outline"
+                  className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                 >
-                  Get In Touch
+                  View Demo
+                  <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
                 </Button>
               </Link>
               {/* <SignupDialog
@@ -199,13 +203,13 @@ const Header = ({ isBlog }: Props) => {
           <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 md:hidden">
             <div className="mx-auto px-8">
               <nav className="flex flex-col gap-4">
-                <Link
+                {/* <Link
                   href="#why-lapius"
                   className="text-sm text-white font-medium hover:text-primary"
                   onClick={() => setMenuOpen(false)}
                 >
                   Why Lapius
-                </Link>
+                </Link> */}
                 {/* <Link
                   href="/#how-it-works"
                   className="text-sm text-white font-medium hover:text-primary"
@@ -235,35 +239,42 @@ const Header = ({ isBlog }: Props) => {
                   FAQ
                 </Link> */}
                 <Link
-                  href="/#how-it-works"
+                  href="#"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Product
+                  Products
                 </Link>
                 <Link
-                  href="/blog"
+                  href="#"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Blog
+                  Features
                 </Link>
                 <Link
-                  href="/#faq"
+                  href="#"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
-                  FAQ
+                  Resource
+                </Link>
+                <Link
+                  href="#"
+                  className="text-base text-white font-medium hover:text-primary-dashboard"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Get in touch
                 </Link>
                 <div className="flex flex-col gap-4">
-                  <Link href="/#get-in-touch">
+                  {/* <Link href="/#get-in-touch">
                     <Button
                       variant="link"
                       className="px-2 py-5 text-white  mr-3.5 rounded-full text-sm hover:outline-primary-dashboard border"
                     >
                       Get In Touch
                     </Button>
-                  </Link>
+                  </Link> */}
                   {/* <LoginDialog
                     trigger={
                       <Button
@@ -335,16 +346,15 @@ const Header = ({ isBlog }: Props) => {
                     Get in Touch
                   </Button> */}
 
-                  <Button
-                    className="w-fit"
-                    // onClick={() => {
-                    //   setOpenSignup(true);
-                    //   setMenuOpen(false);
-                    // }}
-                    onClick={() => router.push("#wait-list-section")}
-                  >
-                    Get in Touch
-                  </Button>
+                  <Link href="/#get-in-touch">
+                    <Button
+                      variant="outline"
+                      className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                    >
+                      View Demo
+                      <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
+                    </Button>
+                  </Link>
                 </div>
               </nav>
             </div>
