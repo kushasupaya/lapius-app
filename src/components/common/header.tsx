@@ -7,7 +7,7 @@ import Logo from "./logo";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import CustomerAuth from "./customer-auth";
-import { Calculator, MenuIcon, Receipt, Search, XIcon } from "lucide-react";
+import { ArrowUpRight, Calculator, MenuIcon, Receipt, Search, XIcon } from "lucide-react";
 import { Dialog, DialogTrigger } from "../ui/dialog";
 import SignupDialog from "../forms/signup-dialog-form";
 import LoginDialog from "../forms/login-dialog-form";
@@ -165,10 +165,10 @@ const Header = ({ isBlog }: Props) => {
                 triggerComponent={
                   <Button
                     variant="outline"
-                    className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                    className="p-3 bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                   >
                     View Demo
-                    <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
+                    <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                   </Button>
                 }
               />
@@ -356,10 +356,10 @@ const Header = ({ isBlog }: Props) => {
                     triggerComponent={
                       <Button
                         variant="outline"
-                        className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                        className="p-3 bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                       >
                         View Demo
-                        <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
+                        <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                       </Button>
                     }
                   />
