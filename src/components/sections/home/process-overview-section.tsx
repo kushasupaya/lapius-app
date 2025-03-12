@@ -45,7 +45,7 @@ const ProcessOverviewSection = () => {
             <div className="border-b-2 border-[#BCBDBF] pt-6">
               <h4 className="text-base md:text-xl font-semibold text-[#7E8083] mb-6">Track & Resolve</h4>
               <p className="text-sm md:text-base text-[#7E8083] mb-6">
-                Relax while our AI-Agent handles all the complexities of contesting any incorrect charges. You can monitor progress and communications from your personal dashboard. We'll provide regular updates along the way.
+                Relax while our AI-Agent handles all the complexities of contesting any incorrect charges. You can monitor progress and communications from your personal dashboard. We&apos;ll provide regular updates along the way.
               </p>
             </div>
             <div className="pt-6">

@@ -1,7 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const CtaContactSection = () => {
+  const router = useRouter();
+
   return (
     <section className="w-full">
       <div className="container px-4 xl:px-0 mx-auto py-20">
@@ -18,6 +23,7 @@ const CtaContactSection = () => {
               variant="default"
               type="submit"
               className="bg-tertiary text-tertiary-foreground text-base w-max p-4 h-14 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
+              onClick={() => router.push("/")}
             >
               <div className="flex items-center w-full justify-between">
                 Get in touch with us

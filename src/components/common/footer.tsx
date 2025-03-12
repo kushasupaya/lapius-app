@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-6 md:flex-row md:justify-between">
           <h2 className="text-4xl md:text-6xl text-tertiary-foreground font-medium mb-6 max-w-[580px]">
-            Don't pay your hospital bills
+            Don&apos;t pay your hospital bills
           </h2>
           <div>
             <div className="flex flex-row items-start gap-4 max-w-[250px] mb-6">

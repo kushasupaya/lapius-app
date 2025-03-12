@@ -13,25 +13,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "../ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import Image from "next/image";
 const phoneNumberRegex = /^\+\d{1,3}\d{10}$/;
 
 const formSchema = z.object({
-  fullName: z.string().min(2, "Name must be at least 2 characters"),
+  firstName: z.string().min(2, "Name must be at least 2 characters"),
+  lastName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phoneNumber: z.string().regex(phoneNumberRegex, {
     message:
       "Please enter a valid phone number with country code (e.g., +1234567890)",
   }),
-  country: z.string().min(1, "Please select a country"),
   message: z.string({
     message: "Please enter a valid message",
   }),
@@ -41,10 +35,10 @@ export default function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phoneNumber: "",
-      country: "",
       message: "",
     },
   });
@@ -79,117 +73,120 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="w-[80%] mx-auto h-fit py-6 px-6 md:px-10 rounded-xl border bg-card text-card-foreground shadow">
+    <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="fullName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">
-                  Full name
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder=""
-                    {...field}
-                    className="h-10 md:h-12 flex-grow w-full md:text-base"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="firstName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium mb-2">
+                    First name <sup>*</sup>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter your first name"
+                      {...field}
+                      className="h-14 flex-grow w-full p-[18px] rounded-lg text-sm"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="lastName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium mb-2">
+                    Last name <sup>*</sup>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter your last name"
+                      {...field}
+                      className="h-14 flex-grow w-full p-[18px] rounded-lg text-sm"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">
-                  Email
+                <FormLabel className="text-sm font-medium mb-2">
+                  Email <sup>*</sup>
                 </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder=""
+                    placeholder="Enter your email address"
                     {...field}
                     type="email"
-                    className="h-10 md:h-12 md:text-base"
+                    className="h-14 flex-grow w-full p-[18px] rounded-lg text-sm"
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="phoneNumber"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">
-                  Phone
+                <FormLabel className="text-sm font-medium mb-2">
+                  Phone Number <sup>*</sup>
                 </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder=""
+                    placeholder="Enter your phone number"
                     {...field}
                     type="tel"
-                    className="h-10 md:h-12 md:text-base"
+                    className="h-14 flex-grow w-full p-[18px] rounded-lg text-sm"
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="country"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">
-                  Country
-                </FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="h-10 md:h-12 text-base">
-                      <SelectValue placeholder="Select a Country" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="us">United States</SelectItem>
-                    <SelectItem value="uk">United Kingdom</SelectItem>
-                    <SelectItem value="ca">Canada</SelectItem>
-                    {/* Add more countries as needed */}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          
           <FormField
             control={form.control}
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm md:text-base font-bold">
-                  Message
+                <FormLabel className="text-sm font-medium mb-2">
+                  Message <sup>*</sup>
                 </FormLabel>
                 <FormControl>
-                  <Textarea {...field} rows={5} />
+                  <Textarea {...field} rows={5} placeholder="Write your message" className="p-[18px] rounded-lg text-sm" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button
-            type="submit"
-            className="w-full h-10 md:h-12 text-base bg-primary-dashboard font-bold"
-          >
-            Submit
-          </Button>
+          <div className="pt-2">
+            <Button
+              size="default"
+              variant="default"
+              type="submit"
+              className="bg-tertiary text-tertiary-foreground text-base w-max p-4 h-14 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
+            >
+              <div className="flex items-center w-full justify-between">
+                Send Message
+                <Image alt="" src="/icons/arrow-top-right.svg" height={24} width={24} className="ml-2 md:ml-4" />
+              </div>
+            </Button>
+          </div>
         </form>
       </Form>
     </div>

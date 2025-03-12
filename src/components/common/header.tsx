@@ -14,6 +14,7 @@ import LoginDialog from "../forms/login-dialog-form";
 
 import { ProductDropdown } from "../sections/home/components";
 import Image from "next/image";
+import FullscreenVideoDialog from "./full-screen-video-dialog";
 
 interface Props {
   isBlog?: boolean;
@@ -108,7 +109,7 @@ const Header = ({ isBlog }: Props) => {
                   Resource
                 </Link>
                 <Link
-                  href="/#"
+                  href="/contact"
                   className="text-foreground font-medium hover:text-primary"
                 >
                   Get in touch
@@ -158,15 +159,19 @@ const Header = ({ isBlog }: Props) => {
 
             {/* Sign In and Get Started Buttons main */}
             <div className="hidden md:flex items-center gap-2">
-              <Link href="/#get-in-touch">
-                <Button
-                  variant="outline"
-                  className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
-                >
-                  View Demo
-                  <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
-                </Button>
-              </Link>
+              <FullscreenVideoDialog
+                videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                title="Big Buck Bunny"
+                triggerComponent={
+                  <Button
+                    variant="outline"
+                    className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                  >
+                    View Demo
+                    <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
+                  </Button>
+                }
+              />
               {/* <SignupDialog
                 trigger={
                   <Button
@@ -260,7 +265,7 @@ const Header = ({ isBlog }: Props) => {
                   Resource
                 </Link>
                 <Link
-                  href="#"
+                  href="/contact"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
@@ -345,16 +350,19 @@ const Header = ({ isBlog }: Props) => {
                   >
                     Get in Touch
                   </Button> */}
-
-                  <Link href="/#get-in-touch">
-                    <Button
-                      variant="outline"
-                      className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
-                    >
-                      View Demo
-                      <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
-                    </Button>
-                  </Link>
+                  <FullscreenVideoDialog
+                    videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    title="Big Buck Bunny"
+                    triggerComponent={
+                      <Button
+                        variant="outline"
+                        className="p-3 bg-white text-foreground font-medium text-base border2 border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                      >
+                        View Demo
+                        <Image alt="" src="/icons/arrow-top-right-dark.svg" height={24} width={24} className="fill-black stroke-black ml-4" />
+                      </Button>
+                    }
+                  />
                 </div>
               </nav>
             </div>

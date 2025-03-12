@@ -1,3 +1,4 @@
+import { FullScreenVideoDialog } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -22,17 +23,23 @@ const CtaDemoSection = () => {
             <p className="text-[#BCBDBF] text-base md:text-2xl max-w-[527px] mb-10 md:mb-20">
               Our AI has a Karen mode—so you don’t have to unleash yours.
             </p>
-            <Button
-              size="default"
-              variant="default"
-              type="submit"
-              className="bg-primary text-white text-base w-max p-4 h-14 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
-            >
-              <div className="flex items-center w-full justify-between">
-                View Demo
-                <Image alt="" src="/icons/arrow-top-right.svg" height={24} width={24} className="ml-2 md:ml-4" />
-              </div>
-            </Button>
+            <FullScreenVideoDialog
+              videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+              title="Big Buck Bunny"
+              triggerComponent={
+                <Button
+                  size="default"
+                  variant="default"
+                  type="submit"
+                  className="bg-primary text-white text-base w-max p-4 h-14 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
+                >
+                  <div className="flex items-center w-full justify-between">
+                    View Demo
+                    <Image alt="" src="/icons/arrow-top-right.svg" height={24} width={24} className="ml-2 md:ml-4" />
+                  </div>
+                </Button>
+              }
+            />
           </div>
         </div>
       </div>
