@@ -28,7 +28,7 @@ const CtaDemoSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              Don’t spend 60 days doing it yourself 
+              Don&apos;t spend 60 days doing it yourself
             </motion.h2>
             <motion.p
               className="text-[#BCBDBF] text-base md:text-2xl max-w-[527px] mb-10 md:mb-20"
@@ -37,7 +37,7 @@ const CtaDemoSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Our AI has a Karen mode—so you don’t have to unleash yours.
+              Our AI has a Karen mode—so you don&apos;t have to unleash yours.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -57,7 +57,13 @@ const CtaDemoSection = () => {
                   >
                     <div className="flex items-center w-full justify-between">
                       View Demo
-                      <Image alt="" src="/icons/arrow-top-right.svg" height={24} width={24} className="ml-2 md:ml-4" />
+                      <Image
+                        alt=""
+                        src="/icons/arrow-top-right.svg"
+                        height={24}
+                        width={24}
+                        className="ml-2 md:ml-4"
+                      />
                     </div>
                   </Button>
                 }
@@ -67,7 +73,7 @@ const CtaDemoSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default CtaDemoSection;

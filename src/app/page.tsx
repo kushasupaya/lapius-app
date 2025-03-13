@@ -23,7 +23,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <ClientsSection />
+        {/* <ClientsSection /> */}
         <ProcessOverviewSection />
         <FeatureHighlightSection />
         <CtaDemoSection />
