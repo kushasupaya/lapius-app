@@ -97,6 +97,7 @@ export default {
         "rectangular-pattern":
           "url('/images/background/rectangular-pattern.svg')",
         "landingpage-pattern": "url('/images/background/herobg.svg')",
+        "hero-section-pattern": "url('/images/background/hero-background.svg')",
         "elliptical-pattern":
           "url('/images/background/elliptical-pattern.svg')",
         "card-pattern": "url('/images/background/searchheader.svg')",

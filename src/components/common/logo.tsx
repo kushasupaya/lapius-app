@@ -11,7 +11,7 @@ const Logo = ({ variant = "default", size = "base" }: Props) => {
     <Image
       alt="logo"
       // TODO: replace image and styles for compact
-      src={variant === "default" ? "/logo/logo.svg" : "/logo/logo.svg"}
+      src={variant === "default" ? "/logo/logo-full.svg" : "/logo/logo-purple.svg"}
       width={100}
       height={100}
       className={cn("w-full", size === "large" ? "h-8" : "h-6")}
