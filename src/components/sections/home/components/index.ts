@@ -7,3 +7,4 @@ export { default as ScrollableContents } from "./scrollable-contents";
 export { default as VideoSlider } from "./video-slider";
 export { default as TestimonialSlider } from "./testimonial-slider";
 export { default as ProductDropdown } from "./product-nav";
+export { default as ProcessSelection } from "./process-selection";

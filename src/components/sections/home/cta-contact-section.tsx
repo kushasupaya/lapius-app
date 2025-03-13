@@ -23,7 +23,7 @@ const CtaContactSection = () => {
               variant="default"
               type="submit"
               className="bg-tertiary text-tertiary-foreground text-base w-max p-4 h-14 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/contact")}
             >
               <div className="flex items-center w-full justify-between">
                 Get in touch with us
