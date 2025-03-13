@@ -1,6 +1,10 @@
+"use client";
+
 import { FullScreenVideoDialog } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+
+import { motion } from "framer-motion";
 
 const CtaDemoSection = () => {
   return (
@@ -17,29 +21,48 @@ const CtaDemoSection = () => {
             />
           </div>
           <div className="w-full pb-12 xl:py-28">
-            <h2 className="text-4xl md:text-7xl text-tertiary-foreground max-w-[554px] font-medium mb-4">
+            <motion.h2
+              className="text-4xl md:text-7xl text-tertiary-foreground max-w-[554px] font-medium mb-4"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               Don’t spend 60 days doing it yourself 
-            </h2>
-            <p className="text-[#BCBDBF] text-base md:text-2xl max-w-[527px] mb-10 md:mb-20">
+            </motion.h2>
+            <motion.p
+              className="text-[#BCBDBF] text-base md:text-2xl max-w-[527px] mb-10 md:mb-20"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               Our AI has a Karen mode—so you don’t have to unleash yours.
-            </p>
-            <FullScreenVideoDialog
-              videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-              title="Big Buck Bunny"
-              triggerComponent={
-                <Button
-                  size="default"
-                  variant="default"
-                  type="submit"
-                  className="bg-primary text-white text-base w-max p-4 h-14 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
-                >
-                  <div className="flex items-center w-full justify-between">
-                    View Demo
-                    <Image alt="" src="/icons/arrow-top-right.svg" height={24} width={24} className="ml-2 md:ml-4" />
-                  </div>
-                </Button>
-              }
-            />
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <FullScreenVideoDialog
+                videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                title="Big Buck Bunny"
+                triggerComponent={
+                  <Button
+                    size="default"
+                    variant="default"
+                    type="submit"
+                    className="bg-primary text-white text-base w-max p-4 h-14 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
+                  >
+                    <div className="flex items-center w-full justify-between">
+                      View Demo
+                      <Image alt="" src="/icons/arrow-top-right.svg" height={24} width={24} className="ml-2 md:ml-4" />
+                    </div>
+                  </Button>
+                }
+              />
+            </motion.div>
           </div>
         </div>
       </div>
