@@ -27,7 +27,9 @@ const Footer = () => {
                 width={24}
                 className="mt-0.5"
               />
-              <p className="text-base md:text-lg text-tertiary-foreground">15, San Antonio Place, San Francisco, CA, 94133</p>
+              <p className="text-base md:text-lg text-tertiary-foreground">
+                San Francisco, CA
+              </p>
             </div>
             <div className="flex flex-row items-start gap-4 max-w-[250px]">
               <Image
@@ -37,16 +39,26 @@ const Footer = () => {
                 width={24}
                 className="mt-0.5"
               />
-              <p className="text-base md:text-lg text-tertiary-foreground">support@lapiusai.com</p>
+              <p className="text-base md:text-lg text-tertiary-foreground">
+                support@lapiusai.com
+              </p>
             </div>
           </div>
         </div>
         <div className="mt-12 py-12 md:pb-0 md:mt-20 border-t border-[#363435] flex flex-col gap-14 md:flex-row justify-between">
           <div className="flex flex-col md:flex-row gap-6 md:gap-14">
-            <Link href="#" className="text-tertiary-foreground hover:underline">About</Link>
-            <Link href="#" className="text-tertiary-foreground hover:underline">Features</Link>
-            <Link href="#" className="text-tertiary-foreground hover:underline">Works</Link>
-            <Link href="#" className="text-tertiary-foreground hover:underline">Support</Link>
+            <Link href="#" className="text-tertiary-foreground hover:underline">
+              About
+            </Link>
+            <Link href="#" className="text-tertiary-foreground hover:underline">
+              Features
+            </Link>
+            <Link href="#" className="text-tertiary-foreground hover:underline">
+              Works
+            </Link>
+            <Link href="#" className="text-tertiary-foreground hover:underline">
+              Support
+            </Link>
           </div>
           <div className="text-tertiary-foreground">
             Copyright © {new Date().getFullYear()} All Rights Reserved
