@@ -76,7 +76,7 @@ const Header = ({ isBlog }: Props) => {
               </Link>
 
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex gap-10 items-center md:ml-6">
+              <nav className="hidden lg:flex gap-10 items-center lg:ml-6">
                 {/* <Link
                   href="/why-lapius"
                   className="text-sm text-white font-medium hover:text-primary"
@@ -144,7 +144,7 @@ const Header = ({ isBlog }: Props) => {
             </div>
 
             {/* Hamburger Menu Icon */}
-            <div className="flex md:hidden items-center mr-4">
+            <div className="flex lg:hidden items-center mr-4">
               <button
                 onClick={() => setMenuOpen((prev) => !prev)}
                 className="text-tertiary focus:outline-none"
@@ -158,20 +158,29 @@ const Header = ({ isBlog }: Props) => {
             </div>
 
             {/* Sign In and Get Started Buttons main */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-2">
               <FullscreenVideoDialog
                 videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                 title="Big Buck Bunny"
                 triggerComponent={
                   <Button
                     variant="outline"
-                    className="p-3 bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                    className="p-3 bg-white text-foreground w-full md:w-max font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                   >
                     View Demo
                     <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                   </Button>
                 }
               />
+              <Link href="/medical-assistant">
+                <Button
+                  variant="default"
+                  className="p-3 text-white w-full md:w-max font-medium text-base bg-secondary hover:bg-secondary rounded-lg h-12"
+                >
+                  Try it now
+                  <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
+                </Button>
+              </Link>
               {/* <SignupDialog
                 trigger={
                   <Button
@@ -205,7 +214,7 @@ const Header = ({ isBlog }: Props) => {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 md:hidden">
+          <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 lg:hidden">
             <div className="mx-auto px-8">
               <nav className="flex flex-col gap-4">
                 {/* <Link
@@ -356,13 +365,22 @@ const Header = ({ isBlog }: Props) => {
                     triggerComponent={
                       <Button
                         variant="outline"
-                        className="p-3 bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                        className="p-3 w-full md:w-max bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                       >
                         View Demo
                         <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                       </Button>
                     }
                   />
+                  <Link href="/medical-assistant">
+                    <Button
+                      variant="default"
+                      className="p-3 text-white font-medium w-full md:w-max text-base bg-primary hover:bg-primary rounded-lg h-12"
+                    >
+                      Try it now
+                      <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
+                    </Button>
+                  </Link>
                 </div>
               </nav>
             </div>

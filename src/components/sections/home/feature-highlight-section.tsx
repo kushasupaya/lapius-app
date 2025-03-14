@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const FeatureHighlightSection = () => {
+  const router = useRouter();
+
   const parentVariants = {
     hidden: {},
     show: {
@@ -69,6 +72,7 @@ const FeatureHighlightSection = () => {
                 variant="default"
                 type="submit"
                 className="bg-secondary text-white text-base w-max p-4 h-14 rounded-lg hover:bg-secondary focus:outline-none transition duration-300"
+                onClick={() => router.push("/medical-assistant")}
               >
                 <div className="flex items-center w-full justify-between">
                   Upload your hospital bill
