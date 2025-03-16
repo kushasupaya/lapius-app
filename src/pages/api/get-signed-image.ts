@@ -13,7 +13,7 @@ export default async function handler(
           .status(400)
           .json({ error: "Missing or invalid key parameter" });
       }
-
+      console.log("here");
       const presignedUrl = await generatePresignedUrl(key);
       res.status(200).send(presignedUrl);
     } catch (error) {

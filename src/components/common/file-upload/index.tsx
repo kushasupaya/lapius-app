@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Fullscreen, FullscreenIcon } from "lucide-react";
 import { uploadFileToS3, uploadWithPresignedUrl } from "@/lib/uploadS3";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
-import { addFiles } from "@/store/file-slice";
+import { addFiles, clearFiles } from "@/store/file-slice";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -26,13 +26,11 @@ registerPlugin(
 
 const FileUpload = () => {
   const dispatch = useAppDispatch();
-  const { files } = useAppSelector(state => state.files);
-
+  const { files } = useAppSelector((state) => state.files);
+  console.log(files);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const ws = useRef<WebSocket | null>(null);
-  const [socketData, setSocketData] = useState<string | null>(null);
 
   const toggleImageFullscreen = () => {
     if (imageRef.current) {
@@ -56,7 +54,7 @@ const FileUpload = () => {
 
   const handleFileChange = async (fileItems: FilePondFile[]) => {
     const file = fileItems[0]?.file;
-    dispatch(addFiles(fileItems.map((fileItem) => fileItem.file)))
+    dispatch(addFiles(fileItems.map((fileItem) => fileItem.file)));
     if (file) {
       setImageSrc(URL.createObjectURL(file));
       try {
@@ -68,48 +66,14 @@ const FileUpload = () => {
           file as File,
           presignedUrl
         );
-        ws.current?.send(JSON.stringify({ action: "sendmessage" }));
+        // ws.current?.send(JSON.stringify({ action: "sendmessage" }));
 
-        // const imageFile = new File([file], key, { type: file.type });
-        // const response = await uploadFileToS3(imageFile, key);
         console.log("Upload successful:", response);
       } catch (error) {
         console.error("Failed to upload file:", error);
       }
     }
   };
-
-  useEffect(() => {
-    // Initialize WebSocket
-    ws.current = new WebSocket(
-      "wss://h6jh34fm4g.execute-api.us-east-1.amazonaws.com/production/"
-    );
-
-    ws.current.onopen = () => {
-      console.log("WebSocket connected");
-    };
-
-    ws.current.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      console.log("Message from server:", data);
-
-      if (data.description) {
-        setSocketData(data.description);
-      }
-    };
-
-    ws.current.onclose = () => {
-      console.log("WebSocket disconnected");
-    };
-
-    ws.current.onerror = (error) => {
-      console.error("WebSocket error:", error);
-    };
-
-    return () => {
-      ws.current?.close();
-    };
-  }, []);
 
   return (
     <div className="relative hover:cursor-pointer">
