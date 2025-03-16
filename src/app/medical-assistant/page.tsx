@@ -11,13 +11,36 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+interface FormData {
+  hospital: string | null;
+  presignedUrl: string | null;
+}
+
 const MedicalAssistantPage = () => {
   const [step, setStep] = useState(0);
+  const [data, setData] = useState<FormData>({
+    hospital: null,
+    presignedUrl: null,
+  }) 
 
   const router = useRouter();
   const dispatch = useAppDispatch();
 
   dispatch(clearFiles());
+
+  const handleHospitalFormSubmit = (text: string) => {
+    setData({ hospital: text, presignedUrl: data.presignedUrl });
+    setStep(1);
+  }
+
+  const handleFileUpload = (url: string) => {
+    setData({ hospital: data.hospital, presignedUrl: url });
+  }
+
+  const onFileUpload = () => {
+    console.log(data);
+    router.push("/app")
+  }
 
   return (
     <>
@@ -68,7 +91,7 @@ const MedicalAssistantPage = () => {
                   <h3 className="text-4xl md:text-6xl max-w-[590px] text-center font-medium mb-14">
                     Which hospital did you visit?
                   </h3>
-                  <HospitalForm onFormSubmit={() => setStep(1)} />
+                  <HospitalForm onFormSubmit={handleHospitalFormSubmit} />
                 </>
               : <>
                   <h3 className="text-4xl md:text-6xl max-w-[590px] text-center font-medium mb-6">
@@ -76,14 +99,14 @@ const MedicalAssistantPage = () => {
                   </h3>
                   <div className="flex flex-col md:flex-row gap-4 md:gap-7 w-full justify-center items-end">
                     <div className="rounded-[32px] w-full h-full max-w-[464px]">
-                      <FileUpload />
+                      <FileUpload onFileUpload={handleFileUpload} />
                     </div>
                     <Button
                       size="default"
                       variant="default"
                       type="submit"
                       className="bg-tertiary text-tertiary-foreground text-base w-max p-4 h-14 mb-4 rounded-lg hover:bg-primary focus:outline-none transition duration-300"
-                      onClick={() => router.push("/app")}
+                      onClick={() => onFileUpload()}
                     >
                       <div className="flex items-center w-full justify-between">
                         Analyze

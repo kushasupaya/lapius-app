@@ -24,7 +24,11 @@ registerPlugin(
   FilePondPluginFileEncode
 );
 
-const FileUpload = () => {
+interface Props {
+  onFileUpload?: (url: string) => void;
+}
+
+const FileUpload = ({ onFileUpload }: Props) => {
   const dispatch = useAppDispatch();
   const { files } = useAppSelector((state) => state.files);
   console.log(files);
@@ -54,6 +58,7 @@ const FileUpload = () => {
 
   const handleFileChange = async (fileItems: FilePondFile[]) => {
     const file = fileItems[0]?.file;
+    dispatch(clearFiles());
     dispatch(addFiles(fileItems.map((fileItem) => fileItem.file)));
     if (file) {
       setImageSrc(URL.createObjectURL(file));
@@ -67,7 +72,7 @@ const FileUpload = () => {
           presignedUrl
         );
         // ws.current?.send(JSON.stringify({ action: "sendmessage" }));
-
+        onFileUpload?.(presignedUrl);
         console.log("Upload successful:", response);
       } catch (error) {
         console.error("Failed to upload file:", error);

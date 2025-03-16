@@ -21,7 +21,7 @@ const FormSchema = z.object({
 });
 
 interface Props {
-  onFormSubmit: () => void;
+  onFormSubmit: (text: string) => void;
 }
 
 const HospitalForm = ({ onFormSubmit }: Props) => {
@@ -42,7 +42,7 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
 
     startTransition(async () => {
       console.log(data);
-      onFormSubmit();
+      onFormSubmit(data.hospital);
     });
   }
   return (
