@@ -19,8 +19,16 @@ import {
 } from "@/components/sections/dashboard/tab-sections";
 import { useAppSelector } from "@/store/hook";
 import { FileData } from "@/store/file-slice";
+import { useSearchParams } from "next/navigation";
 
 const AppHome = () => {
+  const params = useSearchParams();
+
+  const hospital = params?.get("hospital");
+  const presignedUrl = params?.get("presignedUrl");
+
+  console.log("h: ", hospital);
+  console.log("p: ", presignedUrl);
   const { files } = useAppSelector(state => state.files);
   const [loading, setLoading] = useState(false);
 

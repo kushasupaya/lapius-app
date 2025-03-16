@@ -7,6 +7,8 @@ import { S3 } from "aws-sdk";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 import FilePondPluginFileEncode from "filepond-plugin-file-encode";
+import FilePondPluginPdfPreview from "filepond-plugin-pdf-preview";
+
 
 import "./index.css";
 import Image from "next/image";
@@ -20,6 +22,7 @@ import { addFiles, clearFiles } from "@/store/file-slice";
 
 registerPlugin(
   FilePondPluginImagePreview,
+  FilePondPluginPdfPreview,
   FilePondPluginFileValidateType,
   FilePondPluginFileEncode
 );

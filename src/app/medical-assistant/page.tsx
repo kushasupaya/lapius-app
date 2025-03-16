@@ -39,7 +39,7 @@ const MedicalAssistantPage = () => {
 
   const onFileUpload = () => {
     console.log(data);
-    router.push("/app")
+    router.push(`/app?hospital=${data.hospital}&presignedUrl=${data.presignedUrl}`)
   }
 
   return (
