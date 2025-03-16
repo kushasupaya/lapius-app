@@ -15,6 +15,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Fullscreen, FullscreenIcon } from "lucide-react";
 import { uploadFileToS3, uploadWithPresignedUrl } from "@/lib/uploadS3";
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import { addFiles } from "@/store/file-slice";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -22,12 +24,10 @@ registerPlugin(
   FilePondPluginFileEncode
 );
 
-interface Props {
-  files: Array<File | Blob | string>;
-  setFiles: React.Dispatch<React.SetStateAction<Array<File | Blob | string>>>;
-}
+const FileUpload = () => {
+  const dispatch = useAppDispatch();
+  const { files } = useAppSelector(state => state.files);
 
-const FileUpload = ({ files, setFiles }: Props) => {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -56,7 +56,7 @@ const FileUpload = ({ files, setFiles }: Props) => {
 
   const handleFileChange = async (fileItems: FilePondFile[]) => {
     const file = fileItems[0]?.file;
-    setFiles(fileItems.map((fileItem) => fileItem.file));
+    dispatch(addFiles(fileItems.map((fileItem) => fileItem.file)))
     if (file) {
       setImageSrc(URL.createObjectURL(file));
       try {

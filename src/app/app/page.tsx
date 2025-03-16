@@ -17,9 +17,11 @@ import {
   UnbundingSection,
   UpcodingSection,
 } from "@/components/sections/dashboard/tab-sections";
+import { useAppSelector } from "@/store/hook";
+import { FileData } from "@/store/file-slice";
 
 const AppHome = () => {
-  const [files, setFiles] = useState<Array<File | Blob | string>>([]);
+  const { files } = useAppSelector(state => state.files);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -141,7 +143,7 @@ const AppHome = () => {
       </header>
       <main className="p-6">
         <div className="flex flex-col gap-4 md:gap-10 xl:flex-row">
-          <ImageUploadSection files={files} setFiles={setFiles} />
+          <ImageUploadSection />
           {!loading && files.length > 0 ? (
             <div className="bg-white border-2 border-tertiary rounded-[32px] pt-0 w-full xl:max-w-[463px] 2xl:max-w-[578px] text-center h-[610px] overflow-x-hidden overflow-y-auto overflow-hidden">
               <Tabs

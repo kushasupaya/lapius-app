@@ -5,15 +5,19 @@ import FileUpload from "@/components/common/file-upload";
 import HospitalForm from "@/components/forms/hospital-form";
 import { FaqSection } from "@/components/sections/contact";
 import { Button } from "@/components/ui/button";
+import { clearFiles } from "@/store/file-slice";
+import { useAppDispatch } from "@/store/hook";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const MedicalAssistantPage = () => {
   const [step, setStep] = useState(0);
-  const [files, setFiles] = useState<Array<File | Blob | string>>([]);
 
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  dispatch(clearFiles());
 
   return (
     <>
@@ -72,7 +76,7 @@ const MedicalAssistantPage = () => {
                   </h3>
                   <div className="flex flex-col md:flex-row gap-4 md:gap-7 w-full justify-center items-end">
                     <div className="rounded-[32px] w-full h-full max-w-[464px]">
-                      <FileUpload files={files} setFiles={setFiles} />
+                      <FileUpload />
                     </div>
                     <Button
                       size="default"
