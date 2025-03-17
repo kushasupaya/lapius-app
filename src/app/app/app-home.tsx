@@ -27,6 +27,13 @@ const AppHome = () => {
   const hospital = params?.get("hospital");
   const presignedUrl = params?.get("presignedUrl");
 
+  const [apiData, setApiData] = useState<{
+    summary: string;
+    billingCodes: any[];
+    errors: any[];
+    prices: any[];
+  } | null>(null);
+
   console.log("h: ", hospital);
   console.log("p: ", presignedUrl);
   const { files } = useAppSelector((state) => state.files);
@@ -106,38 +113,82 @@ const AppHome = () => {
     console.log("Confirmed", id);
   };
 
+  useEffect(() => {
+    if (hospital && presignedUrl) {
+      setLoading(true);
+      fetch("/api/analyze-med-bill", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          hospital_name: hospital,
+          image_url: presignedUrl,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setApiData({
+            summary: data.data.summary,
+            billingCodes: Object.entries(data.data.description).map(
+              ([key, value]) => ({
+                id: key,
+                title: key,
+                description: value,
+                severity: "good",
+              })
+            ),
+            errors: Object.entries(data.data.error).map(([key, value]) => ({
+              id: key,
+              title: key,
+              description: value,
+              severity: "good",
+            })),
+            prices: Object.entries(data.data.price).map(([key, value]) => ({
+              id: key,
+              title: key, // Billing code
+              description: value,
+              severity: "good",
+            })),
+          });
+        })
+        .catch((error) => console.error("Error fetching data:", error))
+        .finally(() => setLoading(false));
+    }
+  }, [hospital, presignedUrl]);
+
   const tabs = [
     {
       id: "summary",
       label: "Summary",
-      content: <SummarySection summary={summary} />,
+      content: apiData ? <SummarySection summary={apiData?.summary} /> : null,
     },
     {
       id: "billing-codes",
       label: "Billing Codes",
-      content: (
+      content: apiData ? (
         <BillingCodesSection
-          data={billingCode}
+          data={apiData.billingCodes}
           onConfirm={onConfirm}
           onDismiss={onDismiss}
         />
-      ),
+      ) : null,
     },
     {
       id: "upcoding",
       label: "Price",
-      content: (
+      content: apiData ? (
         <UpcodingSection
-          data={upcoding}
+          data={apiData.prices}
           onConfirm={onConfirm}
           onDismiss={onDismiss}
         />
-      ),
+      ) : null,
     },
     {
       id: "unbunding",
       label: "Other Errors",
-      content: <UnbundingSection />,
+      content: apiData ? <UnbundingSection data={apiData.errors} /> : null,
     },
   ];
 

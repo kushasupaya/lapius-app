@@ -1,23 +1,34 @@
 import Image from "next/image";
+import { SeverityAccordion } from "../components";
+import { Severity } from "../components/severity-accordion";
 
-const SummarySection = () => {
+export interface Upcoding {
+  id: string;
+  title: string;
+  description: string;
+  severity: string;
+}
+
+interface Props {
+  data: Upcoding[];
+}
+
+const UnbundingSection = ({ data }: Props) => {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full min-h-[500px] p-5">
-      <div className="rounded-full bg-primary mb-5">
-        <Image
-          alt="no issues"
-          src="/images/happy.svg"
-          height={108}
-          width={108}
-          className="h-[108px] w-[108px]"
-        />
+    <div className="w-full h-full p-5 pt-3">
+      <div className="flex flex-col gap-4">
+        {data.map((coding, index) => (
+          <SeverityAccordion
+            key={index}
+            id={coding.id}
+            title={coding.title}
+            description={coding.description}
+            severity={coding.severity as Severity}
+          />
+        ))}
       </div>
-      <h3 className="text-foreground text-xl font-semibold">
-        No <br />
-        additional errors
-      </h3>
     </div>
   );
 };
 
-export default SummarySection;
+export default UnbundingSection;
