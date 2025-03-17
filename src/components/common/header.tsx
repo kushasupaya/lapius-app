@@ -7,7 +7,14 @@ import Logo from "./logo";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import CustomerAuth from "./customer-auth";
-import { ArrowUpRight, Calculator, MenuIcon, Receipt, Search, XIcon } from "lucide-react";
+import {
+  ArrowUpRight,
+  Calculator,
+  MenuIcon,
+  Receipt,
+  Search,
+  XIcon,
+} from "lucide-react";
 import { Dialog, DialogTrigger } from "../ui/dialog";
 import SignupDialog from "../forms/signup-dialog-form";
 import LoginDialog from "../forms/login-dialog-form";
@@ -67,7 +74,12 @@ const Header = ({ isBlog }: Props) => {
     : "relative container py-6 px-4 mx-auto xl:px-0";
   return (
     <>
-      <header className={cn("top-0 fixed z-50 w-full", isScrolled ? "bg-white border-b" : "bg-transparent")}>
+      <header
+        className={cn(
+          "top-0 fixed z-50 w-full",
+          isScrolled ? "bg-white border-b" : "bg-transparent"
+        )}
+      >
         <div className={headerClass}>
           <div className="flex justify-between items-center">
             <div className="flex justify-between items-center">
@@ -91,12 +103,12 @@ const Header = ({ isBlog }: Props) => {
                   Product
                 </Link> */}
                 <Link
-                  href="/#"
+                  href="/medical-assistant"
                   className="text-foreground font-medium hover:text-primary"
                 >
-                  Products
+                  AI Medbill Assistant
                 </Link>
-                <Link
+                {/* <Link
                   href="/#"
                   className="text-foreground font-medium hover:text-primary"
                 >
@@ -107,7 +119,7 @@ const Header = ({ isBlog }: Props) => {
                   className="text-foreground font-medium hover:text-primary"
                 >
                   Resource
-                </Link>
+                </Link> */}
                 <Link
                   href="/contact"
                   className="text-foreground font-medium hover:text-primary"
@@ -175,7 +187,7 @@ const Header = ({ isBlog }: Props) => {
               <Link href="/medical-assistant">
                 <Button
                   variant="default"
-                  className="p-3 text-white w-full md:w-max font-medium text-base bg-secondary hover:bg-secondary rounded-lg h-12"
+                  className="p-3 text-white w-full md:w-max font-medium text-base bg-secondary hover:bg-secondary/70 rounded-lg h-12"
                 >
                   Try it now
                   <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
