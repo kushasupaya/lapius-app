@@ -70,7 +70,10 @@ const AdvantagesSection = () => {
               className="w-full h-[395px] bg-background px-9 py-16 border-[3px] border-tertiary rounded-lg text-base md:text-xl"
               variants={childVariants}
             >
-              <span dangerouslySetInnerHTML={{ __html: item }} />
+              <h2 className="text-2xl font-bold text-center block mb-4">
+                {item.heading}
+              </h2>
+              <span dangerouslySetInnerHTML={{ __html: item.content }} />
             </motion.div>
           ))}
         </motion.div>
