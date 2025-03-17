@@ -7,6 +7,8 @@ import { usePostHog } from "posthog-js/react";
 
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
+import { Provider } from "react-redux";
+import { store } from "@/store";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -20,10 +22,12 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <PHProvider client={posthog}>
-      <SuspendedPostHogPageView />
-      {children}
-    </PHProvider>
+    <Provider store={store}>
+      <PHProvider client={posthog}>
+        <SuspendedPostHogPageView />
+        {children}
+      </PHProvider>
+    </Provider>
   );
 }
 

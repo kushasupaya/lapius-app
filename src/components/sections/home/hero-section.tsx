@@ -6,7 +6,6 @@ import SubscribeForm from "@/components/forms/subscribe-form";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-
   return (
     <section className="bg-hero-section-pattern bg-center bg-cover bg-no-repeat w-full transition duration-200 ease-out">
       <div className="container px-4 xl:px-0 mx-auto">
@@ -19,7 +18,11 @@ const HeroSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              Don&apos;t pay your<br /><mark className="bg-gradient-to-r from-[#DE4DFF] to-[#5F37FC] inline-block text-transparent bg-clip-text">Hospital Bill</mark>
+              Don&apos;t pay your
+              <br />
+              <mark className="bg-gradient-to-r from-[#DE4DFF] to-[#5F37FC] inline-block text-transparent bg-clip-text">
+                Hospital Bill
+              </mark>
             </motion.h1>
             <motion.p
               className="text-base md:text-xl mb-8 max-w-[530px]"
@@ -28,7 +31,9 @@ const HeroSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Empowering you with an AI-driven advocate that detects errors, negotiates on your behalf, and ensures you only pay for the care you received.
+              Empowering you with an AI-driven advocate that detects errors,
+              negotiates on your behalf, and ensures you only pay for the care
+              you received.
             </motion.p>
             <motion.div
               className="max-w-[528px]"
@@ -43,7 +48,7 @@ const HeroSection = () => {
           <div className="w-full xl:pt-[218px]">
             <Image
               alt=""
-              src="/images/hero.svg"
+              src="/images/hero.png"
               height={527}
               width={665}
               className="xl:ml-auto w-full"

@@ -9,34 +9,29 @@ import { cn } from "@/lib/utils";
 const FAQAccordion = () => {
   const faqs = [
     {
-      question: "How accurate are Lapius results, and can they be wrong?",
+      question: "Can MedBill handle any type of medical bill?",
       answer:
-        "We combine advanced AI technology with actual prices from all California hospitals and millions of medical claims records.",
+        "MedBill is specially designed to handle itemized bills in png/jpg format.  Yet, it can work with most types of the medical bills,  including UB-04 forms. Our system automatically extracts all relevant data including revenue codes, procedure codes, and charges - eliminating manual data entry and reducing processing time from hours to seconds.",
     },
     {
-      question: "Why should I use Lapius?",
+      question: "How do you handle data privacy?",
       answer:
-        "Nine out of ten patients don't know their medical costs in advance, and nearly 80% of medical bills have errors. Lapius provides tools for complete transparency to help you avoid unexpected charges and mistakes.",
+        "MedBill assistant processes bills in real-time and does not store any uploaded documents. Your data is analyzed instantly and then automatically deleted from our systems, ensuring maximum privacy and security.",
     },
     {
-      question: "Is Lapius only for people in California?",
+      question: "Do you support all types of insurance?",
       answer:
-        "Our platform has access to all California hospital data, and we are working to expand nationwide in the coming months.",
-    },
-    {
-      question: "Is Lapius secure? Where is my data saved?",
-      answer:
-        "Your privacy is our priority. Your data is encrypted, secure, and fully protected under HIPAA compliance.",
-    },
-    {
-      question: "Do I need medical billing expert to use Lapius?",
-      answer:
-        "No, but to consult the hospital price search you need to know the name of the medical service or the medical code associated with it. Nonetheless, our Lapius Copilot will guide you through the price search, starting with the symptoms.",
+        "We support the major insurance companies and payers in California.",
     },
     {
       question: "How much does Lapius cost?",
       answer:
         "Lapius is currently free to use, with enterprise solutions coming soon.",
+    },
+    {
+      question: "How do you provide support?",
+      answer:
+        "You can contact us by e-mail (support@lapiusai.com) if you have questions or concerns regarding your data and the process.",
     },
   ];
   return (

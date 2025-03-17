@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-12 py-12 md:pb-0 md:mt-20 border-t border-[#363435] flex flex-col gap-14 md:flex-row justify-between">
-          <div className="flex flex-col md:flex-row gap-6 md:gap-14">
+          {/* <div className="flex flex-col md:flex-row gap-6 md:gap-14">
             <Link href="#" className="text-tertiary-foreground hover:underline">
               About
             </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
             <Link href="#" className="text-tertiary-foreground hover:underline">
               Support
             </Link>
-          </div>
+          </div> */}
           <div className="text-tertiary-foreground">
             Copyright © {new Date().getFullYear()} All Rights Reserved
           </div>

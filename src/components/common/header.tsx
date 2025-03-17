@@ -7,7 +7,14 @@ import Logo from "./logo";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import CustomerAuth from "./customer-auth";
-import { ArrowUpRight, Calculator, MenuIcon, Receipt, Search, XIcon } from "lucide-react";
+import {
+  ArrowUpRight,
+  Calculator,
+  MenuIcon,
+  Receipt,
+  Search,
+  XIcon,
+} from "lucide-react";
 import { Dialog, DialogTrigger } from "../ui/dialog";
 import SignupDialog from "../forms/signup-dialog-form";
 import LoginDialog from "../forms/login-dialog-form";
@@ -67,7 +74,12 @@ const Header = ({ isBlog }: Props) => {
     : "relative container py-6 px-4 mx-auto xl:px-0";
   return (
     <>
-      <header className={cn("top-0 fixed z-50 w-full", isScrolled ? "bg-white border-b" : "bg-transparent")}>
+      <header
+        className={cn(
+          "top-0 fixed z-50 w-full",
+          isScrolled ? "bg-white border-b" : "bg-transparent"
+        )}
+      >
         <div className={headerClass}>
           <div className="flex justify-between items-center">
             <div className="flex justify-between items-center">
@@ -76,7 +88,7 @@ const Header = ({ isBlog }: Props) => {
               </Link>
 
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex gap-10 items-center md:ml-6">
+              <nav className="hidden lg:flex gap-10 items-center lg:ml-6">
                 {/* <Link
                   href="/why-lapius"
                   className="text-sm text-white font-medium hover:text-primary"
@@ -91,12 +103,12 @@ const Header = ({ isBlog }: Props) => {
                   Product
                 </Link> */}
                 <Link
-                  href="/#"
+                  href="/medical-assistant"
                   className="text-foreground font-medium hover:text-primary"
                 >
-                  Products
+                  AI Medbill Assistant
                 </Link>
-                <Link
+                {/* <Link
                   href="/#"
                   className="text-foreground font-medium hover:text-primary"
                 >
@@ -107,7 +119,7 @@ const Header = ({ isBlog }: Props) => {
                   className="text-foreground font-medium hover:text-primary"
                 >
                   Resource
-                </Link>
+                </Link> */}
                 <Link
                   href="/contact"
                   className="text-foreground font-medium hover:text-primary"
@@ -144,7 +156,7 @@ const Header = ({ isBlog }: Props) => {
             </div>
 
             {/* Hamburger Menu Icon */}
-            <div className="flex md:hidden items-center mr-4">
+            <div className="flex lg:hidden items-center mr-4">
               <button
                 onClick={() => setMenuOpen((prev) => !prev)}
                 className="text-tertiary focus:outline-none"
@@ -158,20 +170,29 @@ const Header = ({ isBlog }: Props) => {
             </div>
 
             {/* Sign In and Get Started Buttons main */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-2">
               <FullscreenVideoDialog
                 videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                 title="Big Buck Bunny"
                 triggerComponent={
                   <Button
                     variant="outline"
-                    className="p-3 bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                    className="p-3 bg-white text-foreground w-full md:w-max font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                   >
                     View Demo
                     <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                   </Button>
                 }
               />
+              <Link href="/medical-assistant">
+                <Button
+                  variant="default"
+                  className="p-3 text-white w-full md:w-max font-medium text-base bg-secondary hover:bg-secondary/70 rounded-lg h-12"
+                >
+                  Try it now
+                  <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
+                </Button>
+              </Link>
               {/* <SignupDialog
                 trigger={
                   <Button
@@ -205,7 +226,7 @@ const Header = ({ isBlog }: Props) => {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 md:hidden">
+          <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 lg:hidden">
             <div className="mx-auto px-8">
               <nav className="flex flex-col gap-4">
                 {/* <Link
@@ -356,13 +377,22 @@ const Header = ({ isBlog }: Props) => {
                     triggerComponent={
                       <Button
                         variant="outline"
-                        className="p-3 bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                        className="p-3 w-full md:w-max bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                       >
                         View Demo
                         <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                       </Button>
                     }
                   />
+                  <Link href="/medical-assistant">
+                    <Button
+                      variant="default"
+                      className="p-3 text-white font-medium w-full md:w-max text-base bg-primary hover:bg-primary rounded-lg h-12"
+                    >
+                      Try it now
+                      <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
+                    </Button>
+                  </Link>
                 </div>
               </nav>
             </div>

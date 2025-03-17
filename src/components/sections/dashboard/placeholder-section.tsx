@@ -5,7 +5,7 @@ interface Props {
 }
 const PlaceholderSection = ({ isLoading }: Props) => {
   return (
-    <div className="bg-white rounded-[32px] p-4 md:p-6 w-full xl:max-w-[463px] 2xl:max-w-[578px] text-center h-[610px]">
+    <div className="bg-white border-2 border-tertiary rounded-[32px] p-4 md:p-6 w-full xl:max-w-[463px] 2xl:max-w-[578px] text-center h-[610px]">
       {isLoading ? (
         <div>
           <Image

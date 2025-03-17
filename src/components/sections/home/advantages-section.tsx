@@ -18,9 +18,21 @@ const AdvantagesSection = () => {
   };
 
   const infoItems = [
-    "Your health information is encrypted and stored securely, meeting strict <strong>HIPAA</strong> standards.",
-    "Our technology uses advanced algorithms trained on thousands of medical claims to detect errors in under a minute. By contrast, traditional dispute services take days to uncover the same issues.",
-    "We’re transparent about our process, fees, and any next steps—so you know exactly where your dispute stands at all times.",
+    {
+      heading: "Search for Fair Prices",
+      content:
+        "Our platform leverages data from hospitals and other patients to give you a transparent view of fair costs, helping you understand and compare the charges on your itemized bill.",
+    },
+    {
+      heading: "Expert Insights",
+      content:
+        "We analyze your bill and compare it against crowdsourced data, flagging suspicious or inflated charges and providing guidance on the next steps for potential reductions.",
+    },
+    {
+      heading: "Automated Negotiations",
+      content:
+        "Our automated agents negotiate directly with billing departments on your behalf, keeping you updated every step of the way to ensure you secure the best possible outcome.",
+    },
   ];
 
   return (
@@ -33,7 +45,7 @@ const AdvantagesSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          The Lapius Advantage
+          Why <span className="text-primary">Lapius AI</span>
         </motion.h2>
         <motion.p
           className="text-base md:text-lg max-w-[622px] text-center mx-auto mb-12 md:mb-24"
@@ -42,7 +54,8 @@ const AdvantagesSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Amet minim mollit non deserunt ullamco est site aliqua dolor. velit amet suiget officia. Exercitation veniam consequat sit.
+          {/* Amet minim mollit non deserunt ullamco est site aliqua dolor. velit
+          amet suiget officia. Exercitation veniam consequat sit. */}
         </motion.p>
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-3 gap-6"
@@ -57,13 +70,16 @@ const AdvantagesSection = () => {
               className="w-full h-[395px] bg-background px-9 py-16 border-[3px] border-tertiary rounded-lg text-base md:text-xl"
               variants={childVariants}
             >
-              <span dangerouslySetInnerHTML={{ __html: item }} />
+              <h2 className="text-2xl font-bold text-center block mb-4">
+                {item.heading}
+              </h2>
+              <span dangerouslySetInnerHTML={{ __html: item.content }} />
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default AdvantagesSection;
