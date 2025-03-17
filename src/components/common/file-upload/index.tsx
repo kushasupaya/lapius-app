@@ -9,7 +9,6 @@ import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 import FilePondPluginFileEncode from "filepond-plugin-file-encode";
 import FilePondPluginPdfPreview from "filepond-plugin-pdf-preview";
 
-
 import "./index.css";
 import Image from "next/image";
 import { FilePondFile } from "filepond";

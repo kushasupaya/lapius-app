@@ -62,7 +62,7 @@ const ContactPage = () => {
           </div>
 
           <FaqSection />
-
+          {/* 
           <div className="pb-10 pt-0 md:pb-24 md:pt-32">
             <div className="px-14 py-16 rounded-lg bg-[url(/images/grow-brand.svg)] bg-cover bg-no-repeat">
               <div className="flex flex-col gap-11 md:flex-row items-center justify-between">
@@ -96,7 +96,7 @@ const ContactPage = () => {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
       <Footer />
