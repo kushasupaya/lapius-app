@@ -47,63 +47,63 @@ const AppHome = () => {
       }, 10000);
     }
   }, [files]);
-  const summary =
-    "<span style='font-weight: 600; text-decoration: underline; font-size:20px;'>Visit Date (March 24, 2022)</span>:<br>The patient, John Doe, visited the hospital or medical facility for a same-day service, as the admission and discharge dates are both listed as 03/24/2022.<br><span style='font-weight: 600;'>Blood Draw (Venipuncture)</span>:The first service listed is a venipuncture (blood draw). This indicates that the patient underwent one or more blood tests, suggesting a diagnostic workup or routine health check.<br>Blood Tests Performed:<br>Celiac Screen (Gamma Globulin-IGA): A test to evaluate for celiac disease or immune responses related to gluten intolerance.<br>Comprehensive Metabolic Panel: A broad-spectrum blood test to assess organ function (e.g., liver, kidneys), electrolytes, and overall metabolic health.<br>Vitamin D Test: A specific test to measure the levels of Vitamin D, which could indicate nutritional deficiencies or issues related to bone health.<br>Chest X-Ray:<br>The patient also underwent a chest X-ray (2 views), which is often used to evaluate the lungs, heart, or other structures in the chest. This could indicate that the patient was experiencing symptoms such as chest pain, shortness of breath, or a persistent cough, prompting further investigation.<br>Possible Context or Scenarios:The combination of tests suggests the patient might have presented with generalized symptoms such as fatigue, weakness, gastrointestinal issues, or respiratory concerns.<br>Alternatively, the patient may have been undergoing a routine evaluation or follow-up related to a known condition, such as celiac disease, nutritional deficiency, or respiratory issues.<br>The chest X-ray suggests the provider might have been investigating potential respiratory or cardiac concerns (e.g., pneumonia, heart problems, or a chest injury).<br>The combination of these tests suggests the patient may have been evaluated for:Celiac Disease or Nutritional Deficiencies: The celiac screening and Vitamin D test could point to concerns about malabsorption or deficiencies due to a gastrointestinal condition.<br>Metabolic or Systemic Health Issues: The comprehensive metabolic panel indicates a general health evaluation.<br>Respiratory or Cardiac Conditions: The chest X-ray could suggest investigation into symptoms such as chest pain, shortness of breath, or suspected respiratory infections like pneumonia";
+  //   const summary =
+  //     "<span style='font-weight: 600; text-decoration: underline; font-size:20px;'>Visit Date (March 24, 2022)</span>:<br>The patient, John Doe, visited the hospital or medical facility for a same-day service, as the admission and discharge dates are both listed as 03/24/2022.<br><span style='font-weight: 600;'>Blood Draw (Venipuncture)</span>:The first service listed is a venipuncture (blood draw). This indicates that the patient underwent one or more blood tests, suggesting a diagnostic workup or routine health check.<br>Blood Tests Performed:<br>Celiac Screen (Gamma Globulin-IGA): A test to evaluate for celiac disease or immune responses related to gluten intolerance.<br>Comprehensive Metabolic Panel: A broad-spectrum blood test to assess organ function (e.g., liver, kidneys), electrolytes, and overall metabolic health.<br>Vitamin D Test: A specific test to measure the levels of Vitamin D, which could indicate nutritional deficiencies or issues related to bone health.<br>Chest X-Ray:<br>The patient also underwent a chest X-ray (2 views), which is often used to evaluate the lungs, heart, or other structures in the chest. This could indicate that the patient was experiencing symptoms such as chest pain, shortness of breath, or a persistent cough, prompting further investigation.<br>Possible Context or Scenarios:The combination of tests suggests the patient might have presented with generalized symptoms such as fatigue, weakness, gastrointestinal issues, or respiratory concerns.<br>Alternatively, the patient may have been undergoing a routine evaluation or follow-up related to a known condition, such as celiac disease, nutritional deficiency, or respiratory issues.<br>The chest X-ray suggests the provider might have been investigating potential respiratory or cardiac concerns (e.g., pneumonia, heart problems, or a chest injury).<br>The combination of these tests suggests the patient may have been evaluated for:Celiac Disease or Nutritional Deficiencies: The celiac screening and Vitamin D test could point to concerns about malabsorption or deficiencies due to a gastrointestinal condition.<br>Metabolic or Systemic Health Issues: The comprehensive metabolic panel indicates a general health evaluation.<br>Respiratory or Cardiac Conditions: The chest X-ray could suggest investigation into symptoms such as chest pain, shortness of breath, or suspected respiratory infections like pneumonia";
 
-  const billingCode = [
-    {
-      id: "billing_code",
-      title: "HB VENIPUNCTURE (CPT code: 36415)",
-      description:
-        "Routine venipuncture, which involves collecting blood from a vein using a needle in healthcare settings.",
-      severity: "good",
-    },
-    {
-      id: "billing_code1",
-      title:
-        "HB REF CELIAC SCREEN PANEL, GAMMAGLOBULIN-IGA (Q) (CPT code: 82784)",
-      description:
-        "Analysis of the concentration of specific gamma globulins in a specimen, including Immunoglobulin A, Immunoglobulin G, and Immunoglobulin M.",
-      severity: "warning",
-    },
-    {
-      id: "billing_code2",
-      title: "HB COMPREHENSIVE METABOLIC PANEL (CPT code: 80053)",
-      description:
-        "A comprehensive metabolic panel (CMP) blood test that measures various substances in the blood, including glucose, calcium, electrolytes, and kidney function markers.",
-      severity: "warning",
-    },
-    {
-      id: "billing_code3",
-      title: "HB-XRAY EXAM CHEST 2 VIEWS (CPT code: 71046)",
-      description:
-        "A chest X-ray procedure with two views, typically front and side, to provide a comprehensive view of the chest area.",
-      severity: "warning",
-    },
-  ];
-  const upcoding = [
-    {
-      id: "upcoding-2",
-      title:
-        "HB REF CELIAC SCREEN PANEL, GAMMAGLOBULIN-IGA (Q) (CPT code: 82784)",
-      description: "Overcharged by $95.24 ($108.00 - $12.76)",
-      severity: "warning",
-    },
-    {
-      id: "upcoding-3",
-      title: "HB COMPREHENSIVE METABOLIC PANEL (CPT code: 80053)",
-      description:
-        "The price charged ($368.00) is significantly higher than the average price in Illinois ($13.04).",
-      severity: "warning",
-    },
-    {
-      id: "upcoding-4",
-      title: "HB-XRAY EXAM CHEST 2 VIEWS (CPT code: 71046)",
-      description:
-        "Price: $793.00 (The average price in Illinois is $70.00, and the price of HCPCS code 71046 is $22, indicating a potential overcharge)",
-      severity: "warning",
-    },
-  ];
+  //   const billingCode = [
+  //     {
+  //       id: "billing_code",
+  //       title: "HB VENIPUNCTURE (CPT code: 36415)",
+  //       description:
+  //         "Routine venipuncture, which involves collecting blood from a vein using a needle in healthcare settings.",
+  //       severity: "good",
+  //     },
+  //     {
+  //       id: "billing_code1",
+  //       title:
+  //         "HB REF CELIAC SCREEN PANEL, GAMMAGLOBULIN-IGA (Q) (CPT code: 82784)",
+  //       description:
+  //         "Analysis of the concentration of specific gamma globulins in a specimen, including Immunoglobulin A, Immunoglobulin G, and Immunoglobulin M.",
+  //       severity: "warning",
+  //     },
+  //     {
+  //       id: "billing_code2",
+  //       title: "HB COMPREHENSIVE METABOLIC PANEL (CPT code: 80053)",
+  //       description:
+  //         "A comprehensive metabolic panel (CMP) blood test that measures various substances in the blood, including glucose, calcium, electrolytes, and kidney function markers.",
+  //       severity: "warning",
+  //     },
+  //     {
+  //       id: "billing_code3",
+  //       title: "HB-XRAY EXAM CHEST 2 VIEWS (CPT code: 71046)",
+  //       description:
+  //         "A chest X-ray procedure with two views, typically front and side, to provide a comprehensive view of the chest area.",
+  //       severity: "warning",
+  //     },
+  //   ];
+  //   const upcoding = [
+  //     {
+  //       id: "upcoding-2",
+  //       title:
+  //         "HB REF CELIAC SCREEN PANEL, GAMMAGLOBULIN-IGA (Q) (CPT code: 82784)",
+  //       description: "Overcharged by $95.24 ($108.00 - $12.76)",
+  //       severity: "warning",
+  //     },
+  //     {
+  //       id: "upcoding-3",
+  //       title: "HB COMPREHENSIVE METABOLIC PANEL (CPT code: 80053)",
+  //       description:
+  //         "The price charged ($368.00) is significantly higher than the average price in Illinois ($13.04).",
+  //       severity: "warning",
+  //     },
+  //     {
+  //       id: "upcoding-4",
+  //       title: "HB-XRAY EXAM CHEST 2 VIEWS (CPT code: 71046)",
+  //       description:
+  //         "Price: $793.00 (The average price in Illinois is $70.00, and the price of HCPCS code 71046 is $22, indicating a potential overcharge)",
+  //       severity: "warning",
+  //     },
+  //   ];
 
   const onConfirm = (id: string) => {
     console.log("Confirmed", id);
