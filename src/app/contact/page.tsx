@@ -62,38 +62,41 @@ const ContactPage = () => {
           </div>
 
           <FaqSection />
-          {/* 
-            <div className="pb-10 pt-0 md:pb-24 md:pt-32">
-              <div className="px-14 py-16 rounded-lg bg-[url(/images/grow-brand.svg)] bg-cover bg-no-repeat">
-                <div className="flex flex-col gap-11 md:flex-row items-center justify-between">
-                  <div className="max-w-[490px]">
-                    <h2 className="text-4xl md:text-6xl font-medium text-tertiary-foreground mb-4">
-                      Grow your brand
-                    </h2>
-                    <p className="text-base md:text-lg max-w-[622px] text-[#D6D7D8]">
-                      Amet minim mollit non deserunt ullamco est site aliqua dolor. velit amet suiget officia. Exercitation veniam consequat sit.
-                    </p>
-                  </div>
-                  <FullScreenVideoDialog
-                    videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    title="Big Buck Bunny"
-                    triggerComponent={
-                      <Button
-                        size="default"
-                        variant="default"
-                        type="submit"
-                        className="bg-secondary text-white text-base w-max p-4 h-14 rounded-lg hover:bg-secondary focus:outline-none transition duration-300"
-                      >
-                        <div className="flex items-center w-full justify-between">
-                          View Demo
-                          <Image alt="" src="/icons/arrow-top-right.svg" height={24} width={24} className="ml-2 md:ml-4" />
-                        </div>
-                      </Button>
-                    }
-                  />
+
+          <div className="pb-10 pt-0 md:pb-24 md:pt-32">
+            <div className="px-14 py-16 rounded-lg bg-[url(/images/grow-brand.svg)] bg-cover bg-no-repeat">
+              <div className="flex flex-col gap-11 md:flex-row items-center justify-between">
+                <div className="max-w-[490px]">
+                  <h2 className="text-4xl md:text-6xl font-medium text-tertiary-foreground mb-4">
+                    Don&apos;t pay your hospital bills
+                  </h2>
                 </div>
+                <FullScreenVideoDialog
+                  videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                  title="Big Buck Bunny"
+                  triggerComponent={
+                    <Button
+                      size="default"
+                      variant="default"
+                      type="submit"
+                      className="bg-secondary text-white text-base w-max p-4 h-14 rounded-lg hover:bg-secondary focus:outline-none transition duration-300"
+                    >
+                      <div className="flex items-center w-full justify-between">
+                        View Demo
+                        <Image
+                          alt=""
+                          src="/icons/arrow-top-right.svg"
+                          height={24}
+                          width={24}
+                          className="ml-2 md:ml-4"
+                        />
+                      </div>
+                    </Button>
+                  }
+                />
               </div>
-            </div> */}
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
