@@ -13,7 +13,7 @@ import Image from "next/image";
 import { FilePondFile } from "filepond";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { uploadWithPresignedUrl } from "@/lib/uploadS3";
+import { uploadImageToS3Acl, uploadWithPresignedUrl } from "@/lib/uploadS3";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -92,20 +92,20 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
   const uploadFile = async (file: File) => {
     try {
       const key = `uploads/${file.name}`;
-      const presignedUrl = await fetch(`/api/get-signed-image?key=${key}`).then(
-        (res) => res.text()
-      );
-      console.log("Presigned URL:", presignedUrl);
-      const response = await uploadWithPresignedUrl(file as File, presignedUrl);
-
+      // const presignedUrl = await fetch(`/api/get-signed-image?key=${key}`).then(
+      //   (res) => res.text()
+      // );
+      // console.log("Presigned URL:", presignedUrl);
+      // const response = await uploadWithPresignedUrl(file as File, presignedUrl);
+      const responseAcl = await uploadImageToS3Acl(file as File, key);
       // Save the file URL and name to localStorage
-      const fileUrl = presignedUrl.split("?")[0]; // Remove query parameters to get clean URL
-      localStorage.setItem("uploadedFileUrl", fileUrl);
+      // const fileUrl = presignedUrl.split("?")[0]; // Remove query parameters to get clean URL
+      localStorage.setItem("uploadedFileUrl", responseAcl);
       localStorage.setItem("uploadedFileName", file.name);
       localStorage.setItem("uploadedFileType", file.type);
 
       onFileUpload?.(file.name);
-      console.log("Upload successful:", response);
+      console.log("Upload successful:", responseAcl);
     } catch (error) {
       console.error("Failed to upload file:", error);
     }
