@@ -9,7 +9,7 @@ const ImageUploadSection = () => {
       <p className="text-primary-foreground font-medium text-base mb-6">
         See the results by uploading your medical bill.
       </p>
-      <FileUpload />
+      <FileUpload uploadedFrom="app" />
     </div>
   );
 };

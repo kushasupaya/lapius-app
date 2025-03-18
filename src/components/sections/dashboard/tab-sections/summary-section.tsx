@@ -89,9 +89,7 @@ const Summary = () => (
 );
 const SummarySection = ({ summary }: Props) => {
   return (
-    <div className="w-full h-full p-5 pt-3 text-left">
-      <Summary />
-    </div>
+    <div className="w-full h-full p-5 pt-3 text-left">{summary}</div>
     // <div
     //   className="w-full h-full p-5 pt-3 text-left"
     //   dangerouslySetInnerHTML={{ __html: summary }}

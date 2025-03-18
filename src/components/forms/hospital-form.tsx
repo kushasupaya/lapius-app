@@ -10,9 +10,11 @@ import {
   FormItem,
   FormMessage,
 } from "../ui/form";
-import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import hospitals from "./data/hospitals_data.json";
+import { Hospital } from "@/types/hospital";
 
 const FormSchema = z.object({
   hospital: z.string().min(1, {
@@ -21,7 +23,19 @@ const FormSchema = z.object({
 });
 
 interface Props {
-  onFormSubmit: (text: string) => void;
+  onFormSubmit: (hospital: Hospital) => void;
+}
+
+function getUniqueHospitals(data: Hospital[]): Hospital[] {
+  const seen = new Map<string, boolean>();
+  
+  return data.reduce<Hospital[]>((unique, hospital) => {
+    if (!seen.has(hospital.hospital_name)) {
+      seen.set(hospital.hospital_name, true);
+      unique.push(hospital);
+    }
+    return unique;
+  }, []);
 }
 
 const HospitalForm = ({ onFormSubmit }: Props) => {
@@ -42,7 +56,11 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
 
     startTransition(async () => {
       console.log(data);
-      onFormSubmit(data.hospital);
+      const selected = data.hospital;
+      const hospital = hospitals.find(h => h.hospital_name === selected);
+      if (hospital) {
+        onFormSubmit(hospital);
+      }
     });
   }
   return (
@@ -57,12 +75,23 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
-                <Input
-                  placeholder="Find by name, address, city or zip code..."
-                  className="px-4 text-foreground h-14 focus:outline-none shadow-none focus-visible:ring-0 placeholder:text-gray-600 w-full"
-                  autoComplete="on"
-                  {...field}
-                />
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger className="px-4 text-foreground h-14 focus:outline-none shadow-none focus-visible:ring-0 placeholder:text-gray-600 w-full">
+                      <SelectValue placeholder="Find my name, address, city or zip code..." />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {
+                      getUniqueHospitals(hospitals).map((hospital, idx) => (
+                        <SelectItem key={idx} value={hospital.hospital_name}>{hospital.hospital_name}</SelectItem>
+                      ))
+                    }
+                  </SelectContent>
+                </Select>
               </FormControl>
               <div className="absolute text-xs">
                 <FormMessage />
