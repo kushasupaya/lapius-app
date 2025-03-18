@@ -7,12 +7,14 @@ import { FaqSection } from "@/components/sections/contact";
 import { Button } from "@/components/ui/button";
 import { clearFiles } from "@/store/file-slice";
 import { useAppDispatch } from "@/store/hook";
+import { addHospital, addPresignedUrl } from "@/store/hospital-slice";
+import { Hospital } from "@/types/hospital";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface FormData {
-  hospital: string | null;
+  hospital: Hospital | null;
   presignedUrl: string | null;
 }
 
@@ -28,8 +30,8 @@ const MedicalAssistantPage = () => {
 
   dispatch(clearFiles());
 
-  const handleHospitalFormSubmit = (text: string) => {
-    setData({ hospital: text, presignedUrl: data.presignedUrl });
+  const handleHospitalFormSubmit = (hospital: Hospital) => {
+    setData({ hospital: hospital, presignedUrl: data.presignedUrl });
     setStep(1);
   };
 
@@ -39,9 +41,13 @@ const MedicalAssistantPage = () => {
 
   const onFileUpload = () => {
     console.log(data);
-    router.push(
-      `/app?hospital=${data.hospital}&presignedUrl=${data.presignedUrl}`
-    );
+
+    if (data.hospital && data.presignedUrl) {
+      dispatch(addHospital(data.hospital));
+      dispatch(addPresignedUrl(data.presignedUrl));
+
+      router.push("/app");
+    }
   };
 
   return (
@@ -110,7 +116,7 @@ const MedicalAssistantPage = () => {
                 </h3>
                 <div className="flex flex-col md:flex-row gap-4 md:gap-7 w-full justify-center items-end">
                   <div className="rounded-[32px] w-full h-full max-w-[464px]">
-                    <FileUpload onFileUpload={handleFileUpload} />
+                    <FileUpload onFileUpload={handleFileUpload} uploadedFrom="medical-assistant" />
                   </div>
                   <Button
                     size="default"

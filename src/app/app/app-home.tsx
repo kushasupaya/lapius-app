@@ -22,11 +22,6 @@ import { FileData } from "@/store/file-slice";
 import { useSearchParams } from "next/navigation";
 
 const AppHome = () => {
-  const params = useSearchParams();
-
-  const hospital = params?.get("hospital");
-  const presignedUrl = params?.get("presignedUrl");
-
   const [apiData, setApiData] = useState<{
     summary: string;
     billingCodes: any[];
@@ -34,9 +29,9 @@ const AppHome = () => {
     prices: any[];
   } | null>(null);
 
-  console.log("h: ", hospital);
-  console.log("p: ", presignedUrl);
   const { files } = useAppSelector((state) => state.files);
+  const { hospital, presignedUrl } = useAppSelector(state => state.hospital);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -122,7 +117,10 @@ const AppHome = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          hospital_name: hospital,
+          hospital_name: hospital.hospital_name,
+          address: hospital.address,
+          city: hospital.city,
+          zipcode: hospital.zip_code,
           image_url: presignedUrl,
         }),
       })

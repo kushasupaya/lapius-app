@@ -1,0 +1,1748 @@
+[
+    {
+        "hospital_name": "TRI CITY MEDICAL CENTER",
+        "address": "4002 VISTA WAY",
+        "city": "OCEANSIDE",
+        "zip_code": "92056"
+    },
+    {
+        "hospital_name": "VALLEY CHILDRENS HOSPITAL",
+        "address": "9300 VALLEY CHILDRENS PL",
+        "city": "MADERA",
+        "zip_code": "93636"
+    },
+    {
+        "hospital_name": "COMMUNITY REGIONAL MEDICAL CENTER",
+        "address": "2823 FRESNO ST",
+        "city": "FRESNO",
+        "zip_code": "93721"
+    },
+    {
+        "hospital_name": "AURORA LAS ENCINAS LLC",
+        "address": "2900 E DEL MAR BLVD",
+        "city": "PASADENA",
+        "zip_code": "91107"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL - ONTARIO",
+        "address": "550 N MONTEREY AVE",
+        "city": "ONTARIO",
+        "zip_code": "91764"
+    },
+    {
+        "hospital_name": "ANTELOPE VALLEY HOSPITAL",
+        "address": "1600 W AVENUE J",
+        "city": "LANCASTER",
+        "zip_code": "93534"
+    },
+    {
+        "hospital_name": "BHC ALHAMBRA HOSPITAL",
+        "address": "4619 ROSEMEAD BLVD",
+        "city": "ROSEMEAD",
+        "zip_code": "91770"
+    },
+    {
+        "hospital_name": "FREMONT HOSPITAL",
+        "address": "39001 SUNDALE DR",
+        "city": "FREMONT",
+        "zip_code": "94538"
+    },
+    {
+        "hospital_name": "HERITAGE OAKS HOSPITAL",
+        "address": "4250 AUBURN BLVD",
+        "city": "SACRAMENTO",
+        "zip_code": "95841"
+    },
+    {
+        "hospital_name": "SIERRA VISTA HOSPITAL",
+        "address": "8001 BRUCEVILLE RD",
+        "city": "SACRAMENTO",
+        "zip_code": "95823"
+    },
+    {
+        "hospital_name": "SONOMA VALLEY HOSPITAL",
+        "address": "347 ANDRIEUX ST",
+        "city": "SONOMA",
+        "zip_code": "95476"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL - LOS ANGELES",
+        "address": "5525 W SLAUSON AVE",
+        "city": "LOS ANGELES",
+        "zip_code": "90056"
+    },
+    {
+        "hospital_name": "CLOVIS COMMUNITY MEDICAL CENTER",
+        "address": "2755 HERNDON AVE",
+        "city": "CLOVIS",
+        "zip_code": "93611"
+    },
+    {
+        "hospital_name": "LOS ALAMITOS MEDICAL CENTER",
+        "address": "3751 KATELLA AVE",
+        "city": "LOS ALAMITOS",
+        "zip_code": "90720"
+    },
+    {
+        "hospital_name": "MERCY HOSPITAL - BAKERSFIELD",
+        "address": "2215 TRUXTUN AVE",
+        "city": "BAKERSFIELD",
+        "zip_code": "93301"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH HANFORD",
+        "address": "115 MALL DR",
+        "city": "HANFORD",
+        "zip_code": "93230"
+    },
+    {
+        "hospital_name": "STANFORD HEALTH CARE - VALLEYCARE",
+        "address": "5555 W LAS POSITAS BLVD",
+        "city": "PLEASANTON",
+        "zip_code": "94588"
+    },
+    {
+        "hospital_name": "HIGHLAND HOSPITAL",
+        "address": "1411 E 31ST ST",
+        "city": "OAKLAND",
+        "zip_code": "94602"
+    },
+    {
+        "hospital_name": "STANFORD HEALTH CARE",
+        "address": "300 PASTEUR DR",
+        "city": "STANFORD",
+        "zip_code": "94305"
+    },
+    {
+        "hospital_name": "REGIONAL MEDICAL CENTER OF SAN JOSE",
+        "address": "225 N JACKSON AVE",
+        "city": "SAN JOSE",
+        "zip_code": "95116"
+    },
+    {
+        "hospital_name": "RIVERSIDE COMMUNITY HOSPITAL",
+        "address": "4445 MAGNOLIA AVE",
+        "city": "RIVERSIDE",
+        "zip_code": "92501"
+    },
+    {
+        "hospital_name": "VALLEY PRESBYTERIAN HOSPITAL",
+        "address": "15107 VANOWEN ST",
+        "city": "VAN NUYS",
+        "zip_code": "91405"
+    },
+    {
+        "hospital_name": "GOOD SAMARITAN HOSPITAL",
+        "address": "2425 SAMARITAN DR",
+        "city": "SAN JOSE",
+        "zip_code": "95124"
+    },
+    {
+        "hospital_name": "ENCOMPASS HEALTH REHABILITATION HOSPITAL OF TUSTIN",
+        "address": "15120 KENSINGTON PARK DR",
+        "city": "TUSTIN",
+        "zip_code": "92782"
+    },
+    {
+        "hospital_name": "FRESNO SURGICAL HOSPITAL",
+        "address": "6125 N FRESNO ST",
+        "city": "FRESNO",
+        "zip_code": "93710"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - SANTA CLARA",
+        "address": "700 LAWRENCE EXPY",
+        "city": "SANTA CLARA",
+        "zip_code": "95051"
+    },
+    {
+        "hospital_name": "SIERRA VIEW MEDICAL CENTER",
+        "address": "465W PUTNAM AVE",
+        "city": "PORTERVILLE",
+        "zip_code": "93257"
+    },
+    {
+        "hospital_name": "ST. ROSE HOSPITAL",
+        "address": "27200 CALAROGA AVE",
+        "city": "HAYWARD",
+        "zip_code": "94545"
+    },
+    {
+        "hospital_name": "SAINT AGNES MEDICAL CENTER",
+        "address": "1303 E HERNDON AVE",
+        "city": "FRESNO",
+        "zip_code": "93720"
+    },
+    {
+        "hospital_name": "CORONA REGIONAL MEDICAL CENTER",
+        "address": "800 S MAIN STREET",
+        "city": "CORONA",
+        "zip_code": "92882"
+    },
+    {
+        "hospital_name": "DESERT VALLEY HOSPITAL",
+        "address": "16850 BEAR VALLEY RD",
+        "city": "VICTORVILLE",
+        "zip_code": "92395"
+    },
+    {
+        "hospital_name": "CHINESE HOSPITAL",
+        "address": "845 JACKSON ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94133"
+    },
+    {
+        "hospital_name": "SHARP MESA VISTA HOSPITAL",
+        "address": "7850 VISTA HILL AVE",
+        "city": "SAN DIEGO",
+        "zip_code": "92123"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL - LA MIRADA",
+        "address": "14900 IMPERIAL HWY",
+        "city": "LA MIRADA",
+        "zip_code": "90638"
+    },
+    {
+        "hospital_name": "RIDEOUT MEMORIAL HOSPITAL",
+        "address": "726 4TH ST",
+        "city": "MARYSVILLE",
+        "zip_code": "95901"
+    },
+    {
+        "hospital_name": "NATIVIDAD MEDICAL CENTER",
+        "address": "1441 CONSTITUTION BLVD",
+        "city": "SALINAS",
+        "zip_code": "93906"
+    },
+    {
+        "hospital_name": "LUCILE PACKARD CHILDREN'S HOSPITAL STANFORD",
+        "address": "725 WELCH RD",
+        "city": "PALO ALTO",
+        "zip_code": "94304"
+    },
+    {
+        "hospital_name": "BARTON MEMORIAL HOSPITAL",
+        "address": "2170 SOUTH AVE",
+        "city": "S LAKE TAHOE",
+        "zip_code": "96150"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH WHITE MEMORIAL",
+        "address": "1720 E CESAR E CHAVEZ AVE",
+        "city": "LOS ANGELES",
+        "zip_code": "90033"
+    },
+    {
+        "hospital_name": "SOUTHWEST HEALTHCARE",
+        "address": "25500 MEDICAL CENTER DRIVE",
+        "city": "MURRIETA",
+        "zip_code": "92562"
+    },
+    {
+        "hospital_name": "LOS ANGELES COMMUNITY HOSPITAL",
+        "address": "4081 E OLYMPIC BLVD",
+        "city": "LOS ANGELES",
+        "zip_code": "90023"
+    },
+    {
+        "hospital_name": "SOUTHERN CALIFORNIA HOSPITAL AT HOLLYWOOD",
+        "address": "6245 DE LONGPRE AVE",
+        "city": "HOLLYWOOD",
+        "zip_code": "90028"
+    },
+    {
+        "hospital_name": "GARFIELD MEDICAL CENTER",
+        "address": "525 N GARFIELD AVE",
+        "city": "MONTEREY PARK",
+        "zip_code": "91754"
+    },
+    {
+        "hospital_name": "MONTEREY PARK HOSPITAL",
+        "address": "900 S ATLANTIC BLVD",
+        "city": "MONTEREY PARK",
+        "zip_code": "91754"
+    },
+    {
+        "hospital_name": "GREATER EL MONTE COMMUNITY HOSPITAL",
+        "address": "1701 SANTA ANITA AVE",
+        "city": "SOUTH EL MONTE",
+        "zip_code": "91733"
+    },
+    {
+        "hospital_name": "WHITTIER HOSPITAL MEDICAL CENTER",
+        "address": "9080 COLIMA RD",
+        "city": "WHITTIER",
+        "zip_code": "90605"
+    },
+    {
+        "hospital_name": "ORANGE COUNTY GLOBAL MEDICAL CENTER",
+        "address": "1001 N TUSTIN AVE",
+        "city": "SANTA ANA",
+        "zip_code": "92705"
+    },
+    {
+        "hospital_name": "ANAHEIM GLOBAL MEDICAL CENTER",
+        "address": "1025 S ANAHEIM BLVD",
+        "city": "ANAHEIM",
+        "zip_code": "92805"
+    },
+    {
+        "hospital_name": "SOUTH COAST GLOBAL MEDICAL CENTER",
+        "address": "2701 S BRISTOL STREET",
+        "city": "SANTA ANA",
+        "zip_code": "92704"
+    },
+    {
+        "hospital_name": "CHAPMAN GLOBAL MEDICAL CENTER",
+        "address": "2601 E CHAPMAN AVE",
+        "city": "ORANGE",
+        "zip_code": "92869"
+    },
+    {
+        "hospital_name": "COSTA MESA MEDICAL CENTER HOSPITAL",
+        "address": "301 VICTORIA ST",
+        "city": "COSTA MESA",
+        "zip_code": "92627"
+    },
+    {
+        "hospital_name": "COLLEGE HOSPITAL CERRITOS",
+        "address": "10802 COLLEGE PLACE",
+        "city": "CERRITOS",
+        "zip_code": "90703"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - MANTECA",
+        "address": "1777 W YOSEMITE AVE",
+        "city": "MANTECA",
+        "zip_code": "95337"
+    },
+    {
+        "hospital_name": "AURORA CHARTER OAK HOSPITAL",
+        "address": "1161E COVINA BLVD",
+        "city": "COVINA",
+        "zip_code": "91724"
+    },
+    {
+        "hospital_name": "AURORA SAN DIEGO",
+        "address": "11878 AVENUE OF INDUSTRY",
+        "city": "SAN DIEGO",
+        "zip_code": "92128"
+    },
+    {
+        "hospital_name": "GOOD SAMARITAN HOSPITAL",
+        "address": "901 OLIVE DR",
+        "city": "BAKERSFIELD",
+        "zip_code": "93308"
+    },
+    {
+        "hospital_name": "KAWEAH HEALTH MEDICAL CENTER",
+        "address": "400 W MINERAL KING AVE",
+        "city": "VISALIA",
+        "zip_code": "93291"
+    },
+    {
+        "hospital_name": "MEMORIALCARE SADDLEBACK MEDICAL CENTER",
+        "address": "24451 HEALTH CENTER DR",
+        "city": "LAGUNA HILLS",
+        "zip_code": "92653"
+    },
+    {
+        "hospital_name": "SANTA BARBARA COTTAGE HOSPITAL",
+        "address": "400 W PUEBLO ST",
+        "city": "SANTA BARBARA",
+        "zip_code": "93105"
+    },
+    {
+        "hospital_name": "CASA COLINA HOSPITAL AND CENTERS FOR HEALTHCARE",
+        "address": "255 E BONITA AVE",
+        "city": "POMONA",
+        "zip_code": "91767"
+    },
+    {
+        "hospital_name": "UNIVERSITY OF CALIFORNIA DAVIS MEDICAL CENTER",
+        "address": "2315 STOCKTON BLVD",
+        "city": "SACRAMENTO",
+        "zip_code": "95817"
+    },
+    {
+        "hospital_name": "SANTA MONICA UCLAMC & ORTHOPAEDIC",
+        "address": "1250 16TH ST",
+        "city": "SANTA MONICA",
+        "zip_code": "90404"
+    },
+    {
+        "hospital_name": "VENTURA COUNTY MEDICAL CENTER",
+        "address": "300 HILLMONT AVE",
+        "city": "VENTURA",
+        "zip_code": "93003"
+    },
+    {
+        "hospital_name": "LOS ROBLES HOSPITAL AND MEDICAL CENTER",
+        "address": "215 WEST JANSS ROAD",
+        "city": "THOUSAND OAKS",
+        "zip_code": "91360"
+    },
+    {
+        "hospital_name": "SAN ANTONIO REGIONAL HOSPITAL",
+        "address": "999 SAN BERNARDINO RD",
+        "city": "UPLAND",
+        "zip_code": "91786"
+    },
+    {
+        "hospital_name": "SUTTER AUBURN FAITH HOSPITAL",
+        "address": "11815 EDUCATION ST",
+        "city": "AUBURN",
+        "zip_code": "95602"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL LOS ANGELES",
+        "address": "4867 W SUNSET BLVD",
+        "city": "LOS ANGELES",
+        "zip_code": "90027"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITALS - ORANGE COUNTY - ANAHEIM",
+        "address": "3440 E LA PALMA AVE",
+        "city": "ANAHEIM",
+        "zip_code": "92806"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH LODI MEMORIAL",
+        "address": "975 S FAIRMONT AVE",
+        "city": "LODI",
+        "zip_code": "95240"
+    },
+    {
+        "hospital_name": "MERCY HOSPITAL OF FOLSOM",
+        "address": "1650 CREEKSIDE DR",
+        "city": "FOLSOM",
+        "zip_code": "95630"
+    },
+    {
+        "hospital_name": "MERCY SAN JUAN MEDICAL CENTER",
+        "address": "6501 COYLE AVE",
+        "city": "CARMICHAEL",
+        "zip_code": "95608"
+    },
+    {
+        "hospital_name": "MERCY GENERAL HOSPITAL",
+        "address": "4001 J ST",
+        "city": "SACRAMENTO",
+        "zip_code": "95819"
+    },
+    {
+        "hospital_name": "LOS ROBLES HOSPITAL AND MEDICAL CENTER - IRF",
+        "address": "150 VIA MERIDA",
+        "city": "WESTLAKE VILLAGE",
+        "zip_code": "91362"
+    },
+    {
+        "hospital_name": "LAPALMA INTERCOMMUNITY HOSPITAL",
+        "address": "7901 WALKER ST",
+        "city": "LA PALMA",
+        "zip_code": "90623"
+    },
+    {
+        "hospital_name": "HUNTINGTON BEACH HOSPITAL",
+        "address": "17772 BEACH BOULEVARD",
+        "city": "HUNTINGTON BEACH",
+        "zip_code": "92647"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH LODI MEMORIAL",
+        "address": "975 S FAIRMONT AVE",
+        "city": "LODI",
+        "zip_code": "95240"
+    },
+    {
+        "hospital_name": "PARADISE VALLEY HOSPITAL",
+        "address": "2400 E FOURTH ST",
+        "city": "NATIONAL CITY",
+        "zip_code": "91950"
+    },
+    {
+        "hospital_name": "PROVIDENCE LITTLE COMPANY OF MARY MEDICAL CENTER SAN PEDRO",
+        "address": "1300 W 7TH ST",
+        "city": "SAN PEDRO",
+        "zip_code": "90732"
+    },
+    {
+        "hospital_name": "CALIFORNIA PACIFIC MEDICAL CENTER-MISSION BERNAL CAMPUS",
+        "address": "3555 CESAR CHAVEZ",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94110"
+    },
+    {
+        "hospital_name": "PROVIDENCE LITTLE COMPANY OF MARY MEDICAL CENTER SAN PEDRO",
+        "address": "1300 W 7TH ST",
+        "city": "SAN PEDRO",
+        "zip_code": "90732"
+    },
+    {
+        "hospital_name": "PARADISE VALLEY HOSPITAL",
+        "address": "2400 E FOURTH ST",
+        "city": "NATIONAL CITY",
+        "zip_code": "91950"
+    },
+    {
+        "hospital_name": "STANFORD HEALTH SERVICES",
+        "address": "300 PASTEUR DR",
+        "city": "STANFORD",
+        "zip_code": "94305"
+    },
+    {
+        "hospital_name": "GOOD SAMARITAN HOSPITAL",
+        "address": "901 OLIVE DRIVE",
+        "city": "BAKERSFIELD",
+        "zip_code": "93308"
+    },
+    {
+        "hospital_name": "MERCY MEDICAL CENTER",
+        "address": "333 MERCY AVE",
+        "city": "MERCED",
+        "zip_code": "95340"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - ANTIOCH",
+        "address": "4501 SAND CREEK RD",
+        "city": "ANTIOCH",
+        "zip_code": "94531"
+    },
+    {
+        "hospital_name": "LAKEWOOD REGIONAL MEDICAL CENTER",
+        "address": "3700 SOUTH ST",
+        "city": "LAKEWOOD",
+        "zip_code": "90712"
+    },
+    {
+        "hospital_name": "HUNTINGTON BEACH HOSPITAL",
+        "address": "17772 BEACH BLVD",
+        "city": "HUNTINGTON BEACH",
+        "zip_code": "92647"
+    },
+    {
+        "hospital_name": "LA PALMA INTERCOMMUNITY HOSPITAL",
+        "address": "7901 WALKER ST",
+        "city": "LA PALMA",
+        "zip_code": "90623"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH DELANO",
+        "address": "1401 GARCES HWY",
+        "city": "DELANO",
+        "zip_code": "93215"
+    },
+    {
+        "hospital_name": "SANTA BARBARA COTTAGE HOSPITAL",
+        "address": "2415 DE LA VINA ST",
+        "city": "SANTA BARBARA",
+        "zip_code": "93105"
+    },
+    {
+        "hospital_name": "ST BERNARDINE MEDICAL CENTER",
+        "address": "2101 NORTH WATERMAN AVENUE",
+        "city": "SAN BERNARDINO",
+        "zip_code": "92404"
+    },
+    {
+        "hospital_name": "WEST ANAHEIM MEDICAL CENTER",
+        "address": "3033 W ORANGE AVE",
+        "city": "ANAHEIM",
+        "zip_code": "92804"
+    },
+    {
+        "hospital_name": "ST. JOHN'S HOSPITAL CAMARILLO",
+        "address": "1600 N ROSE AVE",
+        "city": "OXNARD",
+        "zip_code": "93030"
+    },
+    {
+        "hospital_name": "ST JOHNS REGIONAL MEDICAL CENTER",
+        "address": "1600 N ROSE AVE",
+        "city": "OXNARD",
+        "zip_code": "93030"
+    },
+    {
+        "hospital_name": "DOMINICAN HOSPITAL",
+        "address": "1555 SOQUEL DR",
+        "city": "SANTA CRUZ",
+        "zip_code": "95065"
+    },
+    {
+        "hospital_name": "SAN GABRIEL VALLEY MEDICAL CENTER",
+        "address": "438 W LAS TUNAS DR",
+        "city": "SAN GABRIEL",
+        "zip_code": "91776"
+    },
+    {
+        "hospital_name": "CENTINELA HOSPITAL MEDICAL CENTER",
+        "address": "555 E HARDY ST",
+        "city": "INGLEWOOD",
+        "zip_code": "90301"
+    },
+    {
+        "hospital_name": "SUTTER SURGICAL HOSPITAL-NORTH VALLEY",
+        "address": "455 PLUMAS BLVD",
+        "city": "YUBA CITY",
+        "zip_code": "95991"
+    },
+    {
+        "hospital_name": "UC DAVIS MEDICAL CENTER - REHAB UNIT",
+        "address": "2315 STOCKTON BLVD",
+        "city": "SACRAMENTO",
+        "zip_code": "95817"
+    },
+    {
+        "hospital_name": "DOMINICAN HOSPITAL",
+        "address": "1555 SOQUEL DR",
+        "city": "SANTA CRUZ",
+        "zip_code": "95065"
+    },
+    {
+        "hospital_name": "KAWEAH HEALTH REHABILITATION HOSPITAL",
+        "address": "840 S AKERS ST",
+        "city": "VISALIA",
+        "zip_code": "93277"
+    },
+    {
+        "hospital_name": "KAWEAH HEALTH MENTAL HEALTH HOSPITAL",
+        "address": "1100 S AKERS ST",
+        "city": "VISALIA",
+        "zip_code": "93277"
+    },
+    {
+        "hospital_name": "UNIVERSITY OF CALIFORNIA, IRVINE MEDICAL CENTER",
+        "address": "101 THE CITY DR S",
+        "city": "ORANGE",
+        "zip_code": "92868"
+    },
+    {
+        "hospital_name": "MEMORIALCARE LONG BEACH MEDICAL CENTER",
+        "address": "2801 ATLANTIC AVE",
+        "city": "LONG BEACH",
+        "zip_code": "90806"
+    },
+    {
+        "hospital_name": "SONORA COMMUNITY HOSPITAL",
+        "address": "1000 GREENLEY RD",
+        "city": "SONORA",
+        "zip_code": "95370"
+    },
+    {
+        "hospital_name": "ST MARYS MEDICAL CENTER",
+        "address": "450 STANYAN ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94117"
+    },
+    {
+        "hospital_name": "ST MARYS MEDICAL CENTER",
+        "address": "450 STANYAN ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94117"
+    },
+    {
+        "hospital_name": "SAINT JOHN'S HEALTH CENTER",
+        "address": "2121 SANTA MONICA BLVD",
+        "city": "SANTA MONICA",
+        "zip_code": "90404"
+    },
+    {
+        "hospital_name": "SCRIPPS MERCY HOSPITAL BEHAVIORAL HEALTH UNIT",
+        "address": "4077 5TH AVE",
+        "city": "SAN DIEGO",
+        "zip_code": "92103"
+    },
+    {
+        "hospital_name": "SUTTER COAST HOSPITAL",
+        "address": "800 E WASHINGTON BLVD",
+        "city": "CRESCENT CITY",
+        "zip_code": "95531"
+    },
+    {
+        "hospital_name": "SUTTER MEDICAL CENTER SACRAMENTO",
+        "address": "2825 CAPITOL AVE",
+        "city": "SACRAMENTO",
+        "zip_code": "95816"
+    },
+    {
+        "hospital_name": "SUTTER ROSEVILLE MEDICAL CENTER",
+        "address": "1 MEDICAL PLAZA DR",
+        "city": "ROSEVILLE",
+        "zip_code": "95661"
+    },
+    {
+        "hospital_name": "CALIFORNIA PACIFIC MEDICAL CENTER-VAN NESS CAMPUS",
+        "address": "2351 CLAY ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94115"
+    },
+    {
+        "hospital_name": "CALIFORNIA PACIFIC MEDICAL CENTER - VAN NESS CAMPUS",
+        "address": "2323 SACRAMENTO ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94115"
+    },
+    {
+        "hospital_name": "PROVIDENCE ST. JOSEPH HOSPITAL",
+        "address": "1100 W STEWART DR",
+        "city": "ORANGE",
+        "zip_code": "92868"
+    },
+    {
+        "hospital_name": "SIERRA NEVADA MEMORIAL HOSPITAL",
+        "address": "155 GLASSON WAY",
+        "city": "GRASS VALLEY",
+        "zip_code": "95945"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH UKIAH VALLEY",
+        "address": "275 HOSPITAL DR",
+        "city": "UKIAH",
+        "zip_code": "95482"
+    },
+    {
+        "hospital_name": "PROVIDENCE ST. JUDE MEDICAL CENTER",
+        "address": "101 E VALENCIA MESA DR",
+        "city": "FULLERTON",
+        "zip_code": "92835"
+    },
+    {
+        "hospital_name": "MERCY MEDICAL CENTER REDDING",
+        "address": "2175 ROSALINE AVE",
+        "city": "REDDING",
+        "zip_code": "96001"
+    },
+    {
+        "hospital_name": "SAINT FRANCIS MEMORIAL HOSPITAL",
+        "address": "900 HYDE ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94109"
+    },
+    {
+        "hospital_name": "SAINT FRANCIS MEMORIAL HOSPITAL",
+        "address": "900 HYDE ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94109"
+    },
+    {
+        "hospital_name": "SAINT FRANCIS MEMORIAL HOSPITAL",
+        "address": "900 HYDE ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94109"
+    },
+    {
+        "hospital_name": "PROVIDENCE MISSION HOSPITAL",
+        "address": "27799 MEDICAL CENTER RD",
+        "city": "MISSION VIEJO",
+        "zip_code": "92691"
+    },
+    {
+        "hospital_name": "SUTTER CENTER FOR PSYCHIATRY",
+        "address": "7700 FOLSOM BLVD",
+        "city": "SACRAMENTO",
+        "zip_code": "95826"
+    },
+    {
+        "hospital_name": "MARIAN REGIONAL MEDICAL CENTER",
+        "address": "1400 EAST CHURCH ST",
+        "city": "SANTA MARIA",
+        "zip_code": "93454"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - SANTA ROSA",
+        "address": "401 BICENTENNIAL WAY",
+        "city": "SANTA ROSA",
+        "zip_code": "95403"
+    },
+    {
+        "hospital_name": "GARFIELD MEDICAL CENTER",
+        "address": "525 N GARFIELD AVE",
+        "city": "MONTERY PARK",
+        "zip_code": "91754"
+    },
+    {
+        "hospital_name": "SELECT SPECIALTY HOSPITAL-SAN DIEGO",
+        "address": "555 WASHINGTON STREET",
+        "city": "SAN DIEGO",
+        "zip_code": "92103"
+    },
+    {
+        "hospital_name": "BALLARD REHABILITATION HOSPITAL",
+        "address": "1760 W 16TH ST",
+        "city": "SAN BERNARDINO",
+        "zip_code": "92411"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - SACRAMENTO",
+        "address": "2025 MORSE AVE",
+        "city": "SACRAMENTO",
+        "zip_code": "95825"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL-RIVERSIDE",
+        "address": "10800 MAGNOLIA AVE",
+        "city": "RIVERSIDE",
+        "zip_code": "92505"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL OAKLAND RICHMOND",
+        "address": "275 W MACARTHUR BLVD",
+        "city": "OAKLAND",
+        "zip_code": "94611"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL SAN JOSE",
+        "address": "250 HOSPITAL PARKWAY",
+        "city": "SAN JOSE",
+        "zip_code": "95119"
+    },
+    {
+        "hospital_name": "ENCINO HOSPITAL MEDICAL CENTER",
+        "address": "16237 VENTURA BLVD",
+        "city": "ENCINO",
+        "zip_code": "91436"
+    },
+    {
+        "hospital_name": "ENCINO HOSPITAL MEDICAL CENTER",
+        "address": "16237 VENTURA BLVD",
+        "city": "ENCINO",
+        "zip_code": "91436"
+    },
+    {
+        "hospital_name": "SAN GABRIEL VALLEY MEDICAL CENTER",
+        "address": "438 W LAS TUNAS DR",
+        "city": "SAN GABRIEL",
+        "zip_code": "91776"
+    },
+    {
+        "hospital_name": "ST. ELIZABETH COMMUNITY HOSPITAL",
+        "address": "2550 SISTER MARY COLUMBA DR",
+        "city": "RED BLUFF",
+        "zip_code": "96080"
+    },
+    {
+        "hospital_name": "ST. ELIZABETH COMMUNITY HOSPITAL",
+        "address": "2550 SISTER MARY COLUMBA DR",
+        "city": "RED BLUFF",
+        "zip_code": "96080"
+    },
+    {
+        "hospital_name": "SAN DIMAS COMMUNITY HOSPITAL",
+        "address": "1350 W COVINA BLVD",
+        "city": "SAN DIMAS",
+        "zip_code": "91773"
+    },
+    {
+        "hospital_name": "GARDEN GROVE HOSPITAL & MEDICAL CENTER",
+        "address": "12601 GARDEN GROVE BLVD",
+        "city": "GARDEN GROVE",
+        "zip_code": "92843"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL - SAN FRANCISCO BAY AREA",
+        "address": "2800 BENEDICT DR",
+        "city": "SAN LEANDRO",
+        "zip_code": "94577"
+    },
+    {
+        "hospital_name": "SHERMAN OAKS HOSPITAL",
+        "address": "4929 VAN NUYS BLVD",
+        "city": "SHERMAN OAKS",
+        "zip_code": "91403"
+    },
+    {
+        "hospital_name": "SHERMAN OAKS HOSPITAL",
+        "address": "4929 VAN NUYS BLVD",
+        "city": "SHERMAN OAKS",
+        "zip_code": "91403"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - MORENO VALLEY",
+        "address": "27300 IRIS AVE",
+        "city": "MORENO VALLEY",
+        "zip_code": "92555"
+    },
+    {
+        "hospital_name": "LOMA LINDA UNIVERSITY BEHAVIORAL MEDICINE CENTER, INC.",
+        "address": "1710 BARTON RD",
+        "city": "REDLANDS",
+        "zip_code": "92373"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - VALLEJO",
+        "address": "975 SERENO DR",
+        "city": "VALLEJO",
+        "zip_code": "94589"
+    },
+    {
+        "hospital_name": "PIH HEALTH WHITTIER HOSPITAL ACUTE REHABILITATION",
+        "address": "12401 WASHINGTON BLVD",
+        "city": "WHITTIER",
+        "zip_code": "90602"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - VALLEJO",
+        "address": "975 SERENO DR",
+        "city": "VALLEJO",
+        "zip_code": "94589"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL BREA",
+        "address": "875 N BREA BLVD",
+        "city": "BREA",
+        "zip_code": "92821"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL BALDWIN PARK",
+        "address": "1011 BALDWIN PARK BLVD",
+        "city": "BALDWIN PARK",
+        "zip_code": "91706"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - FONTANA",
+        "address": "9961 SIERRA AVE",
+        "city": "FONTANA",
+        "zip_code": "92335"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL-DOWNEY",
+        "address": "9333 IMPERIAL HWY",
+        "city": "DOWNEY",
+        "zip_code": "90242"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL SAN DIEGO",
+        "address": "9455 CLAIREMONT MESA BLVD",
+        "city": "SAN DIEGO",
+        "zip_code": "92123"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL WALNUT CREEK",
+        "address": "1425 S MAIN ST",
+        "city": "WALNUT CREEK",
+        "zip_code": "94596"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL WOODLAND HILLS",
+        "address": "5601 DE SOTO AVE",
+        "city": "WOODLAND HILLS",
+        "zip_code": "91367"
+    },
+    {
+        "hospital_name": "ENCINO HOSPITAL MEDICAL CENTER",
+        "address": "16237 VENTURA BLVD",
+        "city": "ENCINO",
+        "zip_code": "91436"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL PANORAMA CITY",
+        "address": "13652 CANTARA ST",
+        "city": "PANORAMA CITY",
+        "zip_code": "91402"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL FRESNO",
+        "address": "7300 N FRESNO ST",
+        "city": "FRESNO",
+        "zip_code": "93720"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL-SOUTH BAY",
+        "address": "25825 VERMONT AVE",
+        "city": "HARBOR CITY",
+        "zip_code": "90710"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL SAN FRANCISCO",
+        "address": "2425 GEARY BLVD",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94115"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL WEST LOS ANGELES",
+        "address": "6041 CADILLAC AVE",
+        "city": "LOS ANGELES",
+        "zip_code": "90034"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL SOUTH SAN FRANCISCO",
+        "address": "1200 EL CAMINO REAL",
+        "city": "SOUTH SAN FRANCISCO",
+        "zip_code": "94080"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL SOUTH SACRAMENTO",
+        "address": "6600 BRUCEVILLE RD",
+        "city": "SACRAMENTO",
+        "zip_code": "95823"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL SAN RAFAEL",
+        "address": "99 MONTECILLO RD",
+        "city": "SAN RAFAEL",
+        "zip_code": "94903"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL - REDWOOD CITY",
+        "address": "1100 VETERANS BLVD",
+        "city": "REDWOOD CITY",
+        "zip_code": "94063"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL LOS ANGELES",
+        "address": "765 W COLLEGE ST",
+        "city": "LOS ANGELES",
+        "zip_code": "90012"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL-FREMONT",
+        "address": "39400 PASEO PADRE PKWY",
+        "city": "FREMONT",
+        "zip_code": "94538"
+    },
+    {
+        "hospital_name": "SHASTA REGIONAL MEDICAL CENTER",
+        "address": "1100 BUTTE ST",
+        "city": "REDDING",
+        "zip_code": "96001"
+    },
+    {
+        "hospital_name": "ANAHEIM GLOBAL MEDICAL CENTER",
+        "address": "1025 S ANAHEIM BLVD",
+        "city": "ANAHEIM",
+        "zip_code": "92805"
+    },
+    {
+        "hospital_name": "CHAPMAN GLOBAL MEDICAL CENTER",
+        "address": "2601 E CHAPMAN AVE",
+        "city": "ORANGE",
+        "zip_code": "92869"
+    },
+    {
+        "hospital_name": "SOUTH COAST GLOBAL MEDICAL CENTER",
+        "address": "2701 S BRISTOL ST",
+        "city": "SANTA ANA",
+        "zip_code": "92704"
+    },
+    {
+        "hospital_name": "MEMORIALCARE MILLER CHILDREN'S & WOMEN'S HOSPITAL LONG BEACH",
+        "address": "2801 ATLANTIC AVE",
+        "city": "LONG BEACH",
+        "zip_code": "90806"
+    },
+    {
+        "hospital_name": "ORANGE COUNTY GLOBAL MEDICAL CENTER",
+        "address": "1001 N TUSTIN AVE",
+        "city": "SANTA ANA",
+        "zip_code": "92705"
+    },
+    {
+        "hospital_name": "PROVIDENCE MISSION HOSPITAL",
+        "address": "31872 COAST HWY",
+        "city": "LAGUNA BEACH",
+        "zip_code": "92651"
+    },
+    {
+        "hospital_name": "PROVIDENCE MISSION HOSPITAL",
+        "address": "27700 MEDICAL CENTER RD",
+        "city": "MISSION VIEJO",
+        "zip_code": "92691"
+    },
+    {
+        "hospital_name": "SUTTER SOLANO MEDICAL CENTER",
+        "address": "300 HOSPITAL DRIVE",
+        "city": "VALLEJO",
+        "zip_code": "94589"
+    },
+    {
+        "hospital_name": "SUTTER AMADOR HOSPITAL",
+        "address": "200 MISSION BLVD",
+        "city": "JACKSON",
+        "zip_code": "95642"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH ST HELENA",
+        "address": "10 WOODLAND RD",
+        "city": "SAINT HELENA",
+        "zip_code": "94574"
+    },
+    {
+        "hospital_name": "CALIFORNIA PACIFIC MEDICAL CENTER",
+        "address": "45 CASTRO ST",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94114"
+    },
+    {
+        "hospital_name": "CALIFORNIA PACIFIC MEDICAL CENTER - DAVIES CAMPUS",
+        "address": "601 DUBOCE AVE",
+        "city": "SAN FRANCISCO",
+        "zip_code": "94117"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL-VACAVILLE",
+        "address": "1 QUALITY DR",
+        "city": "VACAVILLE",
+        "zip_code": "95688"
+    },
+    {
+        "hospital_name": "NOVATO COMMUNITY HOSPITAL",
+        "address": "180 ROWLAND WAY",
+        "city": "NOVATO",
+        "zip_code": "94945"
+    },
+    {
+        "hospital_name": "SUTTER DAVIS HOSPITAL",
+        "address": "2000 SUTTER PL",
+        "city": "DAVIS",
+        "zip_code": "95616"
+    },
+    {
+        "hospital_name": "SUTTER SANTA ROSA REGIONAL HOSPITAL",
+        "address": "30 MARK WEST SPRINGS RD",
+        "city": "SANTA ROSA",
+        "zip_code": "95403"
+    },
+    {
+        "hospital_name": "PROVIDENCE ST. MARY MEDICAL CENTER",
+        "address": "18300 US HIGHWAY 18",
+        "city": "APPLE VALLEY",
+        "zip_code": "92307"
+    },
+    {
+        "hospital_name": "MEMORIALCARE ORANGE COAST MEDICAL CENTER",
+        "address": "9920 TALBERT AVE",
+        "city": "FOUNTAIN VALLEY",
+        "zip_code": "92708"
+    },
+    {
+        "hospital_name": "KAISER PERMANENTE PSYCIATRIC HEALTH FACILITY - SANTA CLARA",
+        "address": "3840 HOMESTEAD RD",
+        "city": "SANTA CLARA",
+        "zip_code": "95051"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL WESTMINSTER",
+        "address": "200 HOSPITAL CIR",
+        "city": "WESTMINSTER",
+        "zip_code": "92683"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL - SAN DIEGO",
+        "address": "1940 EL CAJON BLVD",
+        "city": "SAN DIEGO",
+        "zip_code": "92104"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH SONORA",
+        "address": "179 FAIRVIEW LN",
+        "city": "SONORA",
+        "zip_code": "95370"
+    },
+    {
+        "hospital_name": "MERCY GENERAL HOSPITAL",
+        "address": "4001 J ST",
+        "city": "SACRAMENTO",
+        "zip_code": "95819"
+    },
+    {
+        "hospital_name": "PIH HEALTH GOOD SAMARITAN HOSPITAL",
+        "address": "1245 WILSHIRE BLVD",
+        "city": "LOS ANGELES",
+        "zip_code": "90017"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL RIVERSIDE",
+        "address": "2224 MEDICAL CENTER DR",
+        "city": "PERRIS",
+        "zip_code": "92571"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL BALDWIN PARK",
+        "address": "14148 FRANCISQUITO AVE",
+        "city": "BALDWIN PARK",
+        "zip_code": "91706"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL RANCHO",
+        "address": "10841 WHITE OAK AVE",
+        "city": "RANCHO CUCAMONGA",
+        "zip_code": "91730"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL SOUTH BAY",
+        "address": "1246 W 155TH ST",
+        "city": "GARDENA",
+        "zip_code": "90247"
+    },
+    {
+        "hospital_name": "MENIFEE GLOBAL MEDICAL CENTER",
+        "address": "28400 MCCALL BLVD",
+        "city": "SUN CITY",
+        "zip_code": "92585"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL-ROSEVILLE",
+        "address": "1600 EUREKA RD",
+        "city": "ROSEVILLE",
+        "zip_code": "95661"
+    },
+    {
+        "hospital_name": "MEMORIALCARE LONG BEACH MEDICAL CENTER",
+        "address": "2801 ATLANTIC AVE",
+        "city": "LONG BEACH",
+        "zip_code": "90806"
+    },
+    {
+        "hospital_name": "GOLETA VALLEY COTTAGE HOSPITAL",
+        "address": "351 S PATTERSON AVE",
+        "city": "SANTA BARBARA",
+        "zip_code": "93111"
+    },
+    {
+        "hospital_name": "PROVIDENCE ST. JOSEPH HOSPITAL",
+        "address": "1100 W STEWART DR",
+        "city": "ORANGE",
+        "zip_code": "92868"
+    },
+    {
+        "hospital_name": "UNIVERSITY OF CALIFORNIA IRVINE MEDICAL CENTER",
+        "address": "101 THE CITY DR S",
+        "city": "ORANGE",
+        "zip_code": "92868"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH REEDLEY",
+        "address": "372 W CYPRESS AVE",
+        "city": "REEDLEY",
+        "zip_code": "93654"
+    },
+    {
+        "hospital_name": "UNIVERSITY OF CALIFORNIA IRVINE MEDICAL CENTER",
+        "address": "101 THE CITY DR S",
+        "city": "ORANGE",
+        "zip_code": "92868"
+    },
+    {
+        "hospital_name": "COMMUNITY HOSPITAL OF SAN BERNARDINO",
+        "address": "1805 MEDICAL CENTER DR",
+        "city": "SAN BERNARDINO",
+        "zip_code": "92411"
+    },
+    {
+        "hospital_name": "AURORA BEHAVIORAL HEALTHCARE - SANTA ROSA, LLC",
+        "address": "1287 FULTON RD",
+        "city": "SANTA ROSA",
+        "zip_code": "95401"
+    },
+    {
+        "hospital_name": "ST MARY MEDICAL CENTER",
+        "address": "1050 LINDEN AVE",
+        "city": "LONG BEACH",
+        "zip_code": "90813"
+    },
+    {
+        "hospital_name": "VICTOR VALLEY GLOBAL MEDICAL CENTER",
+        "address": "15248 11TH ST",
+        "city": "VICTORVILLE",
+        "zip_code": "92395"
+    },
+    {
+        "hospital_name": "LOMA LINDA UNIVERSITY MEDICAL CENTER-MURRIETA",
+        "address": "28062 BAXTER RD",
+        "city": "MURRIETA",
+        "zip_code": "92563"
+    },
+    {
+        "hospital_name": "CENTINELA HOSPITAL MEDICAL CENTER",
+        "address": "555 EAST HARDY ST",
+        "city": "INGLEWOOD",
+        "zip_code": "90301"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH GLENDALE",
+        "address": "1509 WILSON TER",
+        "city": "GLENDALE",
+        "zip_code": "91206"
+    },
+    {
+        "hospital_name": "COLLEGE MEDICAL CENTER",
+        "address": "2776 PACIFIC AVE",
+        "city": "LONG BEACH",
+        "zip_code": "90806"
+    },
+    {
+        "hospital_name": "PIH HEALTH DOWNEY HOSPITAL",
+        "address": "11500 BROOKSHIRE AVE",
+        "city": "DOWNEY",
+        "zip_code": "90241"
+    },
+    {
+        "hospital_name": "KAISER FOUNDATION HOSPITAL-SAN LEANDRO",
+        "address": "2500 MERCED STREET",
+        "city": "SAN LEANDRO",
+        "zip_code": "94577"
+    },
+    {
+        "hospital_name": "PARADISE VALLEY HOSPITAL",
+        "address": "2400 E 4TH ST",
+        "city": "NATIONAL CITY",
+        "zip_code": "91950"
+    },
+    {
+        "hospital_name": "LOMA LINDA UNIVERSITY CHILDREN'S HOSPITAL",
+        "address": "11234 ANDERSON ST A",
+        "city": "LOMA LINDA",
+        "zip_code": "92354"
+    },
+    {
+        "hospital_name": "MARIAN REGIONAL MEDICAL CENTER, ARROYO GRANDE",
+        "address": "345 S HALCYON RD",
+        "city": "ARROYO GRANDE",
+        "zip_code": "93420"
+    },
+    {
+        "hospital_name": "SHASTA REFIONAL MEDICAL CENTER",
+        "address": "1100 BUTTE ST",
+        "city": "REDDING",
+        "zip_code": "96001"
+    },
+    {
+        "hospital_name": "CASA COLINA HOSPITAL AND CENTERS FOR HEALTHCARE",
+        "address": "255 E BONITA AVE",
+        "city": "POMONA",
+        "zip_code": "91767"
+    },
+    {
+        "hospital_name": "EDEN MEDICAL CENTER",
+        "address": "20103 LAKE CHABOT ROAD",
+        "city": "CASTRO VALLEY",
+        "zip_code": "94546"
+    },
+    {
+        "hospital_name": "ST JOSEPHS BEHAVIORAL HEALTH CENTER",
+        "address": "2510 N CALIFORNIA ST",
+        "city": "STOCKTON",
+        "zip_code": "95204"
+    },
+    {
+        "hospital_name": "ST JOSEPHS MEDICAL CENTER OF STOCKTON",
+        "address": "1800 N CALIFORNIA ST",
+        "city": "STOCKTON",
+        "zip_code": "95204"
+    },
+    {
+        "hospital_name": "SUTTER MATERNITY & SURGERY CENTER OF SANTA CRUZ",
+        "address": "2900 CHANTICLEER AVE",
+        "city": "SANTA CRUZ",
+        "zip_code": "95065"
+    },
+    {
+        "hospital_name": "MILLS-PENINSULA MEDICAL CENTER",
+        "address": "1501 TROUSDALE DR",
+        "city": "BURLINGAME",
+        "zip_code": "94010"
+    },
+    {
+        "hospital_name": "MEMORIAL MEDICAL CENTER",
+        "address": "1700 COFFEE RD",
+        "city": "MODESTO",
+        "zip_code": "95355"
+    },
+    {
+        "hospital_name": "MEMORIAL HOSPITAL LOS BANOS",
+        "address": "520 W I ST",
+        "city": "LOS BANOS",
+        "zip_code": "93635"
+    },
+    {
+        "hospital_name": "SUTTER TRACY COMMUNITY HOSPITAL",
+        "address": "1420 N TRACY BLVD",
+        "city": "TRACY",
+        "zip_code": "95376"
+    },
+    {
+        "hospital_name": "ALTA BATES SUMMIT MEDICAL CENTER-SUMMIT CAMPUS",
+        "address": "350 HAWTHORNE AVE",
+        "city": "OAKLAND",
+        "zip_code": "94609"
+    },
+    {
+        "hospital_name": "ALTA BATES SUMMIT MEDICAL CENTER-SUMMIT CAMPUS",
+        "address": "350 HAWTHORNE AVE",
+        "city": "OAKLAND",
+        "zip_code": "94609"
+    },
+    {
+        "hospital_name": "SUTTER DELTA MEDICAL CENTER",
+        "address": "3901 LONE TREE WAY",
+        "city": "ANTIOCH",
+        "zip_code": "94509"
+    },
+    {
+        "hospital_name": "ALTA BATES SUMMIT MEDICAL CENTER-ALTA BATES CAMPUS",
+        "address": "2450 ASHBY AVE",
+        "city": "BERKELEY",
+        "zip_code": "94705"
+    },
+    {
+        "hospital_name": "PROVIDENCE QUEEN OF THE VALLEY MEDICAL CENTER",
+        "address": "1000 TRANCAS ST",
+        "city": "NAPA",
+        "zip_code": "94558"
+    },
+    {
+        "hospital_name": "PROVIDENCE ST. JOSEPH HOSPITAL",
+        "address": "2700 DOLBEER ST",
+        "city": "EUREKA",
+        "zip_code": "95501"
+    },
+    {
+        "hospital_name": "PROVIDENCE ST. JOSEPH HOSPITAL",
+        "address": "2200 HARRISON AVE",
+        "city": "EUREKA",
+        "zip_code": "95501"
+    },
+    {
+        "hospital_name": "PROVIDENCE QUEEN OF THE VALLEY MEDICAL CENTER",
+        "address": "1000 TRANCAS ST",
+        "city": "NAPA",
+        "zip_code": "94558"
+    },
+    {
+        "hospital_name": "PROVIDENCE SANTA ROSA MEMORIAL HOSPITAL",
+        "address": "1165 MONTGOMERY DR",
+        "city": "SANTA ROSA",
+        "zip_code": "95405"
+    },
+    {
+        "hospital_name": "PROVIDENCE SANTA ROSA MEMORIAL HOSPITAL",
+        "address": "1165 MONTGOMERY DR",
+        "city": "SANTA ROSA",
+        "zip_code": "95405"
+    },
+    {
+        "hospital_name": "PIH HEALTH GOOD SAMARITAN HOSPITAL",
+        "address": "1225 WILSHIRE BLVD",
+        "city": "LOS ANGELES",
+        "zip_code": "90017"
+    },
+    {
+        "hospital_name": "WOODLAND MEMORIAL HOSPITAL",
+        "address": "1325 COTTONWOOD ST",
+        "city": "WOODLAND",
+        "zip_code": "95695"
+    },
+    {
+        "hospital_name": "FRENCH HOSPITAL MEDICAL CENTER",
+        "address": "1911 JOHNSON AVE",
+        "city": "SAN LUIS OBISPO",
+        "zip_code": "93401"
+    },
+    {
+        "hospital_name": "GLENDALE MEMORIAL HOSPITAL AND HEALTH CENTER",
+        "address": "1420 S CENTRAL AVE",
+        "city": "GLENDALE",
+        "zip_code": "91204"
+    },
+    {
+        "hospital_name": "GLENDALE MEMORIAL HOSPITAL AND HEALTH CENTER",
+        "address": "1420 S CENTRAL AVE",
+        "city": "GLENDALE",
+        "zip_code": "91204"
+    },
+    {
+        "hospital_name": "DIGNITY COMMUNITY CARE",
+        "address": "1420 S CENTRAL AVE",
+        "city": "GLENDALE",
+        "zip_code": "91204"
+    },
+    {
+        "hospital_name": "SEQUOIA HOSPITAL",
+        "address": "170 ALAMEDA DE LAS PULGAS",
+        "city": "REDWOOD CITY",
+        "zip_code": "94062"
+    },
+    {
+        "hospital_name": "NORTHRIDGE HOSPITAL MEDICAL CENTER",
+        "address": "18300 ROSCOE BLVD",
+        "city": "NORTHRIDGE",
+        "zip_code": "91325"
+    },
+    {
+        "hospital_name": "NORTHRIDGE HOSPITAL MEDICAL CENTER",
+        "address": "18300 ROSCOE BLVD",
+        "city": "NORTHRIDGE",
+        "zip_code": "91325"
+    },
+    {
+        "hospital_name": "NORTHRIDGE HOPSITAL MEDICAL CENTER",
+        "address": "18300 ROSCOE BLVD",
+        "city": "NORTHRIDGE",
+        "zip_code": "91325"
+    },
+    {
+        "hospital_name": "CALIFORNIA HOSPITAL MEDICAL CENTER",
+        "address": "1401 S GRAND AVE",
+        "city": "LOS ANGELES",
+        "zip_code": "90015"
+    },
+    {
+        "hospital_name": "METHODIST HOSPITAL OF SACRAMENTO",
+        "address": "7500 HOSPITAL DR",
+        "city": "SACRAMENTO",
+        "zip_code": "95823"
+    },
+    {
+        "hospital_name": "WOODLAND MEMORIAL HOSPITAL",
+        "address": "1325 COTTONWOOD ST",
+        "city": "WOODLAND",
+        "zip_code": "95695"
+    },
+    {
+        "hospital_name": "KINDRED HOSPITAL PARAMOUNT",
+        "address": "16453 COLORADO AVE",
+        "city": "PARAMOUNT",
+        "zip_code": "90723"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALTH TULARE",
+        "address": "869 N CHERRY ST",
+        "city": "TULARE",
+        "zip_code": "93274"
+    },
+    {
+        "hospital_name": "PROVIDENCE CEDARS-SINAI TARZANA MEDICAL CENTER",
+        "address": "18321 CLARK ST",
+        "city": "TARZANA",
+        "zip_code": "91356"
+    },
+    {
+        "hospital_name": "SANTA BARBARA COTTAGE HOSPITAL",
+        "address": "400 W PUEBLO ST",
+        "city": "SANTA BARBARA",
+        "zip_code": "93105"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE LA PALMA LLC",
+        "address": "7901 WALKER ST",
+        "city": "LA PALMA",
+        "zip_code": "90623"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE HUNTINGTON BEACH LLC",
+        "address": "17772 BEACH BLVD",
+        "city": "HUNTINGTON BEACH",
+        "zip_code": "92647"
+    },
+    {
+        "hospital_name": "NORTHRIDGE OUTPATIENT SURGERY CENTER INC",
+        "address": "19871 NORDHOFF ST",
+        "city": "NORTHRIDGE",
+        "zip_code": "91324"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE SERVICES - GARDEN GROVE LLC",
+        "address": "12601 GARDEN GROVE BLVD",
+        "city": "GARDEN GROVE",
+        "zip_code": "92843"
+    },
+    {
+        "hospital_name": "ADVENTIST HEALH REEDLEY",
+        "address": "372 W CYPRESS AVE",
+        "city": "REEDLEY",
+        "zip_code": "93654"
+    },
+    {
+        "hospital_name": "DOMINICAN HOSPITAL",
+        "address": "1555 SOQUEL DR",
+        "city": "SANTA CRUZ",
+        "zip_code": "95065"
+    },
+    {
+        "hospital_name": "HANFORD COMMUNITY HOSPITAL",
+        "address": "115 MALL DR",
+        "city": "HANFORD",
+        "zip_code": "93230"
+    },
+    {
+        "hospital_name": "GLENDALE ADVENTIST MEDICAL CENTER",
+        "address": "1509 WILSON TER",
+        "city": "GLENDALE",
+        "zip_code": "91206"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE PARADISE VALLEY",
+        "address": "2400 E 4TH ST",
+        "city": "NATIONAL CITY",
+        "zip_code": "91950"
+    },
+    {
+        "hospital_name": "CENTINELA HOSPITAL MEDICAL CENTER",
+        "address": "555 E HARDY ST",
+        "city": "INGLEWOOD",
+        "zip_code": "90301"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE SERVICES - SAN DIMAS LLC",
+        "address": "1350 W COVINA BLVD",
+        "city": "SAN DIMAS",
+        "zip_code": "91773"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE SERVICES - SHASTA LLC",
+        "address": "1100 BUTTE ST",
+        "city": "REDDING",
+        "zip_code": "96001"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE SERVICES - ENCINO LLC",
+        "address": "16237 VENTURA BLVD",
+        "city": "ENCINO",
+        "zip_code": "91436"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE SERVICES - MONTCLAIR LLC",
+        "address": "5000 SAN BERNARDINO ST",
+        "city": "MONTCLAIR",
+        "zip_code": "91763"
+    },
+    {
+        "hospital_name": "PRIME HEALTHCARE SERVICES - SHERMAN OAKS, LLC",
+        "address": "4929 VAN NUYS BLVD",
+        "city": "SHERMAN OAKS",
+        "zip_code": "91403"
+    },
+    {
+        "hospital_name": "ST. FRANCIS MEDICAL CENTER",
+        "address": "3630 E IMPERIAL HWY",
+        "city": "LYNWOOD",
+        "zip_code": "90262"
+    },
+    {
+        "hospital_name": "DIGNITY HEALTH",
+        "address": "6501 COYLE AVE",
+        "city": "CARMICHAEL",
+        "zip_code": "95608"
+    },
+    {
+        "hospital_name": "DIGNITY HEALTH",
+        "address": "401 J ST",
+        "city": "SACRAMENTO",
+        "zip_code": "95814"
+    },
+    {
+        "hospital_name": "COMMUNITY HOSPITAL OF SAN BERNARDINO",
+        "address": "1805 MEDICAL CENTER DR",
+        "city": "SAN BERNARDINO",
+        "zip_code": "92411"
+    },
+    {
+        "hospital_name": "USC KENNETH NORRIS JR CANCER HOSPITAL",
+        "address": "1441 EASTLAKE AVE",
+        "city": "LOS ANGELES",
+        "zip_code": "90089"
+    },
+    {
+        "hospital_name": "USC VERDUGO HILLS HOSPITAL",
+        "address": "1812 VERDUGO BLVD",
+        "city": "GLENDALE",
+        "zip_code": "91208"
+    },
+    {
+        "hospital_name": "GOLETA VALLEY COTTAGE HOSPITAL",
+        "address": "351 S PATTERSON AVE",
+        "city": "SANTA BARBARA",
+        "zip_code": "93111"
+    },
+    {
+        "hospital_name": "USC VERDUGO HILLS HOSPITAL",
+        "address": "1812 VERDUGO BLVD",
+        "city": "GLENDALE",
+        "zip_code": "91208"
+    },
+    {
+        "hospital_name": "KECK HOSPITAL OF USC",
+        "address": "1500 SAN PABLO ST",
+        "city": "LOS ANGELES",
+        "zip_code": "90033"
+    },
+    {
+        "hospital_name": "KECK HOSPITAL OF USC",
+        "address": "1500 SAN PABLO ST",
+        "city": "LOS ANGELES",
+        "zip_code": "90033"
+    },
+    {
+        "hospital_name": "PETALUMA VALLEY HOSPITAL",
+        "address": "400 N MCDOWELL BLVD",
+        "city": "PETALUMA",
+        "zip_code": "94954"
+    },
+    {
+        "hospital_name": "PALOMAR REHABILITATION INSTITUTE",
+        "address": "2181 CITRACADO PKWY",
+        "city": "",
+        "zip_code": "92029"
+    },
+    {
+        "hospital_name": "AHMC SETON MEDICAL CENTER COASTSIDE",
+        "address": "1850 SULLIVAN AVE",
+        "city": "DALY CITY",
+        "zip_code": "94015"
+    },
+    {
+        "hospital_name": "CASA COLINA SURGERY CENTER LLC",
+        "address": "255 E BONITA AVE",
+        "city": "POMONA",
+        "zip_code": "91767"
+    },
+    {
+        "hospital_name": "AHMC SETON MEDICAL CENTER",
+        "address": "1900 SULLIVAN AVE",
+        "city": "DALY CITY",
+        "zip_code": "94015"
+    },
+    {
+        "hospital_name": "HEALTHBRIDGE CHILDREN'S HOSPITAL-ORANGE",
+        "address": "395 S TUSTIN ST",
+        "city": "ORANGE",
+        "zip_code": "92866"
+    },
+    {
+        "hospital_name": "Glendora Hospital",
+        "address": "150 W ROUTE 66",
+        "city": "GLENDORA",
+        "zip_code": "91740"
+    },
+    {
+        "hospital_name": "BAKERSFIELD REHABILITATION HOSPITAL",
+        "address": "4400 KIRKCALDY DR",
+        "city": "BAKERSFIELD",
+        "zip_code": "93306"
+    },
+    {
+        "hospital_name": "KENTFIELD HOSPITAL",
+        "address": "1125 SIR FRANCIS DRAKE BLVD",
+        "city": "KENTFIELD",
+        "zip_code": "94904"
+    },
+    {
+        "hospital_name": "VIBRA HOSPITAL OF NORTHERN CALIFORNIA",
+        "address": "2801 EUREKA WAY",
+        "city": "REDDING",
+        "zip_code": "96001"
+    },
+    {
+        "hospital_name": "ALISO RIDGE BEHAVIORAL HEALTH, LLC",
+        "address": "200 FREEDOM LN",
+        "city": "ALISO VIEJO",
+        "zip_code": "92656"
+    },
+    {
+        "hospital_name": "SACRAMENTO BEHAVIORAL HEALTHCARE HOSPITAL LLC",
+        "address": "1400 EXPO PKWY",
+        "city": "SACRAMENTO",
+        "zip_code": "95815"
+    }
+]

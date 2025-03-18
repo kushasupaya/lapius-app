@@ -28,9 +28,10 @@ registerPlugin(
 
 interface Props {
   onFileUpload?: (url: string) => void;
+  uploadedFrom: "app" | "medical-assistant";
 }
 
-const FileUpload = ({ onFileUpload }: Props) => {
+const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
   const dispatch = useAppDispatch();
   const { files } = useAppSelector((state) => state.files);
   console.log(files);
@@ -58,26 +59,35 @@ const FileUpload = ({ onFileUpload }: Props) => {
     };
   }, []);
 
+  const uploadFile = async (file: File) => {
+    try {
+      const key = `uploads/${file.name}`;
+      const presignedUrl = await fetch(
+        `/api/get-signed-image?key=${key}`
+      ).then((res) => res.text());
+      const response = await uploadWithPresignedUrl(
+        file as File,
+        presignedUrl
+      );
+      // ws.current?.send(JSON.stringify({ action: "sendmessage" }));
+      onFileUpload?.(presignedUrl);
+      console.log("Upload successful:", response);
+    } catch (error) {
+      console.error("Failed to upload file:", error);
+    }
+  }
+
   const handleFileChange = async (fileItems: FilePondFile[]) => {
     const file = fileItems[0]?.file;
-    dispatch(clearFiles());
-    dispatch(addFiles(fileItems.map((fileItem) => fileItem.file)));
     if (file) {
       setImageSrc(URL.createObjectURL(file));
-      try {
-        const key = `uploads/${file.name}`;
-        const presignedUrl = await fetch(
-          `/api/get-signed-image?key=${key}`
-        ).then((res) => res.text());
-        const response = await uploadWithPresignedUrl(
-          file as File,
-          presignedUrl
-        );
-        // ws.current?.send(JSON.stringify({ action: "sendmessage" }));
-        onFileUpload?.(presignedUrl);
-        console.log("Upload successful:", response);
-      } catch (error) {
-        console.error("Failed to upload file:", error);
+
+      dispatch(clearFiles());    
+      if (uploadedFrom === "medical-assistant") {
+        dispatch(addFiles(fileItems.map((fileItem) => fileItem.file)));
+        uploadFile(file as File);
+      } else {
+        uploadFile(file as File);
       }
     }
   };
