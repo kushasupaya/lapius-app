@@ -56,28 +56,28 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
   // Load saved file URL on component mount
   useEffect(() => {
     const loadSavedFile = async () => {
-      const savedFileUrl = localStorage.getItem('uploadedFileUrl');
-      const savedFileName = localStorage.getItem('uploadedFileName');
-      const savedFileType = localStorage.getItem('uploadedFileType');
-      
+      const savedFileUrl = localStorage.getItem("uploadedFileUrl");
+      const savedFileName = localStorage.getItem("uploadedFileName");
+      const savedFileType = localStorage.getItem("uploadedFileType");
+
       if (savedFileUrl && uploadedFrom === "app") {
         try {
           // Create a FilePond file representation
           const fileInfo = {
             source: savedFileUrl,
             options: {
-              type: 'input',
+              type: "input",
               file: {
-                name: savedFileName || 'uploaded-file',
+                name: savedFileName || "uploaded-file",
                 size: 0,
-                type: savedFileType
+                type: savedFileType,
               },
               metadata: {
-                poster: savedFileUrl
-              }
-            }
+                poster: savedFileUrl,
+              },
+            },
           };
-          
+
           setPondFiles([fileInfo]);
           setImageSrc(savedFileUrl);
         } catch (error) {
@@ -85,38 +85,35 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
         }
       }
     };
-    
+
     loadSavedFile();
   }, [uploadedFrom]);
 
   const uploadFile = async (file: File) => {
     try {
       const key = `uploads/${file.name}`;
-      const presignedUrl = await fetch(
-        `/api/get-signed-image?key=${key}`
-      ).then(res => res.text());
-
-      const response = await uploadWithPresignedUrl(
-        file as File,
-        presignedUrl
+      const presignedUrl = await fetch(`/api/get-signed-image?key=${key}`).then(
+        (res) => res.text()
       );
+      console.log("Presigned URL:", presignedUrl);
+      const response = await uploadWithPresignedUrl(file as File, presignedUrl);
 
       // Save the file URL and name to localStorage
-      const fileUrl = presignedUrl.split('?')[0]; // Remove query parameters to get clean URL
-      localStorage.setItem('uploadedFileUrl', fileUrl);
-      localStorage.setItem('uploadedFileName', file.name);
-      localStorage.setItem('uploadedFileType', file.type);
-      
+      const fileUrl = presignedUrl.split("?")[0]; // Remove query parameters to get clean URL
+      localStorage.setItem("uploadedFileUrl", fileUrl);
+      localStorage.setItem("uploadedFileName", file.name);
+      localStorage.setItem("uploadedFileType", file.type);
+
       onFileUpload?.(file.name);
       console.log("Upload successful:", response);
     } catch (error) {
       console.error("Failed to upload file:", error);
     }
-  }
+  };
 
   const handleFileChange = async (fileItems: FilePondFile[]) => {
     setPondFiles(fileItems);
-    
+
     const file = fileItems[0]?.file;
     if (file) {
       setImageSrc(URL.createObjectURL(file));
@@ -125,9 +122,9 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
       uploadFile(file as File);
     } else {
       // If all files are removed, clear localStorage
-      localStorage.removeItem('uploadedFileUrl');
-      localStorage.removeItem('uploadedFileName');
-      localStorage.removeItem('uploadedFileType');
+      localStorage.removeItem("uploadedFileUrl");
+      localStorage.removeItem("uploadedFileName");
+      localStorage.removeItem("uploadedFileType");
       setImageSrc(null);
     }
   };
