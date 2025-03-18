@@ -91,7 +91,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
 
   const uploadFile = async (file: File) => {
     try {
-      const key = `uploads/${file.name}`;
+      const key = `uploads/${file.name}n`;
       // const presignedUrl = await fetch(`/api/get-signed-image?key=${key}`).then(
       //   (res) => res.text()
       // );
