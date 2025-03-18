@@ -3,12 +3,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface FilesState {
   hospital: Hospital | null;
-  presignedUrl: string | null;
+  filename: string | null;
 }
 
 const initialState: FilesState = {
   hospital: null,
-  presignedUrl: null,
+  filename: null,
 };
 
 const hospitalSlice = createSlice({
@@ -19,8 +19,8 @@ const hospitalSlice = createSlice({
       state.hospital = action.payload;
     },
 
-    addPresignedUrl: (state, action: PayloadAction<string>) => {
-      state.presignedUrl = action.payload;
+    addFilename: (state, action: PayloadAction<string>) => {
+      state.filename = action.payload;
     },
 
     removeHospital: (state, action: PayloadAction<Hospital>) => {
@@ -28,19 +28,19 @@ const hospitalSlice = createSlice({
     },
 
     removePresignedUrl: (state, action: PayloadAction<string>) => {
-      state.presignedUrl = null;
+      state.filename = null;
     },
 
     clearData: (state) => {
       state.hospital = null;
-      state.presignedUrl = null;
+      state.filename = null;
     },
   }
 });
 
 export const { 
   addHospital,
-  addPresignedUrl,
+  addFilename,
   removeHospital,
   removePresignedUrl,
   clearData,

@@ -14,8 +14,6 @@ import { FilePondFile } from "filepond";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { uploadWithPresignedUrl } from "@/lib/uploadS3";
-import { useAppDispatch, useAppSelector } from "@/store/hook";
-import { addFiles, clearFiles } from "@/store/file-slice";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -25,7 +23,7 @@ registerPlugin(
 );
 
 interface Props {
-  onFileUpload?: (url: string) => void;
+  onFileUpload?: (name: string) => void;
   uploadedFrom: "app" | "medical-assistant";
 }
 
@@ -109,7 +107,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
       localStorage.setItem('uploadedFileName', file.name);
       localStorage.setItem('uploadedFileType', file.type);
       
-      onFileUpload?.(presignedUrl);
+      onFileUpload?.(file.name);
       console.log("Upload successful:", response);
     } catch (error) {
       console.error("Failed to upload file:", error);

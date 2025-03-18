@@ -20,6 +20,7 @@ import {
 import { useAppSelector } from "@/store/hook";
 import { FileData } from "@/store/file-slice";
 import { useSearchParams } from "next/navigation";
+import { getPublicUrl } from "@/lib/uploadS3";
 
 const AppHome = () => {
   const [apiData, setApiData] = useState<{
@@ -30,7 +31,7 @@ const AppHome = () => {
   } | null>(null);
 
   const { files } = useAppSelector((state) => state.files);
-  const { hospital, presignedUrl } = useAppSelector((state) => state.hospital);
+  const { hospital, filename } = useAppSelector((state) => state.hospital);
 
   const [loading, setLoading] = useState(false);
 
@@ -109,7 +110,7 @@ const AppHome = () => {
   };
 
   useEffect(() => {
-    if (hospital && presignedUrl) {
+    if (hospital && filename) {
       setLoading(true);
       fetch("/api/analyze-med-bill", {
         method: "POST",
@@ -121,7 +122,7 @@ const AppHome = () => {
           address: hospital.address,
           city: hospital.city,
           zipcode: hospital.zip_code,
-          image_url: presignedUrl, // getPublicUrl(filename),
+          image_url: getPublicUrl(filename),
         }),
       })
         .then((res) => res.json())
@@ -153,7 +154,7 @@ const AppHome = () => {
         .catch((error) => console.error("Error fetching data:", error))
         .finally(() => setLoading(false));
     }
-  }, [hospital, presignedUrl]);
+  }, [hospital, filename]);
 
   const tabs = [
     {
