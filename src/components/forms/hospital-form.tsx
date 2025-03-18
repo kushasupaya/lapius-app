@@ -26,18 +26,16 @@ interface Props {
   onFormSubmit: (hospital: Hospital) => void;
 }
 
-
-
-const getUniqueHospitals = (hospitals: Hospital[]) => {
-  const seen = new Set();
-  return hospitals.filter((hospital) => {
-    const key = JSON.stringify(hospital);
-    if (seen.has(key)) {
-      return false;
+function getUniqueHospitals(data: Hospital[]): Hospital[] {
+  const seen = new Map<string, boolean>();
+  
+  return data.reduce<Hospital[]>((unique, hospital) => {
+    if (!seen.has(hospital.hospital_name)) {
+      seen.set(hospital.hospital_name, true);
+      unique.push(hospital);
     }
-    seen.add(key);
-    return true;
-  });
+    return unique;
+  }, []);
 }
 
 const HospitalForm = ({ onFormSubmit }: Props) => {

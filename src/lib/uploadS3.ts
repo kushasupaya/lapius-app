@@ -49,7 +49,7 @@ export const uploadWithPresignedUrl = async (
       method: "PUT",
       body: file,
       headers: {
-        "Content-Type": file.type, // Ensures the correct Content-Type is sent
+        "Content-Type": file.type,
       },
     });
 

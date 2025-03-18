@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import { S3 } from "aws-sdk";
 
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
@@ -14,8 +13,7 @@ import Image from "next/image";
 import { FilePondFile } from "filepond";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Fullscreen, FullscreenIcon } from "lucide-react";
-import { uploadFileToS3, uploadWithPresignedUrl } from "@/lib/uploadS3";
+import { uploadWithPresignedUrl } from "@/lib/uploadS3";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { addFiles, clearFiles } from "@/store/file-slice";
 
@@ -32,12 +30,10 @@ interface Props {
 }
 
 const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
-  const dispatch = useAppDispatch();
-  const { files } = useAppSelector((state) => state.files);
-  console.log(files);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [pondFiles, setPondFiles] = useState<any[]>([]);
 
   const toggleImageFullscreen = () => {
     if (imageRef.current) {
@@ -59,17 +55,60 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
     };
   }, []);
 
+  // Load saved file URL on component mount
+  useEffect(() => {
+    const loadSavedFile = async () => {
+      const savedFileUrl = localStorage.getItem('uploadedFileUrl');
+      const savedFileName = localStorage.getItem('uploadedFileName');
+      const savedFileType = localStorage.getItem('uploadedFileType');
+      
+      if (savedFileUrl && uploadedFrom === "app") {
+        try {
+          // Create a FilePond file representation
+          const fileInfo = {
+            source: savedFileUrl,
+            options: {
+              type: 'input',
+              file: {
+                name: savedFileName || 'uploaded-file',
+                size: 0,
+                type: savedFileType
+              },
+              metadata: {
+                poster: savedFileUrl
+              }
+            }
+          };
+          
+          setPondFiles([fileInfo]);
+          setImageSrc(savedFileUrl);
+        } catch (error) {
+          console.error("Error loading saved file:", error);
+        }
+      }
+    };
+    
+    loadSavedFile();
+  }, [uploadedFrom]);
+
   const uploadFile = async (file: File) => {
     try {
       const key = `uploads/${file.name}`;
       const presignedUrl = await fetch(
         `/api/get-signed-image?key=${key}`
-      ).then((res) => res.text());
+      ).then(res => res.text());
+
       const response = await uploadWithPresignedUrl(
         file as File,
         presignedUrl
       );
-      // ws.current?.send(JSON.stringify({ action: "sendmessage" }));
+
+      // Save the file URL and name to localStorage
+      const fileUrl = presignedUrl.split('?')[0]; // Remove query parameters to get clean URL
+      localStorage.setItem('uploadedFileUrl', fileUrl);
+      localStorage.setItem('uploadedFileName', file.name);
+      localStorage.setItem('uploadedFileType', file.type);
+      
       onFileUpload?.(presignedUrl);
       console.log("Upload successful:", response);
     } catch (error) {
@@ -78,24 +117,27 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
   }
 
   const handleFileChange = async (fileItems: FilePondFile[]) => {
+    setPondFiles(fileItems);
+    
     const file = fileItems[0]?.file;
     if (file) {
       setImageSrc(URL.createObjectURL(file));
 
-      dispatch(clearFiles());    
-      if (uploadedFrom === "medical-assistant") {
-        dispatch(addFiles(fileItems.map((fileItem) => fileItem.file)));
-        uploadFile(file as File);
-      } else {
-        uploadFile(file as File);
-      }
+      // Always upload the file
+      uploadFile(file as File);
+    } else {
+      // If all files are removed, clear localStorage
+      localStorage.removeItem('uploadedFileUrl');
+      localStorage.removeItem('uploadedFileName');
+      localStorage.removeItem('uploadedFileType');
+      setImageSrc(null);
     }
   };
 
   return (
     <div className="relative hover:cursor-pointer">
       <FilePond
-        files={files}
+        files={pondFiles}
         onupdatefiles={handleFileChange}
         allowMultiple={false}
         maxFiles={1}
@@ -136,7 +178,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
         </div>
       )}
 
-      {imageSrc && files.length > 0 && (
+      {imageSrc && pondFiles.length > 0 && (
         <Button
           variant="link"
           onClick={toggleImageFullscreen}
