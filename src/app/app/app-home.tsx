@@ -30,7 +30,7 @@ const AppHome = () => {
   } | null>(null);
 
   const { files } = useAppSelector((state) => state.files);
-  const { hospital, presignedUrl } = useAppSelector(state => state.hospital);
+  const { hospital, presignedUrl } = useAppSelector((state) => state.hospital);
 
   const [loading, setLoading] = useState(false);
 
@@ -121,7 +121,7 @@ const AppHome = () => {
           address: hospital.address,
           city: hospital.city,
           zipcode: hospital.zip_code,
-          image_url: presignedUrl,
+          image_url: presignedUrl, // getPublicUrl(filename),
         }),
       })
         .then((res) => res.json())

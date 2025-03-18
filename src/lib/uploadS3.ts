@@ -16,7 +16,7 @@ export const uploadFileToS3 = async (file: File, key: string) => {
 
     const command = new PutObjectCommand(uploadParams);
     const response = await s3Client.send(command);
-    console.log("File uploaded to S3:", response);
+    // console.log("File uploaded to S3:", response);
 
     return response;
   } catch (error) {
@@ -30,8 +30,13 @@ export const generatePresignedUrl = async (key: string) => {
     Bucket: bucketName, // Bucket name is specified here
     Key: key,
     ContentType: "image/png",
+    ACL: "public-read",
   });
   return await getSignedUrl(s3Client, command, { expiresIn: 3600 }); // URL valid for 1 hour
+};
+
+export const getPublicUrl = (key: string) => {
+  return `https://${bucketName}.s3.us-east-1.amazonaws.com/${key}`;
 };
 
 export const uploadWithPresignedUrl = async (
