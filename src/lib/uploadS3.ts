@@ -44,7 +44,7 @@ export const uploadWithPresignedUrl = async (
   presignedUrl: string
 ) => {
   try {
-    console.log("Uploading file with pre-signed URL:", presignedUrl);
+    console.log("Uploading file  pre-signed URL:", presignedUrl);
     const response = await fetch(presignedUrl, {
       method: "PUT",
       body: file,
