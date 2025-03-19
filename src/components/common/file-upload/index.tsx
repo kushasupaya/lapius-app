@@ -106,7 +106,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
       localStorage.setItem("uploadedFileName", file.name);
       localStorage.setItem("uploadedFileType", file.type);
       onFileUpload?.(file.name);
-      if (uploadedFrom === "app" && setIsUploaded) setIsUploaded(true);
+      if (setIsUploaded) setIsUploaded(true);
     } catch (error) {
       console.error("Failed to upload file:", error);
     }
@@ -116,8 +116,8 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
     setPondFiles(fileItems);
 
     const file = fileItems[0]?.file;
-    console.log("filechanges", file);
     if (file) {
+      console.log("filechanges_inside", file);
       setImageSrc(
         `https://imagemedbill.s3.us-east-1.amazonaws.com/${file?.name}`
       );
@@ -125,6 +125,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
       // Always upload the file
       uploadFile(file as File);
     } else {
+      console.log("filechanges_else", file);
       // If all files are removed, clear localStorage
       localStorage.removeItem("uploadedFileUrl");
       localStorage.removeItem("uploadedFileName");

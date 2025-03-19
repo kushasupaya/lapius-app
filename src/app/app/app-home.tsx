@@ -21,6 +21,7 @@ import { useAppSelector } from "@/store/hook";
 import { FileData } from "@/store/file-slice";
 import { useSearchParams } from "next/navigation";
 import { getPublicUrl } from "@/lib/uploadS3";
+import { set } from "zod";
 
 const AppHome = () => {
   const [apiData, setApiData] = useState<{
@@ -112,6 +113,11 @@ const AppHome = () => {
   };
 
   useEffect(() => {
+    console.log("isUploaded changed:", isUploaded);
+  }, [isUploaded]);
+  // console.log(isUploaded, "isUploaded");
+  useEffect(() => {
+    console.log("here1234");
     if (hospital && filename) {
       setLoading(true);
       fetch("/api/analyze-med-bill", {
@@ -154,7 +160,10 @@ const AppHome = () => {
           });
         })
         .catch((error) => console.error("Error fetching data:", error))
-        .finally(() => setLoading(false));
+        .finally(() => {
+          setLoading(false);
+          setIsUploaded(false);
+        });
     }
   }, [hospital, filename, isUploaded]);
 

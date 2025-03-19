@@ -10,9 +10,13 @@ export default async function handler(
 
   try {
     const { hospital_name, image_url } = req.body;
-    console.log(hospital_name, image_url);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 100000); // 100 seconds timeout
+
+    // console.log(hospital_name, image_url);
     // Call external API
-    const response = await fetch("https://3.92.50.134:8000/response", {
+    const response = await fetch("http://3.92.50.134:8000/response", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +25,10 @@ export default async function handler(
         hospital_name,
         image_url,
       }),
+      signal: controller.signal,
     });
+
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");
