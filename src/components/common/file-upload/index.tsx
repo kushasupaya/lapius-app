@@ -14,6 +14,7 @@ import { FilePondFile } from "filepond";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { uploadImageToS3Acl, uploadWithPresignedUrl } from "@/lib/uploadS3";
+import { useAppSelector } from "@/store/hook";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -25,9 +26,10 @@ registerPlugin(
 interface Props {
   onFileUpload?: (name: string) => void;
   uploadedFrom: "app" | "medical-assistant";
+  setIsUploaded?: (isUploaded: boolean) => void;
 }
 
-const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
+const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -88,24 +90,23 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
 
     loadSavedFile();
   }, [uploadedFrom]);
-
   const uploadFile = async (file: File) => {
     try {
-      const key = `uploads/${file.name}n`;
-      // const presignedUrl = await fetch(`/api/get-signed-image?key=${key}`).then(
-      //   (res) => res.text()
-      // );
-      // console.log("Presigned URL:", presignedUrl);
-      // const response = await uploadWithPresignedUrl(file as File, presignedUrl);
-      const responseAcl = await uploadImageToS3Acl(file as File, key);
+      const key = `${file.name}`;
+      const presignedUrl = await fetch(`/api/get-signed-image?key=${key}`).then(
+        (res) => res.text()
+      );
+      const response = await uploadWithPresignedUrl(file as File, presignedUrl);
+      // const responseAcl = await uploadImageToS3Acl(file as File, key);
       // Save the file URL and name to localStorage
+      const publicUrl = `https://imagemedbill.s3.us-east-1.amazonaws.com/${key}`;
+      // console.log("Public URL:", publicUrl);
       // const fileUrl = presignedUrl.split("?")[0]; // Remove query parameters to get clean URL
-      localStorage.setItem("uploadedFileUrl", responseAcl);
+      localStorage.setItem("uploadedFileUrl", publicUrl);
       localStorage.setItem("uploadedFileName", file.name);
       localStorage.setItem("uploadedFileType", file.type);
-
       onFileUpload?.(file.name);
-      console.log("Upload successful:", responseAcl);
+      if (uploadedFrom === "app" && setIsUploaded) setIsUploaded(true);
     } catch (error) {
       console.error("Failed to upload file:", error);
     }
@@ -115,8 +116,11 @@ const FileUpload = ({ onFileUpload, uploadedFrom }: Props) => {
     setPondFiles(fileItems);
 
     const file = fileItems[0]?.file;
+    console.log("filechanges", file);
     if (file) {
-      setImageSrc(URL.createObjectURL(file));
+      setImageSrc(
+        `https://imagemedbill.s3.us-east-1.amazonaws.com/${file?.name}`
+      );
 
       // Always upload the file
       uploadFile(file as File);

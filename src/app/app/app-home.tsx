@@ -101,6 +101,8 @@ const AppHome = () => {
   //     },
   //   ];
 
+  const [isUploaded, setIsUploaded] = useState(false);
+
   const onConfirm = (id: string) => {
     console.log("Confirmed", id);
   };
@@ -154,7 +156,7 @@ const AppHome = () => {
         .catch((error) => console.error("Error fetching data:", error))
         .finally(() => setLoading(false));
     }
-  }, [hospital, filename]);
+  }, [hospital, filename, isUploaded]);
 
   const tabs = [
     {
@@ -201,7 +203,7 @@ const AppHome = () => {
       </header>
       <main className="p-6">
         <div className="flex flex-col gap-4 md:gap-10 xl:flex-row">
-          <ImageUploadSection />
+          <ImageUploadSection setIsUploaded={setIsUploaded} />
           {!loading && files.length > 0 ? (
             <div className="bg-white border-2 border-tertiary rounded-[32px] pt-0 w-full xl:max-w-[463px] 2xl:max-w-[578px] text-center h-[610px] overflow-x-hidden overflow-y-auto overflow-hidden">
               <Tabs
