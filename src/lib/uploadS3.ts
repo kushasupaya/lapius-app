@@ -40,28 +40,35 @@ export const generatePresignedUrl = async (key: string) => {
 };
 
 export const uploadWithPresignedUrl = async (
-  file: File,
-  presignedUrl: string
-) => {
-  try {
-    console.log("Uploading file  pre-signed URL:", presignedUrl);
-    const response = await fetch(presignedUrl, {
-      method: "PUT",
-      body: file,
-      headers: {
-        "Content-Type": file.type,
-      },
+  file: File, 
+  presignedUrl: string, 
+  onProgress?: (progress: number) => void
+): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    
+    xhr.upload.addEventListener('progress', (event) => {
+      if (event.lengthComputable && onProgress) {
+        const percentComplete = (event.loaded / event.total) * 100;
+        onProgress(percentComplete);
+      }
     });
-
-    if (!response.ok) {
-      throw new Error(`Failed to upload file: ${response.statusText}`);
-    }
-
-    console.log("File uploaded successfully!");
-  } catch (error) {
-    console.error("Error uploading file with pre-signed URL :", error);
-    throw error;
-  }
+    
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        resolve();
+      } else {
+        reject(new Error(`Upload failed with status: ${xhr.status}`));
+      }
+    });
+    
+    xhr.addEventListener('error', () => {
+      reject(new Error('Upload failed'));
+    });
+    
+    xhr.open('PUT', presignedUrl);
+    xhr.send(file);
+  });
 };
 
 export const uploadImageToS3Acl = async (file: File, key: string) => {
