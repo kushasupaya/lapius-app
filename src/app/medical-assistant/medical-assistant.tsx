@@ -116,7 +116,10 @@ const MedicalAssistantPage = () => {
                 </h3>
                 <div className="flex flex-col md:flex-row gap-4 md:gap-7 w-full justify-center items-end">
                   <div className="rounded-[32px] w-full h-full max-w-[464px]">
-                    <FileUpload onFileUpload={handleFileUpload} uploadedFrom="medical-assistant" />
+                    <FileUpload
+                      onFileUpload={handleFileUpload}
+                      uploadedFrom="medical-assistant"
+                    />
                   </div>
                   <Button
                     size="default"
@@ -152,8 +155,7 @@ const MedicalAssistantPage = () => {
                   </h2>
                 </div>
                 <FullScreenVideoDialog
-                  videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                  title="Big Buck Bunny"
+                  title="Lapius Platform Demo"
                   triggerComponent={
                     <Button
                       size="default"

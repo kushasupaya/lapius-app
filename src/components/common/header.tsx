@@ -172,8 +172,7 @@ const Header = ({ isBlog }: Props) => {
             {/* Sign In and Get Started Buttons main */}
             <div className="hidden lg:flex items-center gap-2">
               <FullscreenVideoDialog
-                videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                title="Big Buck Bunny"
+                title="Lapius Platform Demo"
                 triggerComponent={
                   <Button
                     variant="outline"
@@ -372,8 +371,7 @@ const Header = ({ isBlog }: Props) => {
                     Get in Touch
                   </Button> */}
                   <FullscreenVideoDialog
-                    videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    title="Big Buck Bunny"
+                    title="Lapius Platform Demo"
                     triggerComponent={
                       <Button
                         variant="outline"

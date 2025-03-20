@@ -46,8 +46,7 @@ const CtaDemoSection = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <FullScreenVideoDialog
-                videoSrc="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                title="Big Buck Bunny"
+                title="Lapius Platform Demo"
                 triggerComponent={
                   <Button
                     size="default"
