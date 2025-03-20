@@ -162,7 +162,7 @@ const AppHome = () => {
     {
       id: "summary",
       label: "Summary",
-      content: apiData ? <SummarySection summary={apiData?.summary} /> : null,
+      content: apiData ? <SummarySection summary={apiData?.summary ?? ""} /> : null,
     },
     {
       id: "billing-codes",

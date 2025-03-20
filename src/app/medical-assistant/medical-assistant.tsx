@@ -5,7 +5,6 @@ import FileUpload from "@/components/common/file-upload";
 import HospitalForm from "@/components/forms/hospital-form";
 import { FaqSection } from "@/components/sections/contact";
 import { Button } from "@/components/ui/button";
-import { clearFiles } from "@/store/file-slice";
 import { useAppDispatch } from "@/store/hook";
 import { addFilename, addHospital } from "@/store/hospital-slice";
 import { Hospital } from "@/types/hospital";
@@ -27,8 +26,6 @@ const MedicalAssistantPage = () => {
 
   const router = useRouter();
   const dispatch = useAppDispatch();
-
-  dispatch(clearFiles());
 
   const handleHospitalFormSubmit = (hospital: Hospital) => {
     setData({ hospital: hospital, filename: data.filename });

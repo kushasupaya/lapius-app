@@ -13,8 +13,7 @@ import Image from "next/image";
 import { FilePondFile } from "filepond";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { uploadImageToS3Acl, uploadWithPresignedUrl } from "@/lib/uploadS3";
-import { useAppSelector } from "@/store/hook";
+import { uploadWithPresignedUrl } from "@/lib/uploadS3";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -22,6 +21,15 @@ registerPlugin(
   FilePondPluginFileValidateType,
   FilePondPluginFileEncode
 );
+
+// Storage keys used for localStorage
+const STORAGE_KEYS = {
+  FILE_URL: "uploadedFileUrl",
+  FILE_NAME: "uploadedFileName",
+  FILE_TYPE: "uploadedFileType",
+  FILE_SIZE: "uploadedFileSize",
+  UPLOAD_SOURCE: "uploadSource"
+};
 
 interface Props {
   onFileUpload?: (name: string) => void;
@@ -34,6 +42,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [pondFiles, setPondFiles] = useState<any[]>([]);
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
 
   const toggleImageFullscreen = () => {
     if (imageRef.current) {
@@ -55,60 +64,108 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
     };
   }, []);
 
-  // Load saved file URL on component mount
+  // Load saved file URL on component mount - only once
   useEffect(() => {
+    // Skip if we've already loaded the initial file
+    if (initialLoadComplete) return;
+    
     const loadSavedFile = async () => {
-      const savedFileUrl = localStorage.getItem("uploadedFileUrl");
-      const savedFileName = localStorage.getItem("uploadedFileName");
-      const savedFileType = localStorage.getItem("uploadedFileType");
+      const savedFileUrl = localStorage.getItem(STORAGE_KEYS.FILE_URL);
+      const savedFileName = localStorage.getItem(STORAGE_KEYS.FILE_NAME);
+      const savedFileType = localStorage.getItem(STORAGE_KEYS.FILE_TYPE);
+      const savedFileSize = localStorage.getItem(STORAGE_KEYS.FILE_SIZE);
+      const savedUploadSource = localStorage.getItem(STORAGE_KEYS.UPLOAD_SOURCE);
 
-      if (savedFileUrl && uploadedFrom === "app") {
+      // Check if there's a saved file
+      if (savedFileUrl && savedFileName) {
         try {
-          // Create a FilePond file representation
+          // For FilePond, we need to create a file object with the correct structure
           const fileInfo = {
             source: savedFileUrl,
             options: {
-              type: "input",
+              type: "local",
               file: {
-                name: savedFileName || "uploaded-file",
-                size: 0,
-                type: savedFileType,
-              },
-              metadata: {
-                poster: savedFileUrl,
+                name: savedFileName,
+                size: savedFileSize ? parseInt(savedFileSize) : 0,
+                type: savedFileType || "",
               },
             },
           };
 
           setPondFiles([fileInfo]);
           setImageSrc(savedFileUrl);
+          
+          // Notify parent component that a file is loaded
+          if (onFileUpload) {
+            onFileUpload(savedFileName);
+          }
+          
+          // Set uploaded flag if component is in app view
+          if (setIsUploaded) {
+            setIsUploaded(true);
+          }
         } catch (error) {
           console.error("Error loading saved file:", error);
+          // Clear localStorage if there's an error loading the file
+          clearStoredFileData();
         }
       }
+      
+      // Mark initial load as complete to prevent future runs
+      setInitialLoadComplete(true);
     };
 
     loadSavedFile();
-  }, [uploadedFrom]);
+  }, [onFileUpload, setIsUploaded, initialLoadComplete]);
+
+  const clearStoredFileData = () => {
+    localStorage.removeItem(STORAGE_KEYS.FILE_URL);
+    localStorage.removeItem(STORAGE_KEYS.FILE_NAME);
+    localStorage.removeItem(STORAGE_KEYS.FILE_TYPE);
+    localStorage.removeItem(STORAGE_KEYS.FILE_SIZE);
+    localStorage.removeItem(STORAGE_KEYS.UPLOAD_SOURCE);
+    
+    setImageSrc(null);
+    setPondFiles([]);
+    
+    // Notify parent component that file was removed
+    if (setIsUploaded) {
+      setIsUploaded(false);
+    }
+  };
+
   const uploadFile = async (file: File) => {
     try {
       const key = `${file.name}`;
       const presignedUrl = await fetch(`/api/get-signed-image?key=${key}`).then(
         (res) => res.text()
       );
-      const response = await uploadWithPresignedUrl(file as File, presignedUrl);
-      // const responseAcl = await uploadImageToS3Acl(file as File, key);
-      // Save the file URL and name to localStorage
+      await uploadWithPresignedUrl(file as File, presignedUrl);
+      
+      // Generate public URL for the uploaded file
       const publicUrl = `https://imagemedbill.s3.us-east-1.amazonaws.com/${key}`;
-      // console.log("Public URL:", publicUrl);
-      // const fileUrl = presignedUrl.split("?")[0]; // Remove query parameters to get clean URL
-      localStorage.setItem("uploadedFileUrl", publicUrl);
-      localStorage.setItem("uploadedFileName", file.name);
-      localStorage.setItem("uploadedFileType", file.type);
-      onFileUpload?.(file.name);
-      if (uploadedFrom === "app" && setIsUploaded) setIsUploaded(true);
+      
+      // Save file metadata to localStorage
+      localStorage.setItem(STORAGE_KEYS.FILE_URL, publicUrl);
+      localStorage.setItem(STORAGE_KEYS.FILE_NAME, file.name);
+      localStorage.setItem(STORAGE_KEYS.FILE_TYPE, file.type);
+      localStorage.setItem(STORAGE_KEYS.FILE_SIZE, file.size.toString());
+      localStorage.setItem(STORAGE_KEYS.UPLOAD_SOURCE, uploadedFrom);
+      
+      // Notify parent component
+      if (onFileUpload) {
+        onFileUpload(file.name);
+      }
+      
+      // Set uploaded flag if component is used in app view
+      if (setIsUploaded) {
+        setIsUploaded(true);
+      }
+      
+      return publicUrl;
     } catch (error) {
       console.error("Failed to upload file:", error);
+      return null;
     }
   };
 
@@ -116,20 +173,16 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
     setPondFiles(fileItems);
 
     const file = fileItems[0]?.file;
-    console.log("filechanges", file);
+    
     if (file) {
-      setImageSrc(
-        `https://imagemedbill.s3.us-east-1.amazonaws.com/${file?.name}`
-      );
-
-      // Always upload the file
-      uploadFile(file as File);
+      // Upload the file and get the public URL
+      const publicUrl = await uploadFile(file as File);
+      if (publicUrl) {
+        setImageSrc(publicUrl);
+      }
     } else {
       // If all files are removed, clear localStorage
-      localStorage.removeItem("uploadedFileUrl");
-      localStorage.removeItem("uploadedFileName");
-      localStorage.removeItem("uploadedFileType");
-      setImageSrc(null);
+      clearStoredFileData();
     }
   };
 
@@ -140,6 +193,36 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
         onupdatefiles={handleFileChange}
         allowMultiple={false}
         maxFiles={1}
+        server={{
+          load: (source, load, error, progress, abort, headers) => {
+            // This is crucial for loading remote files
+            fetch(source)
+              .then(response => {
+                if (!response.ok) {
+                  error('Failed to fetch image');
+                  return;
+                }
+                return response.blob();
+              })
+              .then(blob => {
+                if (blob) {
+                  load(blob);
+                }
+              })
+              .catch(err => {
+                console.error('Error loading file:', err);
+                error('Failed to load file');
+              });
+              
+            // Return abort function
+            return {
+              abort: () => {
+                // This is optional but good practice
+                abort();
+              }
+            };
+          }
+        }}
         acceptedFileTypes={[
           "image/png",
           "image/jpeg",
@@ -165,7 +248,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
         <div className="mt-4">
           <Image
             ref={imageRef}
-            src={imageSrc ?? ""}
+            src={imageSrc}
             alt="Uploaded Image"
             height="500"
             width="500"
