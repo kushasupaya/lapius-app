@@ -83,7 +83,7 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
           setPondFiles([fileInfo]);
           setImageSrc(savedFileUrl);
         } catch (error) {
-          console.error("Error loading saved file:", error);
+          console.error("Error saved file:", error);
         }
       }
     };
