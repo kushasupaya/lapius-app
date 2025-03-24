@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
@@ -9,6 +10,10 @@ import FilePondPluginFileEncode from "filepond-plugin-file-encode";
 import FilePondPluginPdfPreview from "filepond-plugin-pdf-preview";
 import { FilePondFile } from "filepond";
 import { uploadWithPresignedUrl } from "@/lib/uploadS3";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import "./index.css";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -22,7 +27,9 @@ interface Props {
 }
 
 const UploadFile = ({ onUploadComplete }: Props) => {
+  const imageRef = useRef<HTMLImageElement | null>(null);
   const [pondFiles, setPondFiles] = useState<any[]>([]);
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
 
   const uploadFile = async (file: File) => {
     try {
@@ -37,6 +44,7 @@ const UploadFile = ({ onUploadComplete }: Props) => {
       // Call onUploadComplete with the public URL if provided
       if (onUploadComplete) {
         onUploadComplete(publicUrl);
+        setImageSrc(publicUrl);
       }
     } catch (error) {
       console.error("Failed to upload file:", error);
@@ -52,6 +60,29 @@ const UploadFile = ({ onUploadComplete }: Props) => {
     }
   };
 
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleImageFullscreen = () => {
+    if (imageRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        imageRef?.current?.requestFullscreen();
+      }
+    } else {
+      console.log("Image ref does not exist");
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(document.fullscreenElement !== null);
+    };
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    };
+  }, []);
   return (
     <div className="relative">
       <FilePond
@@ -66,7 +97,7 @@ const UploadFile = ({ onUploadComplete }: Props) => {
           "application/pdf",
         ]}
         labelIdle='
-          <div class="flex justify-center items-center">
+          <div class="flex justify-center items-center ">
             <image alt="" src="/icons/upload.svg" class="h-10 w-10 mb-3"/>
           </div>
           <div>
@@ -75,10 +106,42 @@ const UploadFile = ({ onUploadComplete }: Props) => {
               <span class="text-subtitle-dashboard text-opacity-80 text-xs"> or drag and drop</span>
             </div>
             <div>
-              <span class="text-subtitle-dashboard text-opacity-80 text-xs">PNG, JPG, GIF or PDF files</span>
+              <span class="text-subtitle-dashboard text-opacity-80 text-xs">SVG, PNG, JPG, GIF (max. 800x400px)</span>
             </div>
           </div>'
       />
+
+      {imageSrc && (
+        <div className="mt-4">
+          <Image
+            ref={imageRef}
+            src={imageSrc ?? ""}
+            alt="Uploaded Image"
+            height="500"
+            width="500"
+            className={cn(
+              "w-full h-auto rounded-lg",
+              isFullscreen ? "block" : "hidden"
+            )}
+          />
+        </div>
+      )}
+
+      {imageSrc && pondFiles.length > 0 && (
+        <Button
+          variant="link"
+          onClick={toggleImageFullscreen}
+          className="absolute z-10 right-6 bottom-6 text-3xl rounded-md bg-white p-1 h-8"
+        >
+          <Image
+            alt=""
+            src="/icons/full-screen.svg"
+            height="24"
+            width="24"
+            className="h-6 w-6"
+          />
+        </Button>
+      )}
     </div>
   );
 };
