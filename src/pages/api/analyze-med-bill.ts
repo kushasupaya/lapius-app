@@ -12,7 +12,7 @@ export default async function handler(
     const { hospital_name, image_url } = req.body;
     console.log(hospital_name, image_url);
     // Call external API
-    const response = await fetch("https://3.92.50.134:8000/response", {
+    const response = await fetch("http://3.92.50.134:8000/response", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -8,8 +8,8 @@ export interface Upcoding {
 }
 interface Props {
   data: Upcoding[];
-  onConfirm: (id: string) => void;
-  onDismiss: (id: string) => void;
+  onConfirm?: (id: string) => void;
+  onDismiss?: (id: string) => void;
 }
 const BillingCodesSection = ({ data, onConfirm, onDismiss }: Props) => {
   return (

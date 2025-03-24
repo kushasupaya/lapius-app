@@ -42,6 +42,8 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
       } else {
         imageRef?.current?.requestFullscreen();
       }
+    } else {
+      console.log("Image ref does not exist");
     }
   };
 
