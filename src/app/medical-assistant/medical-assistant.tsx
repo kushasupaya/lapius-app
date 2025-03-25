@@ -124,7 +124,7 @@ const MedicalAssistantPage = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          hospital_name: data.hospital,
+          hospital_name: data.hospital.hospital_name,
           image_url: data.filename,
         }),
       })
