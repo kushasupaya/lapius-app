@@ -11,8 +11,8 @@ export default async function handler(
   try {
     const { hospital_name, image_url, insurance_name } = req.body;
     // Call external API
-    const response = await fetch("http://3.92.50.134:8000/response", {
-      //const response =  await fetch("https://apinew.lapiusai.com/response", {
+    // const response = await fetch("http://3.92.50.134:8000/response", {
+    const response = await fetch("https://apinew.lapiusai.com/response", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
