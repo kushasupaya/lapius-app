@@ -4,3 +4,7 @@ export interface Hospital {
   city: string;
   zip_code: string;
 }
+
+export interface Insurance {
+  insurance_name: string;
+}

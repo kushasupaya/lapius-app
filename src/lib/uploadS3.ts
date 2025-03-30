@@ -6,7 +6,7 @@ const bucketName = process.env.NEXT_PUBLIC_S3_BUCKET_NAME as string;
 
 export const uploadFileToS3 = async (file: File, key: string) => {
   try {
-    console.log("Uploading file to S3:", file, file.type);
+    // console.log("Uploading file to S3:", file, file.type);
     const uploadParams = {
       Bucket: bucketName,
       Key: key,
@@ -44,7 +44,7 @@ export const uploadWithPresignedUrl = async (
   presignedUrl: string
 ) => {
   try {
-    console.log("Uploading file  pre-signed URL:", presignedUrl);
+    // console.log("Uploading file  pre-signed URL:", presignedUrl);
     const response = await fetch(presignedUrl, {
       method: "PUT",
       body: file,

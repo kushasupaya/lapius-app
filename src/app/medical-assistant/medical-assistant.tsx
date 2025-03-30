@@ -18,15 +18,17 @@ import { cn } from "@/lib/utils";
 import { clearFiles } from "@/store/file-slice";
 import { useAppDispatch } from "@/store/hook";
 import { addFilename, addHospital } from "@/store/hospital-slice";
-import { Hospital } from "@/types/hospital";
+import { Hospital, Insurance } from "@/types/hospital";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Spinner from "@/components/ui/spinner";
+import InsuranceForm from "@/components/forms/insurance-form";
 
 interface FormData {
   hospital: Hospital | null;
   filename: string | null;
+  insurance: Insurance | null;
 }
 
 const MedicalAssistantPage = () => {
@@ -34,6 +36,7 @@ const MedicalAssistantPage = () => {
   const [data, setData] = useState<FormData>({
     hospital: null,
     filename: null,
+    insurance: null,
   });
 
   const [loading, setLoading] = useState(false);
@@ -102,16 +105,35 @@ const MedicalAssistantPage = () => {
   dispatch(clearFiles());
 
   const handleHospitalFormSubmit = (hospital: Hospital) => {
-    setData({ hospital: hospital, filename: data.filename });
+    setData({
+      hospital: hospital,
+      filename: data.filename,
+      insurance: data.insurance,
+    });
     setStep(1);
   };
 
+  const handleInsuranceFormSubmit = (insurance: Insurance) => {
+    setData({
+      hospital: data.hospital,
+      filename: data.filename,
+      insurance: insurance,
+    });
+    setStep(2);
+  };
+
+  const resetAll = () => {
+    location.reload();
+  };
   const handleFileUpload = (name: string) => {
-    setData({ hospital: data.hospital, filename: name });
+    setData({
+      hospital: data.hospital,
+      filename: name,
+      insurance: data.insurance,
+    });
   };
 
   const onFileUpload = () => {
-    console.log(data);
     setApiData(null);
     if (data.hospital && data.filename) {
       setLoading(true);
@@ -126,6 +148,7 @@ const MedicalAssistantPage = () => {
         body: JSON.stringify({
           hospital_name: data.hospital.hospital_name,
           image_url: data.filename,
+          insurance_name: data.insurance?.insurance_name,
         }),
       })
         .then((res) => res.json())
@@ -220,10 +243,19 @@ const MedicalAssistantPage = () => {
                 </h3>
                 <HospitalForm onFormSubmit={handleHospitalFormSubmit} />
               </>
+            ) : step === 1 ? (
+              <>
+                <h3 className="text-4xl md:text-6xl max-w-[590px] text-center font-medium mb-14">
+                  What insurance do you have?
+                </h3>
+                <InsuranceForm onFormSubmit={handleInsuranceFormSubmit} />
+              </>
             ) : (
               <>
                 <h3 className="text-4xl md:text-6xl max-w-[590px] text-center font-medium mb-6">
-                  Upload your medical bill
+                  {!apiData
+                    ? "Upload your medical bill"
+                    : "Check out your results"}
                 </h3>
                 <div className="flex flex-col md:flex-row gap-x-2 md:gap-x-4 w-full justify-center">
                   <div className="rounded-[32px] w-full h-full max-w-[464px]">
@@ -265,34 +297,47 @@ const MedicalAssistantPage = () => {
                     </div>
                   )}
                 </div>
-                <Button
-                  size="default"
-                  variant="default"
-                  type="submit"
-                  disabled={loading}
-                  className="bg-tertiary text-tertiary-foreground text-base w-max p-4 h-14 mb-4 rounded-lg hover:bg-primary focus:outline-none transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                  onClick={() => onFileUpload()}
-                >
-                  <div className="flex items-center w-full justify-between">
-                    {loading ? (
-                      <>
-                        <span>Analyzing</span>
-                        <Spinner className="ml-2" />
-                      </>
-                    ) : (
-                      <>
-                        Analyze
-                        <Image
-                          alt=""
-                          src="/icons/arrow-top-right.svg"
-                          height={24}
-                          width={24}
-                          className="ml-2 md:ml-4"
-                        />
-                      </>
-                    )}
-                  </div>
-                </Button>
+                {apiData ? (
+                  <Button
+                    size="default"
+                    variant="default"
+                    type="submit"
+                    disabled={loading}
+                    className="bg-tertiary text-tertiary-foreground text-base w-max p-4 h-14 mb-4 rounded-lg hover:bg-primary focus:outline-none transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={() => resetAll()}
+                  >
+                    Upload new bill
+                  </Button>
+                ) : (
+                  <Button
+                    size="default"
+                    variant="default"
+                    type="submit"
+                    disabled={loading}
+                    className="bg-tertiary text-tertiary-foreground text-base w-max p-4 h-14 mb-4 rounded-lg hover:bg-primary focus:outline-none transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={() => onFileUpload()}
+                  >
+                    <div className="flex items-center w-full justify-between">
+                      {loading ? (
+                        <>
+                          <span>Analyzing</span>
+                          <Spinner className="ml-2" />
+                        </>
+                      ) : (
+                        <>
+                          Analyze
+                          <Image
+                            alt=""
+                            src="/icons/arrow-top-right.svg"
+                            height={24}
+                            width={24}
+                            className="ml-2 md:ml-4"
+                          />
+                        </>
+                      )}
+                    </div>
+                  </Button>
+                )}
               </>
             )}
           </div>

@@ -19,38 +19,38 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import hospitals from "./data/hospitals_data.json";
-import { Hospital } from "@/types/hospital";
+import insurances from "./data/insurance_data.json";
+import { Hospital, Insurance } from "@/types/hospital";
 
 const FormSchema = z.object({
-  hospital: z.string().min(1, {
+  insurance: z.string().min(1, {
     message: "Please enter a valid name, address, city or zip code",
   }),
 });
 
 interface Props {
-  onFormSubmit: (hospital: Hospital) => void;
+  onFormSubmit: (insurance: Insurance) => void;
 }
 
-function getUniqueHospitals(data: Hospital[]): Hospital[] {
+function getUniqueHospitals(data: Insurance[]): Insurance[] {
   const seen = new Map<string, boolean>();
 
-  return data.reduce<Hospital[]>((unique, hospital) => {
-    if (!seen.has(hospital.hospital_name)) {
-      seen.set(hospital.hospital_name, true);
-      unique.push(hospital);
+  return data.reduce<Insurance[]>((unique, insurance) => {
+    if (!seen.has(insurance.insurance_name)) {
+      seen.set(insurance.insurance_name, true);
+      unique.push(insurance);
     }
     return unique;
   }, []);
 }
 
-const HospitalForm = ({ onFormSubmit }: Props) => {
+const InsuranceForm = ({ onFormSubmit }: Props) => {
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      hospital: "",
+      insurance: "",
     },
   });
 
@@ -61,10 +61,10 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
     }
 
     startTransition(async () => {
-      const selected = data.hospital;
-      const hospital = hospitals.find((h) => h.hospital_name === selected);
-      if (hospital) {
-        onFormSubmit(hospital);
+      const selected = data.insurance;
+      const insurance = insurances.find((h) => h.insurance_name === selected);
+      if (insurance) {
+        onFormSubmit(insurance);
       }
     });
   }
@@ -76,7 +76,7 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
       >
         <FormField
           control={form.control}
-          name="hospital"
+          name="insurance"
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
@@ -90,9 +90,9 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {getUniqueHospitals(hospitals).map((hospital, idx) => (
-                      <SelectItem key={idx} value={hospital.hospital_name}>
-                        {hospital.hospital_name}
+                    {getUniqueHospitals(insurances).map((insurance, idx) => (
+                      <SelectItem key={idx} value={insurance.insurance_name}>
+                        {insurance.insurance_name}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -127,4 +127,4 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
   );
 };
 
-export default HospitalForm;
+export default InsuranceForm;
