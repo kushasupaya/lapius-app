@@ -20,7 +20,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import insurances from "./data/insurance_data.json";
-import { Hospital, Insurance } from "@/types/hospital";
+import { Insurance } from "@/types/hospital";
 
 const FormSchema = z.object({
   insurance: z.string().min(1, {
@@ -86,7 +86,7 @@ const InsuranceForm = ({ onFormSubmit }: Props) => {
                 >
                   <FormControl>
                     <SelectTrigger className="px-4 text-foreground h-14 focus:outline-none shadow-none focus-visible:ring-0 placeholder:text-gray-600 w-full">
-                      <SelectValue placeholder="Find my name, address, city or zip code..." />
+                      <SelectValue placeholder="Select an insurance..." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>

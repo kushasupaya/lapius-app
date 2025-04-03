@@ -86,7 +86,7 @@ const HospitalForm = ({ onFormSubmit }: Props) => {
                 >
                   <FormControl>
                     <SelectTrigger className="px-4 text-foreground h-14 focus:outline-none shadow-none focus-visible:ring-0 placeholder:text-gray-600 w-full">
-                      <SelectValue placeholder="Find my name, address, city or zip code..." />
+                      <SelectValue placeholder="Select hospital name..." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
