@@ -99,8 +99,8 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
         (res) => res.text()
       );
       const response = await uploadWithPresignedUrl(file as File, presignedUrl);
-      // const responseAcl = await uploadImageToS3Acl(file as File, key);
-      // Save the file URL and name to localStorage
+      console.log("test", presignedUrl);
+
       const publicUrl = `https://imagemedbill.s3.us-east-1.amazonaws.com/${key}`;
       // console.log("Public URL:", publicUrl);
       // const fileUrl = presignedUrl.split("?")[0]; // Remove query parameters to get clean URL
