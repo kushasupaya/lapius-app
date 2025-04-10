@@ -99,7 +99,6 @@ const FileUpload = ({ onFileUpload, uploadedFrom, setIsUploaded }: Props) => {
         (res) => res.text()
       );
       const response = await uploadWithPresignedUrl(file as File, presignedUrl);
-      console.log("test", presignedUrl);
 
       const publicUrl = `https://imagemedbill.s3.us-east-1.amazonaws.com/${key}`;
       // console.log("Public URL:", publicUrl);
