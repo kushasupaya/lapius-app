@@ -120,6 +120,29 @@ const Header = ({ isBlog }: Props) => {
                 >
                   Resource
                 </Link> */}
+                {/* <Link
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSd-OLTQ07hoTw9GLCrSidrDjfTyfNhXXp-l-psge6Jq9YNhaA/viewform?usp=dialog"
+                  target="_blank"
+                  className="text-foreground font-medium hover:text-primary relative group"
+                >
+                  <span className="inline-flex items-center gap-1">
+                    Request Early Access
+                    <svg
+                      className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100" />
+                </Link> */}
                 <Link
                   href="/contact"
                   className="text-foreground font-medium hover:text-primary"
@@ -176,14 +199,27 @@ const Header = ({ isBlog }: Props) => {
                 triggerComponent={
                   <Button
                     variant="outline"
-                    className="p-3 bg-white text-foreground w-full md:w-max font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                    className="p-2.5 bg-white text-foreground w-full md:w-max font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                   >
                     View Demo
                     <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                   </Button>
                 }
               />
-              <Link href="/medical-assistant">
+              <Button
+                variant="default"
+                className="p-2.5 text-white w-full md:w-max font-medium text-base bg-secondary hover:bg-secondary/70 rounded-lg h-12"
+                onClick={() =>
+                  window.open(
+                    "https://docs.google.com/forms/d/e/1FAIpQLSd-OLTQ07hoTw9GLCrSidrDjfTyfNhXXp-l-psge6Jq9YNhaA/viewform?usp=dialog",
+                    "_blank"
+                  )
+                }
+              >
+                Request Early Access
+                <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
+              </Button>
+              {/* <Link href="/medical-assistant">
                 <Button
                   variant="default"
                   className="p-3 text-white w-full md:w-max font-medium text-base bg-secondary hover:bg-secondary/70 rounded-lg h-12"
@@ -191,7 +227,7 @@ const Header = ({ isBlog }: Props) => {
                   Try it now
                   <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                 </Button>
-              </Link>
+              </Link> */}
               {/* <SignupDialog
                 trigger={
                   <Button
@@ -225,7 +261,7 @@ const Header = ({ isBlog }: Props) => {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-secondary py-6 lg:hidden">
+          <div className="absolute top-[72px] left-2 w-[calc(100vw-32px)] rounded-2xl bg-gray-200 py-6 lg:hidden">
             <div className="mx-auto px-8">
               <nav className="flex flex-col gap-4">
                 {/* <Link
@@ -263,7 +299,7 @@ const Header = ({ isBlog }: Props) => {
                 >
                   FAQ
                 </Link> */}
-                <Link
+                {/* <Link
                   href="#"
                   className="text-base text-white font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
@@ -283,10 +319,17 @@ const Header = ({ isBlog }: Props) => {
                   onClick={() => setMenuOpen(false)}
                 >
                   Resource
+                </Link> */}
+
+                <Link
+                  href="/medical-assistant"
+                  className="text-base text-foreground font-medium hover:text-primary-dashboard"
+                >
+                  AI Medbill Assistant
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-base text-white font-medium hover:text-primary-dashboard"
+                  className="text-base text-foreground font-medium hover:text-primary-dashboard"
                   onClick={() => setMenuOpen(false)}
                 >
                   Get in touch
@@ -375,14 +418,27 @@ const Header = ({ isBlog }: Props) => {
                     triggerComponent={
                       <Button
                         variant="outline"
-                        className="p-3 w-full md:w-max bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
+                        className="p-2.5 w-full md:w-max bg-white text-foreground font-medium text-base border-[1.5px] border-foreground hover:border-primary hover:bg-primary rounded-lg h-12"
                       >
                         View Demo
                         <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                       </Button>
                     }
                   />
-                  <Link href="/medical-assistant">
+                  <Button
+                    variant="default"
+                    className="p-2.5 text-white w-full md:w-max font-medium text-base bg-secondary hover:bg-secondary/70 rounded-lg h-12"
+                    onClick={() =>
+                      window.open(
+                        "https://docs.google.com/forms/d/e/1FAIpQLSd-OLTQ07hoTw9GLCrSidrDjfTyfNhXXp-l-psge6Jq9YNhaA/viewform?usp=dialog",
+                        "_blank"
+                      )
+                    }
+                  >
+                    Request Early Access
+                    <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
+                  </Button>
+                  {/* <Link href="/medical-assistant">
                     <Button
                       variant="default"
                       className="p-3 text-white font-medium w-full md:w-max text-base bg-primary hover:bg-primary rounded-lg h-12"
@@ -390,7 +446,7 @@ const Header = ({ isBlog }: Props) => {
                       Try it now
                       <ArrowUpRight size={28} className="h-7 w-7 ml-4" />
                     </Button>
-                  </Link>
+                  </Link> */}
                 </div>
               </nav>
             </div>

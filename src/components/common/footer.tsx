@@ -40,7 +40,7 @@ const Footer = () => {
                 className="mt-0.5"
               />
               <p className="text-base md:text-lg text-tertiary-foreground">
-                support@lapiusai.com
+                info@lapiusai.com
               </p>
             </div>
           </div>

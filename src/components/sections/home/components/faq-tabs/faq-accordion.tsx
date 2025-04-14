@@ -31,7 +31,7 @@ const FAQAccordion = () => {
     {
       question: "How do you provide support?",
       answer:
-        "You can contact us by e-mail (support@lapiusai.com) if you have questions or concerns regarding your data and the process.",
+        "You can contact us by e-mail (info@lapiusai.com) if you have questions or concerns regarding your data and the process.",
     },
   ];
   return (
